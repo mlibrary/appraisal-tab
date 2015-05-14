@@ -6,7 +6,33 @@ describe("Facet", function() {
   it("should allow new facets to be defined by name", inject(function(Facet) {
     expect(Facet.get("foo")).toBe(undefined);
     Facet.add("foo", "bar");
-    expect(Facet.get("foo")).toBe("bar");
+    expect(Facet.get("foo")).toBe(["bar"]);
+  }));
+
+  it("should allow a specific facet to be removed", inject(function(Facet) {
+    Facet.add("removeOne", "1");
+    Facet.add("removeOne", "2");
+    expect(Facet.get("removeOne").length).toBe(2);
+    Facet.remove("removeOne", "1");
+    expect(Facet.get("removeOne").length).toBe(1);
+  }));
+
+  it("should remove every facet if no facet is specified", inject(function(Facet) {
+    Facet.add("removeAll", "1");
+    Facet.add("removeAll", "2");
+    expect(Facet.get("removeAll").length).toBe(2);
+    Facet.remove("removeAll");
+    expect(Facet.get("removeAll").length).toBe(0);
+  }));
+
+  it("should allow all facets to be removed", inject(function(Facet) {
+    Facet.add("clearOne", "1");
+    Facet.add("clearTwo", "1");
+    expect(Facet.get("clearOne").length).toBe(1);
+    expect(Facet.get("clearTwo").length).toBe(1);
+    Facet.clear();
+    expect(Facet.get("clearOne").length).toBe(0);
+    expect(Facet.get("clearTwo").length).toBe(0);
   }));
 
   it("should allow facets to be defined as strings to perform exact matches", inject(function(Facet) {
