@@ -10,24 +10,21 @@ describe("Facet", function() {
   }));
 
   it("should allow a specific facet to be removed", inject(function(Facet) {
-    Facet.add("removeOne", "1");
-    Facet.add("removeOne", "2");
+    Facet.add("removeOne", "1").add("removeOne", "2");
     expect(Facet.get("removeOne").length).toBe(2);
     Facet.remove("removeOne", "1");
     expect(Facet.get("removeOne").length).toBe(1);
   }));
 
   it("should remove every facet if no facet is specified", inject(function(Facet) {
-    Facet.add("removeAll", "1");
-    Facet.add("removeAll", "2");
+    Facet.add("removeAll", "1").add("removeAll", "2");
     expect(Facet.get("removeAll").length).toBe(2);
     Facet.remove("removeAll");
     expect(Facet.get("removeAll").length).toBe(0);
   }));
 
   it("should allow all facets to be removed", inject(function(Facet) {
-    Facet.add("clearOne", "1");
-    Facet.add("clearTwo", "1");
+    Facet.add("clearOne", "1").add("clearTwo", "1");
     expect(Facet.get("clearOne").length).toBe(1);
     expect(Facet.get("clearTwo").length).toBe(1);
     Facet.clear();
