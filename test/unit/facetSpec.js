@@ -28,8 +28,8 @@ describe("Facet", function() {
     expect(Facet.get("clearOne").length).toBe(1);
     expect(Facet.get("clearTwo").length).toBe(1);
     Facet.clear();
-    expect(Facet.get("clearOne").length).toBe(0);
-    expect(Facet.get("clearTwo").length).toBe(0);
+    expect(Facet.get("clearOne")).toBe(undefined);
+    expect(Facet.get("clearTwo")).toBe(undefined);
   }));
 
   it("should allow facets to be defined as strings to perform exact matches", inject(function(Facet) {
