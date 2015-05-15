@@ -43,6 +43,10 @@
       delete this.facets[index];
     };
 
+    var clear = function() {
+      this.facets = {};
+    };
+
     var filter = function(values) {
       var self = this; // needs to be defined outside the filter function
       return values.filter(function(element, index, array) {
@@ -86,6 +90,7 @@
       add: add,
       get: get,
       remove: remove,
+      clear: clear,
       filter: filter,
     }
   });
