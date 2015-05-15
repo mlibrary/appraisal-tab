@@ -12,7 +12,7 @@
       if (-1 !== this.filters[name].indexOf(value)) {
         return;
       }
-      this.filters[name].append(value);
+      this.filters[name].push(value);
       return this; // return self so that calls can be chained
     };
 
