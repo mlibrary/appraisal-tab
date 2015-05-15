@@ -33,14 +33,9 @@
       // If no value is provided, delete all values
       if (undefined === value) {
         delete this.facets[name];
-        return;
+      } else if (undefined !== this.facets[name]) {
+        this.facets[name] = this.facets[name].filter(function(element) { return element !== value; });
       }
-      var index;
-      if (undefined === this.facets[name] || -1 === (index = this.facets[name].indexOf(value))) {
-        // value doesn't actually exist in the internal dictionary, do nothing
-        return;
-      }
-      delete this.facets[index];
     };
 
     var clear = function() {
