@@ -20,7 +20,7 @@ describe("Facet", function() {
     Facet.add("removeAll", "1").add("removeAll", "2");
     expect(Facet.get("removeAll").length).toBe(2);
     Facet.remove("removeAll");
-    expect(Facet.get("removeAll").length).toBe(0);
+    expect(Facet.get("removeAll")).toBe(undefined);
   }));
 
   it("should allow all facets to be removed", inject(function(Facet) {
