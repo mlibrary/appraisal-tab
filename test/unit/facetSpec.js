@@ -1,7 +1,7 @@
 'use strict';
 
 describe("Facet", function() {
-  beforeEach(module("appraisalTab"));
+  beforeEach(module("appraisalTabServices"));
 
   it("should allow new facets to be defined by name", inject(function(Facet) {
     expect(Facet.get("foo")).toBe(undefined);
