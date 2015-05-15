@@ -5,14 +5,14 @@
 
   appraisalTabServices.factory("Facet", function() {
     var add = function(name, value) {
-      if (undefined === this.filters[name]) {
-        this.filters[name] = [];
+      if (undefined === this.facets[name]) {
+        this.facets[name] = [];
       }
       // Don't add the same filter more than once
-      if (-1 !== this.filters[name].indexOf(value)) {
+      if (-1 !== this.facets[name].indexOf(value)) {
         return;
       }
-      this.filters[name].push(value);
+      this.facets[name].push(value);
       return this; // return self so that calls can be chained
     };
 
@@ -81,7 +81,7 @@
     };
 
     return {
-      filters: {},
+      facets: {},
       add: add,
       get: get,
       remove: remove,
