@@ -81,7 +81,7 @@
     };
 
     return {
-      filters: {}
+      filters: {},
       add: add,
       get: get,
       remove: remove,
