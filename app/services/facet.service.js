@@ -44,11 +44,12 @@
     };
 
     var filter = function(values) {
+      var self = this; // needs to be defined outside the filter function
       return values.filter(function(element, index, array) {
         var result;
         for (var key in element) {
           var value = element[key];
-          result = filter_value.apply(this, [key, value]);
+          result = filter_value.apply(self, [key, value]);
           if (false === result) { return false; }
         }
 
