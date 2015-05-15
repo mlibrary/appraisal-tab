@@ -76,6 +76,8 @@
           result = filter(value);
           // return immediately if any filter returns false,
           // otherwise keep going
+        } else if (typeof(filter) == 'string') {
+          result = value === filter;
         } else {
           result = !!value.match(filter);
         }
