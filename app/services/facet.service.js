@@ -35,8 +35,8 @@
         delete this.facets[name];
         return;
       }
-      var index = this.facets.indexOf(value);
-      if (-1 === index || undefined === this.facets[name]) {
+      var index;
+      if (undefined === this.facets[name] || -1 === (index = this.facets[name].indexOf(value))) {
         // value doesn't actually exist in the internal dictionary, do nothing
         return;
       }
