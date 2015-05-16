@@ -1,9 +1,9 @@
 'use strict';
 
 (function () {
-  var appraisalTabServices = angular.module("appraisalTabServices", []);
+  var facetService = angular.module("facetService", []);
 
-  appraisalTabServices.factory("Facet", function() {
+  facetService.factory("Facet", function() {
     var add = function(name, value) {
       if (undefined === this.facets[name]) {
         this.facets[name] = [];
