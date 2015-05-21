@@ -4,6 +4,11 @@
   var transferService = angular.module('transferService', ['restangular']);
 
   transferService.factory('Transfer', function(Restangular) {
-    return Restangular.all('transfers.json');
+    var Transfer = Restangular.all('transfers.json');
+    return {
+      all: function() {
+        return Transfer.getList();
+      },
+    };
   });
 })();

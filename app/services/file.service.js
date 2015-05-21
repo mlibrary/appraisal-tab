@@ -4,6 +4,11 @@
   var fileService = angular.module('fileService', ['restangular']);
 
   fileService.factory('File', ['Restangular', function(Restangular) {
-    return Restangular.all('file');
+    var File = Restangular.all('file');
+    return {
+      get: function(uuid) {
+        return File.one(uuid).get();
+      },
+    };
   }]);
 })();

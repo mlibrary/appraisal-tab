@@ -7,7 +7,7 @@ describe('File', function() {
   }));
 
   it('should be able to fetch a file given its UUID', inject(function(_$httpBackend_, File) {
-    File.one('054a0f2c-79bb-4051-b82b-4b0f14564811').get().then(function(file) {
+    File.get('054a0f2c-79bb-4051-b82b-4b0f14564811').then(function(file) {
         expect(file.id).toEqual('054a0f2c-79bb-4051-b82b-4b0f14564811');
     });
     _$httpBackend_.flush();
