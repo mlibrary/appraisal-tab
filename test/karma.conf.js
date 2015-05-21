@@ -10,6 +10,7 @@ module.exports = function(config){
       'app/bower_components/lodash/dist/lodash.min.js',
       'app/bower_components/restangular/src/restangular.js',
       'app/app.js',
+      'app/filters/*.js',
       'app/services/*.js',
       'app/components/**/*.js',
       'test/unit/**/*.js'

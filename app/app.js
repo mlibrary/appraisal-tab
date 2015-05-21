@@ -8,6 +8,7 @@ angular.module('appraisalTab', [
   'transferService',
   'fileService',
   'facetFilter',
+  'aggregationFilters',
 ]).config(function(RestangularProvider) {
     RestangularProvider.setBaseUrl('/fixtures');
 });
