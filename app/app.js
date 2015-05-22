@@ -10,5 +10,5 @@ angular.module('appraisalTab', [
   'facetFilter',
   'aggregationFilters',
 ]).config(function(RestangularProvider) {
-    RestangularProvider.setBaseUrl('/fixtures');
+    RestangularProvider.setBaseUrl('/app/fixtures');
 });
