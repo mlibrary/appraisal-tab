@@ -6,10 +6,8 @@ describe('Transfer', function() {
     _$httpBackend_.when('GET', '/transfers.json').respond([
       {
         'id': 'd5700e44-68f1-4eec-a7e4-c5a5c7da2373',
-        'parent': '#',
-        'text': 'Images-49c47319-1387-48c4-aab7-381923f07f7c',
-        'icon': '/',
-        'root': true,
+        'name': 'Images-49c47319-1387-48c4-aab7-381923f07f7c',
+        'children': [],
       },
     ]);
   }));
