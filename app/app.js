@@ -5,6 +5,7 @@ angular.module('appraisalTab', [
   'restangular',
   'appraisalTab.version',
   'facetService',
+  'selectedFilesService',
   'transferService',
   'fileService',
   'facetFilter',
