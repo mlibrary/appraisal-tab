@@ -11,9 +11,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="bower_components/html5-boilerplate/css/normalize.css">
   <link rel="stylesheet" href="bower_components/html5-boilerplate/css/main.css">
+  <link rel="stylesheet" href="bower_components/bootstrap/bootstrap.css">
   <link rel="stylesheet" href="bower_components/jqtree/jqtree.css">
   <link rel="stylesheet" href="bower_components/jqtree/static/bower_components/jquery-cookie/jquery.cookie.js">
   <link rel="stylesheet" href="app.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/directory-picker.css">
+  <link rel="stylesheet" href="css/file-explorer.css">
+  <link rel="stylesheet" href="css/style.css">
   <script src="bower_components/html5-boilerplate/js/vendor/modernizr-2.6.2.min.js"></script>
 </head>
 <body>
@@ -21,9 +26,30 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
   <![endif]-->
 
+  <div class="topbar">
+    <div class="topbar-inner">
+      <div class="container-fluid">
+
+        <a class="brand">Archivematica</a>
+
+        <ul class="nav">
+
+        <li class="{% active request url_transfer %}"><a>Transfer</a></li>
+        <li class="{% active request url_ingest %}"><a>Ingest</a></li>
+        <li class="{% active request url_archival_storage %}"><a>Archival storage</a></li>
+        <li class="{% active request url_fpr %}"><a>Preservation planning</a></li>
+        <li class="{% active request url_access %}"><a>Access</a></li>
+        <li class="{% active request url_administration %}"><a>Administration</a></li>
+
+        </ul>
+
+      </div>
+    </div>
+  </div>
+
   <div ng-view></div>
 
-  <div ng-controller="TreeController">
+  <div ng-controller="TreeController" style='float:left; width: 460px;'>
     <tree id="tree1" tree-data="data"/>
   </div>
 
@@ -31,7 +57,7 @@
     <h2>Report</h2>
     <b><ng-pluralize count="(records.selected | filter:{root: true}).length" when="{'1': '1 transfer', 'other': '{} transfers'}"></ng-pluralize></b>, <ng-pluralize count="records.selected.length" when="{'1': '1 object', 'other': '{} objects'}"></ng-pluralize></b> selected<br>
 
-    <div class="span12"><i>File types:</i><br></div>
+    <div class="span8"><i>File types:</i><br></div>
     By PUID:<br>
     <table>
     <tr ng-repeat="record in records.selected | puid_data">
