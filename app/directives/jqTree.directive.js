@@ -1,5 +1,5 @@
 (function() {
-  angular.module('treeView', []).directive('tree', function($parse) {
+  angular.module('treeView', []).directive('tree', function($parse, SelectedFiles) {
     return {
       restrict: 'E',
       replace: true,
@@ -17,8 +17,21 @@
 
             new_element = $(template);
             element.replaceWith(new_element);
-            $(new_element).tree({
+            new_element.tree({
               data: val,
+            });
+            new_element.bind('tree.click', function(el) {
+              // Disable single selection
+              el.preventDefault();
+
+              var selected_node = el.node;
+              if (new_element.tree('isNodeSelected', selected_node)) {
+                new_element.tree('removeFromSelection', selected_node);
+                SelectedFiles.remove(selected_node.id);
+              } else {
+                new_element.tree('addToSelection', selected_node);
+                SelectedFiles.add(selected_node.id);
+              }
             });
           });
         };

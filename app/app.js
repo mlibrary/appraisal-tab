@@ -11,6 +11,7 @@ angular.module('appraisalTab', [
   'facetFilter',
   'aggregationFilters',
   'treeView',
+  'reportController',
   'treeController',
 ]).config(function(RestangularProvider) {
     RestangularProvider.setBaseUrl('/app/fixtures');

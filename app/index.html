@@ -27,6 +27,21 @@
     <tree id="tree1" tree-data="data"/>
   </div>
 
+  <div ng-controller='ReportController' style='margin-left: 30px; float:left;'>
+    <h2>Report</h2>
+    <b><ng-pluralize count="(records.selected | filter:{root: true}).length" when="{'1': '1 transfer', 'other': '{} transfers'}"></ng-pluralize></b>, <ng-pluralize count="records.selected.length" when="{'1': '1 object', 'other': '{} objects'}"></ng-pluralize></b> selected<br>
+
+    <div class="span12"><i>File types:</i><br></div>
+    By PUID:<br>
+    <table>
+    <tr ng-repeat="record in records.selected | puid_data">
+      <td><a target="_blank" href="http://apps.nationalarchives.gov.uk/pronom/{{ record.puid }}">{{ record.puid }}</a></td>
+      <td>{{ record.data.count }} objects</td>
+      <td>{{ record.data.size }} MB</td>
+    </tr>
+    </table>
+  </div>
+
   <!-- In production use:
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
   -->
@@ -44,6 +59,7 @@
   <script src="filters/aggregation.filter.js"></script>
   <script src="filters/facet.filter.js"></script>
   <script src="tree/tree.controller.js"></script>
+  <script src="report/report.controller.js"></script>
   <script src="directives/jqTree.directive.js"></script>
   <script src="components/version/version.js"></script>
   <script src="components/version/version-directive.js"></script>
