@@ -1,3 +1,5 @@
+'use strict';
+
 (function() {
   angular.module('treeView', []).directive('tree', function($parse, SelectedFiles) {
     return {
@@ -15,7 +17,7 @@
               return;
             }
 
-            new_element = $(template);
+            var new_element = $(template);
             element.replaceWith(new_element);
             new_element.tree({
               data: val,
