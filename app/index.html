@@ -11,6 +11,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="bower_components/html5-boilerplate/css/normalize.css">
   <link rel="stylesheet" href="bower_components/html5-boilerplate/css/main.css">
+  <link rel="stylesheet" href="bower_components/jqtree/jqtree.css">
+  <link rel="stylesheet" href="bower_components/jqtree/static/bower_components/jquery-cookie/jquery.cookie.js">
   <link rel="stylesheet" href="app.css">
   <script src="bower_components/html5-boilerplate/js/vendor/modernizr-2.6.2.min.js"></script>
 </head>
@@ -24,9 +26,15 @@
 
   <div ng-view></div>
 
+  <div ng-controller="TreeController">
+    <tree id="tree1" tree-data="data"/>
+  </div>
+
   <!-- In production use:
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
   -->
+  <script src="bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="bower_components/jqtree/tree.jquery.js"></script>
   <script src="bower_components/angular/angular.js"></script>
   <script src="bower_components/angular-route/angular-route.js"></script>
   <script src="bower_components/lodash/dist/lodash.min.js"></script>
@@ -37,6 +45,8 @@
   <script src="services/transfer.service.js"></script>
   <script src="filters/aggregation.filter.js"></script>
   <script src="filters/facet.filter.js"></script>
+  <script src="tree/tree.controller.js"></script>
+  <script src="directives/jqTree.directive.js"></script>
   <script src="components/version/version.js"></script>
   <script src="components/version/version-directive.js"></script>
   <script src="components/version/interpolate-filter.js"></script>

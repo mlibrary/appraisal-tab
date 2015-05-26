@@ -9,6 +9,8 @@ angular.module('appraisalTab', [
   'fileService',
   'facetFilter',
   'aggregationFilters',
+  'treeView',
+  'treeController',
 ]).config(function(RestangularProvider) {
     RestangularProvider.setBaseUrl('/app/fixtures');
 });

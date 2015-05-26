@@ -1,49 +1,49 @@
 [
   {
     "id": "d5700e44-68f1-4eec-a7e4-c5a5c7da2373",
-    "name": "Images-49c47319-1387-48c4-aab7-381923f07f7c",
+    "label": "Images-49c47319-1387-48c4-aab7-381923f07f7c",
     "children": [
       {
         "id": "0e3bd878-069d-49e2-b270-46b0b40cba5b",
-        "name": "objects",
+        "label": "objects",
         "children": [
           {
             "id": "054a0f2c-79bb-4051-b82b-4b0f14564811",
-            "name": "lion.svg",
+            "label": "lion.svg",
             "puid": "fmt/91",
             "size": "5"
           },
           {
             "id": "68ea3e55-097d-4240-8ff6-4ce34b24f5e7",
-            "name": "799px-Euroleague-LE Roma vs Toulouse IC-27.bmp",
+            "label": "799px-Euroleague-LE Roma vs Toulouse IC-27.bmp",
             "puid": "fmt/116",
             "size": "1.3"
           },
           {
             "id": "39d1aa88-4ecf-47f7-80e5-7c715ae819f2",
-            "name": "WFPC01.GIF",
+            "label": "WFPC01.GIF",
             "puid": "fmt/4",
             "size": "8"
           },
           {
             "id": "4e941898-3914-4add-b1f6-476580862069",
-            "name": "Nemastylis_geminiflora_Flower.PNG",
+            "label": "Nemastylis_geminiflora_Flower.PNG",
             "puid": "fmt/11",
             "size": "13"
           },
           {
             "id": "fc139eda-f239-4e43-b4f1-0493ec5aae48",
-            "name": "pictures",
+            "label": "pictures",
             "children": [
               {
                 "id": "e2f05e4e-00fe-446b-ae7b-4d860a850d6b",
-                "name": "MARBLES.TGA",
+                "label": "MARBLES.TGA",
                 "puid": "fmt/402",
                 "size": "18"
               },
               {
                 "id": "0b11cea7-144f-470a-8b63-4f092ed445f3",
-                "name": "Landing zone.jpg",
+                "label": "Landing zone.jpg",
                 "puid": "fmt/43",
                 "size": "0.5"
               }
@@ -51,25 +51,25 @@
           },
           {
             "id": "bf47b029-88f5-472c-aa49-1cf7da2fd45b",
-            "name": "Vector.NET-Free-Vector-Art-Pack-28-Freedom-Flight.eps",
+            "label": "Vector.NET-Free-Vector-Art-Pack-28-Freedom-Flight.eps",
             "puid": "fmt/124",
             "size": "0.1"
           },
           {
             "id": "4d140f8d-40f0-4449-80b5-09dd75c4e43a",
-            "name": "BBhelmet.ai",
+            "label": "BBhelmet.ai",
             "puid": "fmt/19",
             "size": "5"
           },
           {
             "id": "85af2b2f-285b-4a1f-a737-c917eed36b4a",
-            "name": "G31DS.TIF",
+            "label": "G31DS.TIF",
             "puid": "fmt/353",
             "size": "15"
           },
           {
             "id": "c1095e81-9728-4093-879d-30f44e0c94b1",
-            "name": "oakland03.jp2",
+            "label": "oakland03.jp2",
             "puid": "x-fmt/392",
             "size": "3.5"
           }
