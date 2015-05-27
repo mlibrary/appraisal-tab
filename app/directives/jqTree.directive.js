@@ -29,10 +29,14 @@
               var selected_node = el.node;
               if (new_element.tree('isNodeSelected', selected_node)) {
                 new_element.tree('removeFromSelection', selected_node);
-                SelectedFiles.remove(selected_node.id);
+                scope.$apply(function() {
+                  SelectedFiles.remove(selected_node.id);
+                });
               } else {
                 new_element.tree('addToSelection', selected_node);
-                SelectedFiles.add(selected_node.id);
+                scope.$apply(function() {
+                  SelectedFiles.add(selected_node.id);
+                });
               }
             });
           });
