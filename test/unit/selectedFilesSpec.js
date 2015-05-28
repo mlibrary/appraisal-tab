@@ -3,7 +3,8 @@
 describe('SelectedFiles', function() {
   beforeEach(module('selectedFilesService'));
   beforeEach(angular.mock.inject(function(_$httpBackend_) {
-    _$httpBackend_.when('GET', '/file/054a0f2c-79bb-4051-b82b-4b0f14564811').respond({'id': '054a0f2c-79bb-4051-b82b-4b0f14564811',
+    _$httpBackend_.when('GET', '/file/054a0f2c-79bb-4051-b82b-4b0f14564811').respond({
+      'id': '054a0f2c-79bb-4051-b82b-4b0f14564811',
       'text': 'lion.svg',
     });
     _$httpBackend_.when('GET', '/file/939110fa-8c73-4531-8aa0-aa28e90ca108').respond({
