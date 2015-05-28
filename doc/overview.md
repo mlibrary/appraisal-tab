@@ -2,7 +2,7 @@ Getting started
 ---------------
 
 This application uses npm and Bower to manage its dependencies; npm is used for commandline tools and libraries, and Bower is used to manage browser dependencies.
-When first installing or updating the application, run `npm install` and `bower install` in the terminal to install all dependencies.
+When first installing or updating the application, run `npm install` in the terminal to install all dependencies.
 
 Application architecture
 ------------------------
