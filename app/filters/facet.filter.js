@@ -3,8 +3,8 @@
 (function() {
   var facetFilter = angular.module('facetFilter', []);
 
-  facetFilter.filter('facet', function() {
-    var facet_filter_fn = function(Facet) {
+  facetFilter.filter('facet', function(Facet) {
+    var facet_filter_fn = function(records) {
       return Facet.filter(records);
     };
 
