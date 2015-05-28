@@ -1,8 +1,8 @@
 Getting started
 ---------------
 
-This application uses npm and Bower to manage its dependencies; npm is used for commandline tools and libraries, and Bower is used to manage
-When first installing or updating the application, run `npm install` in the terminal to install all dependencies.
+This application uses npm and Bower to manage its dependencies; npm is used for commandline tools and libraries, and Bower is used to manage browser dependencies.
+When first installing or updating the application, run `npm install` and `bower install` in the terminal to install all dependencies.
 
 Application architecture
 ------------------------
@@ -26,9 +26,9 @@ Each service object is a singleton object which can have both instance methods a
 
 This example, based on the transfer tree/report pane workflow, explains how it works.
 
-One controller, the TreeController, contains a transfer tree UI that allows the user to select elements.
+One controller, the `TreeController`, contains a transfer tree UI that allows the user to select elements.
 Selected elements are then filtered and displayed within the scope of another controller, ReportController.
-Since the two controllers are completely separate scopes, we need an intermediary to share data between the two of them; to do that, we create a `SelectedFiles` service which has a method to add and remove entries, and a bindable property called "selected" which simply lists all selected files.
+Since the two controllers are completely separate scopes, we need an intermediary to share data between the two of them; to do that, we create a `SelectedFiles` service which has a method to add and remove entries, and a bindable property called `selected` which simply lists all selected files.
 
 First, in the TreeController, we inject the SelectedFiles service, and add or remove objects from it every time we've detected a change to the user's selection.
 
@@ -78,7 +78,7 @@ By default, tests are run in Chrome; Chrome must be installed to run the tests.
 ### Structure
 
 Each test file is treated as a *specification* (or spec) of an aspect of the application's functionality; each test is mean to be readable as a specification for how the application should behave.
-Each spec is comprised of a `describe` block, which describes an individual feature; that `define` block then contains `it` blocks, which are used to define individual aspects of that feature.
+Each spec is comprised of a `describe` block, which describes an individual feature; that `describe` block then contains `it` blocks, which are used to define individual aspects of that feature.
 For example, a simple test file could look like this:
 
 ```js
@@ -123,6 +123,7 @@ it('should be able to fetch a specific file', inject(function(_$httpBackend_, Fi
   });
   _$httpBackend_.flush();
 }));
+```
 
 Because the result from calling `File.get` is a *promise*, it's only executed when a response is received from the server - so it probably won't actually be executed before the test completes.
 Calling `_$httpBackend_.flush()` ensures that the mocked response is immediately returned, and the promise returned by `File.get` immediately resolves.
