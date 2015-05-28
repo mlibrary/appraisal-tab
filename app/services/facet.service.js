@@ -1,15 +1,15 @@
 'use strict';
 
-(function () {
-  var facetService = angular.module("facetService", []);
+(function() {
+  var facetService = angular.module('facetService', []);
 
-  facetService.factory("Facet", function() {
+  facetService.factory('Facet', function() {
     var add = function(name, value) {
       if (undefined === this.facets[name]) {
         this.facets[name] = [];
       }
       // Don't add the same filter more than once
-      if (-1 !== this.facets[name].indexOf(value)) {
+      if (this.facets[name].indexOf(value) !== -1) {
         return;
       }
       this.facets[name].push(value);
@@ -22,7 +22,7 @@
         return this.facets[name];
       }
       // Return undefined if the requested facet isn't present
-      if (-1 === this.facets[name].indexOf(value)) {
+      if (this.facets[name].indexOf(value) !== -1) {
         return;
       } else {
         return value;
@@ -34,7 +34,9 @@
       if (undefined === value) {
         delete this.facets[name];
       } else if (undefined !== this.facets[name]) {
-        this.facets[name] = this.facets[name].filter(function(element) { return element !== value; });
+        this.facets[name] = this.facets[name].filter(function(element) {
+          return element !== value;
+        });
       }
     };
 
@@ -49,7 +51,9 @@
         for (var key in element) {
           var value = element[key];
           result = filter_value.apply(self, [key, value]);
-          if (false === result) { return false; }
+          if (result === false) {
+            return false;
+          }
         }
 
         return true;
@@ -58,7 +62,7 @@
 
     // private
 
-    var filter_value = function (key, value) {
+    var filter_value = function(key, value) {
       if (undefined === this.facets[key]) {
         // no facet for this key
         return true;
@@ -71,12 +75,14 @@
           result = filter(value);
           // return immediately if any filter returns false,
           // otherwise keep going
-        } else if (typeof(filter) == 'string') {
+        } else if (typeof filter === 'string') {
           result = value === filter;
         } else {
           result = !!value.match(filter);
         }
-        if (false === result) { return false; }
+        if (result === false) {
+          return false;
+        }
       }
 
       return true;
@@ -89,6 +95,6 @@
       remove: remove,
       clear: clear,
       filter: filter,
-    }
+    };
   });
 })();
