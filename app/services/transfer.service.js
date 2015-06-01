@@ -7,7 +7,7 @@
     var Transfer = Restangular.all('transfers.json');
     return {
       all: function() {
-        return Transfer.getList();
+        return Transfer.customGET();
       },
     };
   });
