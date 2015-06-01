@@ -49,6 +49,25 @@
 
   <div ng-view></div>
 
+  <div style="padding: 0 0 60px 0;" ng-controller="FacetController">
+    PUID:
+    <select ng-model="puid">
+      <option value="">All</option>
+      <option ng-repeat="format in formats" value="{{ format.puid }}">{{ format.label }} ({{ format.puid }})</option>
+    </select>
+
+    File extension:
+    <select ng-model="extension">
+      <option value="">All</option>
+      <option ng-repeat="format in formats" value="{{ format.extension }}">{{ format.label }} ({{ format.extension }})</option>
+    </select>
+
+    <div>
+      <label>Date range start: <input type="text" ng-model="date_start"/></label>
+      <label>Date range end: <input type="text" ng-model="date_end"/></label>
+    </div>
+  </div>
+
   <div ng-controller="TreeController" style='float:left; width: 460px;'>
     <tree id="tree1" tree-data="data"/>
   </div>
@@ -60,7 +79,7 @@
     <div class="span8"><i>File types:</i><br></div>
     By PUID:<br>
     <table>
-    <tr ng-repeat="record in records.selected | puid_data">
+    <tr ng-repeat="record in records.selected | facet | puid_data">
       <td><a target="_blank" href="http://apps.nationalarchives.gov.uk/pronom/{{ record.puid }}">{{ record.puid }}</a></td>
       <td>{{ record.data.count }} objects</td>
       <td>{{ record.data.size }} MB</td>
@@ -84,6 +103,7 @@
   <script src="services/transfer.service.js"></script>
   <script src="filters/aggregation.filter.js"></script>
   <script src="filters/facet.filter.js"></script>
+  <script src="facet_selector/facet_selector.controller.js"></script>
   <script src="tree/tree.controller.js"></script>
   <script src="report/report.controller.js"></script>
   <script src="directives/jqTree.directive.js"></script>

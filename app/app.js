@@ -11,6 +11,7 @@ angular.module('appraisalTab', [
   'facetFilter',
   'aggregationFilters',
   'treeView',
+  'facetController',
   'reportController',
   'treeController',
 ]).config(function(RestangularProvider) {
