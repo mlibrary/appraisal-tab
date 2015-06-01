@@ -1,44 +1,54 @@
 {
-  "puids": [
+  "formats": [
     {
       "label": "SVG (1.0)",
-      "puid": "fmt/91"
+      "puid": "fmt/91",
+      "extension": ".svg"
     },
     {
       "label": "JPEG (1.01)",
-      "puid": "fmt/43"
+      "puid": "fmt/43",
+      "extension": ".jpg"
     },
     {
       "label": "GIF (1989a)",
-      "puid": "fmt/4"
+      "puid": "fmt/4",
+      "extension": ".gif"
     },
     {
       "label": "Acrobat PDF 1.5",
-      "puid": "fmt/19"
+      "puid": "fmt/19",
+      "extension": ".pdf"
     },
     {
       "label": "PNG 1.0",
-      "puid": "fmt/11"
+      "puid": "fmt/11",
+      "extension": ".png"
     },
     {
-      "label": "Windows BItmap 3.0",
-      "puid": "fmt/116"
+      "label": "Windows Bitmap 3.0",
+      "puid": "fmt/116",
+      "extension": ".bmp"
     },
     {
       "label": "TIFF",
-      "puid": "fmt/353"
+      "puid": "fmt/353",
+      "extension": ".tiff"
     },
     {
       "label": "EPS 3",
-      "puid": "fmt/124"
+      "puid": "fmt/124",
+      "extension": ".eps"
     },
     {
       "label": "JP2 (JPEG 2000 part 1)",
-      "puid": "x-fmt/392"
+      "puid": "x-fmt/392",
+      "extension": ".jp2"
     },
     {
       "label": "Truevision TGA Bitmap 2.0",
-      "puid": "fmt/402"
+      "puid": "fmt/402",
+      "extension": ".tga"
     }
   ],
   "transfers": [

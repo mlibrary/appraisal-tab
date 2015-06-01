@@ -4,7 +4,7 @@ describe('Transfer', function() {
   beforeEach(module('transferService'));
   beforeEach(angular.mock.inject(function(_$httpBackend_) {
     _$httpBackend_.when('GET', '/transfers.json').respond({
-      'puids': [],
+      'formats': [],
       'transfers': [
         {
           'id': 'd5700e44-68f1-4eec-a7e4-c5a5c7da2373',
