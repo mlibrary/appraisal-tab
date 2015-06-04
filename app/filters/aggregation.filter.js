@@ -52,5 +52,23 @@
     };
 
     return _.memoize(puid_graph_fn, hash_fn);
+  }).
+  filter('size_graph', function() {
+    var size_graph_fn = function(records) {
+      var data = {
+        series: ['Format'],
+        data: [],
+      };
+      angular.forEach(records, function(format_data, _) {
+        data.data.push({
+          x: format_data.puid,
+          y: [format_data.data.size],
+          tooltip: format_data.data.format + ' (' + format_data.puid + '), ' + format_data.data.size + "MB",
+        });
+      });
+      return data;
+    };
+
+    return _.memoize(size_graph_fn, hash_fn);
   });
 })();
