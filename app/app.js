@@ -2,6 +2,7 @@
 
 // Declare app level module which depends on views, and components
 angular.module('appraisalTab', [
+  'angularCharts',
   'restangular',
   'appraisalTab.version',
   'facetService',
@@ -14,6 +15,7 @@ angular.module('appraisalTab', [
   'facetController',
   'reportController',
   'treeController',
+  'visualizationsController',
 ]).config(function(RestangularProvider) {
     RestangularProvider.setBaseUrl('/app/fixtures');
 });

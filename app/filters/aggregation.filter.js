@@ -1,6 +1,12 @@
 'use strict';
 
 (function() {
+  // The default hash function may confuse two arrays of objects
+  // of the same length as the same set of records.
+  var hash_fn = function(records) {
+    return JSON.stringify(records);
+  };
+
   angular.module('aggregationFilters', []).filter('puid_data', function() {
     var puid_data_fn = function(records) {
       var puid_data = {};
@@ -27,12 +33,24 @@
       return out_data;
     };
 
-    // The default hash function may confuse two arrays of objects
-    // of the same length as the same set of records.
-    var hash_fn = function(records) {
-      return JSON.stringify(records);
+    return _.memoize(puid_data_fn, hash_fn);
+  })
+  .filter('puid_graph', function() {
+    var puid_graph_fn = function(records) {
+      var data = {
+        series: ['Format'],
+        data: [],
+      };
+      angular.forEach(records, function(format_data, _) {
+        data.data.push({
+          x: format_data.puid,
+          y: [format_data.data.count],
+          tooltip: format_data.data.format + ' (' + format_data.puid + ')',
+        });
+      });
+      return data;
     };
 
-    return _.memoize(puid_data_fn, hash_fn);
+    return _.memoize(puid_graph_fn, hash_fn);
   });
 })();

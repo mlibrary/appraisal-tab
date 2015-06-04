@@ -87,6 +87,10 @@
     </table>
   </div>
 
+  <div ng-controller='VisualizationsController'>
+    <div ac-chart="puid_chart_type" ac-data="records.selected | puid_data | puid_graph" ac-config="puid_config" id="chart" class="chart">
+  </div>
+
   <!-- In production use:
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
   -->
@@ -94,6 +98,8 @@
   <script src="bower_components/jqtree/tree.jquery.js"></script>
   <script src="bower_components/angular/angular.js"></script>
   <script src="bower_components/angular-route/angular-route.js"></script>
+  <script src="bower_components/d3/d3.js"></script>
+  <script src='bower_components/angular-charts/dist/angular-charts.js'></script>
   <script src="bower_components/lodash/dist/lodash.min.js"></script>
   <script src="bower_components/restangular/dist/restangular.min.js"></script>
   <script src="app.js"></script>
@@ -106,6 +112,7 @@
   <script src="facet_selector/facet_selector.controller.js"></script>
   <script src="tree/tree.controller.js"></script>
   <script src="report/report.controller.js"></script>
+  <script src="visualizations/visualizations.controller.js"></script>
   <script src="directives/jqTree.directive.js"></script>
   <script src="components/version/version.js"></script>
   <script src="components/version/version-directive.js"></script>
