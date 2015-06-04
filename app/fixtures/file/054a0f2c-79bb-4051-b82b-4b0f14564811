@@ -4,5 +4,6 @@
   "text": "lion.svg",
   "icon": "file",
   "puid": "fmt/91",
-  "size": "5"
+  "size": "5",
+  "format": "SVG (1.0)"
 }

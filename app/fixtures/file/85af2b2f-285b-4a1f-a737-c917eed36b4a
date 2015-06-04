@@ -4,5 +4,6 @@
   "text": "G31DS.TIF",
   "icon": "file",
   "puid": "fmt/353",
-  "size": "15"
+  "size": "15",
+  "format": "TIFF"
 }

@@ -4,5 +4,6 @@
   "text": "MARBLES.TGA",
   "icon": "file",
   "puid": "fmt/402",
-  "size": "18"
+  "size": "18",
+  "format": "Truevision TGA Bitmap 2.0"
 }
