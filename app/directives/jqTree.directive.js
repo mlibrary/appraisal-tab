@@ -2,6 +2,16 @@
 
 (function() {
   angular.module('treeView', []).directive('tree', function($parse, SelectedFiles) {
+    var iterate_and_apply_event_recursively = function(event, node, tree) {
+      tree.tree(event, node);
+      var modified = [node.id];
+      node.iterate(function(child) {
+        modified = modified.concat(iterate_and_apply_event_recursively(event, child, tree));
+      });
+
+      return modified;
+    };
+
     return {
       restrict: 'E',
       replace: true,
@@ -28,13 +38,7 @@
 
               var selected_node = el.node;
               if (new_element.tree('isNodeSelected', selected_node)) {
-                new_element.tree('removeFromSelection', selected_node);
-                var removed = [selected_node.id];
-
-                selected_node.iterate(function(child) {
-                  new_element.tree('removeFromSelection', child);
-                  removed.push(child.id);
-                });
+                var removed = iterate_and_apply_event_recursively('removeFromSelection', selected_node, new_element);
 
                 scope.$apply(function() {
                   angular.forEach(removed, function(id) {
@@ -42,12 +46,7 @@
                   });
                 });
               } else {
-                new_element.tree('addToSelection', selected_node);
-                var added = [selected_node.id];
-                selected_node.iterate(function(child) {
-                  new_element.tree('addToSelection', child);
-                  added.push(child.id);
-                });
+                var added = iterate_and_apply_event_recursively('addToSelection', selected_node, new_element);
 
                 scope.$apply(function() {
                   angular.forEach(added, function(id) {
