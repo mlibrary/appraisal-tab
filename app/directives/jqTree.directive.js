@@ -29,13 +29,30 @@
               var selected_node = el.node;
               if (new_element.tree('isNodeSelected', selected_node)) {
                 new_element.tree('removeFromSelection', selected_node);
+                var removed = [selected_node.id];
+
+                selected_node.iterate(function(child) {
+                  new_element.tree('removeFromSelection', child);
+                  removed.push(child.id);
+                });
+
                 scope.$apply(function() {
-                  SelectedFiles.remove(selected_node.id);
+                  angular.forEach(removed, function(id) {
+                    SelectedFiles.remove(id);
+                  });
                 });
               } else {
                 new_element.tree('addToSelection', selected_node);
+                var added = [selected_node.id];
+                selected_node.iterate(function(child) {
+                  new_element.tree('addToSelection', child);
+                  added.push(child.id);
+                });
+
                 scope.$apply(function() {
-                  SelectedFiles.add(selected_node.id);
+                  angular.forEach(added, function(id) {
+                    SelectedFiles.add(id);
+                  });
                 });
               }
             });
