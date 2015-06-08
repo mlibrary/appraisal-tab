@@ -88,8 +88,8 @@
   </div>
 
   <div ng-controller='VisualizationsController'>
-    <div style="float: left;"><div ac-chart="puid_chart_type" ac-data="records.selected | puid_data | puid_graph" ac-config="puid_config" class="chart"></div>
-    <div style="float: right;"><div ac-chart="size_chart_type" ac-data="records.selected | puid_data | size_graph" ac-config="size_config" class="chart"></div>
+    <div style="float: left;"><div ac-chart="puid_chart_type" ac-data="records.selected | facet | puid_data | puid_graph" ac-config="puid_config" class="chart"></div>
+    <div style="float: right;"><div ac-chart="size_chart_type" ac-data="records.selected | facet | puid_data | size_graph" ac-config="size_config" class="chart"></div>
   </div>
 
   <!-- In production use:
