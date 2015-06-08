@@ -6,7 +6,11 @@
       tree.tree(event, node);
       var modified = [node.id];
       node.iterate(function(child) {
-        modified = modified.concat(iterate_and_apply_event_recursively(event, child, tree));
+        tree.tree(event, child);
+        modified.push(child.id);
+
+        // Descend into child's children
+        return true;
       });
 
       return modified;
