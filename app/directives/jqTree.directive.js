@@ -1,12 +1,14 @@
 'use strict';
 
 (function() {
-  angular.module('treeView', []).directive('tree', function($parse, SelectedFiles) {
-    var iterate_and_apply_event_recursively = function(event, node, tree) {
-      tree.tree(event, node);
+  angular.module('treeView', []).directive('tree', function($parse) {
+    var iterate_and_apply_event_recursively = function(event, node) {
+      var self = this;
+
+      self.tree(event, node);
       var modified = [node.id];
       node.iterate(function(child) {
-        tree.tree(event, child);
+        self.tree(event, child);
         modified.push(child.id);
 
         // Descend into child's children
@@ -22,6 +24,7 @@
       transclude: true,
       compile: function(element, attrs) {
         var treeData = $parse(attrs.treeData);
+        var on_click = $parse(attrs.treeOnClick);
         var template = '<div id="' + attrs.id + '"></div>';
 
         return function(scope, element, attrs, controller) {
@@ -36,29 +39,14 @@
             new_element.tree({
               data: val,
             });
-            new_element.bind('tree.click', function(el) {
-              // Disable single selection
-              el.preventDefault();
+            new_element.iterate_and_apply_event_recursively = iterate_and_apply_event_recursively;
 
-              var selected_node = el.node;
-              if (new_element.tree('isNodeSelected', selected_node)) {
-                var removed = iterate_and_apply_event_recursively('removeFromSelection', selected_node, new_element);
-
-                scope.$apply(function() {
-                  angular.forEach(removed, function(id) {
-                    SelectedFiles.remove(id);
-                  });
-                });
-              } else {
-                var added = iterate_and_apply_event_recursively('addToSelection', selected_node, new_element);
-
-                scope.$apply(function() {
-                  angular.forEach(added, function(id) {
-                    SelectedFiles.add(id);
-                  });
-                });
-              }
-            });
+            var on_click_fn = on_click(scope);
+            if (on_click_fn) {
+              // on_click_fn is bound because it uses "this" to refer to
+              // the parent element of the tree.
+              new_element.bind('tree.click', on_click_fn.bind(new_element));
+            }
           });
         };
       },
