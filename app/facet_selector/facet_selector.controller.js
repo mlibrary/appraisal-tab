@@ -9,13 +9,13 @@
     });
 
     $scope.$watch('extension', function(selected) {
-      Facet.remove('extension');
+      Facet.remove('text');
       if (!selected) {
         return;
       }
 
-      Facet.add('extension', function(value) {
-        return selected === value.split('.').slice(1).join('.').toLowerCase();
+      Facet.add('text', function(value) {
+        return selected === value.substr(value.lastIndexOf('.')).toLowerCase();
       });
     });
 
