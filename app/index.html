@@ -72,6 +72,10 @@
     <tree id="tree1" tree-data="data" tree-on-click="on_click"/>
   </div>
 
+  <div ng-controller="ArchivesSpaceController" style='float: right;'>
+    <tree id="archivesspace-tree" tree-data="data"/>
+  </div>
+
   <div ng-controller='ReportController' style='margin-left: 30px; float:left;'>
     <h2>Report</h2>
     <b><ng-pluralize count="(records.selected | filter:{root: true}).length" when="{'1': '1 transfer', 'other': '{} transfers'}"></ng-pluralize></b>, <ng-pluralize count="records.selected.length" when="{'1': '1 object', 'other': '{} objects'}"></ng-pluralize></b> selected<br>
@@ -111,6 +115,7 @@
   <script src="services/transfer.service.js"></script>
   <script src="filters/aggregation.filter.js"></script>
   <script src="filters/facet.filter.js"></script>
+  <script src="archivesspace/archivesspace.controller.js"></script>
   <script src="facet_selector/facet_selector.controller.js"></script>
   <script src="tree/tree.controller.js"></script>
   <script src="report/report.controller.js"></script>

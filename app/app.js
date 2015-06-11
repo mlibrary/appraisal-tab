@@ -13,6 +13,7 @@ angular.module('appraisalTab', [
   'facetFilter',
   'aggregationFilters',
   'treeView',
+  'archivesSpaceController',
   'facetController',
   'reportController',
   'treeController',
