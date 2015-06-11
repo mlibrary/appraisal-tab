@@ -5,6 +5,7 @@ angular.module('appraisalTab', [
   'angularCharts',
   'restangular',
   'appraisalTab.version',
+  'archivesSpaceService',
   'facetService',
   'selectedFilesService',
   'transferService',
