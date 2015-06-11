@@ -24,6 +24,7 @@
       transclude: true,
       compile: function(element, attrs) {
         var treeData = $parse(attrs.treeData);
+        var treeOptions = $parse(attrs.treeOptions);
         var on_click = $parse(attrs.treeOnClick);
         var template = '<div id="' + attrs.id + '"></div>';
 
@@ -34,11 +35,15 @@
               return;
             }
 
+            var options = treeOptions(scope);
+            if (!options) {
+              options = {};
+            }
+            options.data = val;
+
             var new_element = $(template);
             element.replaceWith(new_element);
-            new_element.tree({
-              data: val,
-            });
+            new_element.tree(options);
             new_element.iterate_and_apply_event_recursively = iterate_and_apply_event_recursively;
 
             var on_click_fn = on_click(scope);
