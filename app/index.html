@@ -2,7 +2,7 @@
 <!--[if lt IE 7]>      <html lang="en" ng-app="appraisalTab" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html lang="en" ng-app="appraisalTab" class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html lang="en" ng-app="appraisalTab" class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html lang="en" ng-app="appraisalTab" class="no-js"> <!--<![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" ng-app="appraisalTab" ng-controller="MainController" class="no-js"> <!--<![endif]-->
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -68,32 +68,24 @@
     </div>
   </div>
 
+  <ul class="nav nav-tabs">
+    <li ng-class="{ active: $routeSegment.contains('report') }">
+      <a href="#/report">Report</a>
+    </li>
+    <li ng-class="{ active: $routeSegment.contains('visualizations') }">
+      <a href="#/visualizations">Visualizations</a>
+    </li>
+    <li ng-class="{ active: $routeSegment.contains('archivesspace') }">
+      <a href="#/archivesspace">ArchivesSpace</a>
+    </li>
+  </ul>
+
   <div ng-controller="TreeController" style='float:left; width: 460px;'>
     <tree id="tree1" tree-data="data" tree-on-click="on_click"/>
   </div>
 
-  <div ng-controller="ArchivesSpaceController" style='float: right;'>
-    <tree id="archivesspace-tree" tree-data="data"/>
-  </div>
-
-  <div ng-controller='ReportController' style='margin-left: 30px; float:left;'>
-    <h2>Report</h2>
-    <b><ng-pluralize count="(records.selected | filter:{root: true}).length" when="{'1': '1 transfer', 'other': '{} transfers'}"></ng-pluralize></b>, <ng-pluralize count="records.selected.length" when="{'1': '1 object', 'other': '{} objects'}"></ng-pluralize></b> selected<br>
-
-    <div class="span8"><i>File types:</i><br></div>
-    By PUID:<br>
-    <table>
-    <tr ng-repeat="record in records.selected | facet | puid_data">
-      <td><a target="_blank" href="http://apps.nationalarchives.gov.uk/pronom/{{ record.puid }}">{{ record.puid }}</a></td>
-      <td>{{ record.data.count }} objects</td>
-      <td>{{ record.data.size }} MB</td>
-    </tr>
-    </table>
-  </div>
-
-  <div ng-controller='VisualizationsController'>
-    <div style="float: left;"><div ac-chart="puid_chart_type" ac-data="records.selected | facet | puid_data | puid_graph" ac-config="puid_config" class="chart"></div>
-    <div style="float: right;"><div ac-chart="size_chart_type" ac-data="records.selected | facet | puid_data | size_graph" ac-config="size_config" class="chart"></div>
+  <div class="container" id="right-pane">
+    <div app-view-segment="0"></div>
   </div>
 
   <!-- In production use:
@@ -103,6 +95,7 @@
   <script src="bower_components/jqtree/tree.jquery.js"></script>
   <script src="bower_components/angular/angular.js"></script>
   <script src="bower_components/angular-route/angular-route.js"></script>
+  <script src="bower_components/angular-route-segment/build/angular-route-segment.js"></script>
   <script src="bower_components/d3/d3.js"></script>
   <script src="bower_components/lodash/dist/lodash.min.js"></script>
   <script src="bower_components/restangular/dist/restangular.min.js"></script>
