@@ -33,3 +33,23 @@
   height: 500px;
   width: 500px;
 }
+
+.internal a {
+  background-color: #222;
+  color: #FFF;
+}
+
+.transfer-tree {
+  float: left;
+  padding-top: 3em;
+  width: 460px;
+}
+
+.report-panel {
+  margin-left: 30px;
+  float: right;
+}
+
+.facet-box {
+  padding: 0 0 60px 0;
+}

@@ -1,10 +1,10 @@
 <div app-view-segment="1"></div>
 
-<ul>
-  <li ng-class="{ active: $routeSegment.contains('files') }">
+<ul class="nav links">
+  <li class="internal" ng-class="{ active: $routeSegment.contains('files') }">
     <a href="#/visualizations/files">Formats (by total number of files)</a>
   </li>
-  <li ng-class="{ active: $routeSegment.contains('size') }">
+  <li class="internal" ng-class="{ active: $routeSegment.contains('size') }">
     <a href="#/visualizations/size">Formats (by total size of files)</a>
   </li>
 </ul>

@@ -34,12 +34,13 @@
 
         <ul class="nav">
 
-        <li class="{% active request url_transfer %}"><a>Transfer</a></li>
-        <li class="{% active request url_ingest %}"><a>Ingest</a></li>
-        <li class="{% active request url_archival_storage %}"><a>Archival storage</a></li>
-        <li class="{% active request url_fpr %}"><a>Preservation planning</a></li>
-        <li class="{% active request url_access %}"><a>Access</a></li>
-        <li class="{% active request url_administration %}"><a>Administration</a></li>
+        <li><a>Transfer</a></li>
+        <li class="active"><a>Appraisal</a></li>
+        <li><a>Ingest</a></li>
+        <li><a>Archival storage</a></li>
+        <li><a>Preservation planning</a></li>
+        <li><a>Access</a></li>
+        <li><a>Administration</a></li>
 
         </ul>
 
@@ -49,7 +50,7 @@
 
   <div ng-view></div>
 
-  <div style="padding: 0 0 60px 0;" ng-controller="FacetController">
+  <div class="facet-box" ng-controller="FacetController">
     PUID:
     <select ng-model="puid">
       <option value="">All</option>
@@ -68,19 +69,19 @@
     </div>
   </div>
 
-  <ul class="nav nav-tabs">
-    <li ng-class="{ active: $routeSegment.contains('report') }">
+  <ul class="nav links">
+    <li class="internal" ng-class="{ active: $routeSegment.contains('report') }">
       <a href="#/report">Report</a>
     </li>
-    <li ng-class="{ active: $routeSegment.contains('visualizations') }">
+    <li class="internal" ng-class="{ active: $routeSegment.contains('visualizations') }">
       <a href="#/visualizations">Visualizations</a>
     </li>
-    <li ng-class="{ active: $routeSegment.contains('archivesspace') }">
+    <li class="internal" ng-class="{ active: $routeSegment.contains('archivesspace') }">
       <a href="#/archivesspace">ArchivesSpace</a>
     </li>
   </ul>
 
-  <div ng-controller="TreeController" style='float:left; width: 460px;'>
+  <div class="transfer-tree" ng-controller="TreeController">
     <tree id="tree1" tree-data="data" tree-on-click="on_click"/>
   </div>
 
