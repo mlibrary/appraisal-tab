@@ -17,6 +17,11 @@
         return item;
       };
 
+      $scope.options = {
+        closedIcon: $('<span class="fa fa-folder-o"></span>'),
+        openedIcon: $('<span class="fa fa-folder-open-o"></span>'),
+      };
+
       ArchivesSpace.all().then(function(data) {
         $scope.data = data.map(function(child) {
           return format_item(child);

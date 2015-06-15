@@ -5,6 +5,11 @@
 
   treeController.controller('TreeController', ['$scope', 'SelectedFiles', 'Transfer', function($scope, SelectedFiles, Transfer) {
 
+    $scope.options = {
+      closedIcon: $('<span class="fa fa-folder-o"></span>'),
+      openedIcon: $('<span class="fa fa-folder-open-o"></span>'),
+    };
+
     $scope.on_click = function(el) {
       // Disable single selection
       el.preventDefault();

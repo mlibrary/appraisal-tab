@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="bower_components/html5-boilerplate/css/normalize.css">
   <link rel="stylesheet" href="bower_components/html5-boilerplate/css/main.css">
   <link rel="stylesheet" href="bower_components/bootstrap/bootstrap.css">
+  <link rel="stylesheet" href="bower_components/fontawesome/css/font-awesome.min.css">
   <link rel="stylesheet" href="bower_components/jqtree/jqtree.css">
   <link rel="stylesheet" href="bower_components/jqtree/static/bower_components/jquery-cookie/jquery.cookie.js">
   <link rel="stylesheet" href="app.css">
@@ -82,7 +83,7 @@
   </ul>
 
   <div class="transfer-tree" ng-controller="TreeController">
-    <tree id="tree1" tree-data="data" tree-on-click="on_click"/>
+    <tree id="tree1" tree-data="data" tree-options="options" tree-on-click="on_click"/>
   </div>
 
   <div class="container" id="right-pane">
