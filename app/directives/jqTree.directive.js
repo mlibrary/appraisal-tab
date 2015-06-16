@@ -25,8 +25,17 @@
       compile: function(element, attrs) {
         var treeData = $parse(attrs.treeData);
         var treeOptions = $parse(attrs.treeOptions);
-        var on_click = $parse(attrs.treeOnClick);
         var template = '<div id="' + attrs.id + '"></div>';
+
+        var callbacks = {
+          'tree.click': $parse(attrs.treeOnClick),
+          'tree.close': $parse(attrs.treeClose),
+          'tree.contextmenu': $parse(attrs.treeContextMenu),
+          'tree.dblclick': $parse(attrs.treeDblClick),
+          'tree.init': $parse(attrs.treeInit),
+          'tree.open': $parse(attrs.treeOpen),
+          'tree.select': $parse(attrs.treeSelect),
+        };
 
         return function(scope, element, attrs, controller) {
           // Watch the treeData so that the tree is regenerated should the treeData el change
@@ -46,12 +55,14 @@
             new_element.tree(options);
             new_element.iterate_and_apply_event_recursively = iterate_and_apply_event_recursively;
 
-            var on_click_fn = on_click(scope);
-            if (on_click_fn) {
-              // on_click_fn is bound because it uses "this" to refer to
-              // the parent element of the tree.
-              new_element.bind('tree.click', on_click_fn.bind(new_element));
-            }
+            angular.forEach(callbacks, function(getter, event) {
+              var fn = getter(scope);
+              if (fn) {
+                // The callback is bound in order to allow it to use "this"
+                // to refer to the parent element of the tree.
+                new_element.bind(event, fn.bind(new_element));
+              }
+            });
           });
         };
       },
