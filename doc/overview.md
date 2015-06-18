@@ -4,6 +4,13 @@ Getting started
 This application uses npm and Bower to manage its dependencies; npm is used for commandline tools and libraries, and Bower is used to manage browser dependencies.
 When first installing or updating the application, run `npm install` in the terminal to install all dependencies.
 
+Running a server
+----------------
+
+A test server is provided as a part of the project's npm dependencies.
+To run a test server, run `npm start` in the terminal while in the project directory; the demo site will be available at `http://localhost:8000/app/`.
+The port can be customized in the `package.json` file in the root of this repository.
+
 Application architecture
 ------------------------
 
