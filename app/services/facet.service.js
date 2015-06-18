@@ -13,7 +13,6 @@
         return;
       }
       this.facets[name].push(value);
-      return this; // return self so that calls can be chained
     };
 
     var get = function(name, value) {
