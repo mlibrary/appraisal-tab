@@ -14,7 +14,6 @@
     });
 
     $scope.$watch('extension', function(selected) {
-      Facet.remove('text');
       if (!selected) {
         return;
       }
@@ -40,8 +39,6 @@
     };
 
     $scope.$watch('date_start', function(start_date) {
-      Facet.remove('date');
-
       var end_date = $scope.date_end;
       if (!start_date && !end_date) {
         return;
@@ -58,7 +55,6 @@
     });
 
     $scope.$watch('puid', function(selected) {
-      Facet.remove('puid');
       if (!selected) {
         return;
       }
