@@ -52,4 +52,25 @@ describe('Facet', function() {
     });
     expect(Facet.filter([{'date': '1950:1999'}, {'date': '1975:1980'}])).toEqual([{'date': '1975:1980'}]);
   }));
+
+  it('should return a unique ID for each newly-added value', inject(function(Facet) {
+    var id1 = Facet.add('id', '1');
+    var id2 = Facet.add('id', '2');
+    expect(id1).toNotBe(undefined);
+    expect(id1).toNotEqual(id2);
+  }));
+
+  it('should allow a facet to be fetched by ID', inject(function(Facet) {
+    var id = Facet.add('get_id', '1');
+    Facet.add('get_id', '2');
+    expect(Facet.get_by_id('get_id', id)).toEqual('1');
+  }));
+
+  it('should allow a facet to be removed by ID', inject(function(Facet) {
+    var id = Facet.add('remove_id', '1');
+    Facet.add('remove_id', '2');
+    expect(Facet.get('remove_id').length).toEqual(2);
+    Facet.remove_by_id('remove_id', id);
+    expect(Facet.get('remove_id').length).toEqual(1);
+  }));
 });

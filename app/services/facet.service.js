@@ -12,20 +12,39 @@
       if (this.facets[name].indexOf(value) !== -1) {
         return;
       }
-      this.facets[name].push(value);
+      var facet_id = generate_id();
+      this.facets[name].push({id: facet_id, value: value});
+
+      return facet_id;
     };
 
     var get = function(name, value) {
+      // If the facet doesn't exist, just return nothing
+      if (undefined === this.facets[name]) {
+        return;
+      }
       // If no value is requested, return all facets for this field
       if (undefined === value) {
-        return this.facets[name];
+        return this.facets[name].map(function(element) {
+          return element.value;
+        });
       }
       // Return undefined if the requested facet isn't present
-      if (this.facets[name].indexOf(value) !== -1) {
+      var facets = this.facets[name].filter(function(element) {
+        return element.value === value;
+      });
+      if (facets.length === 0) {
         return;
       } else {
-        return value;
+        return facets[0].value;
       }
+    };
+
+    var get_by_id = function(name, id) {
+      var facets = this.facets[name].filter(function(element) {
+        return element.id === id;
+      });
+      return facets[0].value;
     };
 
     var remove = function(name, value) {
@@ -34,9 +53,15 @@
         delete this.facets[name];
       } else if (undefined !== this.facets[name]) {
         this.facets[name] = this.facets[name].filter(function(element) {
-          return element !== value;
+          return element.value !== value;
         });
       }
+    };
+
+    var remove_by_id = function(name, id) {
+      this.facets[name] = this.facets[name].filter(function(element) {
+        return element.id !== id;
+      });
     };
 
     var clear = function() {
@@ -68,7 +93,7 @@
       }
       for (var i in this.facets[key]) {
         var result;
-        var filter = this.facets[key][i];
+        var filter = this.facets[key][i].value;
         // filter is a function
         if (filter.call) {
           result = filter(value);
@@ -87,11 +112,22 @@
       return true;
     };
 
+    var generate_id = function() {
+      var s = '';
+      for (var i = 0; i < 16; i++) {
+        s += String.fromCharCode(Math.random() * 255);
+      }
+
+      return s;
+    };
+
     return {
       facets: {},
       add: add,
       get: get,
+      get_by_id: get_by_id,
       remove: remove,
+      remove_by_id: remove_by_id,
       clear: clear,
       filter: filter,
     };
