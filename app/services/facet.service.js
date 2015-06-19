@@ -4,7 +4,9 @@
   var facetService = angular.module('facetService', []);
 
   facetService.factory('Facet', function() {
-    var add = function(name, value) {
+    var add = function(name, value, data) {
+      data = data || {};
+
       if (undefined === this.facets[name]) {
         this.facets[name] = [];
       }
@@ -12,11 +14,13 @@
       if (this.facets[name].indexOf(value) !== -1) {
         return;
       }
-      var facet_id = generate_id();
-      this.facets[name].push({id: facet_id, value: value});
-      this.facet_list.push({id: facet_id, facet: name, value: value});
+      data.id = generate_id();
+      data.value = value;
+      data.facet = name;
+      this.facets[name].push(data);
+      this.facet_list.push(data);
 
-      return facet_id;
+      return data.id;
     };
 
     var get = function(name, value) {
@@ -56,14 +60,13 @@
           return element.facet !== name;
         });
       } else if (undefined !== this.facets[name]) {
+        var filter_fn = function(element) {
+          return element.facet !== name || element.value !== value;
+        };
         // TODO: filtering over two arrays is unnecessarily expensive;
         //       see about ways to optimize this later
-        this.facets[name] = this.facets[name].filter(function(element) {
-          return element.value !== value;
-        });
-        this.facet_list = this.facet_list.filter(function(element) {
-          return element.facet !== name || element.value !== value;
-        });
+        this.facets[name] = this.facets[name].filter(filter_fn);
+        this.facet_list = this.facet_list.filter(filter_fn);
       }
     };
 
