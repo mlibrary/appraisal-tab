@@ -52,6 +52,10 @@
   <div ng-view></div>
 
   <div class="facet-box" ng-controller="FacetController">
+    <div ng-repeat="facet in Facet.facet_list">
+      {{ facet.name }}: {{ facet.text }} <span ng-click="remove_facet(facet.facet, facet.id);">x</span>
+    </div>
+
     PUID:
     <select ng-model="puid">
       <option value="">All</option>
