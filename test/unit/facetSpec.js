@@ -73,4 +73,10 @@ describe('Facet', function() {
     Facet.remove_by_id('remove_id', id);
     expect(Facet.get('remove_id').length).toEqual(1);
   }));
+
+  it('should provide a read-only flat list of every facet', inject(function(Facet) {
+    Facet.add('list_a', '1');
+    Facet.add('list_b', '2');
+    expect(Facet.facet_list.length).toEqual(2);
+  }));
 });
