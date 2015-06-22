@@ -25,6 +25,7 @@ angular.module('appraisalTab', [
     RestangularProvider.setBaseUrl('/app/fixtures');
 }).config(function($routeSegmentProvider) {
   $routeSegmentProvider.options.autoLoadTemplates = true;
+  $routeSegmentProvider.options.strictMode = true;
 
   $routeSegmentProvider.
     when('/report', 'report').
