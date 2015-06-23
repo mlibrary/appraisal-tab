@@ -60,6 +60,11 @@ describe('Facet', function() {
     expect(id1).toNotEqual(id2);
   }));
 
+  it('should allow a facet ID to be specified', inject(function(Facet) {
+    var id = Facet.add('manual_id', '1', {}, 'this is an ID');
+    expect(id).toEqual('this is an ID');
+  }));
+
   it('should allow a facet to be fetched by ID', inject(function(Facet) {
     var id = Facet.add('get_id', '1');
     Facet.add('get_id', '2');

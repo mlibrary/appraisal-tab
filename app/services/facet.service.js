@@ -4,7 +4,7 @@
   var facetService = angular.module('facetService', []);
 
   facetService.factory('Facet', function() {
-    var add = function(name, value, data) {
+    var add = function(name, value, data, id) {
       data = data || {};
 
       if (undefined === this.facets[name]) {
@@ -14,7 +14,7 @@
       if (this.facets[name].indexOf(value) !== -1) {
         return;
       }
-      data.id = generate_id();
+      data.id = id || generate_id();
       data.value = value;
       data.facet = name;
       this.facets[name].push(data);
