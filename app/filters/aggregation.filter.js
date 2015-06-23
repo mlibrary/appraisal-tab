@@ -72,5 +72,23 @@
     };
 
     return _.memoize(size_graph_fn, hash_fn);
+  }).
+  filter('find_transfers', function() {
+    var transfer_fn = function(records) {
+      return records.filter(function(el) {
+        return el.type === 'transfer';
+      });
+    };
+
+    return _.memoize(transfer_fn, hash_fn);
+  }).
+  filter('find_files', function() {
+    var file_fn = function(records) {
+      return records.filter(function(el) {
+        return el.type === 'file';
+      });
+    };
+
+    return _.memoize(file_fn, hash_fn);
   });
 })();

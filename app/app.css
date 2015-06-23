@@ -53,3 +53,8 @@
 .facet-box {
   padding: 0 0 60px 0;
 }
+
+.disabled {
+  color: gray;
+  text-decoration: line-through;
+}

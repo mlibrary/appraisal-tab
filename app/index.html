@@ -78,6 +78,9 @@
     <li class="internal" ng-class="{ active: $routeSegment.contains('report') }">
       <a href="#/report">Report</a>
     </li>
+    <li class="internal" ng-class="{ active: $routeSegment.contains('examine_contents') }">
+      <a href="#/contents">Examine contents</a>
+    </li>
     <li class="internal" ng-class="{ active: $routeSegment.contains('visualizations') }">
       <a href="#/visualizations">Visualizations</a>
     </li>
@@ -115,6 +118,7 @@
   <script src="filters/aggregation.filter.js"></script>
   <script src="filters/facet.filter.js"></script>
   <script src="archivesspace/archivesspace.controller.js"></script>
+  <script src="examine_contents/examine_contents.controller.js"></script>
   <script src="facet_selector/facet_selector.controller.js"></script>
   <script src="tree/tree.controller.js"></script>
   <script src="report/report.controller.js"></script>

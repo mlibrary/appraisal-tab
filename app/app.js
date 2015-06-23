@@ -17,6 +17,7 @@ angular.module('appraisalTab', [
   'aggregationFilters',
   'treeView',
   'archivesSpaceController',
+  'examineContentsController',
   'facetController',
   'reportController',
   'treeController',
@@ -30,6 +31,7 @@ angular.module('appraisalTab', [
 
   $routeSegmentProvider.
     when('/report', 'report').
+    when('/contents', 'examine_contents').
     when('/visualizations', 'visualizations').
     when('/visualizations/files', 'visualizations.files').
     when('/visualizations/size', 'visualizations.size').
@@ -38,6 +40,11 @@ angular.module('appraisalTab', [
     segment('report', {
       templateUrl: 'report/report.html',
       controller: 'ReportController',
+    }).
+
+    segment('examine_contents', {
+      templateUrl: 'examine_contents/examine_contents.html',
+      controller: 'ExamineContentsController',
     }).
 
     segment('visualizations', {
