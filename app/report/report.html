@@ -1,6 +1,6 @@
 <div class="report-panel">
   <h2>Report</h2>
-  <b><ng-pluralize count="(records.selected | filter:{root: true}).length" when="{'1': '1 transfer', 'other': '{} transfers'}"></ng-pluralize></b>, <ng-pluralize count="records.selected.length" when="{'1': '1 object', 'other': '{} objects'}"></ng-pluralize></b> selected<br>
+  <b><ng-pluralize count="(records.selected | filter:{'type': 'transfer'}).length" when="{'1': '1 transfer', 'other': '{} transfers'}"></ng-pluralize></b>, <ng-pluralize count="records.selected.length" when="{'1': '1 object', 'other': '{} objects'}"></ng-pluralize></b> selected<br>
 
   <div class="span8"><i>File types:</i><br></div>
   By PUID:<br>
