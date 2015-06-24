@@ -6,6 +6,7 @@
   By PUID:<br>
   <table>
   <tr ng-repeat="record in records.selected | facet | puid_data">
+    <td>{{ record.data.format }}</td>
     <td><a target="_blank" href="http://apps.nationalarchives.gov.uk/pronom/{{ record.puid }}">{{ record.puid }}</a></td>
     <td><ng-pluralize count="record.data.count" when="{'1': '1 object', 'other': '{} objects'}"></ng-pluralize></td>
     <td>{{ record.data.size }} MB</td>
