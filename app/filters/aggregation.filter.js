@@ -30,7 +30,9 @@
         out_data.push({puid: key, data: puid_data[key]});
       }
 
-      return out_data;
+      return _.sortBy(out_data, function(format) {
+        return format.data.format;
+      });
     };
 
     return _.memoize(puid_data_fn, hash_fn);
