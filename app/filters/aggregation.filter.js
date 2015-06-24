@@ -22,7 +22,7 @@
 
         puid_data[record.puid].count++;
         puid_data[record.puid].format = record.format;
-        puid_data[record.puid].size += Number.parseFloat(record.size);
+        puid_data[record.puid].size += Number.parseFloat(record.size) || 0;
       }
 
       var out_data = [];
