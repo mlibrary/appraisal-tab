@@ -5,6 +5,12 @@
   <div class="span8"><i>File types:</i><br></div>
   By PUID:<br>
   <table>
+  <tr>
+    <th>Format</th>
+    <th>PUID</th>
+    <th>Number of files</th>
+    <th>Size</th>
+  </tr>
   <tr ng-repeat="record in records.selected | facet | puid_data">
     <td>{{ record.data.format }}</td>
     <td><a target="_blank" href="http://apps.nationalarchives.gov.uk/pronom/{{ record.puid }}">{{ record.puid }}</a></td>
