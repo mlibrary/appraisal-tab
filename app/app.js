@@ -23,6 +23,7 @@ angular.module('appraisalTab', [
   'visualizationsController',
 ]).config(function(RestangularProvider) {
     RestangularProvider.setBaseUrl('/app/fixtures');
+    RestangularProvider.setDefaultHttpFields({cache: true});
 }).config(function($routeSegmentProvider) {
   $routeSegmentProvider.options.autoLoadTemplates = true;
   $routeSegmentProvider.options.strictMode = true;
