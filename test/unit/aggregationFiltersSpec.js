@@ -28,6 +28,13 @@ describe('AggregationFilters', function() {
     'size': '13',
     'bulk_extractor': 'logs.zip',
   }];
+  var record_with_no_logs = [{
+    'id': 'b2a14653-5fd8-458c-b4ae-ccaab4b46b0c',
+    'label': 'lapis_lazuli.tiff',
+    'type': 'file',
+    'puid': 'fmt/153',
+    'size': '89',
+  }];
   var transfers = [{
     'id': 'fb91bf38-3836-4312-a928-699c564865da',
     'label': 'garnet',
@@ -67,6 +74,14 @@ describe('AggregationFilters', function() {
     var records = fmt_91_records.concat(fmt_11_records, transfers);
     var filtered_records = find_files(records);
     expect(filtered_records.length).toEqual(3);
+    expect(filtered_records[0].label).toEqual('lion.svg');
+  });
+
+  it('should omit files with no bulk_extractor logs', function() {
+    var records = fmt_91_records.concat(record_with_no_logs);
+    expect(records.length).toEqual(3);
+    var filtered_records = find_files(records);
+    expect(filtered_records.length).toEqual(2);
     expect(filtered_records[0].label).toEqual('lion.svg');
   });
 

@@ -85,7 +85,7 @@
   filter('find_files', function() {
     var file_fn = function(records) {
       return records.filter(function(el) {
-        return el.type === 'file';
+        return el.type === 'file' && el.bulk_extractor;
       });
     };
 
