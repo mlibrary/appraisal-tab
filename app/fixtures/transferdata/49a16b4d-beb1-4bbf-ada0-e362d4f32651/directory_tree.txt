@@ -1,0 +1,21 @@
+/var/archivematica/sharedDirectory/currentlyProcessing/Identity_Finder_Test_Data-49a16b4d-beb1-4bbf-ada0-e362d4f32651/objects/
+├── 2009 class.docx
+├── application.pdf
+├── college essay w footer.doc
+├── Contacts.pptx
+├── Credit Report.pdf
+├── Department.csv
+├── Employee Database.accdb
+├── Employee Database.mdb
+├── Fake SSNs
+│   └── fake_ssn.txt
+├── Hidden Column.xls
+├── loans.xlsx
+├── request.zip
+├── Samples
+│   ├── Sample Real CCN.txt
+│   └── SSN.txt
+├── students.ppt
+└── Tax Return 2008.pdf
+
+2 directories, 16 files

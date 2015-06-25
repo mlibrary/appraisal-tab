@@ -1,0 +1,841 @@
+/var/archivematica/sharedDirectory/currentlyProcessing/Northern-MI-Office-Gen-Staff-Records-253f2edf-dae0-4989-9b39-d6f0de773c09/objects/
+├── Academic-Service-Learning
+│   ├── ASL-Presentation.ppt
+│   ├── Ore-Dock-1.bmp
+│   ├── Ore-Dock-1j.JPG
+│   ├── Ore-Dock-2.bmp
+│   ├── Ore-Dock-2j.JPG
+│   ├── Ore-Dock-3.bmp
+│   ├── Ore-Dock-3j.JPG
+│   ├── Ore-Dock-4.bmp
+│   ├── Ore-Dock-4j.bmp
+│   ├── Ore-Dock-5.bmp
+│   ├── Ore-Dock-5j.JPG
+│   ├── Ore-Dock-6.bmp
+│   ├── pptBA.tmp
+│   ├── pptC1.tmp
+│   └── Scrap.shs
+├── august-2005-folder
+│   ├── art-project-bd.doc
+│   ├── August-2005-list-of-events-part-1.doc
+│   ├── august-2005-list-of-events-part-2.doc
+│   ├── Baraga-County.doc
+│   ├── Coffee-with-the-Governor-Baraga.doc
+│   ├── Copy-of-phone-numbers.xls
+│   ├── Delta-County.doc
+│   ├── Eagle-Herald-Newspaper-bio.doc
+│   ├── Eagle-River-Community-BBQ.doc
+│   ├── Firefighter-Recognition.doc
+│   ├── fundraiser-for-Senator-Mike-Prusi.doc
+│   ├── international-paper-bd2.doc
+│   ├── international-paper-bd.doc
+│   ├── Interview-with-editorial-board-lanse-sentinel.doc
+│   ├── Interview-with-Iron-River-County-Reporter.doc
+│   ├── Interview-witht-the-Escanaba-Daily-Press.doc
+│   ├── Interview-with-WDBC-Escanaba.doc
+│   ├── Iron-Mnt-out-to-lunch.doc
+│   ├── Iron-River-Roundtable.doc
+│   ├── Menominee-County.doc
+│   ├── newpage.doc
+│   ├── numbers-and-addresses-for-august-2005-visit.doc
+│   ├── phone-numbers.xls
+│   ├── Pinecrest-Nursing-Home-visit.doc
+│   ├── Reception-for-Mitch-Irwin.doc
+│   ├── Skeleton-Schedule.doc
+│   ├── Thank-you-2005.doc
+│   ├── Thank-you-note-list.doc
+│   ├── Township-Supervisors-and-City-Managers-for-U.doc
+│   ├── up-fair-reading-program-event.doc
+│   ├── Upper-Peninsula-Hot-Topics.doc
+│   ├── up-state-dnr-pocket-park.doc
+│   ├── UP-State-Fair-4-H-dedication.doc
+│   ├── up-state-fair-animal-barn.doc
+│   ├── UP-State-Fair.doc
+│   ├── up-state-fair-governor-luncheon-and-tour.doc
+│   ├── up-state-fairgrounds-map.doc
+│   ├── UP-State-Fair-Veterans-Ceremony2.doc
+│   └── UP-Swing-Follow-Up.doc
+├── Brian-Wildeys-Presentations
+│   └── UPDON-2-12-09.ppt
+├── Chriss-Folder
+│   └── Governor-Pics
+│       ├── Governor-on-porch.jpg
+│       ├── P1000523.JPG
+│       ├── P1000524.JPG
+│       ├── P1000525.JPG
+│       ├── P1000526.JPG
+│       ├── P1000527.JPG
+│       ├── P1000528.JPG
+│       ├── P1000529.JPG
+│       ├── P1000530.JPG
+│       ├── P1000531.JPG
+│       ├── P1000532.JPG
+│       ├── P1000533.JPG
+│       ├── P1000534.JPG
+│       ├── P1000535.JPG
+│       ├── P1000536.JPG
+│       ├── P1000537.JPG
+│       ├── P1000538.JPG
+│       ├── P1000539.JPG
+│       ├── P1000540.JPG
+│       ├── P1000541.JPG
+│       ├── P1000542.JPG
+│       ├── P1000543.JPG
+│       ├── P1000544.JPG
+│       ├── P1000545.JPG
+│       ├── P1000546.JPG
+│       ├── P1000547.JPG
+│       ├── P1000548.JPG
+│       ├── P1000549.JPG
+│       ├── P1000550.JPG
+│       ├── P1000551.JPG
+│       ├── P1000552.JPG
+│       ├── P1000553.JPG
+│       ├── P1000554.JPG
+│       ├── P1000555.JPG
+│       ├── P1000556.JPG
+│       ├── P1000557.JPG
+│       ├── P1000558.JPG
+│       ├── P1000559.JPG
+│       ├── P1000560.JPG
+│       ├── P1000561.JPG
+│       ├── P1000562.JPG
+│       ├── P1000563.JPG
+│       ├── P1000564.JPG
+│       ├── P1000565.JPG
+│       ├── P1000566.JPG
+│       ├── P1000567.JPG
+│       ├── P1000568.JPG
+│       ├── P1000569.JPG
+│       ├── P1000570.JPG
+│       ├── P1000571.JPG
+│       ├── P1000572.JPG
+│       ├── P1000573.JPG
+│       ├── P1000574.JPG
+│       ├── P1000575.JPG
+│       ├── P1000576.JPG
+│       ├── P1000577.JPG
+│       ├── P1000578.JPG
+│       ├── P1000579.JPG
+│       ├── P1000580.JPG
+│       ├── P1000581.JPG
+│       ├── P1000582.JPG
+│       ├── P1000583.JPG
+│       ├── P1000584.JPG
+│       ├── P1000585.JPG
+│       ├── P1000586.JPG
+│       ├── P1000587.JPG
+│       ├── P1000588.JPG
+│       ├── P1000589.JPG
+│       ├── P1000590.JPG
+│       ├── P1000591.JPG
+│       ├── P1000592.JPG
+│       ├── P1000593.JPG
+│       ├── P1000594.JPG
+│       ├── P1000595.JPG
+│       ├── P1000596.JPG
+│       ├── P1000597.JPG
+│       ├── P1000598.JPG
+│       ├── P1000599.JPG
+│       ├── P1000600.JPG
+│       ├── P1000601.JPG
+│       ├── P1000602.JPG
+│       ├── P1000603.JPG
+│       ├── P1000604.JPG
+│       ├── P1000605.JPG
+│       ├── P1000606.JPG
+│       ├── P1000607.JPG
+│       └── P1000608.JPG
+├── Cool-Cities
+│   ├── Cool-Cities-Attendees-xls.doc
+│   ├── Cool-Cities-Overflow.xls
+│   ├── Cool-cities-panel-marquette.xls
+│   └── Copy-of-Cool-Cities-Overflow-xls.doc
+├── General
+│   ├── 2010-Updates.doc
+│   ├── Academic-SL-2005.doc
+│   ├── All-American-City-Award.doc
+│   ├── CCI-CEO-Meeting.doc
+│   ├── Dedications-Groundbreakings-2010.doc
+│   ├── Final-Leadership-Michigan-Presentation.ppt
+│   ├── goals-resp.doc
+│   ├── GOVERNORS-UP-Events-xls.doc
+│   ├── Intergovernmental-Relations.ppt
+│   ├── Khoury-Presentation.ppt
+│   ├── kipling-meeting-notes.doc
+│   ├── LeadAcadJan6.ppt
+│   ├── Logging-Presentation.ppt
+│   ├── Negaunee-Regional-Dispatch-Center.doc
+│   ├── Revised-UP-Events2.xls
+│   ├── SERVICE-SHARING-MEETINGS-SUMMARY.doc
+│   ├── smurfit-stone.doc
+│   ├── UP-accomplishments.doc
+│   ├── up-CHAMBER-CONTACTS.doc
+│   ├── Updated-Govs-UP-Events.xls
+│   ├── UP-EVENTS-2005.xls
+│   ├── UP-Events-by-County.xls
+│   ├── Upper-Peninsula-Hot-Topics.doc
+│   ├── USFS-Memo.doc
+│   └── Viosport-briefing.doc
+├── Governor-Visits
+│   ├── 2003-Governor-Visits
+│   │   ├── Briefing-Format.doc
+│   │   ├── governors-up-tour-schedule2.doc
+│   │   ├── governors-up-tour-schedule.doc
+│   │   ├── governors-up-tour-schedule-tentative.doc
+│   │   └── Luncheon-8-21-Briefing-Format.doc
+│   ├── 2005-Governors-Visits
+│   │   ├── General
+│   │   │   ├── August-20052.doc
+│   │   │   ├── August-2005.doc
+│   │   │   ├── Baldini.doc
+│   │   │   ├── Briefing-2-17-05-Hockey-NMU-vs-MTU.doc
+│   │   │   ├── December-2005-027.jpg
+│   │   │   ├── December-2005-076.jpg
+│   │   │   ├── Eagle-River-Community-BBQ.doc
+│   │   │   ├── Feb18-19-2005.rtf
+│   │   │   ├── February-18-2005-Alpha-List-Final.xls
+│   │   │   ├── February-18-2005-Alpha-List.xls
+│   │   │   ├── List-of-Govs-Community-Meeting-2-18-05.xls
+│   │   │   ├── Raildroad-Issue.doc
+│   │   │   ├── Saturday-Trip.doc
+│   │   │   ├── stacys-info-for-oct-15.doc
+│   │   │   ├── stacys-info-for-oct-15.docm
+│   │   │   └── UP-Sheriffs-Meeting.doc
+│   │   ├── Gov-Visit-on-2-17-2-18-05
+│   │   │   ├── addresses.doc
+│   │   │   ├── August-2005.doc
+│   │   │   ├── Briefing-2-17-05-WNMU.doc
+│   │   │   ├── Channel-5-10-TapeBriefing.doc
+│   │   │   ├── Channel6-Briefing.doc
+│   │   │   ├── Events
+│   │   │   │   ├── addresses.doc
+│   │   │   │   ├── Channel-5-10-TapeBriefing.doc
+│   │   │   │   ├── Channel6-Briefing.doc
+│   │   │   │   ├── MTUvsNMU-Hockey.rtf
+│   │   │   │   ├── Mushers-Banquet.rtf
+│   │   │   │   ├── Radio-InterviewBriefing.doc
+│   │   │   │   ├── UP-Higher-Ed.rtf
+│   │   │   │   └── UP-Roadbuilders.rtf
+│   │   │   ├── List-of-Govs-Community-Meeting-2-17-05.xls
+│   │   │   ├── MEA-Briefing.doc
+│   │   │   ├── Mining-Journal-Reception.doc
+│   │   │   ├── MTUvsNMU-Hockey.rtf
+│   │   │   ├── Mushers-Banquet.rtf
+│   │   │   ├── Radio-InterviewBriefing.doc
+│   │   │   ├── State-of-State-Event.doc
+│   │   │   ├── Student-List-for-2-18-05-final.xls
+│   │   │   ├── Student-List-for-2-18-05.xls
+│   │   │   ├── StudentPhoto-Op.rtf
+│   │   │   ├── Thank-yous-for-UP-200.doc
+│   │   │   ├── UP-200-Briefing.doc
+│   │   │   ├── UP-200-TOdo.xls
+│   │   │   └── UP-Roadbuilders.rtf
+│   │   └── Gov-Vist-Dec-05
+│   │       ├── Brinzo.doc
+│   │       ├── CCI-Reception.doc
+│   │       ├── dec-schedule.doc
+│   │       ├── Holiday-Reception-w-State-Employees.doc
+│   │       ├── Hot-Topics
+│   │       │   ├── Document-Scrap-UPDATE-ON-THE-MA.shs
+│   │       │   └── Hot-topics.doc
+│   │       ├── HOT-TOPICS.doc
+│   │       ├── HOT-TOPICS-Stacy.doc
+│   │       ├── Jacobetti.doc
+│   │       ├── Media-Meet.doc
+│   │       ├── Mqt-Dem-Reception.doc
+│   │       ├── MTEC-Smartzone.doc
+│   │       ├── Pioneer-Surgical-Jobs-Stop.doc
+│   │       ├── Precision-Edge-Jobs-Stop.doc
+│   │       ├── Radio-Call-Houghton.doc
+│   │       ├── Sheriffs.doc
+│   │       ├── skeleton-schedule.doc
+│   │       ├── Soo-Evening-News.doc
+│   │       ├── Speed-Skating.doc
+│   │       ├── Tellurex-Jobs-Stop.doc
+│   │       ├── Thank-you-list.doc
+│   │       ├── Walt-Lindala.doc
+│   │       └── WSOO.doc
+│   ├── 2006-Governor-Visits
+│   │   ├── August-2006
+│   │   │   ├── Ag-Solutions-1.doc
+│   │   │   ├── Ag-Solutions-Attach-1.doc
+│   │   │   ├── Ag-Solutions-Attach-2.doc
+│   │   │   ├── Attendance-Listing-Fair-Luncheon.doc
+│   │   │   ├── EMP-BusAug06.ppt
+│   │   │   ├── Fair-growing-up-foresters-exhibit.doc
+│   │   │   ├── hospital-5.jpg
+│   │   │   ├── hospital-attach1.jpg
+│   │   │   ├── hospital-attach2.jpg
+│   │   │   ├── hospital-attach-3.jpg
+│   │   │   ├── hospital-attach-4.jpg
+│   │   │   ├── hospital-map-2.jpg
+│   │   │   ├── hospital-map.jpg
+│   │   │   ├── Issues-and-Answers.doc
+│   │   │   ├── OSF-St-Francis-Hospital.doc
+│   │   │   ├── Road-Projects-Photo-Op.doc
+│   │   │   ├── Schedule-Aug-17-18.doc
+│   │   │   ├── skelton-schedule-draft.doc
+│   │   │   ├── Systems-Control.doc
+│   │   │   ├── Thomas-St-Onge-Musuem.doc
+│   │   │   ├── UP-State-Fair-Governors-Luncheon.doc
+│   │   │   └── UP-State-Fair-Luncheon-SPEECH-Info.doc
+│   │   ├── General
+│   │   │   ├── 2nd-annual-Veterans-Ride.doc
+│   │   │   ├── Governors-summer-06-up-trip1.doc
+│   │   │   ├── Issues-and-Answers.doc
+│   │   │   ├── letter-presentation-311.doc
+│   │   │   ├── manistique-diner-meet-and-greet.doc
+│   │   │   ├── May-30.doc
+│   │   │   ├── RSVP-State-Employee-Rec.xls
+│   │   │   ├── Schedule-Aug-17-18.doc
+│   │   │   └── Summer-06-up-trip1.doc
+│   │   ├── May-2006
+│   │   │   ├── Daily-News-Interview-Hannahville.doc
+│   │   │   ├── Daily-Press-Interview.doc
+│   │   │   ├── minimum-wage-info.doc
+│   │   │   ├── MIX-106-Interview.doc
+│   │   │   └── What-is-MCAC.doc
+│   │   └── May-30th
+│   │       ├── Employee-Appreciation.doc
+│   │       ├── SERA-attachment.doc
+│   │       └── SERA.doc
+│   └── 2007-Governors-Trips
+│       ├── Detailed-Western-Lime-Agenda-2.doc
+│       ├── Govs-luncheon-Attendees.doc
+│       ├── Open-House-Invitations.xls
+│       ├── UP-State-Fair-Governors-Luncheon-2007.doc
+│       └── Vet-of-the-Year-Background-2007.doc
+├── Inaugral-2007-Slide-Show
+│   ├── General
+│   │   ├── bridge-walk.jpg
+│   │   ├── Bridge-Walk-Overview-2.jpg
+│   │   ├── Governor-Granholm-Press-Photo.jpg
+│   │   ├── Governor-on-porch.jpg
+│   │   ├── Governor-with-child.jpg
+│   │   ├── Gov-Mackinac-Island.jpg
+│   │   ├── Scan0002.jpg
+│   │   ├── Scan0003.jpg
+│   │   ├── Scan0004.jpg
+│   │   ├── Scan0005.jpg
+│   │   ├── Scan0006.jpg
+│   │   └── Scan0007.jpg
+│   ├── in-slide-show
+│   │   ├── 101505-govn-002.jpg
+│   │   ├── 11-8-04-006.jpg
+│   │   ├── Arnold-Transit.JPG
+│   │   ├── Bridge-Walk-101.JPG
+│   │   ├── DI-00251-136.JPG
+│   │   ├── DI-00251-169.JPG
+│   │   ├── DI-00337-033.JPG
+│   │   ├── DI-00337-034.JPG
+│   │   ├── DI-00337-038.JPG
+│   │   ├── DI-00337-039.JPG
+│   │   ├── DI-00337-047.JPG
+│   │   ├── DI-00337-082.JPG
+│   │   ├── DI-00337-156.JPG
+│   │   ├── DI-00337-157.JPG
+│   │   ├── DI-00337-236.JPG
+│   │   ├── DI-00337-254.JPG
+│   │   ├── DI-00528-019.jpg
+│   │   ├── DI-00528-020.jpg
+│   │   ├── DI-00551-254.jpg
+│   │   ├── DSC00164.JPG
+│   │   ├── DSC-0020.JPG
+│   │   ├── DSC-0026.JPG
+│   │   ├── DSC-0027.JPG
+│   │   ├── DSC-0029.JPG
+│   │   ├── DSC-0031.JPG
+│   │   ├── DSC-0041.JPG
+│   │   ├── DSC-0071.JPG
+│   │   ├── DSC-0076.JPG
+│   │   ├── DSC-0077.JPG
+│   │   ├── DSC-0083.JPG
+│   │   ├── DSC-0084.JPG
+│   │   ├── G-and-MTU.JPG
+│   │   ├── gov.JPG
+│   │   ├── Granholm-Bridge-2-2004.JPG
+│   │   ├── Group-Photo.jpg
+│   │   ├── IMG-5274-fix.jpg
+│   │   ├── IMG-5274.jpg
+│   │   ├── IMG-5279.jpg
+│   │   ├── IMG-5287.jpg
+│   │   ├── IMG-5297.jpg
+│   │   ├── IMG-5313.jpg
+│   │   ├── IMG-5319-Fix.jpg
+│   │   ├── IMG-5323.jpg
+│   │   ├── IMG-5327.jpg
+│   │   ├── IMG-5332.jpg
+│   │   ├── IMG-5351.jpg
+│   │   ├── IMG-5360.jpg
+│   │   ├── IMG-5372.jpg
+│   │   ├── IMG-5380-fix.jpg
+│   │   ├── IMG-5387.jpg
+│   │   ├── IMG-5398.jpg
+│   │   ├── P1000552.JPG
+│   │   ├── P1000553.JPG
+│   │   ├── pistons.jpg
+│   │   ├── Prusi-Girls.JPG
+│   │   ├── SA400215.JPG
+│   │   ├── SA400217.JPG
+│   │   ├── SA400219.JPG
+│   │   ├── SA400223.JPG
+│   │   ├── SA400228.JPG
+│   │   ├── SA400231.JPG
+│   │   ├── SA400245.JPG
+│   │   ├── SA400247.JPG
+│   │   ├── SA400250.JPG
+│   │   ├── SA400251.JPG
+│   │   ├── SA400252.JPG
+│   │   ├── SA400253.JPG
+│   │   ├── SA400259.JPG
+│   │   ├── SA400267.JPG
+│   │   ├── SA400273.JPG
+│   │   ├── SA400274.JPG
+│   │   ├── SA400275.JPG
+│   │   ├── SA400276.JPG
+│   │   ├── SA400277.JPG
+│   │   ├── SA400280.JPG
+│   │   ├── SA400286.JPG
+│   │   ├── SA400290.JPG
+│   │   ├── SA400294.JPG
+│   │   ├── Timber-Award.JPG
+│   │   ├── tree-pic.JPG
+│   │   ├── Two-Families.JPG
+│   │   └── UP-200-Family-Pic.jpg
+│   └── Tristan-and-the-Gov
+│       ├── Tristan-and-the-Gov-001.jpg
+│       ├── Tristan-and-the-Gov-002.jpg
+│       └── Tristan-and-the-Gov.jpg
+├── Inaugural-2007
+│   ├── December-2005-004.jpg
+│   ├── December-2005-027.jpg
+│   ├── December-2005-051.jpg
+│   ├── December-2005-074.jpg
+│   ├── December-2005-078.jpg
+│   ├── December-2005-088.jpg
+│   ├── December-2005-090.jpg
+│   ├── Inaugural-Invite-List-1.xls
+│   ├── Inaugural-Invite-List-2.xls
+│   ├── Inaugural-Invite-List-3.xls
+│   ├── Inaugural-Invite-List-4.xls
+│   ├── Inaugural-Invite-List-5.xls
+│   ├── pistons.jpg
+│   └── up-staff-slide.ppt
+├── Logging-Presentation
+│   ├── final-48-take1.ppt
+│   ├── General
+│   │   ├── 2005-Existing-TST.xls
+│   │   ├── 2005-submitted-report.doc
+│   │   ├── 2005-TST-MAP.pdf
+│   │   ├── Alpena-SFI.ppt
+│   │   ├── Book5.xls
+│   │   ├── Book9.xls
+│   │   ├── combo-map.pdf
+│   │   ├── final-48-take1-bhl-48b0260b
+│   │   │   └── final-48-take1.ppt
+│   │   ├── final-final-final-2005-logging.ppt
+│   │   ├── Individual-Files.xls
+│   │   ├── Logging-Presentation.ppt
+│   │   ├── Logging-Truck-Safety-Survey-Part-II-2.doc
+│   │   ├── Old-truck.jpg
+│   │   ├── POST-Alpena-SFI.ppt
+│   │   ├── Question1Chart.xls
+│   │   ├── Question2.xls
+│   │   ├── Question3.xls
+│   │   ├── Question4-What-type-of-additional-training.xls
+│   │   ├── Question5.xls
+│   │   ├── Should-Truck-Safety-be-an-Industry-Standard-tABLE.doc
+│   │   ├── St-Ignace-SFI-113.ppt
+│   │   └── What-type-of-additional-training.xls
+│   └── Logging-Presentation
+│       ├── Excel-charts
+│       │   ├── Question1Chart.xls
+│       │   ├── Question2.xls
+│       │   ├── Question3.xls
+│       │   ├── Question4-What-type-of-additional-training.xls
+│       │   ├── Question5.xls
+│       │   ├── Question-6.xls
+│       │   ├── Question-7.xls
+│       │   └── What-type-of-additional-training.xls
+│       └── General
+│           ├── 2005-numbers.xls
+│           ├── 36ford.jpg
+│           ├── Big-Wheels-T02.jpg
+│           ├── Book5.xls
+│           ├── Comments-Logging-Iron-Mt-05.doc
+│           ├── Doc3.doc
+│           ├── final-48-take1.ppt
+│           ├── loading-logs.jpg
+│           ├── loggers.jpg
+│           ├── Logging-Presentation.ppt
+│           ├── Logging-Truck-Safety-Survey-Part-II-2.doc
+│           ├── MDOT.jpg
+│           ├── MUNISING-NUMBERS.xls
+│           ├── Narrative-Log-Truck-Safety-Study.doc
+│           ├── Old-truck.jpg
+│           ├── Police-and-Driver.jpg
+│           ├── PulpTruckLoading-small.jpg
+│           ├── PulpTruck-small.jpg
+│           ├── Stacys-Grandpa.doc
+│           ├── Truck-study-Raw-comments-COMBINED.doc
+│           └── Truck-study-Raw-comments.doc
+├── Log-Truck-Safety-Study
+│   ├── 2005-numbers.xls
+│   ├── COMBINED-CODEBOOK.xls
+│   ├── Combined-Data-Sheet-without-no-response.xls
+│   ├── combo-map.pdf
+│   ├── Final-Draft-II.xls
+│   ├── Final-Draft.xls
+│   ├── final-numbers.xls
+│   ├── Iron-Mountain-Survey-Data-Sheet-without-no-response.xls
+│   ├── Iron-Mountain-Survey-Data-Sheet.xls
+│   ├── LANSE-CODEBOOK.xls
+│   ├── LAnse-Survey-Data-Sheet-without-no-response.xls
+│   ├── LAnse-Survey-Data-Sheet.xls
+│   ├── legend.doc
+│   ├── Logging-Presentation.ppt
+│   ├── Logging-Stats-04-05.xls
+│   ├── Logging-Truck-Safety-Survey-CODEBOOK-iRON-MT.xls
+│   ├── Logging-Truck-Safety-Survey-CODEBOOK.xls
+│   ├── Logging-Truck-Safety-Survey.xls
+│   ├── Log-Truck-Safety-Study-OVERALL.xls
+│   ├── log-truck-study-map-with-pins.JPG
+│   ├── Narrative-Log-Truck-Safety-Study.doc
+│   ├── Newberry-Codebook2.xls
+│   ├── Newberry-Codebook-bhl-be02a279
+│   │   ├── 2005-numbers.xls
+│   │   ├── COMBINED-CODEBOOK.xls
+│   │   ├── Combined-Data-Sheet-without-no-response.xls
+│   │   ├── combo-map.pdf
+│   │   ├── Final-Draft-II.xls
+│   │   ├── Final-Draft.xls
+│   │   ├── final-numbers.xls
+│   │   ├── Iron-Mountain-Survey-Data-Sheet-without-no-response.xls
+│   │   ├── Iron-Mountain-Survey-Data-Sheet.xls
+│   │   ├── LANSE-CODEBOOK.xls
+│   │   ├── LAnse-Survey-Data-Sheet-without-no-response.xls
+│   │   ├── LAnse-Survey-Data-Sheet.xls
+│   │   ├── legend.doc
+│   │   ├── Logging-Presentation.ppt
+│   │   ├── Logging-Stats-04-05.xls
+│   │   ├── Logging-Truck-Safety-Survey-CODEBOOK-iRON-MT.xls
+│   │   ├── Logging-Truck-Safety-Survey-CODEBOOK.xls
+│   │   ├── Logging-Truck-Safety-Survey.xls
+│   │   ├── Log-Truck-Safety-Study-OVERALL.xls
+│   │   ├── log-truck-study-map-with-pins.JPG
+│   │   ├── Newberry-Codebook2.xls
+│   │   ├── Newberry-Codebook.xls
+│   │   ├── Newberry-Survey-Data-Sheet-without-no-response.xls
+│   │   ├── Newberry-Survey-Data-Sheet.xls
+│   │   ├── overall.xls
+│   │   ├── Preliminary-Stats-Logging-April-05.xls
+│   │   ├── Truck-study-Raw-comments-COMBINED.doc
+│   │   ├── Truck-study-Raw-comments.doc
+│   │   ├── Truck-study-Raw-comments-Iron-Mountain.doc
+│   │   ├── Truck-study-Raw-comments-Lanse.doc
+│   │   ├── Truck-study-Raw-comments-Newberry-1.doc
+│   │   ├── Truck-study-Raw-comments-Newberry.doc
+│   │   └── UP-Map-Large.JPG
+│   ├── Newberry-Codebook.xls
+│   ├── Newberry-Survey-Data-Sheet-without-no-response.xls
+│   ├── Newberry-Survey-Data-Sheet.xls
+│   ├── Original-overall.xls
+│   ├── overall.xls
+│   ├── Preliminary-Stats-Logging-April-05.xls
+│   ├── Truck-study-Raw-comments-COMBINED.doc
+│   ├── Truck-study-Raw-comments.doc
+│   ├── Truck-study-Raw-comments-Iron-Mountain.doc
+│   ├── Truck-study-Raw-comments-Lanse.doc
+│   ├── Truck-study-Raw-comments-Newberry-1.doc
+│   ├── Truck-study-Raw-comments-Newberry.doc
+│   └── UP-Map-Large.JPG
+├── Matts-Presenations
+│   ├── 1Governors-Conference-Nashville.ppt
+│   ├── 1MTU-Forest-Certification-Strategy.ppt
+│   ├── 20070620-PC-auto.pdf
+│   ├── 2007ConsentDecree-pressavail9-26-07.ppt
+│   ├── 2007-GOVERNOR’S-UPPER-PENINSULA-INAUGURAL.ppt
+│   ├── 2007-GOVERNOR’S-UPPER-PENINSULA-INAUGURAL.pptx
+│   ├── 2008Hiring-Process-Flow-Chart-1.ppt
+│   ├── A-Carbon-Offset-Cost-Benefit-Analysis-Test-Case-version-2-CCX.ppt
+│   ├── AFFIRMATIVE-ACTION-3-Final.ppt
+│   ├── American-Legion-Roast.doc
+│   ├── AppropSub-on-Nat-Res-12-11-07.ppt
+│   ├── BioDiesel-2-08-flat.JPG
+│   ├── Book1.xls
+│   ├── budget-new-taxes.ppt
+│   ├── Can-You-Budget-Personnel.ppt
+│   ├── Career-Day.ppt
+│   ├── Charts-for-Budget-Presentation.ppt
+│   ├── Cherry-Comm-Hearing.xls
+│   ├── china-slides.ppt
+│   ├── Christian-Demorcracy.ppt
+│   ├── Community-Partnership.ppt
+│   ├── Community-partnership-pre-show-slides.ppt
+│   ├── Cool-Attendees.xls
+│   ├── Corn-based-Ethanol-ppt-BB-2-08.JPG
+│   ├── corrections-reform.ppt
+│   ├── County-Commission-Meeting-10-12.ppt
+│   ├── CREDIBILITY.ppt
+│   ├── Criminal-Justice-Presentation.ppt
+│   ├── CUPPAD.ppt
+│   ├── Delta-County-Township-Association.ppt
+│   ├── emp-Final-Techinvite2004.xls
+│   ├── end-of-line.JPG
+│   ├── environmental-policy.ppt
+│   ├── EOY-Prison-Population-1995-2006.ppt
+│   ├── Executive-Budget-Presentation-2-8-07.ppt
+│   ├── Fair-Registration.xls
+│   ├── Final-leadership-michigan.ppt
+│   ├── Final-Leadership-Michigan-Presentation.ppt
+│   ├── Forest-Finance-Authority.xls
+│   ├── Forest-lands.ppt
+│   ├── Fuels-From-The-Forest.ppt
+│   ├── fundraisersledog.xls
+│   ├── Gogebic-Conservation-District.ppt
+│   ├── Gogebic-Leadership.ppt
+│   ├── Governors-economic-plan.ppt
+│   ├── Khoury-Presentation2.ppt
+│   ├── Khoury-Presentation3.ppt
+│   ├── Khoury-Presentation.ppt
+│   ├── kiwanis-menominee.ppt
+│   ├── Kiwanis.ppt
+│   ├── Lake-Superior-Leadership-Academy.ppt
+│   ├── LeadAcadJan6.ppt
+│   ├── Leadership-Michigan-2007-final.ppt
+│   ├── Leadership-Michigan-2007.ppt
+│   ├── leadership-michigan-powerpointfinaldraft.ppt
+│   ├── leadership-michigan-powerpoint.ppt
+│   ├── Leadership-West-Michigan.ppt
+│   ├── Loc-Mackinac-GovernorsOffice.xls
+│   ├── Loc-Schoolcraft-GovernorsOffice.xls
+│   ├── logs-rolling-off-debarker.JPG
+│   ├── LSCP-March-29.ppt
+│   ├── Manistique-High-School.ppt
+│   ├── Marquette-County-Township-Presentation.ppt
+│   ├── mbt.ppt
+│   ├── MBT-Short.ppt
+│   ├── MCTA-Presentation.ppt
+│   ├── MedCaseload.ppt
+│   ├── MIFFA-Forest-Carbon-Presentation-24-August-2006.ppt
+│   ├── mml-Oct-2006-1.ppt
+│   ├── MPRI-Model-101.ppt
+│   ├── Mqt-Higher-Ed-Speakers.xls
+│   ├── MSEA1.ppt
+│   ├── Municpal-Management.ppt
+│   ├── NMPSA2005.ppt
+│   ├── NMU-Budget-Presentation.ppt
+│   ├── Nursing-Presentation.ppt
+│   ├── Office-of-Community-Corrections.PPT
+│   ├── Oscoda-County-Conservation-District.ppt
+│   ├── outcome-measurement-framework.xls
+│   ├── Overall-Budget-Picture.ppt
+│   ├── PARKVIEW-1.JPG
+│   ├── Pavement-Condition-1.ppt
+│   ├── Politics-of-Media.ppt
+│   ├── Powers-class-2-25.ppt
+│   ├── Powers-Class.ppt
+│   ├── pp-react-usa.ppt
+│   ├── PPT-CRC-FINAL-10-5-07.ppt
+│   ├── PPT-Surrogate-31506.ppt
+│   ├── Presentation-Slides.ppt
+│   ├── PS-528-Final-Power-Point.ppt
+│   ├── ps-528-power-point.ppt
+│   ├── regional-colaboration.ppt
+│   ├── Rotary-Presentation.ppt
+│   ├── SBT-presentation.ppt
+│   ├── Schoolcraft-Township-Association.ppt
+│   ├── SERA.ppt
+│   ├── SHARED-SERVICES-1.ppt
+│   ├── SHARED-SERVICES.ppt
+│   ├── Sled-Dog-Fundraiser.xls
+│   ├── smoking-rates-success.ppt
+│   ├── Social-Welfare-Policy2.ppt
+│   ├── Social-Welfare-Policy.ppt
+│   ├── State-and-Local-Govts.ppt
+│   ├── state-and-local.ppt
+│   ├── state-and-local-short.ppt
+│   ├── SummitNMU.ppt
+│   ├── Surrogate-6-9-06-161851-7.ppt
+│   ├── TC-Slides-2.ppt
+│   ├── tilden-township.ppt
+│   ├── UPEDA.ppt
+│   ├── up-STAFF1.ppt
+│   ├── Video-Franchising-Powerpoint.ppt
+│   ├── Video-Franchising-Presentation-NMPSA.ppt
+│   └── Website-Electronic-Monitoring-of-Offenders-in-the-Community-2.doc
+├── NW-Intern
+│   ├── General
+│   │   ├── 2004-Master-Calendar.xls
+│   │   ├── bridge-walk.jpg
+│   │   ├── Description-of-internship-for-Governor-Jennifer-Granholm1.doc
+│   │   ├── Engineered-Manufactured-Products.doc
+│   │   ├── Fax-Wizard.doc
+│   │   ├── Final-leadership-michigan.ppt
+│   │   ├── INTERN.doc
+│   │   ├── lansing-schedule.doc
+│   │   ├── leadership-michigan-powerpoint.ppt
+│   │   ├── Logging-Truck-Safety-Survey-CODEBOOK-COMBINED.xls
+│   │   ├── Logging-Truck-Safety-Survey-COMBINED-CODEBOOK.xls
+│   │   ├── Logging-Truck-Safety-Survey-LANSE-CODEBOOK.xls
+│   │   ├── lp-ma.doc
+│   │   ├── map.doc
+│   │   ├── Marquette-Budget-Forum.doc
+│   │   ├── Memo-Dans-visit.doc
+│   │   ├── memo-from-kennecott-presentation.doc
+│   │   ├── memo-on-service-sharing-in-hospitals.doc
+│   │   ├── memo-on-wind-turbines.doc
+│   │   ├── Mentor-Conference.doc
+│   │   ├── Michigan-Broadband-Authority.doc
+│   │   ├── Michigan-Sample-Slides.ppt
+│   │   ├── MI-watershed-alliance.doc
+│   │   ├── New-Microsoft-Access-Application.mdb
+│   │   ├── New-Microsoft-Word-Document.doc
+│   │   ├── Ontonagon-notes.doc
+│   │   ├── PILT-spreadsheet.xls
+│   │   ├── school-numbers.doc
+│   │   ├── SERVICE-SHARING-MEETINGS-SUMMARY.doc
+│   │   ├── Shared-Services-Metting-Notes.doc
+│   │   ├── Student-List-for-2-18-05.xls
+│   │   ├── tilden-township.ppt
+│   │   ├── UPandlowpenn1.jpg
+│   │   ├── UP-Events.xls
+│   │   ├── UPonly1.jpg
+│   │   ├── UPPER-PENINSULA1.doc
+│   │   ├── UP-Shared-Service-Examples.doc
+│   │   └── Volume-Purchasing.doc
+│   ├── Logging-Truck-Surveys
+│   │   └── Truck-study-Raw-comments-Lanse.doc
+│   └── NMU-Internship
+│       ├── General
+│       │   ├── Briefing-2-17-05-Hockey-NMU-vs-MTU.doc
+│       │   ├── Briefing-2-17-05-UP-Road-Builders-Conference.doc
+│       │   ├── Briefing-2-17-05-WNMU.doc
+│       │   ├── Briefing-Format.doc
+│       │   ├── Duty-Logf.xls
+│       │   ├── INTERNLOG.doc
+│       │   ├── June-Log.doc
+│       │   └── Student-Work-Log-Sample.xls
+│       └── Photographs
+│           ├── General
+│           │   ├── Bridge-Walk-Overview-2.jpg
+│           │   ├── Bridge-Walk-Overview.jpg
+│           │   ├── Chinese-Glass-Dome.jpg
+│           │   ├── Desktop.ini
+│           │   ├── Empire-Mine.jpg
+│           │   ├── leadership.gif
+│           │   ├── tilden-mine.jpg
+│           │   ├── Upper-Peninsula-County-Map.jpg
+│           │   └── UP-picture.rtf
+│           ├── State-Aid-to-Universities-Chart
+│           │   └── college-stats.gif
+│           ├── upper-peninsula-map-files
+│           │   ├── 030718deer.jpg
+│           │   ├── artwork03.jpg
+│           │   ├── artwork04.jpg
+│           │   ├── artwork06.jpg
+│           │   ├── Empire20aerial202.jpg
+│           │   ├── fall-colors.jpg
+│           │   ├── gov-hs-54993-7.tif
+│           │   ├── Tilden20aerial20220web.jpg
+│           │   ├── upmap4.jpg
+│           │   └── welcomup.gif
+│           └── upper-peninsula-map.htm
+├── State-Fair-Documents
+│   ├── 2008
+│   │   ├── 8-14-08-Mascoma-Gov-Brief.doc
+│   │   ├── Delta-County.doc
+│   │   ├── DNR-Pocket-Park-Ribbon-Cutting.doc
+│   │   ├── Ed-Board-Daily-Press.doc
+│   │   ├── Governor-UP-August-2008.doc
+│   │   ├── Lofts-on-Ludington.doc
+│   │   ├── LunchwGovAd2008.pdf
+│   │   ├── Marquette-County.doc
+│   │   ├── Mascoma-Meeting.doc
+│   │   ├── Media-Meet-brief.doc
+│   │   ├── Mining-Journal-Ed-Board-Visit.doc
+│   │   ├── NWLB-Press-Conference.doc
+│   │   ├── State-Bird-Carving-Presentation.doc
+│   │   ├── Stupak-FR-Hot-Issues.doc
+│   │   ├── Stupak-Fundraiser.doc
+│   │   ├── Tim-Kobasic-WYKK-Interview-brief.doc
+│   │   ├── UP-HOT-TOPICS-2007.doc
+│   │   ├── UP-HOT-TOPICS-2008.doc
+│   │   ├── Upper-Peninsula-Hot-Topics.doc
+│   │   ├── UP-State-Fair-Governors-Luncheon-2008.doc
+│   │   ├── Veteran-Background.doc
+│   │   ├── Vet-of-the-Year-Brief.doc
+│   │   ├── Walt-Lindala.doc
+│   │   ├── WCHT-Radio-Interview.doc
+│   │   └── WMXG-FM-radio-interview-brief.doc
+│   └── 2009
+│       ├── Bay-College-Tour.doc
+│       ├── Governors-Luncheon-Summer-Youth-Initiative.doc
+│       ├── IM-Schools-Meeting.doc
+│       ├── Lofts-on-Ludington-Tour.doc
+│       ├── Luncheon.doc
+│       ├── Lunch-with-Bay-College-Bd-of-Trustees.doc
+│       ├── No-Worker-Left-Behind-Event.doc
+│       ├── Photo-Op-with-Orrin-Bailey.doc
+│       ├── State-Bird-Carving-Presentation.doc
+│       ├── St-John-Forest-Products-Tour.doc
+│       ├── UP-State-Fair-2009-Documents-bhl-e040e051
+│       │   ├── Lofts-on-Ludington-Tour.doc
+│       │   ├── Lunch-with-Bay-College-Bd-of-Trustees.doc
+│       │   ├── Photo-Op-with-Orrin-Bailey.doc
+│       │   ├── State-Bird-Carving-Presentation.doc
+│       │   ├── St-John-Forest-Products-Tour.doc
+│       │   └── Vet-of-the-Year-Brief-2009.doc
+│       └── Vet-of-the-Year-Brief-2009.doc
+└── UP-State-Fair
+    ├── 2007
+    │   ├── Background-Info-Western-Lime-3.doc
+    │   ├── Bonifas-Arts-Center-Brief.doc
+    │   ├── CCI-Announcement-brief.doc
+    │   ├── Cleveland-Cliffs-Announcement.doc
+    │   ├── Cliffs-Dignitary-Reception-brief.doc
+    │   ├── Delta-County.doc
+    │   ├── Detailed-Western-Lime-Agenda-2.doc
+    │   ├── Dick-Storm-Radio-Interview-Brief.doc
+    │   ├── DJG-Remarks-8-16-07-draft8-2.doc
+    │   ├── Governor-s-UP-FINAL-Schedule.doc
+    │   ├── Govs-luncheon-Attendees.doc
+    │   ├── Guinness-book-of-records.doc
+    │   ├── GuinnessWorldRecords-for-skateboard.doc
+    │   ├── Les-Wong-meeting-brief.doc
+    │   ├── Manistique-Officials-Meeting-Brief.doc
+    │   ├── Marquette-County.doc
+    │   ├── Media-Meet-brief.doc
+    │   ├── Never-mistake-a-clear-vision-for-a-short-journey-3.doc
+    │   ├── Open-House-Invitations.xls
+    │   ├── Schoolcraft-County.doc
+    │   ├── Tim-Kobasic-WYKK-Interview-brief.doc
+    │   ├── UP-State-Fair-Governors-Luncheon-2007.doc
+    │   ├── UP-State-Fair-Luncheon-SPEECH-Info.doc
+    │   ├── Vet-of-the-Year-Background-2007.doc
+    │   ├── Vet-of-the-Year-Event-Brief.doc
+    │   ├── Western-Lime-Brief-1.doc
+    │   ├── Western-Lime-Brief.doc
+    │   ├── Western-Lime-Info.doc
+    │   └── WMXG-FM-radio-interview-brief.doc
+    └── 2010
+        ├── 8-18-Media-2.doc
+        ├── Briefing-Memo-ATV-OHV-Practical-Skills-Track-Dedication.doc
+        ├── Briefing-Memo-H-for-H-Home-Dedication.doc
+        ├── Briefing-Memo-H-for-H-Manistique.doc
+        ├── Briefing-Memo-Manistique-Memorial-Fountain.doc
+        ├── Briefing-Memo-UPSF-Luncheon.doc
+        ├── Briefing-Memo-War-Memorial-Hospital-Medical-Building.doc
+        ├── CONTACTS-August-19-20-2010.xls
+        ├── Fw-Moyle-Ribbon-Cutting-List-Moyle-Investment-as-it-relates-to-War-Memorial-Hospital.htm
+        ├── Fw-tentative-groundbreaking-agenda-2-GFWC.htm
+        ├── GFWC.pdf
+        ├── HforH-2.pdf
+        ├── invitation.htm
+        ├── mob-2.doc
+        ├── MOB-Mailing-List.xls
+        ├── UPSF-2010-UPDATE.doc
+        └── UPSF.pdf
+
+51 directories, 787 files
