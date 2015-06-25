@@ -1,0 +1,9 @@
+{
+  "type": "file",
+  "id": "0eccc1f1-cb36-48dd-8703-9085fcf87f7f",
+  "parent": "d12aaf8b-1265-47a4-97c3-64ab03fb2c20",
+  "label": "Fake SSNs/fake_ssn.txt",
+  "format": "Generic TXT",
+  "puid": "x-fmt/111",
+  "size": 0.05178642272949219
+}

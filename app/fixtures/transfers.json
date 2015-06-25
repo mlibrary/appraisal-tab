@@ -26,8 +26,18 @@
       "puid": "fmt/40"
     },
     {
+      "label": "Microsoft Word for Windows 2007+",
+      "puid": "fmt/412",
+      "extension": ".docx"
+    },
+    {
       "label": "Excel 97 Workbook",
       "puid": "fmt/61"
+    },
+    {
+      "label": "Excel for Windows 2007+",
+      "puid": "fmt/214",
+      "extension": ".xlsx"
     },
     {
       "label": "RTF 1.7",
@@ -76,8 +86,27 @@
       "extension": ".tif"
     },
     {
+      "label": "Acrobat PDF 1.5",
+      "puid": "fmt/19"
+    },
+    {
       "label": "Acrobat PDF 1.6",
       "puid": "fmt/20"
+    },
+    {
+      "label": "Comma Separated Values",
+      "puid": "x-fmt/18",
+      "extension": ".csv"
+    },
+    {
+      "label": "ZIP file",
+      "puid": "x-fmt/263",
+      "extension": ".zip"
+    },
+    {
+      "label": "Generic TXT",
+      "puid": "x-fmt/111",
+      "extension": ".txt"
     }
   ],
   "transfers": [
@@ -5612,6 +5641,203 @@
                   "label": "up-state-fairgrounds-map.doc",
                   "format": "Microsoft Word Document 97-2003",
                   "puid": "fmt/40"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "49a16b4d-beb1-4bbf-ada0-e362d4f32651",
+      "label": "Identity_Finder_Test_Data-49a16b4d-beb1-4bbf-ada0-e362d4f32651",
+      "groups": [
+        "Word Processing",
+        "Presentation",
+        "Portable Document Format",
+        "Text (Plain)",
+        "Audio",
+        "Spreadsheet",
+        "Package"
+      ],
+      "puids": [
+        "fmt/412",
+        "fmt/215",
+        "fmt/19",
+        "x-fmt/18",
+        "fmt/61",
+        "fmt/40",
+        "fmt/214",
+        "x-fmt/263",
+        "fmt/126",
+        "x-fmt/111"
+      ],
+      "children": [
+        {
+          "id": "6b2caf8b-bee7-44a0-bb54-e42201540e13",
+          "label": "objects",
+          "groups": [
+            "Word Processing",
+            "Presentation",
+            "Portable Document Format",
+            "Text (Plain)",
+            "Audio",
+            "Spreadsheet",
+            "Package"
+          ],
+          "puids": [
+            "fmt/412",
+            "fmt/215",
+            "fmt/19",
+            "x-fmt/18",
+            "fmt/61",
+            "fmt/40",
+            "fmt/214",
+            "x-fmt/263",
+            "fmt/126",
+            "x-fmt/111"
+          ],
+          "children": [
+            {
+              "id": "bb5ee246-ed0b-4a97-9a18-de08b229fec8",
+              "label": "2009 class.docx",
+              "format": "Microsoft Word for Windows 2007+",
+              "puid": "fmt/412",
+              "extension": ".docx"
+            },
+            {
+              "id": "c93564d6-306c-400f-9bfe-73508ef1addf",
+              "label": "Contacts.pptx",
+              "format": "Powerpoint for Windows 2007+",
+              "puid": "fmt/215",
+              "extension": ".pptx"
+            },
+            {
+              "id": "7fc27b8f-fd4e-4220-bd6d-9db98fb14c9d",
+              "label": "Credit Report.pdf",
+              "format": "Acrobat PDF 1.5",
+              "puid": "fmt/19"
+            },
+            {
+              "id": "8ca89491-5b9a-45e0-8202-3e1a1357eab4",
+              "label": "Department.csv",
+              "format": "Comma Separated Values",
+              "puid": "x-fmt/18",
+              "extension": ".csv"
+            },
+            {
+              "id": "d2523802-203b-43e5-b5a9-c719985f726b",
+              "label": "Employee Database.accdb"
+            },
+            {
+              "id": "2927af84-d519-41f6-8bda-5c1caec67d0c",
+              "label": "Employee Database.mdb"
+            },
+            {
+              "id": "e198fa44-5958-4039-9273-7239e5c7e571",
+              "label": "Hidden Column.xls",
+              "format": "Excel 97 Workbook",
+              "puid": "fmt/61"
+            },
+            {
+              "id": "7fce5968-013c-46f5-9e9b-3774b2aa5cb0",
+              "label": "Tax Return 2008.pdf",
+              "format": "Acrobat PDF 1.5",
+              "puid": "fmt/19"
+            },
+            {
+              "id": "a7bf717f-c0bd-4161-9a02-a7cb1674c634",
+              "label": "application.pdf",
+              "format": "Acrobat PDF 1.5",
+              "puid": "fmt/19"
+            },
+            {
+              "id": "875d8e59-2ff3-4e9e-a4dd-90edd4152305",
+              "label": "college essay w footer.doc",
+              "format": "Microsoft Word Document 97-2003",
+              "puid": "fmt/40"
+            },
+            {
+              "id": "c233ba1e-014b-4d74-958a-fb05dabc7932",
+              "label": "loans.xlsx",
+              "format": "Excel for Windows 2007+",
+              "puid": "fmt/214",
+              "extension": ".xlsx"
+            },
+            {
+              "id": "8f5abbd7-046f-40bd-bae6-6646463c2a41",
+              "label": "request.zip",
+              "format": "ZIP file",
+              "puid": "x-fmt/263",
+              "extension": ".zip"
+            },
+            {
+              "id": "61f32c21-46b8-442f-9d55-e1828ea788b5",
+              "label": "students.ppt",
+              "format": "Powerpoint 97-2002",
+              "puid": "fmt/126"
+            },
+            {
+              "id": "d12aaf8b-1265-47a4-97c3-64ab03fb2c20",
+              "label": "Fake_SSNs",
+              "groups": [
+                "Text (Plain)"
+              ],
+              "puids": [
+                "x-fmt/111"
+              ],
+              "children": [
+                {
+                  "id": "0eccc1f1-cb36-48dd-8703-9085fcf87f7f",
+                  "label": "Fake SSNs/fake_ssn.txt",
+                  "format": "Generic TXT",
+                  "puid": "x-fmt/111",
+                  "extension": ".txt"
+                }
+              ]
+            },
+            {
+              "id": "a2f5cfb5-87eb-47be-9c97-5ae5837f5410",
+              "label": "Samples",
+              "groups": [
+                "Text (Plain)"
+              ],
+              "puids": [
+                "x-fmt/111"
+              ],
+              "children": [
+                {
+                  "id": "4cde1036-ffe7-4d70-8c40-ee42a7ab5312",
+                  "label": "SSN.txt",
+                  "format": "Generic TXT",
+                  "puid": "x-fmt/111",
+                  "extension": ".txt"
+                },
+                {
+                  "id": "97331076-6932-4e19-ad9a-7c31115493e8",
+                  "label": "Sample Real CCN.txt",
+                  "format": "Generic TXT",
+                  "puid": "x-fmt/111",
+                  "extension": ".txt"
+                }
+              ]
+            },
+            {
+              "id": "184f3861-fd90-4fdb-96da-6d595da56cd7",
+              "label": "request.zip-2015-06-25T12_36_39.286770_00_00",
+              "groups": [
+                "Text (Plain)"
+              ],
+              "puids": [
+                "x-fmt/111"
+              ],
+              "children": [
+                {
+                  "id": "2812a935-017d-4a9c-ab68-6938a9f50f6b",
+                  "label": "request.txt",
+                  "format": "Generic TXT",
+                  "puid": "x-fmt/111",
+                  "extension": ".txt"
                 }
               ]
             }
