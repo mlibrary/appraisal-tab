@@ -9,6 +9,5 @@
   <li ng-repeat="record in SelectedFiles.selected | find_files">
     {{ record.label }}:
       <a ng-if="record.bulk_extractor" href="{{ record.bulk_extractor}}">Bulk Extractor logs</a>
-      <a ng-if="!record.bulk_extractor" class="disabled">Bulk Extractor logs</a>
   </li>
 </ul>
