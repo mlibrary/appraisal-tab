@@ -5,5 +5,6 @@
   "label": "request.zip",
   "format": "ZIP file",
   "puid": "x-fmt/263",
-  "size": 0.00031948089599609375
+  "size": 0.00031948089599609375,
+  "bulk_extractor": "fixtures/transferdata/bulk-8f5abbd7-046f-40bd-bae6-6646463c2a41.zip"
 }

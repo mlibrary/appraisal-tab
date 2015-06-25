@@ -5,5 +5,6 @@
   "label": "Sample Real CCN.txt",
   "format": "Generic TXT",
   "puid": "x-fmt/111",
-  "size": 0.008740425109863281
+  "size": 0.008740425109863281,
+  "bulk_extractor": "fixtures/transferdata/bulk-97331076-6932-4e19-ad9a-7c31115493e8.zip"
 }

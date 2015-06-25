@@ -3,5 +3,6 @@
   "id": "2927af84-d519-41f6-8bda-5c1caec67d0c",
   "parent": "6b2caf8b-bee7-44a0-bb54-e42201540e13",
   "label": "Employee Database.mdb",
-  "size": 0.21875
+  "size": 0.21875,
+  "bulk_extractor": "fixtures/transferdata/bulk-2927af84-d519-41f6-8bda-5c1caec67d0c.zip"
 }

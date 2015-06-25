@@ -5,5 +5,6 @@
   "label": "application.pdf",
   "format": "Acrobat PDF 1.5",
   "puid": "fmt/19",
-  "size": 0.08741188049316406
+  "size": 0.08741188049316406,
+  "bulk_extractor": "fixtures/transferdata/bulk-a7bf717f-c0bd-4161-9a02-a7cb1674c634.zip"
 }
