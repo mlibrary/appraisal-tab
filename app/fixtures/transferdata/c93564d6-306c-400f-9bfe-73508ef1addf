@@ -1,0 +1,35 @@
+{
+  "pii": [
+    {
+      "content": "SSN: 623-06-4066", 
+      "context": "Clean=\"0\"/><a:t>SSN: 623-06-4066</a:t></a:r></a:", 
+      "offset": "4190-ZIP-1162"
+    }, 
+    {
+      "content": "SSN: 623-06-4066", 
+      "context": "s BarlowN0083727SSN: 623-06-4066M: (406) 205-078", 
+      "offset": "4190-ZIP-0-MSXML-21"
+    }, 
+    {
+      "content": "SSN: 347-86-7520", 
+      "context": "Clean=\"0\"/><a:t>SSN: 347-86-7520</a:t></a:r></a:", 
+      "offset": "4797-ZIP-1164"
+    }, 
+    {
+      "content": "SSN: 347-86-7520", 
+      "context": "n FranksN0083767SSN: 347-86-7520M: 217.563.4747H", 
+      "offset": "4797-ZIP-0-MSXML-23"
+    }, 
+    {
+      "content": "SSN: 610-16-4649", 
+      "context": "Clean=\"0\"/><a:t>SSN: 610-16-4649</a:t></a:r></a:", 
+      "offset": "5402-ZIP-1162"
+    }, 
+    {
+      "content": "SSN: 610-16-4649", 
+      "context": "ck CookeN0083712SSN: 610-16-4649M: (517) 552-931", 
+      "offset": "5402-ZIP-0-MSXML-21"
+    }
+  ], 
+  "ccn": []
+}

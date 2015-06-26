@@ -1,0 +1,16 @@
+{
+  "pii": [
+    {
+      "content": "SSN: 138-50-9017", 
+      "context": "ame:\\x09Nicholson\\x0D\\x0ASSN: 138-50-9017\\x0D\\x0ACCN:\\x09341415130", 
+      "offset": "0-ZIP-24"
+    }
+  ], 
+  "ccn": [
+    {
+      "content": "341415130141714", 
+      "context": "8-50-9017\\x0D\\x0ACCN:\\x09341415130141714\\x0D\\x0ADrivers: a1234", 
+      "offset": "0-ZIP-47"
+    }
+  ]
+}
