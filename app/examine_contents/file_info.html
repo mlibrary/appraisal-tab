@@ -1,0 +1,10 @@
+<div app-view-segment="2"></div>
+
+<ul class="nav links">
+  <li class="internal" ng-class="{ active: $routeSegment.contains('pii') }">
+    <a href="#/contents/{{ id }}/pii">PII</a>
+  </li>
+  <li class="internal" ng-class="{ active: $routeSegment.contains('ccn') }">
+    <a href="#/contents/{{ id }}/ccn">Credit card numbers</a>
+  </li>
+</ul>

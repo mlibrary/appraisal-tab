@@ -7,7 +7,9 @@
   </li>
   <h1 ng-if="(SelectedFiles.selected | find_files).length != 0">Files</h1>
   <li ng-repeat="record in SelectedFiles.selected | find_files">
-    {{ record.label }}:
+    <a href="#/contents/{{ record.id }}/pii">{{ record.label }}</a>:
       <a ng-if="record.bulk_extractor" href="{{ record.bulk_extractor}}">Bulk Extractor logs</a>
   </li>
 </ul>
+
+<div app-view-segment="1"></div>
