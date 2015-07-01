@@ -5,6 +5,5 @@
   "label": "Fake SSNs/fake_ssn.txt",
   "format": "Generic TXT",
   "puid": "x-fmt/111",
-  "size": 0.05178642272949219,
-  "bulk_extractor": "fixtures/transferdata/bulk-0eccc1f1-cb36-48dd-8703-9085fcf87f7f.zip"
+  "size": 0.05178642272949219
 }

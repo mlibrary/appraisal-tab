@@ -5,6 +5,5 @@
   "label": "SSN.txt",
   "format": "Generic TXT",
   "puid": "x-fmt/111",
-  "size": 0.00034046173095703125,
-  "bulk_extractor": "fixtures/transferdata/bulk-4cde1036-ffe7-4d70-8c40-ee42a7ab5312.zip"
+  "size": 0.00034046173095703125
 }

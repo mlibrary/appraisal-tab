@@ -5,6 +5,5 @@
   "label": "Department.csv",
   "format": "Comma Separated Values",
   "puid": "x-fmt/18",
-  "size": 0.0016050338745117188,
-  "bulk_extractor": "fixtures/transferdata/bulk-8ca89491-5b9a-45e0-8202-3e1a1357eab4.zip"
+  "size": 0.0016050338745117188
 }

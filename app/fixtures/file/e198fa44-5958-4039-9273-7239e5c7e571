@@ -5,6 +5,5 @@
   "label": "Hidden Column.xls",
   "format": "Excel 97 Workbook",
   "puid": "fmt/61",
-  "size": 0.01953125,
-  "bulk_extractor": "fixtures/transferdata/bulk-e198fa44-5958-4039-9273-7239e5c7e571.zip"
+  "size": 0.01953125
 }
