@@ -32,8 +32,7 @@ angular.module('appraisalTab', [
   $routeSegmentProvider.
     when('/report', 'report').
     when('/contents', 'examine_contents').
-    when('/contents/:id', 'examine_contents.file_info').
-    when('/contents/:id/:type', 'examine_contents.file_info.details').
+    when('/contents/:id/:type', 'examine_contents.file_info').
     when('/visualizations', 'visualizations').
     when('/visualizations/files', 'visualizations.files').
     when('/visualizations/size', 'visualizations.size').
@@ -52,15 +51,8 @@ angular.module('appraisalTab', [
       segment('file_info', {
         templateUrl: 'examine_contents/file_info.html',
         controller: 'ExamineContentsFileController',
-        dependencies: ['id'],
+        dependencies: ['id', 'type'],
       }).
-      within().
-        segment('details', {
-          templateUrl: 'examine_contents/details.html',
-          controller: 'ExamineContentsDetailsController',
-          dependencies: ['id', 'type'],
-        }).
-      up().
     up().
 
     segment('visualizations', {

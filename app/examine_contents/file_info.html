@@ -1,10 +1,21 @@
-<div app-view-segment="2"></div>
+<table ng-if="file[type].length > 0">
+  <th>Offset</th>
+  <th>Content</th>
+  <th>Context</th>
+  <tr ng-repeat="feature in file[type]">
+    <td>{{ feature.offset }}</td>
+    <td>{{ feature.content }}</td>
+    <td>{{ feature.context }}</td>
+  </tr>
+</table>
 
+<!-- TODO: when styling, make sure it's clear why nothing is being displayed if
+           there are no hits for PII or CCN -->
 <ul class="nav links">
-  <li class="internal" ng-class="{ active: $routeSegment.contains('pii') }">
+  <li class="internal" ng-if="file.pii.length > 0" ng-class="{ active: $routeSegment.contains('pii') }">
     <a href="#/contents/{{ id }}/pii">PII</a>
   </li>
-  <li class="internal" ng-class="{ active: $routeSegment.contains('ccn') }">
+  <li class="internal" ng-if="file.ccn.length > 0" ng-class="{ active: $routeSegment.contains('ccn') }">
     <a href="#/contents/{{ id }}/ccn">Credit card numbers</a>
   </li>
 </ul>
