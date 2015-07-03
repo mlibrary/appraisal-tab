@@ -1,1 +1,6 @@
-<tree id="archivesspace-tree" tree-data="data" tree-options="options"/>
+<treecontrol id="archivesspace-tree"
+             class="tree-classic"
+             tree-model="data"
+             options="options">
+  {{ node.title }} <div ng-if="node.identifier">({{ node.identifier }})</div>
+</treecontrol>
