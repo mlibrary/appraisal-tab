@@ -92,7 +92,8 @@
   <div class="transfer-tree" ng-controller="TreeController">
     <treecontrol class="tree-classic"
                  tree-model="data"
-                 options="options">
+                 options="options"
+                 on-selection="track_selected(node, selected)">
       {{ node.label }}
     </treecontrol>
   </div>
