@@ -20,6 +20,7 @@ angular.module('appraisalTab', [
   'examineContentsController',
   'facetController',
   'reportController',
+  'tag',
   'treeController',
   'visualizationsController',
 ]).config(function(RestangularProvider) {
@@ -31,6 +32,7 @@ angular.module('appraisalTab', [
 
   $routeSegmentProvider.
     when('/report', 'report').
+    when('/tag', 'tag').
     when('/contents', 'examine_contents').
     when('/contents/:id/:type', 'examine_contents.file_info').
     when('/visualizations', 'visualizations').
@@ -41,6 +43,11 @@ angular.module('appraisalTab', [
     segment('report', {
       templateUrl: 'report/report.html',
       controller: 'ReportController',
+    }).
+
+    segment('tag', {
+      templateUrl: 'tag/tag.html',
+      controller: 'TagController',
     }).
 
     segment('examine_contents', {

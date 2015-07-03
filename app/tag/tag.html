@@ -1,0 +1,5 @@
+<ul ng-if="tags.length > 0">
+  <li ng-repeat="tag in tags">{{ tag }}</li>
+</ul>
+
+<input type="text" ng-model="tag_input" ng-change="tag_watcher(tag_input)" ng-trim="false">
