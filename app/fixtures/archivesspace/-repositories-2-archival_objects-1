@@ -1,0 +1,19 @@
+{
+  "dates": "",
+  "title": "Test series",
+  "levelOfDescription": "series",
+  "children": [{
+    "dates": "",
+    "title": "Test subseries",
+    "levelOfDescription": "subseries",
+    "children": [],
+    "has_children": true,
+    "sortPosition": 4,
+    "identifier": "F1-1-1",
+    "id": "/repositories/2/archival_objects/3"
+  }],
+  "has_children": true,
+  "sortPosition": 3,
+  "identifier": "F1-1",
+  "id": "/repositories/2/archival_objects/1"
+}

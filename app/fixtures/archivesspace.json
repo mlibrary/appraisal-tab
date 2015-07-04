@@ -3,46 +3,8 @@
     "dates": "2015-01-01",
     "title": "Test fonds",
     "levelOfDescription": "fonds",
-    "children": [
-      {
-        "dates": "",
-        "title": "Test series",
-        "levelOfDescription": "series",
-        "children": [
-          {
-            "dates": "",
-            "title": "Test subseries",
-            "levelOfDescription": "subseries",
-            "children": [
-              {
-                "dates": "",
-                "title": "Test file",
-                "levelOfDescription": "file",
-                "children": false,
-                "sortPosition": 5,
-                "identifier": "F1-1-1-1",
-                "id": "/repositories/2/archival_objects/4"
-              }
-            ],
-            "sortPosition": 4,
-            "identifier": "F1-1-1",
-            "id": "/repositories/2/archival_objects/3"
-          }
-        ],
-        "sortPosition": 3,
-        "identifier": "F1-1",
-        "id": "/repositories/2/archival_objects/1"
-      },
-      {
-        "dates": "",
-        "title": "Test series 2",
-        "levelOfDescription": "series",
-        "children": false,
-        "sortPosition": 3,
-        "identifier": "F1-2",
-        "id": "/repositories/2/archival_objects/2"
-      }
-    ],
+    "children": [],
+    "has_children": true,
     "sortPosition": 2,
     "identifier": "F1",
     "id": "/repositories/2/resources/1"
