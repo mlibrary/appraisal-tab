@@ -8,6 +8,12 @@
     $scope.options = {
       dirSelectable: true,
       multiSelection: true,
+      equality: function(a, b) {
+        if (a === undefined || b === undefined) {
+          return false;
+        }
+        return a.id === b.id;
+      },
     };
     $scope.selected = [];
 
