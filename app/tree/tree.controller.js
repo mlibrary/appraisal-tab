@@ -47,9 +47,7 @@
         remove_file(node);
       }
     };
-
-    Transfer.all().then(function(data) {
-      $scope.data = data.transfers;
-    });
+    $scope.transfers = Transfer;
+    Transfer.resolve();
   }]);
 })();

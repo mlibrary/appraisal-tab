@@ -22,4 +22,17 @@ describe('Transfer', function() {
     });
     _$httpBackend_.flush();
   }));
+
+  it('should be able to track a copy of fetched transfers on itself', inject(function(_$httpBackend_, Transfer) {
+    Transfer.resolve();
+    _$httpBackend_.flush();
+    expect(Transfer.data.length).toEqual(1);
+    expect(Transfer.data[0].id).toEqual('d5700e44-68f1-4eec-a7e4-c5a5c7da2373');
+  }));
+
+  it('should provide a flat map of all stored transfers using IDs as keys', inject(function(_$httpBackend_, Transfer) {
+    Transfer.resolve();
+    _$httpBackend_.flush();
+    expect(Transfer.id_map['d5700e44-68f1-4eec-a7e4-c5a5c7da2373'].name).toEqual('Images-49c47319-1387-48c4-aab7-381923f07f7c');
+  }));
 });
