@@ -20,6 +20,7 @@
     var Transfer = Restangular.all('transfers.json');
     return {
       data: [],
+      formats: [],
       id_map: {},
       all: function() {
         return Transfer.customGET();
@@ -28,6 +29,7 @@
         var self = this;
         self.all().then(function(data) {
           self.data = data.transfers;
+          self.formats = data.formats;
           self.id_map = create_flat_map(data.transfers);
         });
       },

@@ -8,10 +8,7 @@
       Facet.remove_by_id(name, id);
     };
     $scope.Facet = Facet;
-
-    Transfer.all().then(function(transfer_data) {
-      $scope.formats = transfer_data.formats;
-    });
+    $scope.transfers = Transfer;
 
     $scope.$watch('extension', function(selected) {
       if (!selected) {

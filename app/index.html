@@ -56,13 +56,13 @@
     PUID:
     <select ng-model="puid">
       <option value="">All</option>
-      <option ng-repeat="format in formats" ng-if="format.puid" value="{{ format.puid }}">{{ format.label }} ({{ format.puid }})</option>
+      <option ng-repeat="format in transfers.formats" ng-if="format.puid" value="{{ format.puid }}">{{ format.label }} ({{ format.puid }})</option>
     </select>
 
     File extension:
     <select ng-model="extension">
       <option value="">All</option>
-      <option ng-repeat="format in formats" ng-if="format.extension" value="{{ format.extension }}">{{ format.label }} ({{ format.extension }})</option>
+      <option ng-repeat="format in transfers.formats" ng-if="format.extension" value="{{ format.extension }}">{{ format.label }} ({{ format.extension }})</option>
     </select>
 
     <div>

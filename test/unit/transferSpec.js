@@ -4,7 +4,12 @@ describe('Transfer', function() {
   beforeEach(module('transferService'));
   beforeEach(angular.mock.inject(function(_$httpBackend_) {
     _$httpBackend_.when('GET', '/transfers.json').respond({
-      'formats': [],
+      'formats': [
+        {
+          'label': 'Powerpoint 97-2002',
+          'puid': 'fmt/126',
+        },
+      ],
       'transfers': [
         {
           'id': 'd5700e44-68f1-4eec-a7e4-c5a5c7da2373',
@@ -34,5 +39,12 @@ describe('Transfer', function() {
     Transfer.resolve();
     _$httpBackend_.flush();
     expect(Transfer.id_map['d5700e44-68f1-4eec-a7e4-c5a5c7da2373'].name).toEqual('Images-49c47319-1387-48c4-aab7-381923f07f7c');
+  }));
+
+  it('should be able to track a copy of the fetched transfers\' formats on itself', inject(function(_$httpBackend_, Transfer) {
+    Transfer.resolve();
+    _$httpBackend_.flush();
+    expect(Transfer.formats.length).toEqual(1);
+    expect(Transfer.formats[0].puid).toEqual('fmt/126');
   }));
 });
