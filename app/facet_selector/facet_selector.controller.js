@@ -1,14 +1,15 @@
 'use strict';
 
 (function() {
-  var facetController = angular.module('facetController', []);
+  var facetController = angular.module('facetController', ['tagService']);
 
-  facetController.controller('FacetController', function($scope, Transfer, Facet) {
+  facetController.controller('FacetController', function($scope, Transfer, Facet, Tag) {
     $scope.remove_facet = function(name, id) {
       Facet.remove_by_id(name, id);
     };
     $scope.Facet = Facet;
     $scope.transfers = Transfer;
+    $scope.tags = Tag;
 
     $scope.$watch('extension', function(selected) {
       if (!selected) {
