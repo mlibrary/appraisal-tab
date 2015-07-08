@@ -50,7 +50,7 @@
 
   <div class="facet-box" ng-controller="FacetController">
     <div ng-repeat="facet in Facet.facet_list">
-      {{ facet.name }}: {{ facet.text }} <span ng-click="remove_facet(facet.facet, facet.id);">x</span>
+      {{ facet.name }}: {{ facet.text }} <span ng-click="remove_facet(facet.facet, facet.id);"><i class="fa fa-minus-square"></i></span>
     </div>
 
     PUID:
