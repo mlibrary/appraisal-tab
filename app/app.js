@@ -14,6 +14,7 @@ angular.module('appraisalTab', [
   'selectedFilesService',
   'transferService',
   'fileService',
+  'tagService',
   'facetFilter',
   'aggregationFilters',
   'archivesSpaceController',
