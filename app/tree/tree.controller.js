@@ -3,7 +3,7 @@
 (function() {
   var treeController = angular.module('treeController', []);
 
-  treeController.controller('TreeController', ['$scope', 'SelectedFiles', 'Transfer', function($scope, SelectedFiles, Transfer) {
+  treeController.controller('TreeController', ['$scope', 'SelectedFiles', 'Tag', 'Transfer', function($scope, SelectedFiles, Tag, Transfer) {
 
     $scope.options = {
       dirSelectable: true,
@@ -16,6 +16,10 @@
       },
     };
     $scope.selected = [];
+
+    $scope.remove_tag = function(id, tag) {
+      Tag.remove(id, tag);
+    };
 
     var add_file = function(node) {
       SelectedFiles.add(node.id);

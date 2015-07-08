@@ -54,6 +54,13 @@
   padding: 0 0 60px 0;
 }
 
+.tag {
+  box-shadow: 0 0 0 1px black;
+  border-radius: 1px;
+  padding-left: 0.2em;
+  padding-right: 0.2em;
+}
+
 .disabled {
   color: gray;
   text-decoration: line-through;

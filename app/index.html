@@ -94,7 +94,7 @@
                  tree-model="transfers.data"
                  options="options"
                  on-selection="track_selected(node, selected)">
-      {{ node.label }}
+      {{ node.label }} <span class="tag" ng-repeat="tag in node.tags">{{ tag }} <span ng-click="remove_tag(id, tag)"><i class="fa fa-minus-square"></i></span></span>
     </treecontrol>
   </div>
 
