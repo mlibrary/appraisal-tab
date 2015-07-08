@@ -17,6 +17,11 @@
           return el.id !== uuid;
         });
       },
+      list_ids: function() {
+        return this.selected.map(function(record) {
+          return record.id;
+        });
+      },
       selected: [],
     };
   });

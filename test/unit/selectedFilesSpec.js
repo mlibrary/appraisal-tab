@@ -11,6 +11,10 @@ describe('SelectedFiles', function() {
       'id': '939110fa-8c73-4531-8aa0-aa28e90ca108',
       'text': 'garnet.jpg',
     });
+    _$httpBackend_.when('GET', '/file/3400c608-4dbf-4eeb-af22-7fb4ca6a5de6').respond({
+      'id': '3400c608-4dbf-4eeb-af22-7fb4ca6a5de6',
+      'text': 'amethyst.tif',
+    });
   }));
   beforeEach(angular.mock.inject(function(SelectedFiles) {
     SelectedFiles.selected = [];
@@ -39,4 +43,11 @@ describe('SelectedFiles', function() {
     expect(SelectedFiles.selected.length).toEqual(1);
     expect(SelectedFiles.selected[0].text).toEqual('garnet.jpg');
   }));
+
+  it('should be able to return a list of IDs', inject(function(_$httpBackend_, SelectedFiles) {
+      expect(SelectedFiles.list_ids().length).toEqual(0);
+      SelectedFiles.add('3400c608-4dbf-4eeb-af22-7fb4ca6a5de6');
+      _$httpBackend_.flush();
+      expect(SelectedFiles.list_ids()).toEqual(['3400c608-4dbf-4eeb-af22-7fb4ca6a5de6']);
+    }));
 });
