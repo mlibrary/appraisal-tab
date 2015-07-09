@@ -22,7 +22,7 @@
     };
 
     var add_file = function(node) {
-      SelectedFiles.add(node.id);
+      SelectedFiles.add(node);
       $scope.selected.push(node);
       if (node.children) {
         for (var i = 0; i < node.children.length; i++) {
