@@ -24,10 +24,14 @@ angular.module('appraisalTab', [
   'tag',
   'treeController',
   'visualizationsController',
-]).config(function(RestangularProvider) {
-    RestangularProvider.setBaseUrl('/app/fixtures');
-    RestangularProvider.setDefaultHttpFields({cache: true});
-}).config(function($routeSegmentProvider) {
+]).
+
+config(['RestangularProvider', function(RestangularProvider) {
+  RestangularProvider.setBaseUrl('/app/fixtures');
+  RestangularProvider.setDefaultHttpFields({cache: true});
+}]).
+
+config(['$routeSegmentProvider', function($routeSegmentProvider) {
   $routeSegmentProvider.options.autoLoadTemplates = true;
   $routeSegmentProvider.options.strictMode = true;
 
@@ -81,6 +85,8 @@ angular.module('appraisalTab', [
       templateUrl: 'archivesspace/archivesspace.html',
       controller: 'ArchivesSpaceController',
     });
-}).controller('MainController', ['$scope', '$routeSegment', function($scope, $routeSegment) {
+}]).
+
+controller('MainController', ['$scope', '$routeSegment', function($scope, $routeSegment) {
   $scope.$routeSegment = $routeSegment;
 }]);

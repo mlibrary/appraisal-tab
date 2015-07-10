@@ -1,7 +1,9 @@
 'use strict';
 
 (function() {
-  angular.module('visualizationsController', ['angularCharts', 'selectedFilesService']).controller('VisualizationsController', ['$scope', 'Facet', 'SelectedFiles', function($scope, Facet, SelectedFiles) {
+  angular.module('visualizationsController', ['angularCharts', 'selectedFilesService']).
+
+  controller('VisualizationsController', ['$scope', 'Facet', 'SelectedFiles', function($scope, Facet, SelectedFiles) {
     // Displays aggregate information about file formats;
     // the selected record data is filtered/reformatted in the view.
     $scope.records = SelectedFiles;

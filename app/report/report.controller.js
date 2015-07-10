@@ -1,9 +1,9 @@
 'use strict';
 
 (function() {
-  var reportController = angular.module('reportController', ['selectedFilesService']);
+  angular.module('reportController', ['selectedFilesService']).
 
-  reportController.controller('ReportController', ['$scope', 'SelectedFiles', function($scope, SelectedFiles) {
-      $scope.records = SelectedFiles;
-    }]);
+  controller('ReportController', ['$scope', 'SelectedFiles', function($scope, SelectedFiles) {
+    $scope.records = SelectedFiles;
+  }]);
 })();

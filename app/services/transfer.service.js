@@ -1,9 +1,9 @@
 'use strict';
 
 (function() {
-  var transferService = angular.module('transferService', ['restangular']);
+  angular.module('transferService', ['restangular']).
 
-  transferService.factory('Transfer', function(Restangular) {
+  factory('Transfer', ['Restangular', function(Restangular) {
     var create_flat_map = function(records, map) {
       if (map === undefined) {
         map = {};
@@ -34,5 +34,5 @@
         });
       },
     };
-  });
+  }]);
 })();

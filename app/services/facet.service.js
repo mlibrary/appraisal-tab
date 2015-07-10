@@ -1,9 +1,9 @@
 'use strict';
 
 (function() {
-  var facetService = angular.module('facetService', []);
+  angular.module('facetService', []).
 
-  facetService.factory('Facet', function() {
+  factory('Facet', function() {
     var add = function(name, value, data, id) {
       data = data || {};
 

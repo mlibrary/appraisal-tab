@@ -1,9 +1,9 @@
 'use strict';
 
 (function() {
-  var treeController = angular.module('treeController', []);
+  var treeController = angular.module('treeController', []).
 
-  treeController.controller('TreeController', ['$scope', 'SelectedFiles', 'Tag', 'Transfer', function($scope, SelectedFiles, Tag, Transfer) {
+  controller('TreeController', ['$scope', 'SelectedFiles', 'Tag', 'Transfer', function($scope, SelectedFiles, Tag, Transfer) {
 
     $scope.options = {
       dirSelectable: true,

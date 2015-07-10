@@ -7,7 +7,9 @@
     return JSON.stringify(records);
   };
 
-  angular.module('aggregationFilters', []).filter('puid_data', function() {
+  angular.module('aggregationFilters', []).
+
+  filter('puid_data', function() {
     var puid_data_fn = function(records) {
       var puid_data = {};
       for (var i in records) {
@@ -36,8 +38,9 @@
     };
 
     return _.memoize(puid_data_fn, hash_fn);
-  })
-  .filter('puid_graph', function() {
+  }).
+
+  filter('puid_graph', function() {
     var puid_graph_fn = function(records) {
       var data = {
         series: ['Format'],
@@ -55,6 +58,7 @@
 
     return _.memoize(puid_graph_fn, hash_fn);
   }).
+
   filter('size_graph', function() {
     var size_graph_fn = function(records) {
       var data = {
@@ -73,6 +77,7 @@
 
     return _.memoize(size_graph_fn, hash_fn);
   }).
+
   filter('find_transfers', function() {
     var transfer_fn = function(records) {
       return records.filter(function(el) {
@@ -82,6 +87,7 @@
 
     return _.memoize(transfer_fn, hash_fn);
   }).
+
   filter('find_files', function() {
     var file_fn = function(records) {
       return records.filter(function(el) {

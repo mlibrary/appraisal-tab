@@ -1,7 +1,9 @@
 'use strict';
 
 (function() {
-  angular.module('archivesSpaceController', []).controller('ArchivesSpaceController', ['$scope', 'ArchivesSpace', function($scope, ArchivesSpace) {
+  angular.module('archivesSpaceController', []).
+
+  controller('ArchivesSpaceController', ['$scope', 'ArchivesSpace', function($scope, ArchivesSpace) {
       $scope.options = {
         dirSelectable: true,
         equality: function(a, b) {

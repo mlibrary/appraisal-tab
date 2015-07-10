@@ -1,7 +1,9 @@
 'use strict';
 
 (function() {
-  angular.module('selectedFilesService', ['fileService']).service('SelectedFiles', function(File) {
+  angular.module('selectedFilesService', ['fileService']).
+
+  service('SelectedFiles', ['File', function(File) {
     return {
       add: function(file) {
         // Remove any occurrences of this file if they already exist
@@ -20,5 +22,5 @@
       },
       selected: [],
     };
-  });
+  }]);
 })();

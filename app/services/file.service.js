@@ -1,9 +1,9 @@
 'use strict';
 
 (function() {
-  var fileService = angular.module('fileService', ['restangular']);
+  angular.module('fileService', ['restangular']).
 
-  fileService.factory('File', ['Restangular', function(Restangular) {
+  factory('File', ['Restangular', function(Restangular) {
     var File = Restangular.all('file');
     var FileData = Restangular.all('transferdata');
     return {
