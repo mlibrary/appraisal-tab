@@ -1,4 +1,15 @@
-<ul class="report-panel">
+<!-- TODO: when styling, make sure it's clear why nothing is being displayed if
+           there are no hits for PII or CCN -->
+<ul class="nav links">
+  <li class="internal" ng-class="{ active: type === 'pii' }">
+    <a href="#/contents/pii">PII</a>
+  </li>
+  <li class="internal" ng-class="{ active: type === 'ccn' }">
+    <a href="#/contents/ccn">Credit card numbers</a>
+  </li>
+</ul>
+
+<ul ng-if="type" class="report-panel">
   <h1 ng-if="(SelectedFiles.selected | find_transfers).length != 0">Transfers:</h1>
   <li ng-repeat="record in SelectedFiles.selected | find_transfers">
     {{ record.label }}:
@@ -6,8 +17,8 @@
       <a ng-if="!record.original_order" class="disabled">original order</a>
   </li>
   <h1 ng-if="(SelectedFiles.selected | find_files).length != 0">Files</h1>
-  <li ng-repeat="record in SelectedFiles.selected | find_files">
-    <a href="#/contents/{{ record.id }}/pii">{{ record.label }}</a>:
+  <li ng-repeat="record in SelectedFiles.selected | find_files | filter:{bulk_extractor_reports: type}">
+    <a href="#/contents/{{ record.id }}/{{ type }}">{{ record.label }}</a>:
       <a ng-if="record.bulk_extractor" href="{{ record.bulk_extractor}}">Bulk Extractor logs</a>
   </li>
 </ul>

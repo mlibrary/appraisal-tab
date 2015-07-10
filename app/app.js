@@ -39,6 +39,7 @@ config(['$routeSegmentProvider', function($routeSegmentProvider) {
     when('/report', 'report').
     when('/tag', 'tag').
     when('/contents', 'examine_contents').
+    when('/contents/:type', 'examine_contents').
     when('/contents/:id/:type', 'examine_contents.file_info').
     when('/visualizations', 'visualizations').
     when('/visualizations/files', 'visualizations.files').
@@ -58,6 +59,7 @@ config(['$routeSegmentProvider', function($routeSegmentProvider) {
     segment('examine_contents', {
       templateUrl: 'examine_contents/examine_contents.html',
       controller: 'ExamineContentsController',
+      dependencies: ['type'],
     }).
     within().
       segment('file_info', {

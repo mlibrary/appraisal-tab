@@ -8,14 +8,3 @@
     <td>{{ feature.context }}</td>
   </tr>
 </table>
-
-<!-- TODO: when styling, make sure it's clear why nothing is being displayed if
-           there are no hits for PII or CCN -->
-<ul class="nav links">
-  <li class="internal" ng-if="file.pii.length > 0" ng-class="{ active: $routeSegment.contains('pii') }">
-    <a href="#/contents/{{ id }}/pii">PII</a>
-  </li>
-  <li class="internal" ng-if="file.ccn.length > 0" ng-class="{ active: $routeSegment.contains('ccn') }">
-    <a href="#/contents/{{ id }}/ccn">Credit card numbers</a>
-  </li>
-</ul>

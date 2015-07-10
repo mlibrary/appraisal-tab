@@ -3,7 +3,8 @@
 (function() {
   angular.module('examineContentsController', []).
 
-  controller('ExamineContentsController', ['$scope', 'SelectedFiles', function($scope, SelectedFiles) {
+  controller('ExamineContentsController', ['$scope', '$routeSegment', 'SelectedFiles', function($scope, $routeSegment, SelectedFiles) {
+    $scope.type = $routeSegment.$routeParams.type;
     $scope.SelectedFiles = SelectedFiles;
   }]).
 
