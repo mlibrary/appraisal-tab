@@ -43,7 +43,7 @@ First, in the TreeController, we inject the SelectedFiles service, and add or re
 angular.module('treeController', []).controller('TreeController', function(Tree, SelectedFiles) {
   Tree.onClick(function(element) {
     if (element.isSelected) {
-      SelectedFiles.add(element.id);
+      SelectedFiles.add(element);
     } else {
       SelectedFiles.remove(element.id);
     }
