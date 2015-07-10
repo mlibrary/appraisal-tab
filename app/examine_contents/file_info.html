@@ -1,9 +1,7 @@
 <table ng-if="file[type].length > 0">
-  <th>Offset</th>
   <th>Content</th>
   <th>Context</th>
   <tr ng-repeat="feature in file[type]">
-    <td>{{ feature.offset }}</td>
     <td>{{ feature.content }}</td>
     <td>{{ feature.context }}</td>
   </tr>
