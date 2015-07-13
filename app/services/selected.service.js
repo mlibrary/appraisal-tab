@@ -20,6 +20,15 @@
           return record.id;
         });
       },
+      // TODO: look at optimizing file lookup-by-id if this gets used a lot
+      get: function(id) {
+        for (var i = 0; i < this.selected.length; i++) {
+          var item = this.selected[i];
+          if (item.id === id) {
+            return item;
+          }
+        }
+      },
       selected: [],
     };
   }]);

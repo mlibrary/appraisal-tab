@@ -47,4 +47,14 @@ describe('SelectedFiles', function() {
       SelectedFiles.add(test_item_3);
       expect(SelectedFiles.list_ids()).toEqual(['3400c608-4dbf-4eeb-af22-7fb4ca6a5de6']);
     }));
+
+  it('should be able to retrieve a file by ID', inject(function(SelectedFiles) {
+    SelectedFiles.add(test_item_1);
+    SelectedFiles.add(test_item_2);
+    expect(SelectedFiles.get('939110fa-8c73-4531-8aa0-aa28e90ca108').text).toEqual('garnet.jpg');
+  }));
+
+  it('should return undefined when retrieving a file via an ID that does not exist', inject(function(SelectedFiles) {
+    expect(SelectedFiles.get('nosuchfile')).toBeUndefined();
+  }));
 });
