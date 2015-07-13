@@ -13,10 +13,10 @@
   <link rel="stylesheet" href="bower_components/fontawesome/css/font-awesome.min.css">
   <link rel="stylesheet" href="vendor/angular-tree-control/css/tree-control.css">
   <link rel="stylesheet" href="vendor/angular-tree-control/css/tree-control-attribute.css">
-  <link rel="stylesheet" href="app.css">
   <link rel="stylesheet" href="css/directory-picker.css">
   <link rel="stylesheet" href="css/file-explorer.css">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="app.css">
 </head>
 <body>
   <!--[if lt IE 7]>
@@ -70,38 +70,44 @@
     </div>
   </div>
 
-  <ul class="nav links">
-    <li class="internal" ng-class="{ active: $routeSegment.contains('report') }">
-      <a href="#/report">Report</a>
-    </li>
-    <li class="internal" ng-class="{ active: $routeSegment.contains('tag') }">
-      <a href="#/tag">Tag</a>
-    </li>
-    <li class="internal" ng-class="{ active: $routeSegment.contains('examine_contents') }">
-      <a href="#/contents">Examine contents</a>
-    </li>
-    <li class="internal" ng-class="{ active: $routeSegment.contains('visualizations') }">
-      <a href="#/visualizations">Visualizations</a>
-    </li>
-    <li class="internal" ng-class="{ active: $routeSegment.contains('preview') }">
-      <a href="#/preview">Preview file</a>
-    </li>
-    <li class="internal" ng-class="{ active: $routeSegment.contains('archivesspace') }">
-      <a href="#/archivesspace">ArchivesSpace</a>
-    </li>
-  </ul>
-
-  <div class="transfer-tree" ng-controller="TreeController">
-    <treecontrol class="tree-classic"
-                 tree-model="transfers.data"
-                 options="options"
-                 on-selection="track_selected(node, selected)">
-      {{ node.label }} <span class="tag" ng-repeat="tag in node.tags">{{ tag }} <span ng-click="remove_tag(id, tag)"><i class="fa fa-minus-square"></i></span></span>
-    </treecontrol>
+  <div class='col-md-5' id='left-pane'>
+    <div class='panel panel-default'>
+      <div class='panel-heading'>
+        Backlog
+      </div>
+      <div class="transfer-tree panel-body" ng-controller="TreeController">
+        <treecontrol class="tree-classic"
+                     tree-model="transfers.data"
+                     options="options"
+                     on-selection="track_selected(node, selected)">
+          {{ node.label }} <span class="tag" ng-repeat="tag in node.tags">{{ tag }} <span ng-click="remove_tag(id, tag)"><i class="fa fa-minus-square"></i></span></span>
+        </treecontrol>
+      </div>
+    </div>
   </div>
 
-  <div class="container" id="right-pane">
-    <div app-view-segment="0"></div>
+  <div class='col-md-7' id="right-pane">
+    <ul class="nav nav-tabs" role='menu'>
+      <li ng-class="{ active: $routeSegment.contains('report') }">
+        <a href="#/report">Report</a>
+      </li>
+      <li ng-class="{ active: $routeSegment.contains('tag') }">
+        <a href="#/tag">Tag</a>
+      </li>
+      <li ng-class="{ active: $routeSegment.contains('examine_contents') }">
+        <a href="#/contents">Examine contents</a>
+      </li>
+      <li ng-class="{ active: $routeSegment.contains('visualizations') }">
+        <a href="#/visualizations">Visualizations</a>
+      </li>
+      <li ng-class="{ active: $routeSegment.contains('preview') }">
+        <a href="#/preview">Preview file</a>
+      </li>
+      <li ng-class="{ active: $routeSegment.contains('archivesspace') }">
+        <a href="#/archivesspace">ArchivesSpace</a>
+      </li>
+    </ul>
+    <div class='panel panel-default panel-tab panel-body' app-view-segment="0"></div>
   </div>
 
   <!-- In production use:
