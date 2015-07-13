@@ -1,9 +1,9 @@
 'use strict';
 
 (function() {
-  angular.module('selectedFilesService', ['fileService']).
+  angular.module('selectedFilesService', []).
 
-  service('SelectedFiles', ['File', function(File) {
+  service('SelectedFiles', [function() {
     return {
       add: function(file) {
         // Remove any occurrences of this file if they already exist
