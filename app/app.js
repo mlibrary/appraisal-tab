@@ -20,6 +20,7 @@ angular.module('appraisalTab', [
   'archivesSpaceController',
   'examineContentsController',
   'facetController',
+  'previewController',
   'reportController',
   'tag',
   'treeController',
@@ -44,6 +45,8 @@ config(['$routeSegmentProvider', function($routeSegmentProvider) {
     when('/visualizations', 'visualizations').
     when('/visualizations/files', 'visualizations.files').
     when('/visualizations/size', 'visualizations.size').
+    when('/preview', 'preview').
+    when('/preview/:id', 'preview').
     when('/archivesspace', 'archivesspace').
 
     segment('report', {
@@ -82,6 +85,12 @@ config(['$routeSegmentProvider', function($routeSegmentProvider) {
         templateUrl: 'visualizations/formats_by_size.html',
       }).
     up().
+
+    segment('preview', {
+      templateUrl: 'preview/preview.html',
+      controller: 'PreviewController',
+      dependencies: ['id'],
+    }).
 
     segment('archivesspace', {
       templateUrl: 'archivesspace/archivesspace.html',

@@ -1,0 +1,6 @@
+<iframe ng-src="{{ url }}" name="preview-frame"></iframe>
+<ul class="nav links">
+  <li class="internal" ng-repeat="file in files.selected" ng-class="{ active: file.id === id }">
+    <a ng-href="#/preview/{{ file.id }}">{{ file.label }}</a>
+  </li>
+</ul>
