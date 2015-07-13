@@ -9,12 +9,11 @@
   <title>Appraisal tab</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="bower_components/bootstrap/bootstrap.css">
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
   <link rel="stylesheet" href="bower_components/fontawesome/css/font-awesome.min.css">
   <link rel="stylesheet" href="vendor/angular-tree-control/css/tree-control.css">
   <link rel="stylesheet" href="vendor/angular-tree-control/css/tree-control-attribute.css">
   <link rel="stylesheet" href="app.css">
-  <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/directory-picker.css">
   <link rel="stylesheet" href="css/file-explorer.css">
   <link rel="stylesheet" href="css/style.css">
@@ -23,28 +22,22 @@
   <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
   <![endif]-->
-
-  <div class="topbar">
-    <div class="topbar-inner">
-      <div class="container-fluid">
-
-        <a class="brand">Archivematica</a>
-
-        <ul class="nav">
-
-        <li><a>Transfer</a></li>
-        <li class="active"><a>Appraisal</a></li>
-        <li><a>Ingest</a></li>
-        <li><a>Archival storage</a></li>
-        <li><a>Preservation planning</a></li>
-        <li><a>Access</a></li>
-        <li><a>Administration</a></li>
-
+  <nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container-fluid">
+      <div class='navbar-header'>
+        <a class="navbar-brand">Archivematica</a>
+        <ul class="nav navbar-nav" role='menubar'>
+          <li><a>Transfer</a></li>
+          <li class="active"><a>Appraisal</a></li>
+          <li><a>Ingest</a></li>
+          <li><a>Archival storage</a></li>
+          <li><a>Preservation planning</a></li>
+          <li><a>Access</a></li>
+          <li><a>Administration</a></li>
         </ul>
-
       </div>
     </div>
-  </div>
+  </nav>
 
   <div ng-view></div>
 
