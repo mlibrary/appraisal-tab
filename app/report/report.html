@@ -1,10 +1,8 @@
-<div class="report-panel">
-  <h2>Report</h2>
-  <b><ng-pluralize count="(records.selected | filter:{'type': 'transfer'}).length" when="{'1': '1 transfer', 'other': '{} transfers'}"></ng-pluralize></b>, <ng-pluralize count="records.selected.length" when="{'1': '1 object', 'other': '{} objects'}"></ng-pluralize></b> selected<br>
+<p><b><ng-pluralize count="(records.selected | filter:{'type': 'transfer'}).length" when="{'1': '1 transfer', 'other': '{} transfers'}"></ng-pluralize></b>, <ng-pluralize count="records.selected.length" when="{'1': '1 object', 'other': '{} objects'}"></ng-pluralize></b> selected</p>
 
-  <div class="span8"><i>File types:</i><br></div>
-  By PUID:<br>
-  <table>
+<h2>File types</h2>
+<h3>By PUID</h3>
+<table class='table table-striped table-hover table-condensed'>
   <tr>
     <th>Format</th>
     <th>PUID</th>
@@ -17,5 +15,4 @@
     <td><ng-pluralize count="record.data.count" when="{'1': '1 object', 'other': '{} objects'}"></ng-pluralize></td>
     <td>{{ record.data.size }} MB</td>
   </tr>
-  </table>
-</div>
+</table>

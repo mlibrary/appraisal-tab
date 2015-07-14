@@ -9,11 +9,11 @@
     $scope.records = SelectedFiles;
     $scope.puid_chart_type = 'pie';
     $scope.puid_config = {
+      // Formats (total)
       click: function(d) {
         Facet.remove('puid');
         Facet.add('puid', d.data.x);
       },
-      title: 'Formats (total)',
       tooltips: true,
       labels: false,
       legend: {
@@ -24,11 +24,11 @@
 
     $scope.size_chart_type = 'pie';
     $scope.size_config = {
+      // Formats (by size)
       click: function(d) {
         Facet.remove('puid');
         Facet.add('puid', d.data.x);
       },
-      title: 'Formats (by size)',
       tooltips: true,
       labels: false,
       legend: {
