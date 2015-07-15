@@ -39,33 +39,41 @@
     </div>
   </nav>
 
-  <div class="facet-box" ng-controller="FacetController">
-    <div ng-repeat="facet in Facet.facet_list">
-      {{ facet.name }}: {{ facet.text }} <span ng-click="remove_facet(facet.facet, facet.id);"><i class="fa fa-minus-square"></i></span>
-    </div>
+  <div class='facet-box panel panel-body form' ng-controller="FacetController">
+    <fieldset>
+      <label for='puid-facet'>PUID</label>
+      <select ng-model="puid" class='form-control' id='puid-facet'>
+        <option value="">All</option>
+        <option ng-repeat="format in transfers.formats" ng-if="format.puid" value="{{ format.puid }}">{{ format.label }} ({{ format.puid }})</option>
+      </select>
 
-    PUID:
-    <select ng-model="puid">
-      <option value="">All</option>
-      <option ng-repeat="format in transfers.formats" ng-if="format.puid" value="{{ format.puid }}">{{ format.label }} ({{ format.puid }})</option>
-    </select>
+      <label for='extension-facet'>File extension</label>
+      <select ng-model="extension" class='form-control' id='extension-facet'>
+        <option value="">All</option>
+        <option ng-repeat="format in transfers.formats" ng-if="format.extension" value="{{ format.extension }}">{{ format.label }} ({{ format.extension }})</option>
+      </select>
+    </fieldset>
 
-    File extension:
-    <select ng-model="extension">
-      <option value="">All</option>
-      <option ng-repeat="format in transfers.formats" ng-if="format.extension" value="{{ format.extension }}">{{ format.label }} ({{ format.extension }})</option>
-    </select>
+    <fieldset>
+      <label for='tag-facet'>Tags</label>
+      <select ng-model="tag_facet" class='form-control' id='tag-facet'>
+        <option value="">All</option>
+        <option ng-repeat="tag in tags.tags" value="{{ tag }}">{{ tag }}</option>
+      </select>
+    </fieldset>
 
-    Tags:
-    <select ng-model="tag_facet">
-      <option value="">All</option>
-      <option ng-repeat="tag in tags.tags" value="{{ tag }}">{{ tag }}</option>
-    </select>
+    <fieldset>
+      <label for='start-date-facet'>Date range start</label>
+      <input type="text" ng-model="date_start" class='form-control' id='start-date-facet'/>
+      <label for='end-date-facet'>Date range end</label>
+      <input type="text" ng-model="date_end" class='form-control' id='end-date-facet'/>
+    </fieldset>
 
-    <div>
-      <label>Date range start: <input type="text" ng-model="date_start"/></label>
-      <label>Date range end: <input type="text" ng-model="date_end"/></label>
-    </div>
+    <ul class='list-inline'>
+      <li ng-repeat="facet in Facet.facet_list">
+        {{ facet.name }}: {{ facet.text }} <span ng-click="remove_facet(facet.facet, facet.id);"><i class="fa fa-times"></i></span>
+      </li>
+    </ul>
   </div>
 
   <div class='col-md-5' id='left-pane'>

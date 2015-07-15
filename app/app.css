@@ -5,10 +5,6 @@
   width: 500px;
 }
 
-.facet-box {
-  padding: 0 0 60px 0;
-}
-
 .tag {
   box-shadow: 0 0 0 1px black;
   border-radius: 1px;
@@ -34,4 +30,13 @@
 treecontrol>ul>li {
   /* First tree element shouldn't be indented */
   padding-left: 0px;
+}
+
+.form-control {
+  width: auto;
+  display: inline;
+}
+
+fieldset {
+  margin: 5px;
 }
