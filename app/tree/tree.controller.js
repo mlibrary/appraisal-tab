@@ -4,6 +4,12 @@
   var treeController = angular.module('treeController', []).
 
   controller('TreeController', ['$scope', 'SelectedFiles', 'Tag', 'Transfer', function($scope, SelectedFiles, Tag, Transfer) {
+    $scope.helper = function() {
+      var uuid = $(this).attr('uuid');
+      var file = Transfer.id_map[uuid];
+      // TODO: style this element
+      return $('<div>' + file.title + '</div>');
+    }
 
     $scope.options = {
       dirSelectable: true,
@@ -13,6 +19,9 @@
           return false;
         }
         return a.id === b.id;
+      },
+      injectClasses: {
+        li: 'file',
       },
     };
     $scope.selected = [];
