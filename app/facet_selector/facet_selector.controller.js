@@ -20,7 +20,7 @@
         var facet_fn = function(value) {
           return selected === value.substr(value.lastIndexOf('.')).toLowerCase();
         };
-        Facet.add('text', facet_fn, {name: 'Extension', text: selected});
+        Facet.add('label', facet_fn, {name: 'Extension', text: selected});
         Transfer.filter();
       });
 
