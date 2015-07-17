@@ -53,6 +53,12 @@ describe('Facet', function() {
     expect(Facet.filter([{'date': '1950:1999'}, {'date': '1975:1980'}])).toEqual([{'date': '1975:1980'}]);
   }));
 
+  it('should be able to return a boolean value when filtering a single value', inject(function(Facet) {
+    Facet.add('filename', /\.jpg$/);
+    expect(Facet.passes_filters({'filename': '1.png'})).toBe(false);
+    expect(Facet.passes_filters({'filename': '1.jpg'})).toBe(true);
+  }));
+
   it('should return a unique ID for each newly-added value', inject(function(Facet) {
     var id1 = Facet.add('id', '1');
     var id2 = Facet.add('id', '2');

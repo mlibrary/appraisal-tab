@@ -86,17 +86,20 @@
     var filter = function(values) {
       var self = this; // needs to be defined outside the filter function
       return values.filter(function(element, index, array) {
-        var result;
-        for (var key in element) {
-          var value = element[key];
-          result = filter_value.apply(self, [key, value]);
-          if (result === false) {
-            return false;
-          }
-        }
-
-        return true;
+        return self.passes_filters(element);
       });
+    };
+
+    var passes_filters = function(object) {
+      var self = this;
+      var result = true;
+      angular.forEach(object, function(value, key) {
+        if (filter_value.apply(self, [key, value]) === false) {
+          result = false;
+        }
+      });
+
+      return result;
     };
 
     // private
@@ -146,6 +149,7 @@
       remove_by_id: remove_by_id,
       clear: clear,
       filter: filter,
+      passes_filters: passes_filters,
     };
   });
 })();
