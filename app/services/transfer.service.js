@@ -1,9 +1,9 @@
 'use strict';
 
 (function() {
-  angular.module('transferService', ['restangular']).
+  angular.module('transferService', ['facetService', 'restangular']).
 
-  factory('Transfer', ['Restangular', function(Restangular) {
+  factory('Transfer', ['Facet', 'Restangular', function(Facet, Restangular) {
     var create_flat_map = function(records, map) {
       if (map === undefined) {
         map = {};
@@ -29,8 +29,19 @@
         var self = this;
         self.all().then(function(data) {
           self.data = data.transfers;
+          self.data[0].version = 0;
           self.formats = data.formats;
           self.id_map = create_flat_map(data.transfers);
+          self.filter();
+        });
+      },
+      filter: function() {
+        angular.forEach(this.id_map, function(file) {
+          if (file.type === 'file') {
+            file.display = Facet.passes_filters(file);
+          } else {
+            file.display = true;
+          }
         });
       },
     };
