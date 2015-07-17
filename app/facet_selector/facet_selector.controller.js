@@ -6,6 +6,7 @@
   controller('FacetController', ['$scope', 'Transfer', 'Facet', 'Tag', function($scope, Transfer, Facet, Tag) {
       $scope.remove_facet = function(name, id) {
         Facet.remove_by_id(name, id);
+        Transfer.filter();
       };
       $scope.Facet = Facet;
       $scope.transfers = Transfer;
@@ -20,6 +21,7 @@
           return selected === value.substr(value.lastIndexOf('.')).toLowerCase();
         };
         Facet.add('text', facet_fn, {name: 'Extension', text: selected});
+        Transfer.filter();
       });
 
       var format_date = function(start, end) {
@@ -50,6 +52,7 @@
           return date_as_int > start_date && date_as_int < end_date;
         };
         Facet.add('date', facet_fn, {name: 'Date', text: format_date($scope.date_start, $scope.date_end)});
+        Transfer.filter();
       });
 
       $scope.$watch('puid', function(selected) {
@@ -58,6 +61,7 @@
         }
 
         Facet.add('puid', selected, {name: 'Format', text: selected});
+        Transfer.filter();
       });
     }]);
 })();

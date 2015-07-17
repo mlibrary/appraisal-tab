@@ -25,6 +25,8 @@
       },
     };
     $scope.selected = [];
+    $scope.filter_expression = {display: true};
+    $scope.filter_comparator = true;
 
     $scope.remove_tag = function(id, tag) {
       Tag.remove(id, tag);

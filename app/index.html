@@ -85,7 +85,9 @@
         <treecontrol class="tree-classic"
                      tree-model="transfers.data"
                      options="options"
-                     on-selection="track_selected(node, selected)">
+                     on-selection="track_selected(node, selected)"
+                     filter-expression="filter_expression"
+                     filter-comparator="filter_comparator">
           <span tree-draggable helper="helper" uuid="{{ node.id }}">
             {{ node.title }} <span class="tag" ng-repeat="tag in node.tags">{{ tag }} <span ng-click="remove_tag(id, tag)"><i class="fa fa-minus-square"></i></span></span>
           </span>
