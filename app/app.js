@@ -23,6 +23,7 @@ angular.module('appraisalTab', [
   'archivesSpaceController',
   'examineContentsController',
   'facetController',
+  'fileListController',
   'previewController',
   'reportController',
   'treeController',

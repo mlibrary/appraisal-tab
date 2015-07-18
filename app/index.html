@@ -150,6 +150,19 @@
     </div>
   </ui-minimize-panel>
 
+  <ui-minimize-panel title="File list" open='false'>
+    <div class='panel panel-default'>
+      <div class='panel-heading'>
+        File List
+      </div>
+      <div class='panel-body' ng-controller="FileListController">
+        <ul>
+          <li ng-repeat="file in file_list.files">{{ file.title }}</li>
+        </ul>
+      </div>
+    </div>
+  </ui-minimize-panel>
+
   <ui-minimize-panel title='ArchivesSpace'>
     <div class='panel panel-default'>
       <div class='panel-heading'>
@@ -189,6 +202,7 @@
   <script src="services/archivesspace.service.js"></script>
   <script src="services/facet.service.js"></script>
   <script src="services/file.service.js"></script>
+  <script src="services/file_list.service.js"></script>
   <script src="services/selected.service.js"></script>
   <script src="services/tag.service.js"></script>
   <script src="services/transfer.service.js"></script>
@@ -198,6 +212,7 @@
   <script src="analysis/analysis.controller.js"></script>
   <script src="examine_contents/examine_contents.controller.js"></script>
   <script src="facet_selector/facet_selector.controller.js"></script>
+  <script src="file_list/file_list.controller.js"></script>
   <script src="preview/preview.controller.js"></script>
   <script src="tree/tree.controller.js"></script>
   <script src="report/report.controller.js"></script>
