@@ -1,9 +1,13 @@
 'use strict';
 
 (function() {
-  angular.module('visualizationsController', ['angularCharts', 'selectedFilesService']).
+  angular.module('visualizationsController', [
+    'angularCharts',
+    'fileListService',
+    'selectedFilesService',
+  ]).
 
-  controller('VisualizationsController', ['$scope', 'Facet', 'SelectedFiles', function($scope, Facet, SelectedFiles) {
+  controller('VisualizationsController', ['$scope', 'FileList', 'SelectedFiles', function($scope, FileList, SelectedFiles) {
     // Displays aggregate information about file formats;
     // the selected record data is filtered/reformatted in the view.
     $scope.records = SelectedFiles;
@@ -11,8 +15,9 @@
     $scope.puid_config = {
       // Formats (total)
       click: function(d) {
-        Facet.remove('puid');
-        Facet.add('puid', d.data.puid);
+        FileList.files = SelectedFiles.selected.filter(function (file) {
+          return file.puid === d.data.puid;
+        });
       },
       tooltips: true,
       labels: false,
@@ -26,8 +31,9 @@
     $scope.size_config = {
       // Formats (by size)
       click: function(d) {
-        Facet.remove('puid');
-        Facet.add('puid', d.data.puid);
+        FileList.files = SelectedFiles.selected.filter(function (file) {
+          return file.puid === d.data.puid;
+        });
       },
       tooltips: true,
       labels: false,
