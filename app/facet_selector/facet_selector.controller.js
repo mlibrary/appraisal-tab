@@ -63,5 +63,14 @@
         Facet.add('puid', selected, {name: 'Format', text: selected});
         Transfer.filter();
       });
+
+      $scope.$watch('tag_facet', function(selected) {
+        if (!selected) {
+          return;
+        }
+
+        Facet.add('tags', selected, {name: 'Tag', text: selected});
+        Transfer.filter();
+      });
     }]);
 })();

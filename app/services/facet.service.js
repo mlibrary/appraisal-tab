@@ -111,6 +111,21 @@
         // no facet for this key
         return true;
       }
+      // if this is a collection, test to see if any of the matches are false
+      if (value.map !== undefined) {
+        // if the collection is empty it cannot possibly match anything
+        if (value.length === 0) {
+          return false;
+        }
+
+        var self = this;
+        var results = value.map(function(element) {
+          return filter_value.apply(self, [key, element]);
+        });
+        // if there are no false elements, return true
+        return results.indexOf(false) === -1;
+      }
+
       for (var i in this.facets[key]) {
         var result;
         var filter = this.facets[key][i].value;

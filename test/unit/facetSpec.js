@@ -90,4 +90,15 @@ describe('Facet', function() {
     Facet.add('list_b', '2');
     expect(Facet.facet_list.length).toEqual(2);
   }));
+
+  it('should apply a filter to every element in a list if the value is a list', inject(function(Facet) {
+    Facet.add('key', 'test');
+    expect(Facet.passes_filters({'key': ['test']})).toBe(true);
+    expect(Facet.passes_filters({'key': ['this', 'should', 'fail']})).toBe(false);
+  }));
+
+  it('should consider empty list values to be false', inject(function(Facet) {
+    Facet.add('key', 'test');
+    expect(Facet.passes_filters({'key': []})).toBe(false);
+  }));
 });
