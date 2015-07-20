@@ -91,15 +91,17 @@
     };
 
     var passes_filters = function(object) {
-      var self = this;
-      var result = true;
-      angular.forEach(object, function(value, key) {
-        if (filter_value.apply(self, [key, value]) === false) {
-          result = false;
+      var keys = Object.keys(object);
+      var key, value;
+      for (var i = 0; i < keys.length; i++) {
+        key = keys[i];
+        value = object[key];
+        if (filter_value.apply(this, [key, value]) === false) {
+          return false;
         }
-      });
+      }
 
-      return result;
+      return true;
     };
 
     // private
