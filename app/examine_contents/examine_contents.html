@@ -11,7 +11,7 @@
   <h2 ng-if="(SelectedFiles.selected | find_transfers).length != 0">Transfers:</h2>
   <ul>
     <li ng-repeat="record in SelectedFiles.selected | find_transfers">
-    {{ record.label }}:
+    {{ record.title }}:
       <a ng-if="record.original_order" href="{{ record.original_order }}">original order</a>
       <a ng-if="!record.original_order" class="disabled">original order</a>
     </li>
@@ -21,7 +21,7 @@
   <h2 ng-if="(SelectedFiles.selected | find_files).length != 0">Files</h2>
   <ul>
     <li ng-repeat="record in SelectedFiles.selected | find_files | filter:{bulk_extractor_reports: type}">
-    <a href="#/contents/{{ record.id }}/{{ type }}">{{ record.label }}</a>:
+    <a href="#/contents/{{ record.id }}/{{ type }}">{{ record.title }}</a>:
       <a ng-if="record.bulk_extractor" href="{{ record.bulk_extractor}}">Bulk Extractor logs</a>
     </li>
   </ul>
