@@ -48,7 +48,6 @@ config(['$routeSegmentProvider', function($routeSegmentProvider) {
     when('/contents/:id/:type', 'examine_contents.file_info').
     when('/preview', 'preview').
     when('/preview/:id', 'preview').
-    when('/archivesspace', 'archivesspace').
 
     segment('analysis', {
       templateUrl: 'analysis/analysis.html',
@@ -92,11 +91,6 @@ config(['$routeSegmentProvider', function($routeSegmentProvider) {
       templateUrl: 'preview/preview.html',
       controller: 'PreviewController',
       dependencies: ['id'],
-    }).
-
-    segment('archivesspace', {
-      templateUrl: 'archivesspace/archivesspace.html',
-      controller: 'ArchivesSpaceController',
     });
 }]).
 
