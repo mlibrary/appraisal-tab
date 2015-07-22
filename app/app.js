@@ -18,6 +18,7 @@ angular.module('appraisalTab', [
   'tagService',
   'facetFilter',
   'aggregationFilters',
+  'analysisController',
   'archivesSpaceController',
   'examineContentsController',
   'facetController',
@@ -38,22 +39,43 @@ config(['$routeSegmentProvider', function($routeSegmentProvider) {
   $routeSegmentProvider.options.strictMode = true;
 
   $routeSegmentProvider.
-    when('/report', 'report').
+    when('/analysis', 'analysis').
+    when('/analysis/report', 'analysis.report').
+    when('/analysis/visualizations', 'analysis.visualizations').
+    when('/analysis/visualizations/files', 'analysis.visualizations.files').
+    when('/analysis/visualizations/size', 'analysis.visualizations.size').
     when('/tag', 'tag').
     when('/contents', 'examine_contents').
     when('/contents/:type', 'examine_contents').
     when('/contents/:id/:type', 'examine_contents.file_info').
-    when('/visualizations', 'visualizations').
-    when('/visualizations/files', 'visualizations.files').
-    when('/visualizations/size', 'visualizations.size').
     when('/preview', 'preview').
     when('/preview/:id', 'preview').
     when('/archivesspace', 'archivesspace').
 
-    segment('report', {
-      templateUrl: 'report/report.html',
-      controller: 'ReportController',
+    segment('analysis', {
+      templateUrl: 'analysis/analysis.html',
+      controller: 'AnalysisController',
     }).
+    within().
+      segment('report', {
+        default: true,
+        templateUrl: 'report/report.html',
+        controller: 'ReportController',
+      }).
+      segment('visualizations', {
+        templateUrl: 'visualizations/visualizations.html',
+        controller: 'VisualizationsController',
+      }).
+      within().
+        segment('files', {
+          default: 'true',
+          templateUrl: 'visualizations/formats_by_files.html',
+        }).
+        segment('size', {
+          templateUrl: 'visualizations/formats_by_size.html',
+        }).
+      up().
+    up().
 
     segment('tag', {
       templateUrl: 'tag/tag.html',
@@ -70,20 +92,6 @@ config(['$routeSegmentProvider', function($routeSegmentProvider) {
         templateUrl: 'examine_contents/file_info.html',
         controller: 'ExamineContentsFileController',
         dependencies: ['id', 'type'],
-      }).
-    up().
-
-    segment('visualizations', {
-      templateUrl: 'visualizations/visualizations.html',
-      controller: 'VisualizationsController',
-    }).
-    within().
-      segment('files', {
-        default: 'true',
-        templateUrl: 'visualizations/formats_by_files.html',
-      }).
-      segment('size', {
-        templateUrl: 'visualizations/formats_by_size.html',
       }).
     up().
 
