@@ -12398,7 +12398,7 @@
       "bulk_extractor_reports": [
 
       ],
-      "type": "directory",
+      "type": "transfer",
       "puid": "",
       "tags": [
 
@@ -12781,7 +12781,7 @@
       "bulk_extractor_reports": [
 
       ],
-      "type": "directory",
+      "type": "transfer",
       "puid": "",
       "tags": [
 
