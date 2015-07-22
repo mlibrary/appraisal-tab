@@ -16,6 +16,11 @@
           }
         }
       },
+      remove: function(id) {
+        this.files = this.files.filter(function(file) {
+          return file.id !== id;
+        });
+      },
     };
   });
 })();

@@ -156,9 +156,10 @@
         File List
       </div>
       <div class='panel-body' ng-controller="FileListController">
-        <ul>
-          <li ng-repeat="file in file_list.files">{{ file.title }}</li>
+        <ul ng-if="file_list.files.length > 0">
+          <li ng-repeat="file in file_list.files">{{ file.title }} <i class="fa fa-minus-square" ng-click="remove_file(file.id)"></i></li>
         </ul>
+        <p ng-if="file_list.files.length === 0">File list is empty.</p>
       </div>
     </div>
   </ui-minimize-panel>
