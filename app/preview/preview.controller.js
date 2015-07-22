@@ -9,7 +9,6 @@
       var file = SelectedFiles.get($scope.id);
       if (file) {
         $scope.url = '/fixtures/content/' + file.title;
-        console.log($scope.url);
       }
     }
     $scope.files = SelectedFiles;
