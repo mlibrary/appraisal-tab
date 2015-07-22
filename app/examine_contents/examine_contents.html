@@ -1,9 +1,9 @@
 <ul class="nav nav-pills">
   <li ng-class="{ active: type === 'pii' }">
-    <a href="#/contents/pii">PII</a>
+    <a href="#{{ $routeSegment.getSegmentUrl('examine_contents', {type: 'pii'}) }}">PII</a>
   </li>
   <li ng-class="{ active: type === 'ccn' }">
-    <a href="#/contents/ccn">Credit card numbers</a>
+    <a href="#{{ $routeSegment.getSegmentUrl('examine_contents', {type: 'ccn'}) }}">Credit card numbers</a>
   </li>
 </ul>
 

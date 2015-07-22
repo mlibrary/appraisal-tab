@@ -4,6 +4,7 @@
   angular.module('examineContentsController', []).
 
   controller('ExamineContentsController', ['$scope', '$routeSegment', 'SelectedFiles', function($scope, $routeSegment, SelectedFiles) {
+    $scope.$routeSegment = $routeSegment;
     $scope.type = $routeSegment.$routeParams.type;
     $scope.SelectedFiles = SelectedFiles;
   }]).
