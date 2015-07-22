@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="vendor/angular-tree-control/css/tree-control-attribute.css">
   <link rel="stylesheet" href="css/directory-picker.css">
   <link rel="stylesheet" href="css/file-explorer.css">
+  <link rel="stylesheet" href="css/search.css">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="app.css">
 </head>
@@ -38,6 +39,39 @@
       </div>
     </div>
   </nav>
+
+  <form id='search_form'>
+  <div id='search_form_container'>
+    <div class="advanced_search_form_rows_container">
+    <div class="advanced_search_form_row" style="clear:both">
+    <div class="advanced_search_form_field_op" style="float:left">
+    </div>
+    <div class="advanced_search_form_field_query" style="float:left">
+    <input class="aip-search-query-input" title="search query"></div>
+    <div class="advanced_search_form_field_field" style="float:left">
+    <select title="field name">
+    <option value="">Any</option>
+    <option value="filename">File name</option>
+    <option value="file_extension">File extension</option>
+    <option value="accessionid">Accession number</option>
+    <option value="ingestdate">Ingest date (YYYY-MM-DD)</option>
+    <option value="sipuuid">SIP UUID</option>
+    </select></div>
+    <div class="advanced_search_form_field_type" style="float:left">
+    <select title="query type">
+    <option value="term">Keyword</option>
+    <option value="string">Phrase</option>
+    </select></div>
+    </div>
+    <div style="clear:both"><a>Add New</a></div>
+    </div>
+  </div>
+  <div id='search_form_submit_container'>
+    <input type='button' id='search_submit' value='Search transfer backlog'>
+  </div>
+  </form>
+
+  <div style='clear:both'></div>
 
   <div class='facet-box panel panel-body form' ng-controller="FacetController">
     <fieldset>
