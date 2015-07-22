@@ -157,7 +157,9 @@
       </div>
       <div class='panel-body' ng-controller="FileListController">
         <ul ng-if="file_list.files.length > 0">
-          <li ng-repeat="file in file_list.files">{{ file.title }} <i class="fa fa-minus-square" ng-click="remove_file(file.id)"></i></li>
+          <li ng-repeat="file in file_list.files">
+            {{ file.title }} <i class="fa fa-minus-square" ng-click="remove_file(file.id)"></i> <span class="tag" ng-repeat="tag in file.tags">{{ tag }} <span ng-click="remove_tag(file.id, tag)"><i class="fa fa-minus-square"></i></span></span>
+          </li>
         </ul>
         <p ng-if="file_list.files.length === 0">File list is empty.</p>
       </div>
