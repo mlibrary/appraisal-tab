@@ -39,8 +39,8 @@
     };
 
     var remove = function(id, tag) {
+      var self = this;
       if (tag === undefined) {
-        var self = this;
         var tags_for_id = tags[id];
 
         remove_all(id);
