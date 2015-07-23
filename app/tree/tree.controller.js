@@ -64,5 +64,16 @@
     };
     $scope.transfers = Transfer;
     Transfer.resolve();
+
+    $scope.files = SelectedFiles;
+    $scope.submit = function() {
+      var tag = this.tag;
+      if (!tag) {
+        return;
+      }
+
+      Tag.add_list(SelectedFiles.list_ids(), tag);
+      this.tag = ''
+    }
   }]);
 })();

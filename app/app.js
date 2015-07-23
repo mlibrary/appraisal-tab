@@ -24,7 +24,6 @@ angular.module('appraisalTab', [
   'facetController',
   'previewController',
   'reportController',
-  'tag',
   'treeController',
   'visualizationsController',
 ]).
@@ -44,7 +43,6 @@ config(['$routeSegmentProvider', function($routeSegmentProvider) {
     when('/analysis/visualizations', 'analysis.visualizations').
     when('/analysis/visualizations/files', 'analysis.visualizations.files').
     when('/analysis/visualizations/size', 'analysis.visualizations.size').
-    when('/tag', 'tag').
     when('/contents', 'examine_contents').
     when('/contents/:type', 'examine_contents').
     when('/contents/:id/:type', 'examine_contents.file_info').
@@ -76,11 +74,6 @@ config(['$routeSegmentProvider', function($routeSegmentProvider) {
         }).
       up().
     up().
-
-    segment('tag', {
-      templateUrl: 'tag/tag.html',
-      controller: 'TagController',
-    }).
 
     segment('examine_contents', {
       templateUrl: 'examine_contents/examine_contents.html',
