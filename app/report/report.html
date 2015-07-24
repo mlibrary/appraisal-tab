@@ -10,7 +10,7 @@
     <th ng-click="set_sort_property('size')">Size</th>
   </tr>
   <tr ng-repeat="record in records.selected | facet | puid_data | orderBy: sort_fn : reverse">
-    <td>{{ record.data.format }}</td>
+    <td><a ng-click="set_file_list(record)">{{ record.data.format }}</a></td>
     <td><a target="_blank" href="http://apps.nationalarchives.gov.uk/pronom/{{ record.puid }}">{{ record.puid }}</a></td>
     <td><ng-pluralize count="record.data.count" when="{'1': '1 object', 'other': '{} objects'}"></ng-pluralize></td>
     <td>{{ record.data.size }} MB</td>

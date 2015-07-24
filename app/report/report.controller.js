@@ -3,7 +3,7 @@
 (function() {
   angular.module('reportController', ['selectedFilesService']).
 
-  controller('ReportController', ['$scope', 'SelectedFiles', function($scope, SelectedFiles) {
+  controller('ReportController', ['$scope', 'FileList', 'SelectedFiles', function($scope, FileList, SelectedFiles) {
     $scope.records = SelectedFiles;
 
     $scope.sort_property = 'format';
@@ -24,6 +24,13 @@
         $scope.reverse = false;
         $scope.sort_property = property;
       }
+    };
+
+    $scope.set_file_list = function(record) {
+      var type = record.puid;
+      FileList.files = SelectedFiles.selected.filter(function(file) {
+        return file.puid == type;
+      });
     };
   }]);
 })();
