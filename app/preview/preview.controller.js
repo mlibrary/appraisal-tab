@@ -9,7 +9,7 @@
     if ($scope.id !== undefined) {
       var file = SelectedFiles.get($scope.id);
       if (file) {
-        $scope.url = '/fixtures/content/' + file.title;
+        $scope.url = 'fixtures/content/' + file.title;
       }
     }
     $scope.files = SelectedFiles;
