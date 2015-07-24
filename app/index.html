@@ -157,7 +157,27 @@
       </div>
       <div class='panel-body' ng-controller="FileListController">
         <ul ng-if="file_list.files.length > 0">
+          <form ng-submit="submit(selected)">
+            <input type="text"
+                   ng-model="tag"
+                   ng-disabled="selected.length < 1">
+            <input type="submit"
+                   id="submit-tag"
+                   value="Add tag to selected files"
+                   ng-disabled="selected.length < 1">
+          </form>
+        
+          <input type="checkbox"
+                 name="checked_files[]"
+                 value="Select all"
+                 ng-checked="all_selected"
+                 ng-click="select_all()">
+          Select all
           <li ng-repeat="file in file_list.files">
+            <input type="checkbox"
+                   name="checked_files[]"
+                   ng-checked="selected.indexOf(file.id) > -1"
+                   ng-click="toggle_file(file.id)">
             {{ file.title }} <i class="fa fa-minus-square" ng-click="remove_file(file.id)"></i> <span class="tag" ng-repeat="tag in file.tags">{{ tag }} <span ng-click="remove_tag(file.id, tag)"><i class="fa fa-minus-square"></i></span></span>
           </li>
         </ul>
