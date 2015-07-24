@@ -4,6 +4,7 @@
   angular.module('previewController', ['route-segment']).
 
   controller('PreviewController', ['$scope', '$routeSegment', 'SelectedFiles', function($scope, $routeSegment, SelectedFiles) {
+    $scope.$routeSegment = $routeSegment;
     $scope.id = $routeSegment.$routeParams.id;
     if ($scope.id !== undefined) {
       var file = SelectedFiles.get($scope.id);

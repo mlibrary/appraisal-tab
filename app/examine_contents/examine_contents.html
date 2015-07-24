@@ -21,7 +21,7 @@
   <h2 ng-if="(SelectedFiles.selected | find_files).length != 0">Files</h2>
   <ul>
     <li ng-repeat="record in SelectedFiles.selected | find_files | filter:{bulk_extractor_reports: type}">
-    <a href="#/contents/{{ record.id }}/{{ type }}">{{ record.title }}</a>:
+    <a href="#{{ $routeSegment.getSegmentUrl('examine_contents.file_info', {id: record.id, type: type}) }}">{{ record.title }}</a>:
       <a ng-if="record.bulk_extractor" href="{{ record.bulk_extractor}}">Bulk Extractor logs</a>
     </li>
   </ul>
