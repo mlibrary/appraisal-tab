@@ -1,7 +1,10 @@
 <iframe ng-src="{{ url }}" name="preview-frame"></iframe>
 <table class='table table-hover table-condensed'>
   <tr ng-repeat="file in files.selected" ng-class="{active: file.id === id}">
-    <td><a ng-href="#{{ $routeSegment.getSegmentUrl('preview', {id: file.id}) }}">{{ file.title }}</a></td>
+    <td>
+      <a ng-href="#{{ $routeSegment.getSegmentUrl('preview', {id: file.id}) }}">{{ file.title }}</a>
+      <a ng-href="fixtures/content/{{ file.title }}" download="filename">(Download)</a>
+    </td>
   </tr>
 </table>
 <p ng-if='files.selected.length === 0'>No files selected</p>
