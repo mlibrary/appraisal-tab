@@ -9,7 +9,7 @@
       var file = Transfer.id_map[uuid];
       // TODO: style this element
       return $('<div>' + file.title + '</div>');
-    }
+    };
 
     $scope.options = {
       dirSelectable: true,
@@ -78,7 +78,7 @@
       }
 
       Tag.add_list(SelectedFiles.list_ids(), tag);
-      this.tag = ''
-    }
+      this.tag = '';
+    };
   }]);
 })();
