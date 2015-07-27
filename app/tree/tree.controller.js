@@ -65,6 +65,11 @@
     $scope.transfers = Transfer;
     Transfer.resolve();
 
+    $scope.deselect = function() {
+      SelectedFiles.selected = [];
+      $scope.selected = [];
+    };
+
     $scope.files = SelectedFiles;
     $scope.submit = function() {
       var tag = this.tag;

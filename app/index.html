@@ -120,12 +120,15 @@
                      tree-model="transfers.data"
                      options="options"
                      on-selection="track_selected(node, selected)"
+                     selected-nodes="selected"
                      filter-expression="filter_expression"
                      filter-comparator="filter_comparator">
           <span tree-draggable helper="helper" uuid="{{ node.id }}">
             {{ node.title }} <span class="tag" ng-repeat="tag in node.tags">{{ tag }} <span ng-click="remove_tag(id, tag)"><i class="fa fa-minus-square"></i></span></span>
           </span>
         </treecontrol>
+
+        <input type="button" value="Deselect all" ng-click="deselect()">
 
         <form ng-submit="submit()">
           <input type="text"
