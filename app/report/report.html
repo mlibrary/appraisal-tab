@@ -4,12 +4,12 @@
 <h3>By PUID</h3>
 <table class='table table-striped table-hover table-condensed'>
   <tr>
-    <th>Format</th>
-    <th>PUID</th>
-    <th>Number of files</th>
-    <th>Size</th>
+    <th ng-click="set_sort_property('format')">Format</th>
+    <th ng-click="set_sort_property('puid')">PUID</th>
+    <th ng-click="set_sort_property('count')">Number of files</th>
+    <th ng-click="set_sort_property('size')">Size</th>
   </tr>
-  <tr ng-repeat="record in records.selected | facet | puid_data">
+  <tr ng-repeat="record in records.selected | facet | puid_data | orderBy: sort_fn : reverse">
     <td>{{ record.data.format }}</td>
     <td><a target="_blank" href="http://apps.nationalarchives.gov.uk/pronom/{{ record.puid }}">{{ record.puid }}</a></td>
     <td><ng-pluralize count="record.data.count" when="{'1': '1 object', 'other': '{} objects'}"></ng-pluralize></td>
