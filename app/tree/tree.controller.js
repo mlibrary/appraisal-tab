@@ -24,7 +24,6 @@
         li: 'file',
       },
     };
-    $scope.selected = [];
     $scope.filter_expression = {display: true};
     $scope.filter_comparator = true;
 
@@ -34,7 +33,6 @@
 
     var add_file = function(node) {
       SelectedFiles.add(node);
-      $scope.selected.push(node);
       if (node.children) {
         for (var i = 0; i < node.children.length; i++) {
           var child = node.children[i];
@@ -45,7 +43,6 @@
 
     var remove_file = function(node) {
       SelectedFiles.remove(node.id);
-      $scope.selected.pop(node);
       if (node.children) {
         for (var i = 0; i < node.children.length; i++) {
           var child = node.children[i];
@@ -67,7 +64,6 @@
 
     $scope.deselect = function() {
       SelectedFiles.selected = [];
-      $scope.selected = [];
     };
 
     $scope.files = SelectedFiles;
