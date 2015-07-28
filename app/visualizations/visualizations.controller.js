@@ -12,7 +12,7 @@
       // Formats (total)
       click: function(d) {
         Facet.remove('puid');
-        Facet.add('puid', d.data.x);
+        Facet.add('puid', d.data.puid);
       },
       tooltips: true,
       labels: false,
@@ -27,7 +27,7 @@
       // Formats (by size)
       click: function(d) {
         Facet.remove('puid');
-        Facet.add('puid', d.data.x);
+        Facet.add('puid', d.data.puid);
       },
       tooltips: true,
       labels: false,

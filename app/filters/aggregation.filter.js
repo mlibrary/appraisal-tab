@@ -47,10 +47,12 @@
         data: [],
       };
       angular.forEach(records, function(format_data, _) {
+        var readable_name = format_data.data.format + ' (' + format_data.puid + ')';
         data.data.push({
-          x: format_data.puid,
+          puid: format_data.puid,
+          x: readable_name,
           y: [format_data.data.count],
-          tooltip: format_data.data.format + ' (' + format_data.puid + ')',
+          tooltip: readable_name,
         });
       });
       return data;
@@ -66,10 +68,12 @@
         data: [],
       };
       angular.forEach(records, function(format_data, _) {
+        var readable_name = format_data.data.format + ' (' + format_data.puid + ')';
         data.data.push({
-          x: format_data.puid,
+          puid: format_data.puid,
+          x: readable_name,
           y: [format_data.data.size],
-          tooltip: format_data.data.format + ' (' + format_data.puid + '), ' + format_data.data.size + "MB",
+          tooltip: readable_name + ', ' + format_data.data.size + "MB",
         });
       });
       return data;
