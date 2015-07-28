@@ -12,18 +12,6 @@
       $scope.transfers = Transfer;
       $scope.tags = Tag;
 
-      $scope.$watch('extension', function(selected) {
-        if (!selected) {
-          return;
-        }
-
-        var facet_fn = function(value) {
-          return selected === value.substr(value.lastIndexOf('.')).toLowerCase();
-        };
-        Facet.add('title', facet_fn, {name: 'Extension', text: selected});
-        Transfer.filter();
-      });
-
       var format_date = function(start, end) {
         var s;
         if (!start) {
@@ -52,15 +40,6 @@
           return date_as_int > start_date && date_as_int < end_date;
         };
         Facet.add('date', facet_fn, {name: 'Date', text: format_date($scope.date_start, $scope.date_end)});
-        Transfer.filter();
-      });
-
-      $scope.$watch('puid', function(selected) {
-        if (!selected) {
-          return;
-        }
-
-        Facet.add('puid', selected, {name: 'Format', text: selected});
         Transfer.filter();
       });
 

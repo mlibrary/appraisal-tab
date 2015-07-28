@@ -75,20 +75,6 @@
 
   <div class='facet-box panel panel-body form' ng-controller="FacetController">
     <fieldset>
-      <label for='puid-facet'>PUID</label>
-      <select ng-model="puid" class='form-control' id='puid-facet'>
-        <option value="">All</option>
-        <option ng-repeat="format in transfers.formats" ng-if="format.puid" value="{{ format.puid }}">{{ format.title }} ({{ format.puid }})</option>
-      </select>
-
-      <label for='extension-facet'>File extension</label>
-      <select ng-model="extension" class='form-control' id='extension-facet'>
-        <option value="">All</option>
-        <option ng-repeat="format in transfers.formats" ng-if="format.extension" value="{{ format.extension }}">{{ format.title }} ({{ format.extension }})</option>
-      </select>
-    </fieldset>
-
-    <fieldset>
       <label for='tag-facet'>Tags</label>
       <select ng-model="tag_facet" class='form-control' id='tag-facet'>
         <option value="">All</option>
