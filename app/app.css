@@ -19,14 +19,9 @@
   text-decoration: line-through;
 }
 
-.nav-tabs>li>a {
-  /* Draw tab outlines for unselected tabs */
-  border: 1px solid #dddddd;
-  background: #f5f5f5;
-}
-
-.panel-tab {
-  border-top: none;
+.nav-pane {
+  background-color: #f5f5f5;
+  border-bottom: 1px solid #dddddd;
 }
 
 treecontrol>ul>li {

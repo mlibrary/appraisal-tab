@@ -130,18 +130,22 @@
   </div>
 
   <div class='col-xs-4' id="analysis-pane">
-    <ul class="nav nav-tabs" role='menu'>
-      <li ng-class="{ active: $routeSegment.contains('analysis') }">
-        <a href="#{{ $routeSegment.getSegmentUrl('analysis') }}">Analysis</a>
-      </li>
-      <li ng-class="{ active: $routeSegment.contains('examine_contents') }">
-        <a href="#{{ $routeSegment.getSegmentUrl('examine_contents', {type: ''}) }}">Examine contents</a>
-      </li>
-      <li ng-class="{ active: $routeSegment.contains('preview') }">
-        <a href="#{{ $routeSegment.getSegmentUrl('preview', {id: ''}) }}">Preview file</a>
-      </li>
-    </ul>
-    <div class='panel panel-default panel-tab panel-body' app-view-segment="0"></div>
+    <div class='panel panel-default'>
+      <div>
+        <ul class="nav nav-pills nav-pane" role='menu'>
+          <li ng-class="{ active: $routeSegment.contains('analysis') }">
+            <a href="#{{ $routeSegment.getSegmentUrl('analysis') }}">Analysis</a>
+          </li>
+          <li ng-class="{ active: $routeSegment.contains('examine_contents') }">
+            <a href="#{{ $routeSegment.getSegmentUrl('examine_contents', {type: ''}) }}">Examine contents</a>
+          </li>
+          <li ng-class="{ active: $routeSegment.contains('preview') }">
+            <a href="#{{ $routeSegment.getSegmentUrl('preview', {id: ''}) }}">Preview file</a>
+          </li>
+        </ul>
+      </div>
+      <div class='panel-body' app-view-segment="0"></div>
+    </div>
   </div>
 
   <div class='col-xs-4' id='archivesspace-pane'>
