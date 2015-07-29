@@ -19,9 +19,12 @@
             p.width = width;
           });
         };
-        this.addPane = function(pane) {
+
+        this.addPane = function(pane, open) {
           panes.push(pane);
-          $scope.toggle(pane);
+          if (open) {
+            $scope.toggle(pane);
+          }
         };
       },
     };
@@ -37,7 +40,7 @@
       },
       templateUrl: 'ui/minimize-panel.html',
       link: function(scope, element, attrs, minimizeBar) {
-        minimizeBar.addPane(scope);
+        minimizeBar.addPane(scope, attrs.open === 'true');
       },
     };
   }]);
