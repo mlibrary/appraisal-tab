@@ -25,17 +25,6 @@
         $scope.all_selected = false;
       }
     };
-    $scope.toggle_file = function(uuid) {
-      var index = $scope.selected.indexOf(uuid);
-      // remove from selection
-      if (index > -1) {
-        $scope.selected.splice(index, 1);
-      } else {
-        $scope.selected.push(uuid);
-      }
-
-      $scope.all_selected = !($scope.selected.length < FileList.files.length);
-    };
 
     $scope.submit = function(uuids) {
       var tag = this.tag;

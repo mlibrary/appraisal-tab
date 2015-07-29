@@ -9,6 +9,7 @@ angular.module('appraisalTab', [
   'restangular',
   'treeControl',
   'appraisalTab.version',
+  'checklistDirective',
   'treeDirectives',
   'uiDirectives',
   'archivesSpaceService',

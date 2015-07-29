@@ -182,10 +182,13 @@
           </tr>
           <tr ng-repeat="file in file_list.files">
             <td>
-              <input type="checkbox"
+              <input checklist
                    name="checked_files[]"
+                   ng-model="file"
                    ng-checked="selected.indexOf(file.id) > -1"
-                   ng-click="toggle_file(file.id)">
+                   record-count="file_list.files.length"
+                   selected-list="selected"
+                   all-selected="all_selected">
               <a href="#{{ $routeSegment.getSegmentUrl('preview', {id: file.id}) }}">{{ file.title }}</a>
               <i class="fa fa-minus-square" style="float: right;" ng-click="remove_file(file.id)"></i>
             </td>
@@ -237,6 +240,7 @@
   <script src="vendor/angular-tree-control/angular-tree-control.js"></script>
   <script src="app.js"></script>
   <script src="ui/ui.directive.js"></script>
+  <script src="checklist/checklist.directive.js"></script>
   <script src="tree/tree.directive.js"></script>
   <script src="services/archivesspace.service.js"></script>
   <script src="services/facet.service.js"></script>
