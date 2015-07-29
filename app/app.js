@@ -10,6 +10,7 @@ angular.module('appraisalTab', [
   'treeControl',
   'appraisalTab.version',
   'treeDirectives',
+  'uiDirectives',
   'archivesSpaceService',
   'facetService',
   'selectedFilesService',

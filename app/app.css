@@ -19,6 +19,17 @@
   text-decoration: line-through;
 }
 
+#minimize-bar {
+  margin: 0 2em;
+  padding: 5px 10px;
+  background-color: #f5f5f5;
+}
+
+.ui-panel {
+  float: left;
+  padding: 1em;
+}
+
 .nav-pane {
   background-color: #f5f5f5;
   border-bottom: 1px solid #dddddd;
