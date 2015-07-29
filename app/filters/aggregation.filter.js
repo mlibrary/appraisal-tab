@@ -100,5 +100,23 @@
     };
 
     return _.memoize(file_fn, hash_fn);
+  }).
+
+  filter('tag_count', function() {
+    var tag_fn = function(records) {
+      var out = {};
+      for (var i in records) {
+        var record = records[i];
+        for (var tag_index in record.tags) {
+          var tag = record.tags[tag_index];
+          out[tag] ? out[tag]++ : out[tag] = 1;
+        }
+      }
+
+      // Return as array so it is sortable
+      return _.map(out, function(count, tag) { return [tag, count]; });
+    };
+
+    return _.memoize(tag_fn, hash_fn);
   });
 })();

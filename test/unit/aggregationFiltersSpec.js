@@ -4,6 +4,7 @@ describe('AggregationFilters', function() {
   var puid_data;
   var find_files;
   var find_transfers;
+  var tag_count;
 
   var fmt_91_records = [{
     'id': '054a0f2c-79bb-4051-b82b-4b0f14564811',
@@ -12,6 +13,7 @@ describe('AggregationFilters', function() {
     'puid': 'fmt/91',
     'size': '5',
     'bulk_extractor': 'logs.zip',
+    'tags': [],
   }, {
     'id': '7f70d25c-be05-4950-a384-dac159926960',
     'label': 'rose_quartz.svg',
@@ -19,6 +21,7 @@ describe('AggregationFilters', function() {
     'puid': 'fmt/91',
     'size': '2',
     'bulk_extractor': 'logs.zip',
+    'tags': ['test'],
   }];
   var fmt_11_records = [{
     'id': '4e941898-3914-4add-b1f6-476580862069',
@@ -27,6 +30,7 @@ describe('AggregationFilters', function() {
     'puid': 'fmt/11',
     'size': '13',
     'bulk_extractor': 'logs.zip',
+    'tags': ['test', 'test2'],
   }];
   var record_with_no_logs = [{
     'id': 'b2a14653-5fd8-458c-b4ae-ccaab4b46b0c',
@@ -49,6 +53,7 @@ describe('AggregationFilters', function() {
       puid_data = $injector.get('$filter')('puid_data');
       find_files = $injector.get('$filter')('find_files');
       find_transfers = $injector.get('$filter')('find_transfers');
+      tag_count = $injector.get('$filter')('tag_count');
     });
   });
 
@@ -90,5 +95,14 @@ describe('AggregationFilters', function() {
     var filtered_records = find_transfers(records);
     expect(filtered_records.length).toEqual(1);
     expect(filtered_records[0].label).toEqual('garnet');
+  });
+
+  it('should be able to aggregate tag acounts', function() {
+    var records = fmt_91_records.concat(fmt_11_records);
+    var tags = tag_count(records);
+    expect(tags[0][0]).toEqual('test');
+    expect(tags[0][1]).toEqual(2);
+    expect(tags[1][0]).toEqual('test2');
+    expect(tags[1][1]).toEqual(1);
   });
 });

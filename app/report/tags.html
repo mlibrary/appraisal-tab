@@ -1,0 +1,11 @@
+<h2>Tags</h2>
+<table class='table table-striped table-hover table-condensed'>
+  <tr>
+    <th ng-click="set_sort_property('tag', 'tag_sort_property', 'tag_reverse')">Tag</th>
+    <th ng-click="set_sort_property('count', 'tag_sort_property', 'tag_reverse')">Count</th>
+  </tr>
+  <tr ng-repeat="data in records.selected | facet | tag_count | orderBy: tag_sort_fn : tag_reverse">
+    <td ng-click="add_tags_to_file_list(data[0])">{{ data[0] }}</td>
+    <td>{{ data[1] }}</td>
+  </tr>
+</table>

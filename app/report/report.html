@@ -2,6 +2,9 @@
   <li ng-class="{ active: $routeSegment.contains('format') }">
     <a href="#{{ $routeSegment.getSegmentUrl('analysis.report.format') }}">Format</a>
   </li>
+  <li ng-class="{ active: $routeSegment.contains('tags') }">
+    <a href="#{{ $routeSegment.getSegmentUrl('analysis.report.tags') }}">Tags</a>
+  </li>
 </ul>
 
 <div app-view-segment="2"></div>
