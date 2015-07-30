@@ -37,6 +37,10 @@
   border-bottom: 1px solid #dddddd;
 }
 
+.panel-body {
+  overflow-x: auto;
+}
+
 treecontrol>ul>li {
   /* First tree element shouldn't be indented */
   padding-left: 0px;
