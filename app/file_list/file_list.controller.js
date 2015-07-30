@@ -11,6 +11,11 @@
       Tag.remove(id, tag);
     };
 
+    $scope.$watch('file_list.files', function() {
+      $scope.selected = [];
+      $scope.all_selected = false;
+    });
+
     $scope.selected = [];
     $scope.all_selected = false;
 
