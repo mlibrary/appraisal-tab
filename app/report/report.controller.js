@@ -3,6 +3,10 @@
 (function() {
   angular.module('reportController', ['selectedFilesService']).
 
+  controller('ReportSelectionController', ['$scope', '$routeSegment', function($scope, $routeSegment) {
+    $scope.$routeSegment = $routeSegment;
+  }]).
+
   controller('ReportController', ['$scope', 'FileList', 'SelectedFiles', function($scope, FileList, SelectedFiles) {
     $scope.records = SelectedFiles;
 

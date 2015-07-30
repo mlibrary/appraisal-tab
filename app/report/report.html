@@ -1,18 +1,7 @@
-<p><b><ng-pluralize count="(records.selected | filter:{'type': 'transfer'}).length" when="{'1': '1 transfer', 'other': '{} transfers'}"></ng-pluralize></b>, <ng-pluralize count="records.selected.length" when="{'1': '1 object', 'other': '{} objects'}"></ng-pluralize></b> selected</p>
+<ul class="nav nav-pills">
+  <li ng-class="{ active: $routeSegment.contains('format') }">
+    <a href="#{{ $routeSegment.getSegmentUrl('analysis.report.format') }}">Format</a>
+  </li>
+</ul>
 
-<h2>File types</h2>
-<h3>By PUID</h3>
-<table class='table table-striped table-hover table-condensed'>
-  <tr>
-    <th ng-click="set_sort_property('format')">Format</th>
-    <th ng-click="set_sort_property('puid')">PUID</th>
-    <th ng-click="set_sort_property('count')">Number of files</th>
-    <th ng-click="set_sort_property('size')">Size</th>
-  </tr>
-  <tr ng-repeat="record in records.selected | facet | puid_data | orderBy: sort_fn : reverse">
-    <td><a ng-click="set_file_list(record)">{{ record.data.format }}</a></td>
-    <td><a target="_blank" href="http://apps.nationalarchives.gov.uk/pronom/{{ record.puid }}">{{ record.puid }}</a></td>
-    <td><ng-pluralize count="record.data.count" when="{'1': '1 object', 'other': '{} objects'}"></ng-pluralize></td>
-    <td>{{ record.data.size }} MB</td>
-  </tr>
-</table>
+<div app-view-segment="2"></div>

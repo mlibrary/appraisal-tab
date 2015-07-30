@@ -42,6 +42,7 @@ config(['$routeSegmentProvider', function($routeSegmentProvider) {
   $routeSegmentProvider.
     when('/analysis', 'analysis').
     when('/analysis/report', 'analysis.report').
+    when('/analysis/report/format', 'analysis.report.format').
     when('/analysis/visualizations', 'analysis.visualizations').
     when('/analysis/visualizations/files', 'analysis.visualizations.files').
     when('/analysis/visualizations/size', 'analysis.visualizations.size').
@@ -59,8 +60,15 @@ config(['$routeSegmentProvider', function($routeSegmentProvider) {
       segment('report', {
         default: true,
         templateUrl: 'report/report.html',
-        controller: 'ReportController',
+        controller: 'ReportSelectionController',
       }).
+      within().
+        segment('format', {
+          default: true,
+          templateUrl: 'report/format.html',
+          controller: 'ReportController',
+        }).
+      up().
       segment('visualizations', {
         templateUrl: 'visualizations/visualizations.html',
         controller: 'VisualizationsController',
