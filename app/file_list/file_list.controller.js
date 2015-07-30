@@ -11,14 +11,6 @@
       Tag.remove(id, tag);
     };
 
-    // Ensure the "selected" list is empty if the file list changes
-    $scope.watch('file_list', function() {
-      $scope.$apply(function() {
-        $scope.selected = [];
-        $scope.all_selected = false;
-      });
-    });
-
     $scope.selected = [];
     $scope.all_selected = false;
 
