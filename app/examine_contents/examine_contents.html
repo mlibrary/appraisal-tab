@@ -34,7 +34,8 @@
     <input type="submit"
            id="submit-tag"
            value="Add tag to files with reports"
-           ng-disabled="SelectedFiles.selected.length < 1">
+           ng-disabled="SelectedFiles.selected.length < 1"
+           class='btn btn-sm btn-default'>
   </form>
 
   <p ng-if='(SelectedFiles.selected | find_files).length == 0'>No information found for selected files.</p>

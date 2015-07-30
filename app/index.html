@@ -104,6 +104,19 @@
         Backlog
       </div>
       <div class="transfer-tree panel-body" ng-controller="TreeController">
+        <form ng-submit="submit()">
+          <input type="text"
+                 ng-model="tag"
+                 ng-disabled="files.selected.length < 1">
+          <input type="submit"
+                 id="submit-tag"
+                 value="Add tag to selected files"
+                 ng-disabled="files.selected.length < 1"
+                 class='btn btn-sm btn-default'>
+        </form>
+
+        <input class='btn btn-sm btn-default' type="button" value="Deselect all" ng-click="deselect()">
+
         <treecontrol class="tree-classic"
                      tree-model="transfers.data"
                      options="options"
@@ -115,18 +128,6 @@
             {{ node.title }} <span class="tag" ng-repeat="tag in node.tags">{{ tag }} <span ng-click="remove_tag(id, tag)"><i class="fa fa-minus-square"></i></span></span>
           </span>
         </treecontrol>
-
-        <input type="button" value="Deselect all" ng-click="deselect()">
-
-        <form ng-submit="submit()">
-          <input type="text"
-                 ng-model="tag"
-                 ng-disabled="files.selected.length < 1">
-          <input type="submit"
-                 id="submit-tag"
-                 value="Add tag"
-                 ng-disabled="files.selected.length < 1">
-        </form>
       </div>
     </div>
   </ui-minimize-panel>
@@ -164,7 +165,8 @@
             <input type="submit"
                    id="submit-tag"
                    value="Add tag to selected files"
-                   ng-disabled="selected.length < 1">
+                   ng-disabled="selected.length < 1"
+                   class='btn btn-sm btn-default'>
           </form>
 
           <input type="checkbox"
