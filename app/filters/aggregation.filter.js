@@ -61,7 +61,7 @@
     return _.memoize(puid_graph_fn, hash_fn);
   }).
 
-  filter('size_graph', function() {
+  filter('size_graph', function($filter) {
     var size_graph_fn = function(records) {
       var data = {
         series: ['Format'],
@@ -73,7 +73,7 @@
           puid: format_data.puid,
           x: readable_name,
           y: [format_data.data.size],
-          tooltip: readable_name + ', ' + format_data.data.size + "MB",
+          tooltip: readable_name + ', ' + $filter('number')(format_data.data.size) + ' MB',
         });
       });
       return data;

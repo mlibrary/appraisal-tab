@@ -192,7 +192,7 @@
               <a href="#{{ $routeSegment.getSegmentUrl('preview', {id: file.id}) }}">{{ file.title }}</a>
               <i class="fa fa-minus-square" style="float: right;" ng-click="remove_file(file.id)"></i>
             </td>
-            <td>{{ file.size }}</td>
+            <td>{{ file.size | number}} MB</td>
             <td>{{ file.last_modified }}</td>
             <td>
               <span class="tag" ng-repeat="tag in file.tags">{{ tag }} <span ng-click="remove_tag(file.id, tag)"><i class="fa fa-minus-square"></i></span></span>
