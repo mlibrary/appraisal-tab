@@ -9,49 +9,52 @@
 
   angular.module('aggregationFilters', []).
 
-  filter('puid_data', ['Transfer', function(Transfer) {
-    var puid_data_fn = function(records) {
-      var puid_data = {};
+  filter('format_data', ['Transfer', function(Transfer) {
+    var format_data_fn = function(records) {
+      var format_data = {};
       for (var i in records) {
         var record = records[i];
-        if (!record.puid) {
+        if (!record.format) {
           continue;
         }
 
-        if (!puid_data[record.puid]) {
-          puid_data[record.puid] = {count: 0, size: 0};
+        if (!format_data[record.format]) {
+          format_data[record.format] = {count: 0, size: 0};
         }
         var format_info = Transfer.formats.filter(function (f) { return f.title === record.format; });
 
-        puid_data[record.puid].count++;
-        puid_data[record.puid].format = record.format;
-        puid_data[record.puid].group = format_info[0].group || 'Unknown';
-        puid_data[record.puid].size += Number.parseFloat(record.size) || 0;
+        format_data[record.format].count++;
+        format_data[record.format].puid = record.puid || '';
+        format_data[record.format].group = format_info[0].group || 'Unknown';
+        format_data[record.format].size += Number.parseFloat(record.size) || 0;
       }
 
       var out_data = [];
-      for (var key in puid_data) {
-        out_data.push({puid: key, data: puid_data[key]});
+      for (var key in format_data) {
+        out_data.push({format: key, data: format_data[key]});
       }
 
       return _.sortBy(out_data, function(format) {
-        return format.data.format;
+        return format.format;
       });
     };
 
-    return _.memoize(puid_data_fn, hash_fn);
+    return _.memoize(format_data_fn, hash_fn);
   }]).
 
-  filter('puid_graph', function() {
-    var puid_graph_fn = function(records) {
+  filter('format_graph', function() {
+    var format_graph_fn = function(records) {
       var data = {
         series: ['Format'],
         data: [],
       };
       angular.forEach(records, function(format_data, _) {
-        var readable_name = format_data.data.format + ' (' + format_data.puid + ')';
+        var readable_name = format_data.format;
+        if (format_data.data.puid) {
+         readable_name += ' (' + format_data.data.puid + ')';
+        }
         data.data.push({
-          puid: format_data.puid,
+          puid: format_data.data.puid,
           x: readable_name,
           y: [format_data.data.count],
           tooltip: readable_name,
@@ -60,7 +63,7 @@
       return data;
     };
 
-    return _.memoize(puid_graph_fn, hash_fn);
+    return _.memoize(format_graph_fn, hash_fn);
   }).
 
   filter('size_graph', function($filter) {
@@ -70,9 +73,12 @@
         data: [],
       };
       angular.forEach(records, function(format_data, _) {
-        var readable_name = format_data.data.format + ' (' + format_data.puid + ')';
+        var readable_name = format_data.format;
+        if (format_data.data.puid) {
+         readable_name += ' (' + format_data.data.puid + ')';
+        }
         data.data.push({
-          puid: format_data.puid,
+          puid: format_data.data.puid,
           x: readable_name,
           y: [format_data.data.size],
           tooltip: readable_name + ', ' + $filter('number')(format_data.data.size) + ' MB',

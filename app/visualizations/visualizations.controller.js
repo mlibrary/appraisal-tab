@@ -11,8 +11,8 @@
     // Displays aggregate information about file formats;
     // the selected record data is filtered/reformatted in the view.
     $scope.records = SelectedFiles;
-    $scope.puid_chart_type = 'pie';
-    $scope.puid_config = {
+    $scope.format_chart_type = 'pie';
+    $scope.format_config = {
       // Formats (total)
       click: function(d) {
         FileList.files = SelectedFiles.selected.filter(function (file) {

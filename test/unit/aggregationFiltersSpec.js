@@ -1,7 +1,7 @@
 'use strict';
 
 describe('AggregationFilters', function() {
-  var puid_data;
+  var format_data;
   var find_files;
   var find_transfers;
   var tag_count;
@@ -35,6 +35,17 @@ describe('AggregationFilters', function() {
     'bulk_extractor_reports': ['logs.zip'],
     'tags': ['test', 'test2'],
   }];
+  var no_fmt_record = [{
+    'id': 'dc08bcee-c4b9-490e-a98e-a884c4a9973c',
+    'title': 'pptC1.tmp',
+    'format': 'Generic AIFF',
+    'extension': '.aif',
+    'size': 34,
+    'bulk_extractor_reports': [],
+    'type': 'file',
+    'puid': '',
+    'tags': [],
+  }];
   var record_with_no_logs = [{
     'id': 'b2a14653-5fd8-458c-b4ae-ccaab4b46b0c',
     'title': 'lapis_lazuli.tiff',
@@ -55,7 +66,7 @@ describe('AggregationFilters', function() {
     module('transferService');
 
     inject(function($injector) {
-      puid_data = $injector.get('$filter')('puid_data');
+      format_data = $injector.get('$filter')('format_data');
       find_files = $injector.get('$filter')('find_files');
       find_transfers = $injector.get('$filter')('find_transfers');
       tag_count = $injector.get('$filter')('tag_count');
@@ -79,6 +90,11 @@ describe('AggregationFilters', function() {
           'group': 'Image (Raster)',
           'puid': 'fmt/153',
         },
+        {
+          'title': 'Generic AIFF',
+          'group': 'Audio',
+          'puid': '',
+        },
       ],
       'transfers': transfers,
     });
@@ -87,9 +103,10 @@ describe('AggregationFilters', function() {
   }));
 
   it('should aggregate data about multiple files with the same format', function() {
-    var aggregate_data = puid_data(fmt_91_records);
+    var aggregate_data = format_data(fmt_91_records);
     expect(aggregate_data.length).toEqual(1);
-    expect(aggregate_data[0].puid).toEqual('fmt/91');
+    expect(aggregate_data[0].format).toEqual('Scalable Vector Graphics 1.0');
+    expect(aggregate_data[0].data.puid).toEqual('fmt/91');
     expect(aggregate_data[0].data.size).toEqual(7);
     expect(aggregate_data[0].data.count).toEqual(2);
     expect(aggregate_data[0].data.group).toEqual('Image (Vector)');
@@ -97,14 +114,26 @@ describe('AggregationFilters', function() {
 
   it('should produce one entry for each PUID in the source records', function() {
     var records = fmt_91_records.concat(fmt_11_records);
-    var aggregate_data = puid_data(records);
+    var aggregate_data = format_data(records);
     expect(aggregate_data.length).toEqual(2);
-    expect(aggregate_data[0].puid).toEqual('fmt/11');
+    expect(aggregate_data[0].format).toEqual('PNG 1.0');
+    expect(aggregate_data[0].data.puid).toEqual('fmt/11');
     expect(aggregate_data[0].data.count).toEqual(1);
     expect(aggregate_data[0].data.group).toEqual('Image (Raster)');
-    expect(aggregate_data[1].puid).toEqual('fmt/91');
+    expect(aggregate_data[1].format).toEqual('Scalable Vector Graphics 1.0');
+    expect(aggregate_data[1].data.puid).toEqual('fmt/91');
     expect(aggregate_data[1].data.count).toEqual(2);
     expect(aggregate_data[1].data.group).toEqual('Image (Vector)');
+  });
+
+  it('should aggregate data about files with no PUID', function() {
+    var aggregate_data = format_data(no_fmt_record);
+    expect(aggregate_data.length).toEqual(1);
+    expect(aggregate_data[0].format).toEqual('Generic AIFF');
+    expect(aggregate_data[0].data.puid).toEqual('');
+    expect(aggregate_data[0].data.size).toEqual(34);
+    expect(aggregate_data[0].data.count).toEqual(1);
+    expect(aggregate_data[0].data.group).toEqual('Audio');
   });
 
   it('should filter lists of files to contain only files', function() {
