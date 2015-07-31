@@ -48,13 +48,43 @@
         }
       }
 
-      $scope.drop = function(_, ui) {
+      // Filter the list of dragged files to contain only files with the "display"
+      // parameter, so that only visibly selected files are dragged over
+      var filter_files = function(file) {
+        if (!file.display) {
+          return {};
+        }
+
+        // Filter children recursively
+        if (file.children) {
+          var children = file.children;
+          file.children = [];
+          angular.forEach(children, function(child) {
+            child = filter_files(child);
+            // Omit empty objects, or directories whose children have all been filtered out
+            if (child.id && child.type === 'file' || (child.children && child.children.length > 0)) {
+              file.children.push(child);
+            }
+          });
+        }
+
+        return file;
+      };
+
+      $scope.drop = function(unused, ui) {
         var self = this;
 
         var file_uuid = ui.draggable.attr('uuid');
-        var file = Transfer.id_map[file_uuid]
+        var file = Transfer.id_map[file_uuid];
         if (dragged_ids.indexOf(file_uuid) !== -1) {
           alert("File \"" + file.title + "\" already added.");
+          return;
+        }
+
+        // create a deep copy of the file and its children so we don't mutate
+        // the copies used in the backlog
+        file = filter_files(_.extend({}, file));
+        if (!file.id) {
           return;
         }
 
