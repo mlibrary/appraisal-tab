@@ -40,7 +40,6 @@
       <a ng-if="record.bulk_extractor" href="{{ record.bulk_extractor}}">Bulk Extractor logs</a>
     </li>
   </ul>
-  </div>
 
   <form ng-submit="submit(selected)">
     <input type="text"
@@ -52,6 +51,7 @@
            ng-disabled="selected.length < 1"
            class='btn btn-sm btn-default'>
   </form>
+  </div>
 
   <p ng-if='(SelectedFiles.selected | find_files).length == 0'>No information found for selected files.</p>
 
