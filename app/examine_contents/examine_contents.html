@@ -18,23 +18,38 @@
   </ul>
   <p ng-if='(SelectedFiles.selected | find_transfers).length == 0'>No information found for selected Transfers.</p>
 
-  <h2 ng-if="(SelectedFiles.selected | find_files).length != 0">Files</h2>
+  <div ng-if="(SelectedFiles.selected | find_files).length != 0">
+  <h2>Files</h2>
+  <input type="checkbox"
+         name="checked_files[]"
+         value="Select all"
+         ng-checked="all_selected"
+         ng-click="select_all((SelectedFiles.selected | find_files | filter:{bulk_extractor_reports: type}))">
+  Select all
   <ul>
     <li ng-repeat="record in SelectedFiles.selected | find_files | filter:{bulk_extractor_reports: type}">
+    <input checklist
+         name="checked_files[]"
+         ng-model="record"
+         ng-checked="selected.indexOf(record.id) > -1"
+         record-count="SelectedFiles.selected.length"
+         selected-list="selected"
+         all-selected="all_selected">
     <a href="#{{ $routeSegment.getSegmentUrl('examine_contents.file_info', {id: record.id, type: type}) }}">{{ record.title }}</a>
       (<a href="#{{ $routeSegment.getSegmentUrl('preview', {id: record.id}) }}">Preview</a>):
       <a ng-if="record.bulk_extractor" href="{{ record.bulk_extractor}}">Bulk Extractor logs</a>
     </li>
   </ul>
+  </div>
 
-  <form ng-submit="submit((SelectedFiles.selected | find_files | filter:{bulk_extractor_reports: type}))">
+  <form ng-submit="submit(selected)">
     <input type="text"
            ng-model="tag"
-           ng-disabled="SelectedFiles.selected.length < 1">
+           ng-disabled="selected.length < 1">
     <input type="submit"
            id="submit-tag"
-           value="Add tag to files with reports"
-           ng-disabled="SelectedFiles.selected.length < 1"
+           value="Add tag to checked files"
+           ng-disabled="selected.length < 1"
            class='btn btn-sm btn-default'>
   </form>
 
