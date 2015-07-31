@@ -4,12 +4,14 @@
   <tr>
     <th><a ng-click="set_sort_property('format', 'format_sort_property', 'format_reverse')">Format</a></th>
     <th><a ng-click="set_sort_property('puid', 'format_sort_property', 'format_reverse')">PUID</a></th>
+    <th><a ng-click="set_sort_property('group', 'format_sort_property', 'format_reverse')">Group</a></th>
     <th><a ng-click="set_sort_property('count', 'format_sort_property', 'format_reverse')">Number of files</a></th>
     <th><a ng-click="set_sort_property('size', 'format_sort_property', 'format_reverse')">Size</a></th>
   </tr>
   <tr ng-repeat="record in records.selected | facet | puid_data | orderBy: format_sort_fn : format_reverse">
     <td><a ng-click="set_file_list(record)">{{ record.data.format }}</a></td>
     <td><a target="_blank" href="http://apps.nationalarchives.gov.uk/pronom/{{ record.puid }}">{{ record.puid }}</a></td>
+    <td>{{ record.data.group }}</td>
     <td><ng-pluralize count="record.data.count" when="{'1': '1 object', 'other': '{} objects'}"></ng-pluralize></td>
     <td>{{ record.data.size | number }} MB</td>
   </tr>

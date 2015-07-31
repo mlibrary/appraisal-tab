@@ -9,7 +9,7 @@
 
   angular.module('aggregationFilters', []).
 
-  filter('puid_data', function() {
+  filter('puid_data', ['Transfer', function(Transfer) {
     var puid_data_fn = function(records) {
       var puid_data = {};
       for (var i in records) {
@@ -21,9 +21,11 @@
         if (!puid_data[record.puid]) {
           puid_data[record.puid] = {count: 0, size: 0};
         }
+        var format_info = Transfer.formats.filter(function (f) { return f.title === record.format; });
 
         puid_data[record.puid].count++;
         puid_data[record.puid].format = record.format;
+        puid_data[record.puid].group = format_info[0].group || 'Unknown';
         puid_data[record.puid].size += Number.parseFloat(record.size) || 0;
       }
 
@@ -38,7 +40,7 @@
     };
 
     return _.memoize(puid_data_fn, hash_fn);
-  }).
+  }]).
 
   filter('puid_graph', function() {
     var puid_graph_fn = function(records) {

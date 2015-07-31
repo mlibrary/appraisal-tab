@@ -52,6 +52,7 @@ describe('AggregationFilters', function() {
 
   beforeEach(function() {
     module('aggregationFilters');
+    module('transferService');
 
     inject(function($injector) {
       puid_data = $injector.get('$filter')('puid_data');
@@ -60,6 +61,30 @@ describe('AggregationFilters', function() {
       tag_count = $injector.get('$filter')('tag_count');
     });
   });
+  beforeEach(angular.mock.inject(function(_$httpBackend_, Transfer) {
+    _$httpBackend_.when('GET', '/transfers.json').respond({
+      'formats': [
+        {
+          'title': 'Scalable Vector Graphics 1.0',
+          'group': 'Image (Vector)',
+          'puid': 'fmt/91',
+        },
+        {
+          'title': 'PNG 1.0',
+          'group': 'Image (Raster)',
+          'puid': 'fmt/11',
+        },
+        {
+          'title': 'TIFF for Image Technology (TIFF/IT)',
+          'group': 'Image (Raster)',
+          'puid': 'fmt/153',
+        },
+      ],
+      'transfers': transfers,
+    });
+    Transfer.resolve();
+    _$httpBackend_.flush();
+  }));
 
   it('should aggregate data about multiple files with the same format', function() {
     var aggregate_data = puid_data(fmt_91_records);
@@ -67,6 +92,7 @@ describe('AggregationFilters', function() {
     expect(aggregate_data[0].puid).toEqual('fmt/91');
     expect(aggregate_data[0].data.size).toEqual(7);
     expect(aggregate_data[0].data.count).toEqual(2);
+    expect(aggregate_data[0].data.group).toEqual('Image (Vector)');
   });
 
   it('should produce one entry for each PUID in the source records', function() {
@@ -75,8 +101,10 @@ describe('AggregationFilters', function() {
     expect(aggregate_data.length).toEqual(2);
     expect(aggregate_data[0].puid).toEqual('fmt/11');
     expect(aggregate_data[0].data.count).toEqual(1);
+    expect(aggregate_data[0].data.group).toEqual('Image (Raster)');
     expect(aggregate_data[1].puid).toEqual('fmt/91');
     expect(aggregate_data[1].data.count).toEqual(2);
+    expect(aggregate_data[1].data.group).toEqual('Image (Vector)');
   });
 
   it('should filter lists of files to contain only files', function() {
