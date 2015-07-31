@@ -25,6 +25,7 @@
         display: true,
         position: 'right',
       },
+      colors: d3.scale.category20().range(),
     };
 
     $scope.size_chart_type = 'pie';
@@ -41,6 +42,7 @@
         display: true,
         position: 'right',
       },
+      colors: d3.scale.category20().range(),
     };
   }]);
 })();
