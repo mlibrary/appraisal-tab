@@ -3,7 +3,7 @@
 (function() {
   angular.module('examineContentsController', []).
 
-  controller('ExamineContentsController', ['$scope', '$routeSegment', 'SelectedFiles', 'Tag', function($scope, $routeSegment, SelectedFiles, Tag) {
+  controller('ExamineContentsController', ['$scope', '$routeSegment', 'FileList', 'SelectedFiles', 'Tag', function($scope, $routeSegment, FileList, SelectedFiles, Tag) {
     $scope.$routeSegment = $routeSegment;
     $scope.type = $routeSegment.$routeParams.type;
     $scope.SelectedFiles = SelectedFiles;
@@ -36,6 +36,12 @@
 
       Tag.add_list(ids, tag);
       this.tag = '';
+    };
+
+    $scope.add_to_file_list = function(ids) {
+      FileList.files = SelectedFiles.selected.filter(function(file) {
+        return ids.indexOf(file.id) > -1;
+      });
     };
   }]).
 
