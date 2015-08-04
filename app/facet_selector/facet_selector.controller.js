@@ -26,8 +26,7 @@
         return s;
       };
 
-      $scope.$watch('date_start', function(start_date) {
-        var end_date = $scope.date_end;
+      $scope.set_date_filter = function(start_date, end_date) {
         if (!start_date && !end_date) {
           return;
         }
@@ -39,9 +38,10 @@
           var date_as_int = Date.parse(date);
           return date_as_int > start_date && date_as_int < end_date;
         };
+        Facet.remove('date');
         Facet.add('date', facet_fn, {name: 'Date', text: format_date($scope.date_start, $scope.date_end)});
         Transfer.filter();
-      });
+      };
 
       $scope.$watch('tag_facet', function(selected) {
         if (!selected) {
