@@ -29,7 +29,6 @@
         var self = this;
         self.all().then(function(data) {
           self.data = data.transfers;
-          self.data[0].version = 0;
           self.formats = data.formats;
           self.id_map = create_flat_map(data.transfers);
           self.filter();
