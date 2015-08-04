@@ -8,40 +8,40 @@ describe('AggregationFilters', function() {
 
   var fmt_91_records = [{
     'id': '054a0f2c-79bb-4051-b82b-4b0f14564811',
-    'label': 'lion.svg',
+    'title': 'lion.svg',
     'type': 'file',
     'puid': 'fmt/91',
-    'size': '5',
-    'bulk_extractor': 'logs.zip',
+    'size': 5,
+    'bulk_extractor_reports': ['logs.zip'],
     'tags': [],
   }, {
     'id': '7f70d25c-be05-4950-a384-dac159926960',
-    'label': 'rose_quartz.svg',
+    'title': 'rose_quartz.svg',
     'type': 'file',
     'puid': 'fmt/91',
-    'size': '2',
-    'bulk_extractor': 'logs.zip',
+    'size': 2,
+    'bulk_extractor_reports': ['logs.zip'],
     'tags': ['test'],
   }];
   var fmt_11_records = [{
     'id': '4e941898-3914-4add-b1f6-476580862069',
-    'label': 'pearl.png',
+    'title': 'pearl.png',
     'type': 'file',
     'puid': 'fmt/11',
-    'size': '13',
-    'bulk_extractor': 'logs.zip',
+    'size': 13,
+    'bulk_extractor_reports': ['logs.zip'],
     'tags': ['test', 'test2'],
   }];
   var record_with_no_logs = [{
     'id': 'b2a14653-5fd8-458c-b4ae-ccaab4b46b0c',
-    'label': 'lapis_lazuli.tiff',
+    'title': 'lapis_lazuli.tiff',
     'type': 'file',
     'puid': 'fmt/153',
-    'size': '89',
+    'size': 89,
   }];
   var transfers = [{
     'id': 'fb91bf38-3836-4312-a928-699c564865da',
-    'label': 'garnet',
+    'title': 'garnet',
     'type': 'transfer',
     'original_order': '/fixtures/transferdata/fb91bf38-3836-4312-a928-699c564865da/directory_tree.txt',
   }];
@@ -79,7 +79,7 @@ describe('AggregationFilters', function() {
     var records = fmt_91_records.concat(fmt_11_records, transfers);
     var filtered_records = find_files(records);
     expect(filtered_records.length).toEqual(3);
-    expect(filtered_records[0].label).toEqual('lion.svg');
+    expect(filtered_records[0].title).toEqual('lion.svg');
   });
 
   it('should omit files with no bulk_extractor logs', function() {
@@ -87,14 +87,14 @@ describe('AggregationFilters', function() {
     expect(records.length).toEqual(3);
     var filtered_records = find_files(records);
     expect(filtered_records.length).toEqual(2);
-    expect(filtered_records[0].label).toEqual('lion.svg');
+    expect(filtered_records[0].title).toEqual('lion.svg');
   });
 
   it('should filter lists of files to contain only transfers', function() {
     var records = fmt_91_records.concat(fmt_11_records, transfers);
     var filtered_records = find_transfers(records);
     expect(filtered_records.length).toEqual(1);
-    expect(filtered_records[0].label).toEqual('garnet');
+    expect(filtered_records[0].title).toEqual('garnet');
   });
 
   it('should be able to aggregate tag acounts', function() {

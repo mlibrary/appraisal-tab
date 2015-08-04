@@ -62,8 +62,8 @@ describe('Facet', function() {
   it('should return a unique ID for each newly-added value', inject(function(Facet) {
     var id1 = Facet.add('id', '1');
     var id2 = Facet.add('id', '2');
-    expect(id1).toNotBe(undefined);
-    expect(id1).toNotEqual(id2);
+    expect(id1).toBeDefined();
+    expect(id1).not.toEqual(id2);
   }));
 
   it('should allow a facet ID to be specified', inject(function(Facet) {
