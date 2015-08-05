@@ -9,9 +9,9 @@
     if ($scope.id !== undefined) {
       var file = FileList.get($scope.id);
       if (file) {
+        $scope.file = file;
         $scope.url = 'fixtures/content/' + file.title;
       }
     }
-    $scope.files = FileList;
   }]);
 })();
