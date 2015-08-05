@@ -181,18 +181,20 @@
                    class='btn btn-sm btn-default'>
           </form>
 
-          <input type="checkbox"
-                 name="checked_files[]"
-                 value="Select all"
-                 ng-checked="all_selected"
-                 ng-click="select_all()">
-          Select all
-          <table>
+          <table class='table table-striped table-hover table-condensed'>
           <tr>
+            <th>
+              <input type="checkbox"
+                     name="checked_files[]"
+                     value="Select all"
+                     ng-checked="all_selected"
+                     ng-click="select_all()">
+            </th>
             <th>Filename</th>
             <th>Size</th>
             <th>Last modified</th>
             <th>Tags</th>
+            <th title='Remove from file list'></th>
           </tr>
           <tr ng-repeat="file in file_list.files">
             <td>
@@ -203,13 +205,17 @@
                    record-count="file_list.files.length"
                    selected-list="selected"
                    all-selected="all_selected">
+            </td>
+            <td>
               <a href="#{{ $routeSegment.getSegmentUrl('preview', {id: file.id}) }}">{{ file.title }}</a>
-              <i class="fa fa-minus-square" style="float: right;" ng-click="remove_file(file.id)"></i>
             </td>
             <td>{{ file.size | number}} MB</td>
             <td>{{ file.last_modified }}</td>
             <td>
               <span class="tag" ng-repeat="tag in file.tags">{{ tag }} <span ng-click="remove_tag(file.id, tag)"><i class="fa fa-minus-square"></i></span></span>
+            </td>
+            <td>
+              <i class="fa fa-minus-square" ng-click="remove_file(file.id)"></i>
             </td>
           </tr>
           </table>
