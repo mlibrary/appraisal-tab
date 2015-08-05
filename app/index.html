@@ -84,9 +84,19 @@
 
     <fieldset>
       <label for='start-date-facet'>Date range start</label>
-      <input type="text" ng-model="date_start" class='form-control' id='start-date-facet' ng-change="set_date_filter(date_start, date_end)"/>
+      <input type="text"
+             ng-model="date_start"
+             class='form-control'
+             id='start-date-facet'
+             ng-change="set_date_filter(date_start, date_end)"
+             ng-pattern="date_regex"/>
       <label for='end-date-facet'>Date range end</label>
-      <input type="text" ng-model="date_end" class='form-control' id='end-date-facet' ng-change="set_date_filter(date_start, date_end)"/>
+      <input type="text"
+             ng-model="date_end"
+             class='form-control'
+             id='end-date-facet'
+             ng-change="set_date_filter(date_start, date_end)"
+             ng-pattern="date_regex"/>
     </fieldset>
 
     <ul class='list-inline'>

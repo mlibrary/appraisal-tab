@@ -12,6 +12,8 @@
       $scope.transfers = Transfer;
       $scope.tags = Tag;
 
+      $scope.date_regex = '\\d\\d\\d\\d([-\/]\\d\\d?)?([-\/]\\d\\d?)?';
+
       var format_date = function(start, end) {
         var s;
         if (!start) {
