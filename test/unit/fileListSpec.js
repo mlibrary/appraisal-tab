@@ -30,4 +30,12 @@ describe('FileList', function() {
     FileList.remove('edf3a698-31f8-422b-870c-669ab5c5a74f');
     expect(FileList.files.length).toEqual(1);
   }));
+
+  it('should be able to remove all files from the list', inject(function(FileList) {
+    FileList.files.push(test_item_1);
+    FileList.files.push(test_item_2);
+    expect(FileList.files.length).toEqual(2);
+    FileList.clear();
+    expect(FileList.files.length).toEqual(0);
+  }));
 });

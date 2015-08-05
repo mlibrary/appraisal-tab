@@ -21,6 +21,9 @@
           return file.id !== id;
         });
       },
+      clear: function() {
+        this.files = [];
+      },
     };
   });
 })();
