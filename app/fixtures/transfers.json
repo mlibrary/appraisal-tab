@@ -2,109 +2,134 @@
   "formats": [
     {
       "title": "Powerpoint 97-2002",
+      "group": "Presentation",
       "puid": "fmt/126"
     },
     {
       "title": "Windows BItmap 3.0",
+      "group": "Image (Raster)",
       "puid": "fmt/116"
     },
     {
       "title": "JPEG 1.01",
+      "group": "Image (Raster)",
       "puid": "fmt/43"
     },
     {
       "title": "Generic AIFF",
+      "group": "Audio",
       "puid": "",
       "extension": ".aif"
     },
     {
       "title": "Exchangeable Image File Format (Compressed) 2.2",
+      "group": "Image (Raster)",
       "puid": "x-fmt/391"
     },
     {
       "title": "Microsoft Word Document 97-2003",
+      "group": "Word Processing",
       "puid": "fmt/40"
     },
     {
       "title": "Microsoft Word for Windows 2007+",
+      "group": "Word Processing",
       "puid": "fmt/412",
       "extension": ".docx"
     },
     {
       "title": "Excel 97 Workbook",
+      "group": "Spreadsheet",
       "puid": "fmt/61"
     },
     {
       "title": "Excel for Windows 2007+",
+      "group": "Spreadsheet",
       "puid": "fmt/214",
       "extension": ".xlsx"
     },
     {
       "title": "RTF 1.7",
+      "group": "Word Processing",
       "puid": "fmt/52"
     },
     {
       "title": "Macro enabled Microsoft Word Document OOXML",
+      "group": "Word Processing",
       "puid": "fmt/523"
     },
     {
       "title": "JPEG 1.02",
+      "group": "Image (Raster)",
       "puid": "fmt/44"
     },
     {
       "title": "Exchangeable Image File Format (Compressed) 2.1",
+      "group": "Image (Raster)",
       "puid": "x-fmt/390"
     },
     {
       "title": "Acrobat PDF 1.3",
+      "group": "Portable Document Format",
       "puid": "fmt/17"
     },
     {
       "title": "JPEG 1.00",
+      "group": "Image (Raster)",
       "puid": "fmt/42"
     },
     {
       "title": "Powerpoint for Windows 2007+",
+      "group": "Presentation",
       "puid": "fmt/215",
       "extension": ".pptx"
     },
     {
       "title": "Hypertext Markup Language 4.0",
+      "group": "Text (Markup)",
       "puid": "fmt/99"
     },
     {
       "title": "RTF 1.5-1.6",
+      "group": "Word Processing",
       "puid": "fmt/50"
     },
     {
       "title": "1989a",
+      "group": "Image (Raster)",
       "puid": "fmt/4"
     },
     {
       "title": "TIFF",
+      "group": "Image (Raster)",
       "puid": "fmt/353",
       "extension": ".tif"
     },
     {
       "title": "Acrobat PDF 1.5",
+      "group": "Portable Document Format",
       "puid": "fmt/19"
     },
     {
       "title": "Acrobat PDF 1.6",
+      "group": "Portable Document Format",
       "puid": "fmt/20"
     },
     {
       "title": "Comma Separated Values",
+      "group": "Text (Plain)",
       "puid": "x-fmt/18",
       "extension": ".csv"
     },
     {
       "title": "ZIP file",
+      "group": "Package",
       "puid": "x-fmt/263",
       "extension": ".zip"
     },
     {
       "title": "Generic TXT",
+      "group": "Text (Plain)",
       "puid": "x-fmt/111",
       "extension": ".txt"
     }
