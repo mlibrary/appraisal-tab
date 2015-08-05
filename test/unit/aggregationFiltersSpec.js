@@ -9,6 +9,7 @@ describe('AggregationFilters', function() {
   var fmt_91_records = [{
     'id': '054a0f2c-79bb-4051-b82b-4b0f14564811',
     'title': 'lion.svg',
+    'format': 'Scalable Vector Graphics 1.0',
     'type': 'file',
     'puid': 'fmt/91',
     'size': 5,
@@ -17,6 +18,7 @@ describe('AggregationFilters', function() {
   }, {
     'id': '7f70d25c-be05-4950-a384-dac159926960',
     'title': 'rose_quartz.svg',
+    'format': 'Scalable Vector Graphics 1.0',
     'type': 'file',
     'puid': 'fmt/91',
     'size': 2,
@@ -26,6 +28,7 @@ describe('AggregationFilters', function() {
   var fmt_11_records = [{
     'id': '4e941898-3914-4add-b1f6-476580862069',
     'title': 'pearl.png',
+    'format': 'PNG 1.0',
     'type': 'file',
     'puid': 'fmt/11',
     'size': 13,
@@ -35,6 +38,7 @@ describe('AggregationFilters', function() {
   var record_with_no_logs = [{
     'id': 'b2a14653-5fd8-458c-b4ae-ccaab4b46b0c',
     'title': 'lapis_lazuli.tiff',
+    'format': 'TIFF for Image Technology (TIFF/IT)',
     'type': 'file',
     'puid': 'fmt/153',
     'size': 89,
@@ -69,10 +73,10 @@ describe('AggregationFilters', function() {
     var records = fmt_91_records.concat(fmt_11_records);
     var aggregate_data = puid_data(records);
     expect(aggregate_data.length).toEqual(2);
-    expect(aggregate_data[0].puid).toEqual('fmt/91');
-    expect(aggregate_data[0].data.count).toEqual(2);
-    expect(aggregate_data[1].puid).toEqual('fmt/11');
-    expect(aggregate_data[1].data.count).toEqual(1);
+    expect(aggregate_data[0].puid).toEqual('fmt/11');
+    expect(aggregate_data[0].data.count).toEqual(1);
+    expect(aggregate_data[1].puid).toEqual('fmt/91');
+    expect(aggregate_data[1].data.count).toEqual(2);
   });
 
   it('should filter lists of files to contain only files', function() {
