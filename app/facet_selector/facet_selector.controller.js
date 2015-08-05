@@ -26,17 +26,24 @@
         return s;
       };
 
-      $scope.set_date_filter = function(start_date, end_date) {
-        if (!start_date && !end_date) {
-          return;
+      var date_is_valid = function(date) {
+        if (date === undefined) {
+          return false;
+        } else {
+          return date.length < 4 ? false : true;
         }
-        start_date = Date.parse(start_date || '0');
-        end_date = Date.parse(end_date || '999999999');
+      }
 
-        var facet_fn = function(data) {
+      $scope.set_date_filter = function(start_date, end_date) {
+        var default_start_date = -62167219200000; // BC 1
+        var default_end_date = 3093496473600000; // AD 99999
+        start_date = date_is_valid(start_date) ? Date.parse(start_date) : default_start_date;
+        end_date = date_is_valid(end_date) ? Date.parse(end_date) : default_end_date;
+
+        var facet_fn = function(date) {
           // TODO: handle unparseable dates
           var date_as_int = Date.parse(date);
-          return date_as_int > start_date && date_as_int < end_date;
+          return date_as_int >= start_date && date_as_int <= end_date;
         };
         Facet.remove('date');
         Facet.add('date', facet_fn, {name: 'Date', text: format_date($scope.date_start, $scope.date_end)});
