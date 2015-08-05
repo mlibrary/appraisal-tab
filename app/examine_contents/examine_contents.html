@@ -21,6 +21,19 @@
   <div ng-if="(SelectedFiles.selected | find_files).length != 0">
   <h2>Files</h2>
 
+  <form ng-submit="submit(selected)">
+    <input type="text"
+           ng-model="tag"
+           ng-disabled="selected.length < 1">
+    <input type="submit"
+           id="submit-tag"
+           value="Add tag to checked files"
+           ng-disabled="selected.length < 1"
+           class='btn btn-sm btn-default'>
+  </form>
+
+  <input class='btn btn-sm btn-default' type="button" value="Add checked files to file list" ng-click="add_to_file_list(selected)">
+
   <table class='table table-hover table-striped table-condensed'>
     <tr>
       <th>
@@ -55,19 +68,6 @@
       </td>
     </tr>
   </table>
-
-  <input class='btn btn-sm btn-default' type="button" value="Add checked files to file list" ng-click="add_to_file_list(selected)">
-
-  <form ng-submit="submit(selected)">
-    <input type="text"
-           ng-model="tag"
-           ng-disabled="selected.length < 1">
-    <input type="submit"
-           id="submit-tag"
-           value="Add tag to checked files"
-           ng-disabled="selected.length < 1"
-           class='btn btn-sm btn-default'>
-  </form>
   </div>
 
   <p ng-if='(SelectedFiles.selected | find_files).length == 0'>No information found for selected files.</p>
