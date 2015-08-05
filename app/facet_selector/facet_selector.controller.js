@@ -46,6 +46,11 @@
         start_date = date_is_valid(start_date) ? Date.parse(start_date) : default_start_date;
         end_date = date_is_valid(end_date) ? Date.parse(end_date) : default_end_date;
 
+        // Can occur if either date is invalid, for example 2015/99/99
+        if (isNaN(start_date) || isNaN(end_date)) {
+          return;
+        }
+
         var facet_fn = function(date) {
           // TODO: handle unparseable dates
           var date_as_int = Date.parse(date);
