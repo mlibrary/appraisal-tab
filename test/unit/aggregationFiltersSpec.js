@@ -106,22 +106,24 @@ describe('AggregationFilters', function() {
     var aggregate_data = format_data(fmt_91_records);
     expect(aggregate_data.length).toEqual(1);
     expect(aggregate_data[0].format).toEqual('Scalable Vector Graphics 1.0');
-    expect(aggregate_data[0].data.puid).toEqual('fmt/91');
+    expect(aggregate_data[0].data.format).toEqual('Scalable Vector Graphics 1.0');
     expect(aggregate_data[0].data.size).toEqual(7);
     expect(aggregate_data[0].data.count).toEqual(2);
     expect(aggregate_data[0].data.group).toEqual('Image (Vector)');
   });
 
-  it('should produce one entry for each PUID in the source records', function() {
+  it('should produce one entry for each format in the source records', function() {
     var records = fmt_91_records.concat(fmt_11_records);
     var aggregate_data = format_data(records);
     expect(aggregate_data.length).toEqual(2);
     expect(aggregate_data[0].format).toEqual('PNG 1.0');
     expect(aggregate_data[0].data.puid).toEqual('fmt/11');
+    expect(aggregate_data[0].data.format).toEqual('PNG 1.0');
     expect(aggregate_data[0].data.count).toEqual(1);
     expect(aggregate_data[0].data.group).toEqual('Image (Raster)');
     expect(aggregate_data[1].format).toEqual('Scalable Vector Graphics 1.0');
     expect(aggregate_data[1].data.puid).toEqual('fmt/91');
+    expect(aggregate_data[1].data.format).toEqual('Scalable Vector Graphics 1.0');
     expect(aggregate_data[1].data.count).toEqual(2);
     expect(aggregate_data[1].data.group).toEqual('Image (Vector)');
   });
@@ -131,6 +133,7 @@ describe('AggregationFilters', function() {
     expect(aggregate_data.length).toEqual(1);
     expect(aggregate_data[0].format).toEqual('Generic AIFF');
     expect(aggregate_data[0].data.puid).toEqual('');
+    expect(aggregate_data[0].data.format).toEqual('Generic AIFF');
     expect(aggregate_data[0].data.size).toEqual(34);
     expect(aggregate_data[0].data.count).toEqual(1);
     expect(aggregate_data[0].data.group).toEqual('Audio');

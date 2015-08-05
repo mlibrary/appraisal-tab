@@ -38,9 +38,9 @@
     }
 
     $scope.set_file_list = function(record) {
-      var type = record.puid;
+      var type = record.format;
       FileList.files = SelectedFiles.selected.filter(function(file) {
-        return file.puid == type;
+        return file.format == type;
       });
     };
 

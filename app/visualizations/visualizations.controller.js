@@ -16,7 +16,7 @@
       // Formats (total)
       click: function(d) {
         FileList.files = SelectedFiles.selected.filter(function (file) {
-          return file.puid === d.data.puid;
+          return file.format === d.data.format;
         });
       },
       tooltips: true,
@@ -33,7 +33,7 @@
       // Formats (by size)
       click: function(d) {
         FileList.files = SelectedFiles.selected.filter(function (file) {
-          return file.puid === d.data.puid;
+          return file.format === d.data.format;
         });
       },
       tooltips: true,

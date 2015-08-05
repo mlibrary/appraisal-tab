@@ -25,6 +25,7 @@
 
         format_data[record.format].count++;
         format_data[record.format].puid = record.puid || '';
+        format_data[record.format].format = record.format;
         format_data[record.format].group = format_info[0].group || 'Unknown';
         format_data[record.format].size += Number.parseFloat(record.size) || 0;
       }
@@ -54,7 +55,7 @@
          readable_name += ' (' + format_data.data.puid + ')';
         }
         data.data.push({
-          puid: format_data.data.puid,
+          format: format_data.format,
           x: readable_name,
           y: [format_data.data.count],
           tooltip: readable_name,
@@ -78,7 +79,7 @@
          readable_name += ' (' + format_data.data.puid + ')';
         }
         data.data.push({
-          puid: format_data.data.puid,
+          format: format_data.format,
           x: readable_name,
           y: [format_data.data.size],
           tooltip: readable_name + ', ' + $filter('number')(format_data.data.size) + ' MB',
