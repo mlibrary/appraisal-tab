@@ -37,6 +37,10 @@
       }
 
       $scope.set_date_filter = function(start_date, end_date) {
+        if (!start_date && !end_date) {
+          return;
+        }
+
         var default_start_date = -62167219200000; // BC 1
         var default_end_date = 3093496473600000; // AD 99999
         start_date = date_is_valid(start_date) ? Date.parse(start_date) : default_start_date;
