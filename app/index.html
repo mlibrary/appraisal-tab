@@ -231,10 +231,16 @@
         ArchivesSpace
       </div>
       <div class="transfer-tree panel-body" ng-controller="ArchivesSpaceController">
+        <input type='button'
+               class='btn btn-primary'
+               id='finalize_arrange'
+               ng-disabled="!selected"
+               value='Finalize Arrangement'>
         <treecontrol id="archivesspace-tree"
                class="tree-classic"
                tree-model="data"
                options="options"
+               selected-node="selected"
                on-node-toggle="on_toggle(node, expanded)"
                expanded-nodes="expanded_nodes">
           <span tree-droppable on-drop="drop">
