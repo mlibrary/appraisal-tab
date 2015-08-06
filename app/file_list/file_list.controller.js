@@ -39,5 +39,19 @@
       Tag.add_list(uuids, tag);
       this.tag = '';
     };
+
+    // Sorting related
+    $scope.sort_property = 'title';
+    $scope.sort_reverse = false;
+
+    $scope.set_sort_property = function(property) {
+      if ($scope.sort_property === property) {
+        $scope.sort_reverse = !$scope.sort_reverse;
+      } else {
+        $scope.sort_reverse = false;
+        $scope.sort_property = property;
+      }
+    };
+
   }]);
 })();

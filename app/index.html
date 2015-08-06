@@ -190,13 +190,13 @@
                      ng-checked="all_selected"
                      ng-click="select_all()">
             </th>
-            <th>Filename</th>
-            <th>Size</th>
-            <th>Last modified</th>
+            <th><a ng-click="set_sort_property('title')">Filename</a></th>
+            <th><a ng-click="set_sort_property('size')">Size</a></th>
+            <th><a ng-click="set_sort_property('last_modified')">Last modified</a></th>
             <th>Tags</th>
             <th><i class="fa fa-minus-square" ng-click="file_list.clear()"></i></th>
           </tr>
-          <tr ng-repeat="file in file_list.files">
+          <tr ng-repeat="file in file_list.files | orderBy: sort_property : sort_reverse">
             <td>
               <input checklist
                    name="checked_files[]"
