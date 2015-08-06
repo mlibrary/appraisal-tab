@@ -215,7 +215,7 @@
               <span class="tag" ng-repeat="tag in file.tags">{{ tag }} <span ng-click="remove_tag(file.id, tag)"><i class="fa fa-minus-square"></i></span></span>
             </td>
             <td>
-              <i class="fa fa-minus-square" ng-click="remove_file(file.id)"></i>
+              <i class="fa fa-minus-square" ng-click="file_list.remove(file.id)"></i>
             </td>
           </tr>
           </table>

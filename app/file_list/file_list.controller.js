@@ -6,7 +6,6 @@
   controller('FileListController', ['$scope', '$routeSegment', 'FileList', 'Tag', function($scope, $routeSegment, FileList, Tag) {
     $scope.$routeSegment = $routeSegment;
     $scope.file_list = FileList;
-    $scope.remove_file = FileList.remove.bind(FileList);
     $scope.remove_tag = function(id, tag) {
       Tag.remove(id, tag);
     };
