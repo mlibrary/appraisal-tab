@@ -12,58 +12,6 @@
       $scope.transfers = Transfer;
       $scope.tags = Tag;
 
-      $scope.date_regex = '\\d\\d\\d\\d([-\/]\\d\\d?)?([-\/]\\d\\d?)?';
-
-      var format_date = function(start, end) {
-        var s;
-        if (!start) {
-          s = ' -';
-        } else {
-          s = start + ' -';
-        }
-        if (end) {
-          s += ' ' + end;
-        }
-
-        return s;
-      };
-
-      var date_is_valid = function(date) {
-        if (date === undefined) {
-          return false;
-        } else {
-          return date.length < 4 ? false : true;
-        }
-      }
-
-      $scope.set_date_filter = function(start_date, end_date) {
-        // Remove the facet immediately, so that the facet is updated if a user
-        // enters an invalid date
-        Facet.remove('date');
-
-        if (!start_date && !end_date) {
-          return;
-        }
-
-        var default_start_date = -62167219200000; // BC 1
-        var default_end_date = 3093496473600000; // AD 99999
-        start_date = date_is_valid(start_date) ? Date.parse(start_date) : default_start_date;
-        end_date = date_is_valid(end_date) ? Date.parse(end_date) : default_end_date;
-
-        // Can occur if either date is invalid, for example 2015/99/99
-        if (isNaN(start_date) || isNaN(end_date)) {
-          return;
-        }
-
-        var facet_fn = function(date) {
-          // TODO: handle unparseable dates
-          var date_as_int = Date.parse(date);
-          return date_as_int >= start_date && date_as_int <= end_date;
-        };
-        Facet.add('date', facet_fn, {name: 'Date', text: format_date($scope.date_start, $scope.date_end)});
-        Transfer.filter();
-      };
-
       $scope.$watch('tag_facet', function(selected) {
         if (!selected) {
           return;

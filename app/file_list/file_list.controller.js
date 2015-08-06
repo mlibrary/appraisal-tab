@@ -53,5 +53,69 @@
       }
     };
 
+    $scope.date_regex = '\\d\\d\\d\\d([-\/]\\d\\d?)?([-\/]\\d\\d?)?';
+
+    var format_date = function(start, end) {
+      var s;
+      if (!start) {
+        s = ' -';
+      } else {
+        s = start + ' -';
+      }
+      if (end) {
+        s += ' ' + end;
+      }
+
+      return s;
+    };
+
+    var date_is_valid = function(date) {
+      if (date === undefined) {
+        return false;
+      } else {
+        return date.length < 4 ? false : true;
+      }
+    }
+
+    var default_filter = function() {
+      return true;
+    };
+    $scope.facet_filter = default_filter;
+
+    $scope.reset_dates = function() {
+      $scope.date_facet = '';
+      $scope.facet_filter = default_filter;
+    }
+
+    $scope.set_date_filter = function(start_date, end_date) {
+      // Remove the facet immediately, so that the facet is updated if a user
+      // enters an invalid date
+      $scope.date_facet = '';
+      $scope.facet_filter = default_filter;
+      if (!start_date && !end_date) {
+        return;
+      }
+
+      var default_start_date = -62167219200000; // BC 1
+      var default_end_date = 3093496473600000; // AD 99999
+      var start = date_is_valid(start_date) ? Date.parse(start_date) : default_start_date;
+      var end = date_is_valid(end_date) ? Date.parse(end_date) : default_end_date;
+
+      // Can occur if either date is invalid, for example 2015/99/99
+      if (isNaN(start) || isNaN(end)) {
+        return;
+      }
+
+      $scope.date_facet = format_date(start_date, end_date);
+      $scope.facet_filter = function(date) {
+        if (date === undefined) {
+          return true;
+        }
+
+        // TODO: handle unparseable dates
+        var date_as_int = Date.parse(date);
+        return date_as_int >= start && date_as_int <= end;
+      };
+    };
   }]);
 })();
