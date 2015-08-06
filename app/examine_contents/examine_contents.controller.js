@@ -8,11 +8,6 @@
     $scope.type = $routeSegment.$routeParams.type;
     $scope.SelectedFiles = SelectedFiles;
 
-    $scope.watch('SelectedFiles.selected', function() {
-      $scope.selected = [];
-      $scope.all_selected = false;
-    });
-
     $scope.selected = [];
     $scope.all_selected = false;
 
