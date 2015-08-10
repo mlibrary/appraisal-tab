@@ -1,9 +1,9 @@
-<table class='table table-striped table-hover table-condensed' ng-if="file[type].length > 0">
+<table class='table table-striped table-hover table-condensed' ng-if="vm.file[vm.type].length > 0">
   <tr>
     <th>Content</th>
     <th>Context</th>
   </tr>
-  <tr ng-repeat="feature in file[type]">
+  <tr ng-repeat="feature in vm.file[vm.type]">
     <td>{{ feature.content }}</td>
     <td>{{ feature.context }}</td>
   </tr>

@@ -151,34 +151,34 @@
       <div class='panel-heading'>
         File List
       </div>
-      <div class='panel-body' ng-controller="FileListController">
-        <div ng-if="file_list.files.length > 0">
+      <div class='panel-body' ng-controller="FileListController as vm">
+        <div ng-if="vm.file_list.files.length > 0">
           <fieldset>
             <label for='start-date-facet'>Date range start</label>
             <input type="text"
-                   ng-model="date_start"
+                   ng-model="vm.date_start"
                    class='form-control'
                    id='start-date-facet'
-                   ng-change="set_date_filter(date_start, date_end)"
-                   ng-pattern="date_regex"/>
+                   ng-change="vm.set_date_filter(vm.date_start, vm.date_end)"
+                   ng-pattern="vm.date_regex"/>
             <label for='end-date-facet'>Date range end</label>
             <input type="text"
-                   ng-model="date_end"
+                   ng-model="vm.date_end"
                    class='form-control'
                    id='end-date-facet'
-                   ng-change="set_date_filter(date_start, date_end)"
-                   ng-pattern="date_regex"/>
+                   ng-change="vm.set_date_filter(vm.date_start, vm.date_end)"
+                   ng-pattern="vm.date_regex"/>
           </fieldset>
-          <span ng-if="date_facet">Dates: {{ date_facet }} <span ng-click="reset_dates();"><i class="fa fa-times"></i></span></span>
+          <span ng-if="vm.date_facet">Dates: {{ vm.date_facet }} <span ng-click="vm.reset_dates();"><i class="fa fa-times"></i></span></span>
 
-          <form ng-submit="submit(selected)">
+          <form ng-submit="vm.submit(vm.selected)">
             <input type="text"
                    ng-model="tag"
-                   ng-disabled="selected.length < 1">
+                   ng-disabled="vm.selected.length < 1">
             <input type="submit"
                    id="submit-tag"
                    value="Add tag to selected files"
-                   ng-disabled="selected.length < 1"
+                   ng-disabled="vm.selected.length < 1"
                    class='btn btn-sm btn-default'>
           </form>
 
@@ -188,27 +188,27 @@
               <input type="checkbox"
                      name="checked_files[]"
                      value="Select all"
-                     ng-checked="all_selected"
-                     ng-click="select_all()">
+                     ng-checked="vm.all_selected"
+                     ng-click="vm.select_all()">
             </th>
-            <th><a ng-click="set_sort_property('title')">Filename</a></th>
-            <th><a ng-click="set_sort_property('size')">Size</a></th>
-            <th><a ng-click="set_sort_property('last_modified')">Last modified</a></th>
+            <th><a ng-click="vm.set_sort_property('title')">Filename</a></th>
+            <th><a ng-click="vm.set_sort_property('size')">Size</a></th>
+            <th><a ng-click="vm.set_sort_property('last_modified')">Last modified</a></th>
             <th>Tags</th>
-            <th><i class="fa fa-minus-square" ng-click="file_list.clear()"></i></th>
+            <th><i class="fa fa-minus-square" ng-click="vm.file_list.clear()"></i></th>
           </tr>
-          <tr ng-repeat="file in file_list.files | filter: {'date': '*'} : facet_filter | orderBy: sort_property : sort_reverse">
+          <tr ng-repeat="file in vm.file_list.files | filter: {'date': '*'} : vm.facet_filter | orderBy: vm.sort_property : vm.sort_reverse">
             <td>
               <input checklist
                    name="checked_files[]"
                    ng-model="file"
-                   ng-checked="selected.indexOf(file.id) > -1"
-                   record-count="file_list.files.length"
-                   selected-list="selected"
-                   all-selected="all_selected">
+                   ng-checked="vm.selected.indexOf(file.id) > -1"
+                   record-count="vm.file_list.files.length"
+                   selected-list="vm.selected"
+                   all-selected="vm.all_selected">
             </td>
             <td>
-              <a href="#{{ $routeSegment.getSegmentUrl('preview', {id: file.id}) }}">{{ file.title }}</a>
+              <a href="#{{ vm.$routeSegment.getSegmentUrl('preview', {id: file.id}) }}">{{ file.title }}</a>
             </td>
             <td>{{ file.size | number}} MB</td>
             <td>{{ file.last_modified }}</td>
@@ -216,12 +216,12 @@
               <span class="tag" ng-repeat="tag in file.tags">{{ tag }} <span ng-click="remove_tag(file.id, tag)"><i class="fa fa-minus-square"></i></span></span>
             </td>
             <td>
-              <i class="fa fa-minus-square" ng-click="file_list.remove(file.id)"></i>
+              <i class="fa fa-minus-square" ng-click="vm.file_list.remove(file.id)"></i>
             </td>
           </tr>
           </table>
         </div>
-        <p ng-if="file_list.files.length === 0">File list is empty.</p>
+        <p ng-if="vm.file_list.files.length === 0">File list is empty.</p>
       </div>
     </div>
   </ui-minimize-panel>

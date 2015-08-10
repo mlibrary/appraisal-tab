@@ -3,27 +3,29 @@
 (function() {
   angular.module('examineContentsController', []).
 
-  controller('ExamineContentsController', ['$scope', '$routeSegment', 'FileList', 'SelectedFiles', 'Tag', function($scope, $routeSegment, FileList, SelectedFiles, Tag) {
-    $scope.$routeSegment = $routeSegment;
-    $scope.type = $routeSegment.$routeParams.type;
-    $scope.SelectedFiles = SelectedFiles;
+  controller('ExamineContentsController', ['$routeSegment', 'FileList', 'SelectedFiles', 'Tag', function($routeSegment, FileList, SelectedFiles, Tag) {
+    var vm = this;
 
-    $scope.selected = [];
-    $scope.all_selected = false;
+    vm.$routeSegment = $routeSegment;
+    vm.type = $routeSegment.$routeParams.type;
+    vm.SelectedFiles = SelectedFiles;
 
-    $scope.select_all = function(files) {
-      if (!$scope.all_selected) {
-        $scope.selected = files.map(function(file) {
+    vm.selected = [];
+    vm.all_selected = false;
+
+    vm.select_all = function(files) {
+      if (!vm.all_selected) {
+        vm.selected = files.map(function(file) {
           return file.id;
         });
-        $scope.all_selected = true;
+        vm.all_selected = true;
       } else {
-        $scope.selected = [];
-        $scope.all_selected = false;
+        vm.selected = [];
+        vm.all_selected = false;
       }
     };
 
-    $scope.submit = function(ids) {
+    vm.submit = function(ids) {
       var tag = this.tag;
       if (!tag) {
         return;
@@ -33,18 +35,20 @@
       this.tag = '';
     };
 
-    $scope.add_to_file_list = function(ids) {
+    vm.add_to_file_list = function(ids) {
       FileList.files = SelectedFiles.selected.filter(function(file) {
         return ids.indexOf(file.id) > -1;
       });
     };
   }]).
 
-  controller('ExamineContentsFileController', ['$scope', '$routeSegment', 'File', function($scope, $routeSegment, File) {
-    $scope.id = $routeSegment.$routeParams.id;
-    $scope.type = $routeSegment.$routeParams.type;
-    File.bulk_extractor_info($scope.id).then(function(data) {
-      $scope.file = data;
+  controller('ExamineContentsFileController', ['$routeSegment', 'File', function($routeSegment, File) {
+    var vm = this;
+
+    vm.id = $routeSegment.$routeParams.id;
+    vm.type = $routeSegment.$routeParams.type;
+    File.bulk_extractor_info(vm.id).then(function(data) {
+      vm.file = data;
     });
   }]);
 })();

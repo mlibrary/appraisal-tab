@@ -1,34 +1,34 @@
 <ul class="nav nav-pills">
-  <li ng-class="{ active: type === 'pii' }">
-    <a href="#{{ $routeSegment.getSegmentUrl('examine_contents', {type: 'pii'}) }}">PII</a>
+  <li ng-class="{ active: vm.type === 'pii' }">
+    <a href="#{{ vm.$routeSegment.getSegmentUrl('examine_contents', {type: 'pii'}) }}">PII</a>
   </li>
-  <li ng-class="{ active: type === 'ccn' }">
-    <a href="#{{ $routeSegment.getSegmentUrl('examine_contents', {type: 'ccn'}) }}">Credit card numbers</a>
+  <li ng-class="{ active: vm.type === 'ccn' }">
+    <a href="#{{ vm.$routeSegment.getSegmentUrl('examine_contents', {type: 'ccn'}) }}">Credit card numbers</a>
   </li>
 </ul>
 
-<div ng-if='type'>
-  <h2 ng-if="(SelectedFiles.selected | find_transfers).length != 0">Transfers:</h2>
+<div ng-if='vm.type'>
+  <h2 ng-if="(vm.SelectedFiles.selected | find_transfers).length != 0">Transfers:</h2>
   <ul>
-    <li ng-repeat="record in SelectedFiles.selected | find_transfers">
+    <li ng-repeat="record in vm.SelectedFiles.selected | find_transfers">
     {{ record.title }}:
       <a ng-if="record.original_order" href="{{ record.original_order }}">original order</a>
       <a ng-if="!record.original_order" class="disabled">original order</a>
     </li>
   </ul>
-  <p ng-if='(SelectedFiles.selected | find_transfers).length == 0'>No information found for selected Transfers.</p>
+  <p ng-if='(vm.SelectedFiles.selected | find_transfers).length == 0'>No information found for selected Transfers.</p>
 
-  <div ng-if="(SelectedFiles.selected | find_files).length != 0">
+  <div ng-if="(vm.SelectedFiles.selected | find_files).length != 0">
   <h2>Files</h2>
 
-  <form ng-submit="submit(selected)">
+  <form ng-submit="vm.submit(selected)">
     <input type="text"
            ng-model="tag"
-           ng-disabled="selected.length < 1">
+           ng-disabled="vm.selected.length < 1">
     <input type="submit"
            id="submit-tag"
            value="Add tag to checked files"
-           ng-disabled="selected.length < 1"
+           ng-disabled="vm.selected.length < 1"
            class='btn btn-sm btn-default'>
   </form>
 
@@ -40,28 +40,28 @@
         <input type="checkbox"
                name="checked_files[]"
                value="Select all"
-               ng-checked="all_selected"
-               ng-click="select_all((SelectedFiles.selected | find_files | filter:{bulk_extractor_reports: type}))">
+               ng-checked="vm.all_selected"
+               ng-click="vm.select_all((vm.SelectedFiles.selected | find_files | filter:{bulk_extractor_reports: vm.type}))">
       </th>
       <th>Filename</th>
       <th>Preview</th>
       <th>Bulk Extractor Logs</th>
     </tr>
-    <tr ng-repeat="record in SelectedFiles.selected | find_files | filter:{bulk_extractor_reports: type}">
+    <tr ng-repeat="record in vm.SelectedFiles.selected | find_files | filter:{bulk_extractor_reports: vm.type}">
       <td>
         <input checklist
              name="checked_files[]"
              ng-model="record"
-             ng-checked="selected.indexOf(record.id) > -1"
-             record-count="(SelectedFiles.selected | find_files | filter:{bulk_extractor_reports: type}).length"
-             selected-list="selected"
-             all-selected="all_selected">
+             ng-checked="vm.selected.indexOf(record.id) > -1"
+             record-count="(vm.SelectedFiles.selected | find_files | filter:{bulk_extractor_reports: vm.type}).length"
+             selected-list="vm.selected"
+             all-selected="vm.all_selected">
       </td>
       <td>
-        <a href="#{{ $routeSegment.getSegmentUrl('examine_contents.file_info', {id: record.id, type: type}) }}">{{ record.title }}</a>
+        <a href="#{{ vm.$routeSegment.getSegmentUrl('examine_contents.file_info', {id: record.id, type: vm.type}) }}">{{ record.title }}</a>
       </td>
       <td>
-        <a href="#{{ $routeSegment.getSegmentUrl('preview', {id: record.id}) }}">Preview</a>
+        <a href="#{{ vm.$routeSegment.getSegmentUrl('preview', {id: record.id}) }}">Preview</a>
       </td>
       <td>
         <a ng-if="record.bulk_extractor" href="{{ record.bulk_extractor}}">Bulk Extractor logs</a>
@@ -70,7 +70,7 @@
   </table>
   </div>
 
-  <p ng-if='(SelectedFiles.selected | find_files).length == 0'>No information found for selected files.</p>
+  <p ng-if='(vm.SelectedFiles.selected | find_files).length == 0'>No information found for selected files.</p>
 
   <div app-view-segment="1"></div>
 </div>

@@ -93,12 +93,14 @@ config(['$routeSegmentProvider', function($routeSegmentProvider) {
     segment('examine_contents', {
       templateUrl: 'examine_contents/examine_contents.html',
       controller: 'ExamineContentsController',
+      controllerAs: 'vm',
       dependencies: ['type'],
     }).
     within().
       segment('file_info', {
         templateUrl: 'examine_contents/file_info.html',
         controller: 'ExamineContentsFileController',
+        controllerAs: 'vm',
         dependencies: ['id', 'type'],
       }).
     up().

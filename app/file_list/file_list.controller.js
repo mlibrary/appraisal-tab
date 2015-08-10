@@ -4,33 +4,35 @@
   angular.module('fileListController', ['fileListService']).
 
   controller('FileListController', ['$scope', '$routeSegment', 'FileList', 'Tag', function($scope, $routeSegment, FileList, Tag) {
-    $scope.$routeSegment = $routeSegment;
-    $scope.file_list = FileList;
-    $scope.remove_tag = function(id, tag) {
+    var vm = this;
+
+    vm.$routeSegment = $routeSegment;
+    vm.file_list = FileList;
+    vm.remove_tag = function(id, tag) {
       Tag.remove(id, tag);
     };
 
     $scope.$watch('file_list.files', function() {
-      $scope.selected = [];
-      $scope.all_selected = false;
+      vm.selected = [];
+      vm.all_selected = false;
     });
 
-    $scope.selected = [];
-    $scope.all_selected = false;
+    vm.selected = [];
+    vm.all_selected = false;
 
-    $scope.select_all = function() {
-      if (!$scope.all_selected) {
-        $scope.selected = FileList.files.map(function(file) {
+    vm.select_all = function() {
+      if (!vm.all_selected) {
+        vm.selected = FileList.files.map(function(file) {
           return file.id;
         });
-        $scope.all_selected = true;
+        vm.all_selected = true;
       } else {
-        $scope.selected = [];
-        $scope.all_selected = false;
+        vm.selected = [];
+        vm.all_selected = false;
       }
     };
 
-    $scope.submit = function(uuids) {
+    vm.submit = function(uuids) {
       var tag = this.tag;
       if (!tag) {
         return;
@@ -41,19 +43,19 @@
     };
 
     // Sorting related
-    $scope.sort_property = 'title';
-    $scope.sort_reverse = false;
+    vm.sort_property = 'title';
+    vm.sort_reverse = false;
 
-    $scope.set_sort_property = function(property) {
-      if ($scope.sort_property === property) {
-        $scope.sort_reverse = !$scope.sort_reverse;
+    vm.set_sort_property = function(property) {
+      if (vm.sort_property === property) {
+        vm.sort_reverse = !vm.sort_reverse;
       } else {
-        $scope.sort_reverse = false;
-        $scope.sort_property = property;
+        vm.sort_reverse = false;
+        vm.sort_property = property;
       }
     };
 
-    $scope.date_regex = '\\d\\d\\d\\d([-\/]\\d\\d?)?([-\/]\\d\\d?)?';
+    vm.date_regex = '\\d\\d\\d\\d([-\/]\\d\\d?)?([-\/]\\d\\d?)?';
 
     var format_date = function(start, end) {
       var s;
@@ -80,18 +82,18 @@
     var default_filter = function() {
       return true;
     };
-    $scope.facet_filter = default_filter;
+    vm.facet_filter = default_filter;
 
-    $scope.reset_dates = function() {
-      $scope.date_facet = '';
-      $scope.facet_filter = default_filter;
+    vm.reset_dates = function() {
+      vm.date_facet = '';
+      vm.facet_filter = default_filter;
     }
 
-    $scope.set_date_filter = function(start_date, end_date) {
+    vm.set_date_filter = function(start_date, end_date) {
       // Remove the facet immediately, so that the facet is updated if a user
       // enters an invalid date
-      $scope.date_facet = '';
-      $scope.facet_filter = default_filter;
+      vm.date_facet = '';
+      vm.facet_filter = default_filter;
       if (!start_date && !end_date) {
         return;
       }
@@ -106,8 +108,8 @@
         return;
       }
 
-      $scope.date_facet = format_date(start_date, end_date);
-      $scope.facet_filter = function(date) {
+      vm.date_facet = format_date(start_date, end_date);
+      vm.facet_filter = function(date) {
         if (date === undefined) {
           return true;
         }

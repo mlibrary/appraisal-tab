@@ -9,16 +9,17 @@
       link: function($scope, element, attrs) {
         var get_record = $parse(attrs.ngModel);
         var get_selected = $parse(attrs.selectedList);
+        var get_all_selected = $parse(attrs.allSelected);
         var set_all_selected = $parse(attrs.allSelected).assign;
         var get_record_count = $parse(attrs.recordCount);
 
         element.attr('type', 'checkbox');
 
         element.bind('click', function() {
-          var selected = get_selected($scope.$parent.$parent);
+          var selected = get_selected($scope);
           var record = get_record($scope);
 
-          var index = $scope.selected.indexOf(record.id);
+          var index = selected.indexOf(record.id);
           $scope.$apply(function() {
             // remove from selection
             if (index > -1) {
@@ -27,7 +28,7 @@
               selected.push(record.id);
             }
 
-            set_all_selected($scope.$parent.$parent, !(selected.length < get_record_count($scope)));
+            set_all_selected($scope, !(selected.length < get_record_count($scope)));
           });
         });
       },
