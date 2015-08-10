@@ -10,6 +10,7 @@ describe('AggregationFilters', function() {
     'id': '054a0f2c-79bb-4051-b82b-4b0f14564811',
     'title': 'lion.svg',
     'format': 'Scalable Vector Graphics 1.0',
+    'group': 'Image (Vector)',
     'type': 'file',
     'puid': 'fmt/91',
     'size': 5,
@@ -19,6 +20,7 @@ describe('AggregationFilters', function() {
     'id': '7f70d25c-be05-4950-a384-dac159926960',
     'title': 'rose_quartz.svg',
     'format': 'Scalable Vector Graphics 1.0',
+    'group': 'Image (Vector)',
     'type': 'file',
     'puid': 'fmt/91',
     'size': 2,
@@ -29,6 +31,7 @@ describe('AggregationFilters', function() {
     'id': '4e941898-3914-4add-b1f6-476580862069',
     'title': 'pearl.png',
     'format': 'PNG 1.0',
+    'group': 'Image (Raster)',
     'type': 'file',
     'puid': 'fmt/11',
     'size': 13,
@@ -39,6 +42,7 @@ describe('AggregationFilters', function() {
     'id': 'dc08bcee-c4b9-490e-a98e-a884c4a9973c',
     'title': 'pptC1.tmp',
     'format': 'Generic AIFF',
+    'group': 'Audio',
     'extension': '.aif',
     'size': 34,
     'bulk_extractor_reports': [],
@@ -50,6 +54,7 @@ describe('AggregationFilters', function() {
     'id': 'b2a14653-5fd8-458c-b4ae-ccaab4b46b0c',
     'title': 'lapis_lazuli.tiff',
     'format': 'TIFF for Image Technology (TIFF/IT)',
+    'group': 'Image (Raster)',
     'type': 'file',
     'puid': 'fmt/153',
     'size': 89,
@@ -72,35 +77,6 @@ describe('AggregationFilters', function() {
       tag_count = $injector.get('$filter')('tag_count');
     });
   });
-  beforeEach(angular.mock.inject(function(_$httpBackend_, Transfer) {
-    _$httpBackend_.when('GET', '/transfers.json').respond({
-      'formats': [
-        {
-          'title': 'Scalable Vector Graphics 1.0',
-          'group': 'Image (Vector)',
-          'puid': 'fmt/91',
-        },
-        {
-          'title': 'PNG 1.0',
-          'group': 'Image (Raster)',
-          'puid': 'fmt/11',
-        },
-        {
-          'title': 'TIFF for Image Technology (TIFF/IT)',
-          'group': 'Image (Raster)',
-          'puid': 'fmt/153',
-        },
-        {
-          'title': 'Generic AIFF',
-          'group': 'Audio',
-          'puid': '',
-        },
-      ],
-      'transfers': transfers,
-    });
-    Transfer.resolve();
-    _$httpBackend_.flush();
-  }));
 
   it('should aggregate data about multiple files with the same format', function() {
     var aggregate_data = format_data(fmt_91_records);

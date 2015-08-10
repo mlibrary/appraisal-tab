@@ -9,7 +9,7 @@
 
   angular.module('aggregationFilters', []).
 
-  filter('format_data', ['Transfer', function(Transfer) {
+  filter('format_data', function() {
     var format_data_fn = function(records) {
       var format_data = {};
       for (var i in records) {
@@ -21,12 +21,11 @@
         if (!format_data[record.format]) {
           format_data[record.format] = {count: 0, size: 0};
         }
-        var format_info = Transfer.formats.filter(function (f) { return f.title === record.format; });
 
         format_data[record.format].count++;
         format_data[record.format].puid = record.puid || '';
         format_data[record.format].format = record.format;
-        format_data[record.format].group = format_info[0].group || 'Unknown';
+        format_data[record.format].group = record.group;
         format_data[record.format].size += Number.parseFloat(record.size) || 0;
       }
 
@@ -41,7 +40,7 @@
     };
 
     return _.memoize(format_data_fn, hash_fn);
-  }]).
+  }).
 
   filter('format_graph', function() {
     var format_graph_fn = function(records) {
