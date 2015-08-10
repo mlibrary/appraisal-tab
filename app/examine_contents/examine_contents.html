@@ -53,7 +53,7 @@
              name="checked_files[]"
              ng-model="record"
              ng-checked="selected.indexOf(record.id) > -1"
-             record-count="SelectedFiles.selected.length"
+             record-count="(SelectedFiles.selected | find_files | filter:{bulk_extractor_reports: type}).length"
              selected-list="selected"
              all-selected="all_selected">
       </td>
