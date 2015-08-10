@@ -35,12 +35,11 @@
     $scope.tag_sort_fn = function(args) {
       var tag = args[0], count = args[1];
       return $scope.tag_sort_property === 'tag' ? tag : count;
-    }
+    };
 
-    $scope.set_file_list = function(record) {
-      var type = record.format;
+    $scope.set_file_list = function(type, attr) {
       FileList.files = SelectedFiles.selected.filter(function(file) {
-        return file.format == type;
+        return file[attr] === type;
       });
     };
 

@@ -8,9 +8,9 @@
     <th><a ng-click="set_sort_property('size', 'format_sort_property', 'format_reverse')">Size</a></th>
   </tr>
   <tr ng-repeat="record in records.selected | facet | format_data | orderBy: format_sort_fn : format_reverse">
-    <td><a ng-click="set_file_list(record)">{{ record.format }}</a></td>
+    <td><a ng-click="set_file_list(record.format, 'format')">{{ record.format }}</a></td>
     <td><a target="_blank" href="http://apps.nationalarchives.gov.uk/pronom/{{ record.data.puid }}">{{ record.data.puid }}</a> <i ng-if='record.data.puid' class='fa fa-external-link'></i></td>
-    <td>{{ record.data.group }}</td>
+    <td><a ng-click="set_file_list(record.data.group, 'group')">{{ record.data.group }}</a></td>
     <td><ng-pluralize count="record.data.count" when="{'1': '1 object', 'other': '{} objects'}"></ng-pluralize></td>
     <td>{{ record.data.size | number }} MB</td>
   </tr>
