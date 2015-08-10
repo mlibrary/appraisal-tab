@@ -153,6 +153,8 @@
       </div>
       <div class='panel-body' ng-controller="FileListController as vm">
         <div ng-if="vm.file_list.files.length > 0">
+          <p><b><ng-pluralize count="vm.file_list.files.length" when="{'1': '1 object', 'other': '{} objects'}"></ng-pluralize></b> in list, <ng-pluralize count="vm.selected.length" when="{'1': '1 object', 'other': '{} objects'}"></ng-pluralize> selected</p>
+
           <fieldset>
             <label for='start-date-facet'>Date range start</label>
             <input type="text"
