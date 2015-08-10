@@ -91,17 +91,20 @@
     };
 
     var passes_filters = function(object) {
-      var keys = Object.keys(object);
+      var keys = Object.keys(this.facets);
       var key, value;
+      // If no filters, everything passes
+      if (keys.length === 0) {
+        return true;
+      }
       for (var i = 0; i < keys.length; i++) {
         key = keys[i];
         value = object[key];
-        if (filter_value.apply(this, [key, value]) === false) {
-          return false;
+        if (filter_value.apply(this, [key, value]) === true) {
+          return true;
         }
       }
-
-      return true;
+      return false;
     };
 
     // private
@@ -132,19 +135,19 @@
         // filter is a function
         if (filter.call) {
           result = filter(value);
-          // return immediately if any filter returns false,
-          // otherwise keep going
         } else if (typeof filter === 'string') {
           result = value === filter;
         } else {
           result = !!value.match(filter);
         }
-        if (result === false) {
-          return false;
+        // return immediately if any filter returns true,
+        // otherwise keep going
+        if (result === true) {
+          return true;
         }
       }
 
-      return true;
+      return false;
     };
 
     var generate_id = function() {

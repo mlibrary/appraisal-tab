@@ -53,6 +53,42 @@ describe('Facet', function() {
     expect(Facet.filter([{'date': '1950:1999'}, {'date': '1975:1980'}])).toEqual([{'date': '1975:1980'}]);
   }));
 
+  it('should return all elements with no filters', inject(function(Facet) {
+    expect(Facet.filter([{'puid': 'fmt/256'}, {'puid': 'fmt/128'}])).toEqual([{'puid': 'fmt/256'}, {'puid': 'fmt/128'}]);
+  }));
+
+  it('should only return elements that match the current filter', inject(function(Facet) {
+    Facet.add('puid', 'fmt/256');
+    expect(Facet.filter([{'puid': 'fmt/256', 'name': 'foo'}, {'puid': 'fmt/128', 'name': 'bar'}])).toEqual([{'puid': 'fmt/256', 'name': 'foo'}]);
+  }));
+
+  it('should return elements that match any filter on different attributes', inject(function(Facet) {
+    Facet.add('puid', 'fmt/256');
+    Facet.add('name', 'foo');
+    expect(Facet.filter([
+      {'puid': 'fmt/256', 'name': 'bar'},
+      {'puid': 'fmt/128', 'name': 'foo'},
+      {'puid': 'fmt/2560', 'name': 'baz'},
+    ])).toEqual([
+      {'puid': 'fmt/256', 'name': 'bar'},
+      {'puid': 'fmt/128', 'name': 'foo'},
+    ]);
+  }));
+
+  it('should return elements that match any filter on the same attribute', inject(function(Facet) {
+    Facet.add('puid', 'fmt/256');
+    Facet.add('puid', 'fmt/128');
+    expect(Facet.filter([
+      {'puid': 'fmt/256', 'name': 'bar'},
+      {'puid': 'fmt/128', 'name': 'foo'},
+      {'puid': 'fmt/2560', 'name': 'baz'},
+    ])).toEqual([
+      {'puid': 'fmt/256', 'name': 'bar'},
+      {'puid': 'fmt/128', 'name': 'foo'},
+    ]);
+  }));
+
+
   it('should be able to return a boolean value when filtering a single value', inject(function(Facet) {
     Facet.add('filename', /\.jpg$/);
     expect(Facet.passes_filters({'filename': '1.png'})).toBe(false);
