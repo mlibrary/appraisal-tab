@@ -1,6 +1,25 @@
 {
-  "type": "directory",
   "id": "1eff381b-6a99-4cc7-b16d-c9c3802a8201",
-  "parent": "19b4ccb5-841e-40ce-ad93-474d6a812f55",
-  "label": "Logging-Presentation"
+  "title": "Logging-Presentation",
+  "groups": [
+    "Spreadsheet",
+    "Image (Raster)",
+    "Word Processing",
+    "Presentation"
+  ],
+  "puids": [
+    "fmt/61",
+    "fmt/42",
+    "fmt/43",
+    "fmt/40",
+    "fmt/126"
+  ],
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "directory",
+  "puid": "",
+  "tags": [
+
+  ]
 }

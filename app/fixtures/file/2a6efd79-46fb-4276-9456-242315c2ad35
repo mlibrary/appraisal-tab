@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "2a6efd79-46fb-4276-9456-242315c2ad35",
-  "parent": "639257b7-1aef-4fbb-880c-a1de7b16ca2d",
-  "label": "MPRI-Model-101.ppt",
+  "title": "MPRI-Model-101.ppt",
   "format": "Powerpoint 97-2002",
   "puid": "fmt/126",
-  "size": 1.11328125
+  "size": 1.11328125,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Presentation"
 }

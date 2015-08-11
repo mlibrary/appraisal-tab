@@ -1,7 +1,13 @@
 {
-  "type": "file",
   "id": "7b18e227-cc5e-49ac-9bd6-f48dfc47c772",
-  "parent": "f87d69f8-df46-4753-bbfa-751c8d8c9a9a",
-  "label": "DSC-0031.JPG",
-  "size": 2.668882369995117
+  "title": "DSC-0031.JPG",
+  "size": 2.668882369995117,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "puid": "",
+  "tags": [
+
+  ]
 }

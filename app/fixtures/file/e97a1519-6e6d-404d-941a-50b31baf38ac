@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "e97a1519-6e6d-404d-941a-50b31baf38ac",
-  "parent": "0ff81300-dc48-4aea-b81e-486fb1e699fc",
-  "label": "Empire-Mine.jpg",
+  "title": "Empire-Mine.jpg",
   "format": "JPEG 1.01",
   "puid": "fmt/43",
-  "size": 0.006748199462890625
+  "size": 0.006748199462890625,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Image (Raster)"
 }

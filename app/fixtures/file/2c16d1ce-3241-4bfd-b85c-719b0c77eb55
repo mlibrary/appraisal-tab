@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "2c16d1ce-3241-4bfd-b85c-719b0c77eb55",
-  "parent": "c5d7202d-1ce0-4628-9094-0eb597551fc2",
-  "label": "SERVICE-SHARING-MEETINGS-SUMMARY.doc",
+  "title": "SERVICE-SHARING-MEETINGS-SUMMARY.doc",
   "format": "Microsoft Word Document 97-2003",
   "puid": "fmt/40",
-  "size": 0.05126953125
+  "size": 0.05126953125,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Word Processing"
 }

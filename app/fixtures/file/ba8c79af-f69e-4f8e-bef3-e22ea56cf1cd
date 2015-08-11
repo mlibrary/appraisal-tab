@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "ba8c79af-f69e-4f8e-bef3-e22ea56cf1cd",
-  "parent": "3da0777a-da75-49f1-862f-b117cd3aae50",
-  "label": "Should-Truck-Safety-be-an-Industry-Standard-tABLE.doc",
+  "title": "Should-Truck-Safety-be-an-Industry-Standard-tABLE.doc",
   "format": "Microsoft Word Document 97-2003",
   "puid": "fmt/40",
-  "size": 0.05908203125
+  "size": 0.05908203125,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Word Processing"
 }

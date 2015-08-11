@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "14a87165-ba8b-4642-af58-a78941518598",
-  "parent": "eac31bd2-0edc-448d-bd93-0c5e9dd8d671",
-  "label": "List-of-Govs-Community-Meeting-2-18-05.xls",
+  "title": "List-of-Govs-Community-Meeting-2-18-05.xls",
   "format": "Excel 97 Workbook",
   "puid": "fmt/61",
-  "size": 0.02880859375
+  "size": 0.02880859375,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Spreadsheet"
 }

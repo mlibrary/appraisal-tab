@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "4d98a0e1-c53b-4bb9-9c13-893d21873787",
-  "parent": "639257b7-1aef-4fbb-880c-a1de7b16ca2d",
-  "label": "Video-Franchising-Presentation-NMPSA.ppt",
+  "title": "Video-Franchising-Presentation-NMPSA.ppt",
   "format": "Powerpoint 97-2002",
   "puid": "fmt/126",
-  "size": 1.3466796875
+  "size": 1.3466796875,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Presentation"
 }

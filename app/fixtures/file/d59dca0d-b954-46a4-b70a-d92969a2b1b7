@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "d59dca0d-b954-46a4-b70a-d92969a2b1b7",
-  "parent": "639257b7-1aef-4fbb-880c-a1de7b16ca2d",
-  "label": "Fuels-From-The-Forest.ppt",
+  "title": "Fuels-From-The-Forest.ppt",
   "format": "Powerpoint 97-2002",
   "puid": "fmt/126",
-  "size": 2.44775390625
+  "size": 2.44775390625,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Presentation"
 }

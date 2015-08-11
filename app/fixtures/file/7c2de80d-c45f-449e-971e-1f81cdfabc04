@@ -1,7 +1,13 @@
 {
-  "type": "file",
   "id": "7c2de80d-c45f-449e-971e-1f81cdfabc04",
-  "parent": "c5d7202d-1ce0-4628-9094-0eb597551fc2",
-  "label": "New-Microsoft-Access-Application.mdb",
-  "size": 0.09375
+  "title": "New-Microsoft-Access-Application.mdb",
+  "size": 0.09375,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "puid": "",
+  "tags": [
+
+  ]
 }

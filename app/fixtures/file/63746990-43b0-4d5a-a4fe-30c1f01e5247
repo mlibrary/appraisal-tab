@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "63746990-43b0-4d5a-a4fe-30c1f01e5247",
-  "parent": "aca4b6a9-4f6a-4923-9516-1501eecc3919",
-  "label": "Governors-Luncheon-Summer-Youth-Initiative.doc",
+  "title": "Governors-Luncheon-Summer-Youth-Initiative.doc",
   "format": "Microsoft Word Document 97-2003",
   "puid": "fmt/40",
-  "size": 0.03173828125
+  "size": 0.03173828125,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Word Processing"
 }

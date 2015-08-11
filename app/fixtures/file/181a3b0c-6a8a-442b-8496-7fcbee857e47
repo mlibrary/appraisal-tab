@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "181a3b0c-6a8a-442b-8496-7fcbee857e47",
-  "parent": "2d1132f1-f4eb-41d4-81b5-1591be73cba8",
-  "label": "Upper-Peninsula-Hot-Topics.doc",
+  "title": "Upper-Peninsula-Hot-Topics.doc",
   "format": "Microsoft Word Document 97-2003",
   "puid": "fmt/40",
-  "size": 0.064453125
+  "size": 0.064453125,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Word Processing"
 }

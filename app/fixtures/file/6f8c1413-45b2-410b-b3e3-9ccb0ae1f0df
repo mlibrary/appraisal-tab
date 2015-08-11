@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "6f8c1413-45b2-410b-b3e3-9ccb0ae1f0df",
-  "parent": "2d1132f1-f4eb-41d4-81b5-1591be73cba8",
-  "label": "Lofts-on-Ludington.doc",
+  "title": "Lofts-on-Ludington.doc",
   "format": "Microsoft Word Document 97-2003",
   "puid": "fmt/40",
-  "size": 0.03173828125
+  "size": 0.03173828125,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Word Processing"
 }

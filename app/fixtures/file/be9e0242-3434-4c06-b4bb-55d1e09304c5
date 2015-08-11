@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "be9e0242-3434-4c06-b4bb-55d1e09304c5",
-  "parent": "06a98817-da21-46be-8062-b24d213a84df",
-  "label": "Walt-Lindala.doc",
+  "title": "Walt-Lindala.doc",
   "format": "Microsoft Word Document 97-2003",
   "puid": "fmt/40",
-  "size": 0.0244140625
+  "size": 0.0244140625,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Word Processing"
 }

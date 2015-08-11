@@ -1,6 +1,18 @@
 {
-  "type": "directory",
   "id": "184f3861-fd90-4fdb-96da-6d595da56cd7",
-  "parent": "6b2caf8b-bee7-44a0-bb54-e42201540e13",
-  "label": "request.zip-2015-06-25T12_36_39.286770_00_00"
+  "title": "request.zip-2015-06-25T12_36_39.286770_00_00",
+  "groups": [
+    "Text (Plain)"
+  ],
+  "puids": [
+    "x-fmt/111"
+  ],
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "directory",
+  "puid": "",
+  "tags": [
+
+  ]
 }

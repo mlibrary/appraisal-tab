@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "3b21f7ce-b61f-4176-a167-4d312b9fb11d",
-  "parent": "296d389d-6cae-459b-94b9-2b11cd701f49",
-  "label": "CCI-Announcement-brief.doc",
+  "title": "CCI-Announcement-brief.doc",
   "format": "Microsoft Word Document 97-2003",
   "puid": "fmt/40",
-  "size": 0.04052734375
+  "size": 0.04052734375,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Word Processing"
 }

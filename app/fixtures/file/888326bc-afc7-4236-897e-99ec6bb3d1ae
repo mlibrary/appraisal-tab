@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "888326bc-afc7-4236-897e-99ec6bb3d1ae",
-  "parent": "aca4b6a9-4f6a-4923-9516-1501eecc3919",
-  "label": "St-John-Forest-Products-Tour.doc",
+  "title": "St-John-Forest-Products-Tour.doc",
   "format": "Microsoft Word Document 97-2003",
   "puid": "fmt/40",
-  "size": 0.03173828125
+  "size": 0.03173828125,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Word Processing"
 }

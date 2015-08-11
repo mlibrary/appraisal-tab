@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "03ca0930-3e51-4f69-a2df-1e598132c380",
-  "parent": "46f92aef-74d5-4bcb-83fc-694e34d21019",
-  "label": "Governor-with-child.jpg",
+  "title": "Governor-with-child.jpg",
   "format": "JPEG 1.01",
   "puid": "fmt/43",
-  "size": 0.06903934478759766
+  "size": 0.06903934478759766,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Image (Raster)"
 }

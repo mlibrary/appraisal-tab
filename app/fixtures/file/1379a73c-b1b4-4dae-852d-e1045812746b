@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "1379a73c-b1b4-4dae-852d-e1045812746b",
-  "parent": "f9b9190e-42be-4b98-bbe5-c78711a861b8",
-  "label": "2nd-annual-Veterans-Ride.doc",
+  "title": "2nd-annual-Veterans-Ride.doc",
   "format": "Microsoft Word Document 97-2003",
   "puid": "fmt/40",
-  "size": 0.025390625
+  "size": 0.025390625,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Word Processing"
 }

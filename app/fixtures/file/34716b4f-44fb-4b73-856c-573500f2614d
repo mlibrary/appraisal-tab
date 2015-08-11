@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "34716b4f-44fb-4b73-856c-573500f2614d",
-  "parent": "9c22685d-6dd8-4827-a354-7fb71c66f171",
-  "label": "Governor-on-porch.jpg",
+  "title": "Governor-on-porch.jpg",
   "format": "JPEG 1.01",
   "puid": "fmt/43",
-  "size": 0.08105278015136719
+  "size": 0.08105278015136719,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Image (Raster)"
 }

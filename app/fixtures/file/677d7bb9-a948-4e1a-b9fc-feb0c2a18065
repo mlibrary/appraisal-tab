@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "677d7bb9-a948-4e1a-b9fc-feb0c2a18065",
-  "parent": "639257b7-1aef-4fbb-880c-a1de7b16ca2d",
-  "label": "County-Commission-Meeting-10-12.ppt",
+  "title": "County-Commission-Meeting-10-12.ppt",
   "format": "Powerpoint 97-2002",
   "puid": "fmt/126",
-  "size": 10.7734375
+  "size": 10.7734375,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Presentation"
 }

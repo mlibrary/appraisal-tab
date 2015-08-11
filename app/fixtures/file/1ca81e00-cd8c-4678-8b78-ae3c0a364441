@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "1ca81e00-cd8c-4678-8b78-ae3c0a364441",
-  "parent": "c5d7202d-1ce0-4628-9094-0eb597551fc2",
-  "label": "Michigan-Broadband-Authority.doc",
+  "title": "Michigan-Broadband-Authority.doc",
   "format": "Microsoft Word Document 97-2003",
   "puid": "fmt/40",
-  "size": 0.0234375
+  "size": 0.0234375,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Word Processing"
 }

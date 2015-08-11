@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "86a9e61a-73e4-4af5-866f-e4bae5878ed8",
-  "parent": "3da0777a-da75-49f1-862f-b117cd3aae50",
-  "label": "Question5.xls",
+  "title": "Question5.xls",
   "format": "Excel 97 Workbook",
   "puid": "fmt/61",
-  "size": 0.0166015625
+  "size": 0.0166015625,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Spreadsheet"
 }

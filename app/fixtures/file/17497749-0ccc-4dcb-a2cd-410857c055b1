@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "17497749-0ccc-4dcb-a2cd-410857c055b1",
-  "parent": "fa51a383-0e0a-4824-83a7-b71ffa2601c8",
-  "label": "Briefing-Memo-H-for-H-Home-Dedication.doc",
+  "title": "Briefing-Memo-H-for-H-Home-Dedication.doc",
   "format": "Microsoft Word Document 97-2003",
   "puid": "fmt/40",
-  "size": 0.02490234375
+  "size": 0.02490234375,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Word Processing"
 }

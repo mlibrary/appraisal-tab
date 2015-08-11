@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "dd55d0a4-0011-4dc8-984a-2b8674fa0fd8",
-  "parent": "27ee652e-1464-46d0-95fa-5f2751b34b04",
-  "label": "MUNISING-NUMBERS.xls",
+  "title": "MUNISING-NUMBERS.xls",
   "format": "Excel 97 Workbook",
   "puid": "fmt/61",
-  "size": 0.01318359375
+  "size": 0.01318359375,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Spreadsheet"
 }

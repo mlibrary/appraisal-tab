@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "da934e38-be1a-48a8-8879-bcd2321eb972",
-  "parent": "639257b7-1aef-4fbb-880c-a1de7b16ca2d",
-  "label": "Office-of-Community-Corrections.PPT",
+  "title": "Office-of-Community-Corrections.PPT",
   "format": "Powerpoint 97-2002",
   "puid": "fmt/126",
-  "size": 0.11279296875
+  "size": 0.11279296875,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Presentation"
 }

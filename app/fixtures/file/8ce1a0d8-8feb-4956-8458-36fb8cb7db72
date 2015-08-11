@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "8ce1a0d8-8feb-4956-8458-36fb8cb7db72",
-  "parent": "8bbcb4d1-4cb1-4008-9704-08372abf86ba",
-  "label": "Fair-growing-up-foresters-exhibit.doc",
+  "title": "Fair-growing-up-foresters-exhibit.doc",
   "format": "Microsoft Word Document 97-2003",
   "puid": "fmt/40",
-  "size": 0.08056640625
+  "size": 0.08056640625,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Word Processing"
 }

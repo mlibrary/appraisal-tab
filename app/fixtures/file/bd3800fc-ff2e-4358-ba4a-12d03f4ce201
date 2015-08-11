@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "bd3800fc-ff2e-4358-ba4a-12d03f4ce201",
-  "parent": "639257b7-1aef-4fbb-880c-a1de7b16ca2d",
-  "label": "SHARED-SERVICES.ppt",
+  "title": "SHARED-SERVICES.ppt",
   "format": "Powerpoint 97-2002",
   "puid": "fmt/126",
-  "size": 1.73193359375
+  "size": 1.73193359375,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Presentation"
 }

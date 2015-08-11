@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "a92aef42-d629-4419-be18-0c9bf135a86b",
-  "parent": "639257b7-1aef-4fbb-880c-a1de7b16ca2d",
-  "label": "Charts-for-Budget-Presentation.ppt",
+  "title": "Charts-for-Budget-Presentation.ppt",
   "format": "Powerpoint 97-2002",
   "puid": "fmt/126",
-  "size": 0.974609375
+  "size": 0.974609375,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Presentation"
 }

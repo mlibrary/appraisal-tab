@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "72d6153f-575e-4e2f-be5c-6127d8752eed",
-  "parent": "639257b7-1aef-4fbb-880c-a1de7b16ca2d",
-  "label": "MBT-Short.ppt",
+  "title": "MBT-Short.ppt",
   "format": "Powerpoint 97-2002",
   "puid": "fmt/126",
-  "size": 1.3486328125
+  "size": 1.3486328125,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Presentation"
 }

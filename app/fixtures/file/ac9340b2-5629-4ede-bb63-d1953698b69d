@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "ac9340b2-5629-4ede-bb63-d1953698b69d",
-  "parent": "296d389d-6cae-459b-94b9-2b11cd701f49",
-  "label": "Bonifas-Arts-Center-Brief.doc",
+  "title": "Bonifas-Arts-Center-Brief.doc",
   "format": "Microsoft Word Document 97-2003",
   "puid": "fmt/40",
-  "size": 0.0322265625
+  "size": 0.0322265625,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Word Processing"
 }

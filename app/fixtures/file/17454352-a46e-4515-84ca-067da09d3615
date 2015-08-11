@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "17454352-a46e-4515-84ca-067da09d3615",
-  "parent": "6136fc85-4d42-45bc-affd-5f521c1db4ee",
-  "label": "Academic-SL-2005.doc",
+  "title": "Academic-SL-2005.doc",
   "format": "Microsoft Word Document 97-2003",
   "puid": "fmt/40",
-  "size": 0.02490234375
+  "size": 0.02490234375,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Word Processing"
 }

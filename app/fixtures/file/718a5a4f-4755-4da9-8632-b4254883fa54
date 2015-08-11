@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "718a5a4f-4755-4da9-8632-b4254883fa54",
-  "parent": "639257b7-1aef-4fbb-880c-a1de7b16ca2d",
-  "label": "Christian-Demorcracy.ppt",
+  "title": "Christian-Demorcracy.ppt",
   "format": "Powerpoint 97-2002",
   "puid": "fmt/126",
-  "size": 9.3583984375
+  "size": 9.3583984375,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Presentation"
 }

@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "b31461ec-3baf-4f20-b557-8f973aeb9d77",
-  "parent": "06a98817-da21-46be-8062-b24d213a84df",
-  "label": "Precision-Edge-Jobs-Stop.doc",
+  "title": "Precision-Edge-Jobs-Stop.doc",
   "format": "Microsoft Word Document 97-2003",
   "puid": "fmt/40",
-  "size": 0.03662109375
+  "size": 0.03662109375,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Word Processing"
 }

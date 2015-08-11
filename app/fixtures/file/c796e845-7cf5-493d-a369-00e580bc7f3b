@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "c796e845-7cf5-493d-a369-00e580bc7f3b",
-  "parent": "22ca959a-b4da-42ae-aed4-4de86ba3c7b1",
-  "label": "Channel6-Briefing.doc",
+  "title": "Channel6-Briefing.doc",
   "format": "Microsoft Word Document 97-2003",
   "puid": "fmt/40",
-  "size": 0.021484375
+  "size": 0.021484375,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Word Processing"
 }

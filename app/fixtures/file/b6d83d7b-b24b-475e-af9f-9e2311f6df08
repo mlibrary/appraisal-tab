@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "b6d83d7b-b24b-475e-af9f-9e2311f6df08",
-  "parent": "5554ab06-6e32-410c-b543-cb9202f97f98",
-  "label": "What-is-MCAC.doc",
+  "title": "What-is-MCAC.doc",
   "format": "Microsoft Word Document 97-2003",
   "puid": "fmt/40",
-  "size": 0.23486328125
+  "size": 0.23486328125,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Word Processing"
 }

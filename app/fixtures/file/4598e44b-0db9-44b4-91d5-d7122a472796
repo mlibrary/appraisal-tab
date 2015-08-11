@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "4598e44b-0db9-44b4-91d5-d7122a472796",
-  "parent": "639257b7-1aef-4fbb-880c-a1de7b16ca2d",
-  "label": "pp-react-usa.ppt",
+  "title": "pp-react-usa.ppt",
   "format": "Powerpoint 97-2002",
   "puid": "fmt/126",
-  "size": 1.26611328125
+  "size": 1.26611328125,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Presentation"
 }

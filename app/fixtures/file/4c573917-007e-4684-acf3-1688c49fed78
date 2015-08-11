@@ -1,6 +1,41 @@
 {
-  "type": "directory",
   "id": "4c573917-007e-4684-acf3-1688c49fed78",
-  "parent": "86325cc4-3d0d-48a0-b316-5305cbb5f282",
-  "label": "objects"
+  "title": "objects",
+  "groups": [
+    "Presentation",
+    "Image (Raster)",
+    "Audio",
+    "Word Processing",
+    "Spreadsheet",
+    "Portable Document Format",
+    "Text (Markup)"
+  ],
+  "puids": [
+    "fmt/126",
+    "fmt/116",
+    "fmt/43",
+    "x-fmt/391",
+    "fmt/40",
+    "fmt/61",
+    "fmt/52",
+    "fmt/523",
+    "fmt/44",
+    "x-fmt/390",
+    "fmt/17",
+    "fmt/42",
+    "fmt/215",
+    "fmt/99",
+    "fmt/50",
+    "fmt/4",
+    "fmt/353",
+    "fmt/20"
+  ],
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "directory",
+  "puid": "",
+  "tags": [
+
+  ]
 }

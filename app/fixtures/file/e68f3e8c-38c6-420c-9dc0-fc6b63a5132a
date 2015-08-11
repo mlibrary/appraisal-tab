@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "e68f3e8c-38c6-420c-9dc0-fc6b63a5132a",
-  "parent": "639257b7-1aef-4fbb-880c-a1de7b16ca2d",
-  "label": "SERA.ppt",
+  "title": "SERA.ppt",
   "format": "Powerpoint 97-2002",
   "puid": "fmt/126",
-  "size": 1.82958984375
+  "size": 1.82958984375,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Presentation"
 }

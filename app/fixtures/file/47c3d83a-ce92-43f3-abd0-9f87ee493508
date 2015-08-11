@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "47c3d83a-ce92-43f3-abd0-9f87ee493508",
-  "parent": "639257b7-1aef-4fbb-880c-a1de7b16ca2d",
-  "label": "Loc-Schoolcraft-GovernorsOffice.xls",
+  "title": "Loc-Schoolcraft-GovernorsOffice.xls",
   "format": "Excel 97 Workbook",
   "puid": "fmt/61",
-  "size": 0.30322265625
+  "size": 0.30322265625,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Spreadsheet"
 }

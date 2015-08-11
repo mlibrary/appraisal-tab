@@ -1,7 +1,13 @@
 {
-  "type": "file",
   "id": "4f2c148b-b1fb-40e8-9ee7-0a4048ffc4eb",
-  "parent": "0ff81300-dc48-4aea-b81e-486fb1e699fc",
-  "label": "Desktop.ini",
-  "size": 0.00010204315185546875
+  "title": "Desktop.ini",
+  "size": 0.00010204315185546875,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "puid": "",
+  "tags": [
+
+  ]
 }

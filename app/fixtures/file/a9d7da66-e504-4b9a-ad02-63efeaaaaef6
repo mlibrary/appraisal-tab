@@ -1,6 +1,28 @@
 {
-  "type": "directory",
   "id": "a9d7da66-e504-4b9a-ad02-63efeaaaaef6",
-  "parent": "4c573917-007e-4684-acf3-1688c49fed78",
-  "label": "Governor-Visits"
+  "title": "Governor-Visits",
+  "groups": [
+    "Word Processing",
+    "Image (Raster)",
+    "Spreadsheet",
+    "Audio",
+    "Presentation"
+  ],
+  "puids": [
+    "fmt/40",
+    "x-fmt/391",
+    "fmt/52",
+    "fmt/61",
+    "fmt/523",
+    "fmt/126",
+    "fmt/43"
+  ],
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "directory",
+  "puid": "",
+  "tags": [
+
+  ]
 }

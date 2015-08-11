@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "6f196df8-8612-40be-9882-e15a8ac6aec5",
-  "parent": "6136fc85-4d42-45bc-affd-5f521c1db4ee",
-  "label": "up-CHAMBER-CONTACTS.doc",
+  "title": "up-CHAMBER-CONTACTS.doc",
   "format": "Microsoft Word Document 97-2003",
   "puid": "fmt/40",
-  "size": 0.0390625
+  "size": 0.0390625,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Word Processing"
 }

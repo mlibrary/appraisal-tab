@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "c3100b39-3be2-476d-8882-3214b9cb1f63",
-  "parent": "639257b7-1aef-4fbb-880c-a1de7b16ca2d",
-  "label": "corrections-reform.ppt",
+  "title": "corrections-reform.ppt",
   "format": "Powerpoint 97-2002",
   "puid": "fmt/126",
-  "size": 11.04248046875
+  "size": 11.04248046875,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Presentation"
 }

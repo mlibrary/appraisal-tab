@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "6196dc90-41fd-4494-ad51-b8c9fa96851f",
-  "parent": "6f8389e8-5af4-40f1-9dbc-e7db0ffdf548",
-  "label": "UP-Higher-Ed.rtf",
+  "title": "UP-Higher-Ed.rtf",
   "format": "RTF 1.7",
   "puid": "fmt/52",
-  "size": 0.09070301055908203
+  "size": 0.09070301055908203,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Word Processing"
 }

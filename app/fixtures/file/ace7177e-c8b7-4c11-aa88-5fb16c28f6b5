@@ -1,6 +1,18 @@
 {
-  "type": "directory",
   "id": "ace7177e-c8b7-4c11-aa88-5fb16c28f6b5",
-  "parent": "6fa231c1-68ee-40c1-aae0-8e9230541c25",
-  "label": "Tristan-and-the-Gov"
+  "title": "Tristan-and-the-Gov",
+  "groups": [
+    "Image (Raster)"
+  ],
+  "puids": [
+    "fmt/43"
+  ],
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "directory",
+  "puid": "",
+  "tags": [
+
+  ]
 }

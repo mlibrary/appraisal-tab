@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "04579e84-0073-450a-b551-5f97e5302733",
-  "parent": "22ca959a-b4da-42ae-aed4-4de86ba3c7b1",
-  "label": "MTUvsNMU-Hockey.rtf",
+  "title": "MTUvsNMU-Hockey.rtf",
   "format": "RTF 1.7",
   "puid": "fmt/52",
-  "size": 0.02553844451904297
+  "size": 0.02553844451904297,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Word Processing"
 }

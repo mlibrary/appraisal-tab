@@ -1,6 +1,20 @@
 {
-  "type": "directory",
   "id": "ca7cf1dd-743c-4b71-b29f-9e1c2d317d2e",
-  "parent": "debd66ba-e2ad-46c5-af90-d2d0318e6cf8",
-  "label": "General"
+  "title": "General",
+  "groups": [
+    "Word Processing",
+    "Spreadsheet"
+  ],
+  "puids": [
+    "fmt/40",
+    "fmt/61"
+  ],
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "directory",
+  "puid": "",
+  "tags": [
+
+  ]
 }

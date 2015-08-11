@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "e4ae1d81-6a1a-4b70-b61a-0e8d6c00cfad",
-  "parent": "fd45f0d9-f966-428c-af77-59b73a445b84",
-  "label": "combo-map.pdf",
+  "title": "combo-map.pdf",
   "format": "Acrobat PDF 1.3",
   "puid": "fmt/17",
-  "size": 0.25935840606689453
+  "size": 0.25935840606689453,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Portable Document Format"
 }

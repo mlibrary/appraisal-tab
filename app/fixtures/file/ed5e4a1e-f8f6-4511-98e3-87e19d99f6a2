@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "ed5e4a1e-f8f6-4511-98e3-87e19d99f6a2",
-  "parent": "22ca959a-b4da-42ae-aed4-4de86ba3c7b1",
-  "label": "UP-200-TOdo.xls",
+  "title": "UP-200-TOdo.xls",
   "format": "Excel 97 Workbook",
   "puid": "fmt/61",
-  "size": 0.0146484375
+  "size": 0.0146484375,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Spreadsheet"
 }

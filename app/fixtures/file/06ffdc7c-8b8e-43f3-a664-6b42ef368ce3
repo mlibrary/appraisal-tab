@@ -1,7 +1,13 @@
 {
-  "type": "file",
   "id": "06ffdc7c-8b8e-43f3-a664-6b42ef368ce3",
-  "parent": "f87d69f8-df46-4753-bbfa-751c8d8c9a9a",
-  "label": "IMG-5398.jpg",
-  "size": 0.12474918365478516
+  "title": "IMG-5398.jpg",
+  "size": 0.12474918365478516,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "puid": "",
+  "tags": [
+
+  ]
 }

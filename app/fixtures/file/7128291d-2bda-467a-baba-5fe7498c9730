@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "7128291d-2bda-467a-baba-5fe7498c9730",
-  "parent": "f87d69f8-df46-4753-bbfa-751c8d8c9a9a",
-  "label": "11-8-04-006.jpg",
+  "title": "11-8-04-006.jpg",
   "format": "Exchangeable Image File Format (Compressed) 2.2",
   "puid": "x-fmt/391",
-  "size": 0.1508474349975586
+  "size": 0.1508474349975586,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Image (Raster)"
 }

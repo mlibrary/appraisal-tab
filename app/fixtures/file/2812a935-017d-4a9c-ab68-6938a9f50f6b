@@ -1,10 +1,18 @@
 {
-  "type": "file",
   "id": "2812a935-017d-4a9c-ab68-6938a9f50f6b",
-  "parent": "184f3861-fd90-4fdb-96da-6d595da56cd7",
-  "label": "request.txt",
+  "title": "request.txt",
   "format": "Generic TXT",
   "puid": "x-fmt/111",
+  "extension": ".txt",
   "size": 0.00025177001953125,
-  "bulk_extractor": "fixtures/transferdata/bulk-2812a935-017d-4a9c-ab68-6938a9f50f6b.zip"
+  "bulk_extractor": "fixtures/transferdata/bulk-2812a935-017d-4a9c-ab68-6938a9f50f6b.zip",
+  "bulk_extractor_reports": [
+    "pii",
+    "ccn"
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Text (Plain)"
 }

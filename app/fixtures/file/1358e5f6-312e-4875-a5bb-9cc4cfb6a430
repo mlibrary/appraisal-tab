@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "1358e5f6-312e-4875-a5bb-9cc4cfb6a430",
-  "parent": "7138fb42-8465-4864-a349-a142678fe739",
-  "label": "Interview-witht-the-Escanaba-Daily-Press.doc",
+  "title": "Interview-witht-the-Escanaba-Daily-Press.doc",
   "format": "Microsoft Word Document 97-2003",
   "puid": "fmt/40",
-  "size": 0.0302734375
+  "size": 0.0302734375,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Word Processing"
 }

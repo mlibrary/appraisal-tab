@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "a448c397-795a-455b-9cb5-e68c8a3ac677",
-  "parent": "8bbcb4d1-4cb1-4008-9704-08372abf86ba",
-  "label": "Attendance-Listing-Fair-Luncheon.doc",
+  "title": "Attendance-Listing-Fair-Luncheon.doc",
   "format": "Microsoft Word Document 97-2003",
   "puid": "fmt/40",
-  "size": 0.2744140625
+  "size": 0.2744140625,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Word Processing"
 }

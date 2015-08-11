@@ -1,9 +1,16 @@
 {
-  "type": "file",
   "id": "9a161ece-0c41-4b59-a4da-58fbf83c317f",
-  "parent": "92c8fd20-c362-4154-a590-e917c76f54de",
-  "label": "gov-hs-54993-7.tif",
+  "title": "gov-hs-54993-7.tif",
   "format": "TIFF",
   "puid": "fmt/353",
-  "size": 4.756345748901367
+  "extension": ".tif",
+  "size": 4.756345748901367,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Image (Raster)"
 }

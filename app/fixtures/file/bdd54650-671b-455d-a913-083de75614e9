@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "bdd54650-671b-455d-a913-083de75614e9",
-  "parent": "639257b7-1aef-4fbb-880c-a1de7b16ca2d",
-  "label": "AFFIRMATIVE-ACTION-3-Final.ppt",
+  "title": "AFFIRMATIVE-ACTION-3-Final.ppt",
   "format": "Powerpoint 97-2002",
   "puid": "fmt/126",
-  "size": 0.064453125
+  "size": 0.064453125,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Presentation"
 }

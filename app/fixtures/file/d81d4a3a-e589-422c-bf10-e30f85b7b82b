@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "d81d4a3a-e589-422c-bf10-e30f85b7b82b",
-  "parent": "c5d7202d-1ce0-4628-9094-0eb597551fc2",
-  "label": "Logging-Truck-Safety-Survey-LANSE-CODEBOOK.xls",
+  "title": "Logging-Truck-Safety-Survey-LANSE-CODEBOOK.xls",
   "format": "Excel 97 Workbook",
   "puid": "fmt/61",
-  "size": 0.107421875
+  "size": 0.107421875,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Spreadsheet"
 }

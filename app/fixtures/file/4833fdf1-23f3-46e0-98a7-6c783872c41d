@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "4833fdf1-23f3-46e0-98a7-6c783872c41d",
-  "parent": "fd45f0d9-f966-428c-af77-59b73a445b84",
-  "label": "Original-overall.xls",
+  "title": "Original-overall.xls",
   "format": "Excel 97 Workbook",
   "puid": "fmt/61",
-  "size": 0.02197265625
+  "size": 0.02197265625,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Spreadsheet"
 }

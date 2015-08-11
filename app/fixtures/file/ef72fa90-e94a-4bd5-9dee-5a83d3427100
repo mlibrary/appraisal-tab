@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "ef72fa90-e94a-4bd5-9dee-5a83d3427100",
-  "parent": "0871253d-5849-4f78-90ee-2da6526bd726",
-  "label": "December-2005-088.jpg",
+  "title": "December-2005-088.jpg",
   "format": "Exchangeable Image File Format (Compressed) 2.2",
   "puid": "x-fmt/391",
-  "size": 0.20899200439453125
+  "size": 0.20899200439453125,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Image (Raster)"
 }

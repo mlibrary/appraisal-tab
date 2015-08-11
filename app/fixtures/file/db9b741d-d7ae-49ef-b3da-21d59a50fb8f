@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "db9b741d-d7ae-49ef-b3da-21d59a50fb8f",
-  "parent": "fa51a383-0e0a-4824-83a7-b71ffa2601c8",
-  "label": "Fw-Moyle-Ribbon-Cutting-List-Moyle-Investment-as-it-relates-to-War-Memorial-Hospital.htm",
+  "title": "Fw-Moyle-Ribbon-Cutting-List-Moyle-Investment-as-it-relates-to-War-Memorial-Hospital.htm",
   "format": "Hypertext Markup Language 4.0",
   "puid": "fmt/99",
-  "size": 0.04069709777832031
+  "size": 0.04069709777832031,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Text (Markup)"
 }

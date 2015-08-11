@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "e774dee5-d70c-460f-9fcb-fbc33ebc1542",
-  "parent": "ca7cf1dd-743c-4b71-b29f-9e1c2d317d2e",
-  "label": "Student-Work-Log-Sample.xls",
+  "title": "Student-Work-Log-Sample.xls",
   "format": "Excel 97 Workbook",
   "puid": "fmt/61",
-  "size": 0.013671875
+  "size": 0.013671875,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Spreadsheet"
 }

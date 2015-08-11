@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "f0024ccb-d6bb-4ac6-b4c0-7c2ea7765ed0",
-  "parent": "3da0777a-da75-49f1-862f-b117cd3aae50",
-  "label": "POST-Alpena-SFI.ppt",
+  "title": "POST-Alpena-SFI.ppt",
   "format": "Powerpoint 97-2002",
   "puid": "fmt/126",
-  "size": 6.24169921875
+  "size": 6.24169921875,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Presentation"
 }

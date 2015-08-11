@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "6020af21-7b2d-46ab-93fb-576a255f766d",
-  "parent": "0ff81300-dc48-4aea-b81e-486fb1e699fc",
-  "label": "UP-picture.rtf",
+  "title": "UP-picture.rtf",
   "format": "RTF 1.5-1.6",
   "puid": "fmt/50",
-  "size": 0.7602930068969727
+  "size": 0.7602930068969727,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Word Processing"
 }

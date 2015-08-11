@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "ff69f01d-6507-43da-a3e1-e91213b4075f",
-  "parent": "ace7177e-c8b7-4c11-aa88-5fb16c28f6b5",
-  "label": "Tristan-and-the-Gov-001.jpg",
+  "title": "Tristan-and-the-Gov-001.jpg",
   "format": "JPEG 1.01",
   "puid": "fmt/43",
-  "size": 0.06311321258544922
+  "size": 0.06311321258544922,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Image (Raster)"
 }

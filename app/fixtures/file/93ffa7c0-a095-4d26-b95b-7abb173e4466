@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "93ffa7c0-a095-4d26-b95b-7abb173e4466",
-  "parent": "f87d69f8-df46-4753-bbfa-751c8d8c9a9a",
-  "label": "Timber-Award.JPG",
+  "title": "Timber-Award.JPG",
   "format": "Exchangeable Image File Format (Compressed) 2.2",
   "puid": "x-fmt/391",
-  "size": 0.19728374481201172
+  "size": 0.19728374481201172,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Image (Raster)"
 }

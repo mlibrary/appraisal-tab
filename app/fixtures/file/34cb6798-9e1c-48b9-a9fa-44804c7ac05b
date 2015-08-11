@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "34cb6798-9e1c-48b9-a9fa-44804c7ac05b",
-  "parent": "7138fb42-8465-4864-a349-a142678fe739",
-  "label": "Interview-with-WDBC-Escanaba.doc",
+  "title": "Interview-with-WDBC-Escanaba.doc",
   "format": "Microsoft Word Document 97-2003",
   "puid": "fmt/40",
-  "size": 0.03076171875
+  "size": 0.03076171875,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Word Processing"
 }

@@ -1,10 +1,17 @@
 {
-  "type": "file",
   "id": "97331076-6932-4e19-ad9a-7c31115493e8",
-  "parent": "a2f5cfb5-87eb-47be-9c97-5ae5837f5410",
-  "label": "Sample Real CCN.txt",
+  "title": "Sample Real CCN.txt",
   "format": "Generic TXT",
   "puid": "x-fmt/111",
+  "extension": ".txt",
   "size": 0.008740425109863281,
-  "bulk_extractor": "fixtures/transferdata/bulk-97331076-6932-4e19-ad9a-7c31115493e8.zip"
+  "bulk_extractor": "fixtures/transferdata/bulk-97331076-6932-4e19-ad9a-7c31115493e8.zip",
+  "bulk_extractor_reports": [
+    "ccn"
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Text (Plain)"
 }

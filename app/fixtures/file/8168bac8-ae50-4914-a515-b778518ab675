@@ -1,6 +1,20 @@
 {
-  "type": "directory",
   "id": "8168bac8-ae50-4914-a515-b778518ab675",
-  "parent": "4c573917-007e-4684-acf3-1688c49fed78",
-  "label": "Cool-Cities"
+  "title": "Cool-Cities",
+  "groups": [
+    "Word Processing",
+    "Spreadsheet"
+  ],
+  "puids": [
+    "fmt/40",
+    "fmt/61"
+  ],
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "directory",
+  "puid": "",
+  "tags": [
+
+  ]
 }

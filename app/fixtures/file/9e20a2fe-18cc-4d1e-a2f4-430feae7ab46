@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "9e20a2fe-18cc-4d1e-a2f4-430feae7ab46",
-  "parent": "22ca959a-b4da-42ae-aed4-4de86ba3c7b1",
-  "label": "MEA-Briefing.doc",
+  "title": "MEA-Briefing.doc",
   "format": "Microsoft Word Document 97-2003",
   "puid": "fmt/40",
-  "size": 0.02099609375
+  "size": 0.02099609375,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Word Processing"
 }

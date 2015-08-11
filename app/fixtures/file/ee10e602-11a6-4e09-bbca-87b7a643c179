@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "ee10e602-11a6-4e09-bbca-87b7a643c179",
-  "parent": "06a98817-da21-46be-8062-b24d213a84df",
-  "label": "Radio-Call-Houghton.doc",
+  "title": "Radio-Call-Houghton.doc",
   "format": "Microsoft Word Document 97-2003",
   "puid": "fmt/40",
-  "size": 0.02587890625
+  "size": 0.02587890625,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Word Processing"
 }

@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "512f0cef-dcf9-463c-82d6-e148aebd3e07",
-  "parent": "c5d7202d-1ce0-4628-9094-0eb597551fc2",
-  "label": "leadership-michigan-powerpoint.ppt",
+  "title": "leadership-michigan-powerpoint.ppt",
   "format": "Powerpoint 97-2002",
   "puid": "fmt/126",
-  "size": 0.6708984375
+  "size": 0.6708984375,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Presentation"
 }

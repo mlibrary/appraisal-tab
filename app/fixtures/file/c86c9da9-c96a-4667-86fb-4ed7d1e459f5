@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "c86c9da9-c96a-4667-86fb-4ed7d1e459f5",
-  "parent": "7138fb42-8465-4864-a349-a142678fe739",
-  "label": "Delta-County.doc",
+  "title": "Delta-County.doc",
   "format": "Microsoft Word Document 97-2003",
   "puid": "fmt/40",
-  "size": 0.0263671875
+  "size": 0.0263671875,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Word Processing"
 }

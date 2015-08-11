@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "75a615c4-bce3-409b-9dc7-261f4fc54ab4",
-  "parent": "f87d69f8-df46-4753-bbfa-751c8d8c9a9a",
-  "label": "Two-Families.JPG",
+  "title": "Two-Families.JPG",
   "format": "JPEG 1.01",
   "puid": "fmt/43",
-  "size": 1.415628433227539
+  "size": 1.415628433227539,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Image (Raster)"
 }

@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "963b83eb-5e78-4d49-bad7-a4275b23f5fb",
-  "parent": "06a98817-da21-46be-8062-b24d213a84df",
-  "label": "Media-Meet.doc",
+  "title": "Media-Meet.doc",
   "format": "Microsoft Word Document 97-2003",
   "puid": "fmt/40",
-  "size": 0.02490234375
+  "size": 0.02490234375,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Word Processing"
 }

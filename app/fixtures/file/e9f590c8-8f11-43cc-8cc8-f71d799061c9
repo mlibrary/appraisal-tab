@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "e9f590c8-8f11-43cc-8cc8-f71d799061c9",
-  "parent": "f87d69f8-df46-4753-bbfa-751c8d8c9a9a",
-  "label": "DI-00251-169.JPG",
+  "title": "DI-00251-169.JPG",
   "format": "JPEG 1.02",
   "puid": "fmt/44",
-  "size": 0.4252357482910156
+  "size": 0.4252357482910156,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Image (Raster)"
 }

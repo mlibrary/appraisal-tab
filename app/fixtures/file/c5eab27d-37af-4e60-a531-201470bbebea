@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "c5eab27d-37af-4e60-a531-201470bbebea",
-  "parent": "89d1887b-a0a2-4369-832c-b1b9bc7695fa",
-  "label": "Final-Draft-II.xls",
+  "title": "Final-Draft-II.xls",
   "format": "Excel 97 Workbook",
   "puid": "fmt/61",
-  "size": 0.0341796875
+  "size": 0.0341796875,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Spreadsheet"
 }

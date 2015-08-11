@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "36fb3a10-c55d-4bd3-9cc8-019153768b43",
-  "parent": "f87d69f8-df46-4753-bbfa-751c8d8c9a9a",
-  "label": "101505-govn-002.jpg",
+  "title": "101505-govn-002.jpg",
   "format": "Exchangeable Image File Format (Compressed) 2.2",
   "puid": "x-fmt/391",
-  "size": 0.26255130767822266
+  "size": 0.26255130767822266,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Image (Raster)"
 }

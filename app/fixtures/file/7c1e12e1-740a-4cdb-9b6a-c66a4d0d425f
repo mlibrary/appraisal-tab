@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "7c1e12e1-740a-4cdb-9b6a-c66a4d0d425f",
-  "parent": "8168bac8-ae50-4914-a515-b778518ab675",
-  "label": "Cool-cities-panel-marquette.xls",
+  "title": "Cool-cities-panel-marquette.xls",
   "format": "Excel 97 Workbook",
   "puid": "fmt/61",
-  "size": 0.01708984375
+  "size": 0.01708984375,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Spreadsheet"
 }

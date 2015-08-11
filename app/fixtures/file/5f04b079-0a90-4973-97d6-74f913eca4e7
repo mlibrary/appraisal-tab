@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "5f04b079-0a90-4973-97d6-74f913eca4e7",
-  "parent": "679e63d7-6668-4cd4-a625-34b3c16e8c07",
-  "label": "upper-peninsula-map.htm",
+  "title": "upper-peninsula-map.htm",
   "format": "Hypertext Markup Language 4.0",
   "puid": "fmt/99",
-  "size": 0.0017805099487304688
+  "size": 0.0017805099487304688,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Text (Markup)"
 }

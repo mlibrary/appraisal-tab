@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "996feff5-173c-4b68-84d3-93ea53f214c3",
-  "parent": "eac31bd2-0edc-448d-bd93-0c5e9dd8d671",
-  "label": "Feb18-19-2005.rtf",
+  "title": "Feb18-19-2005.rtf",
   "format": "RTF 1.7",
   "puid": "fmt/52",
-  "size": 0.026185989379882812
+  "size": 0.026185989379882812,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Word Processing"
 }

@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "03ee42c2-a9b8-4f71-b44d-ee769ad3091c",
-  "parent": "7138fb42-8465-4864-a349-a142678fe739",
-  "label": "UP-Swing-Follow-Up.doc",
+  "title": "UP-Swing-Follow-Up.doc",
   "format": "Microsoft Word Document 97-2003",
   "puid": "fmt/40",
-  "size": 0.02294921875
+  "size": 0.02294921875,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Word Processing"
 }

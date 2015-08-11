@@ -1,6 +1,18 @@
 {
-  "type": "directory",
   "id": "344a8de5-fa9c-4f2e-8e98-a0719c4fe8e2",
-  "parent": "aca4b6a9-4f6a-4923-9516-1501eecc3919",
-  "label": "UP-State-Fair-2009-Documents-bhl-e040e051"
+  "title": "UP-State-Fair-2009-Documents-bhl-e040e051",
+  "groups": [
+    "Word Processing"
+  ],
+  "puids": [
+    "fmt/40"
+  ],
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "directory",
+  "puid": "",
+  "tags": [
+
+  ]
 }

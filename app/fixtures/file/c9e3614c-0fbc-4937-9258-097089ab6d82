@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "c9e3614c-0fbc-4937-9258-097089ab6d82",
-  "parent": "639257b7-1aef-4fbb-880c-a1de7b16ca2d",
-  "label": "Sled-Dog-Fundraiser.xls",
+  "title": "Sled-Dog-Fundraiser.xls",
   "format": "Excel 97 Workbook",
   "puid": "fmt/61",
-  "size": 0.0224609375
+  "size": 0.0224609375,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Spreadsheet"
 }

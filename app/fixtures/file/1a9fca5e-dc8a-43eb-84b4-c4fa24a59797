@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "1a9fca5e-dc8a-43eb-84b4-c4fa24a59797",
-  "parent": "6136fc85-4d42-45bc-affd-5f521c1db4ee",
-  "label": "UP-accomplishments.doc",
+  "title": "UP-accomplishments.doc",
   "format": "Microsoft Word Document 97-2003",
   "puid": "fmt/40",
-  "size": 0.0341796875
+  "size": 0.0341796875,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Word Processing"
 }

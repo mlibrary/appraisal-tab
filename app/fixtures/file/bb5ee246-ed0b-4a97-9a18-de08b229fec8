@@ -1,9 +1,16 @@
 {
-  "type": "file",
   "id": "bb5ee246-ed0b-4a97-9a18-de08b229fec8",
-  "parent": "6b2caf8b-bee7-44a0-bb54-e42201540e13",
-  "label": "2009 class.docx",
+  "title": "2009 class.docx",
   "format": "Microsoft Word for Windows 2007+",
   "puid": "fmt/412",
-  "size": 0.010906219482421875
+  "extension": ".docx",
+  "size": 0.010906219482421875,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Word Processing"
 }

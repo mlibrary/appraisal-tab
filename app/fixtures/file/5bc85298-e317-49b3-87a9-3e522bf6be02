@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "5bc85298-e317-49b3-87a9-3e522bf6be02",
-  "parent": "fd45f0d9-f966-428c-af77-59b73a445b84",
-  "label": "Logging-Truck-Safety-Survey-CODEBOOK-iRON-MT.xls",
+  "title": "Logging-Truck-Safety-Survey-CODEBOOK-iRON-MT.xls",
   "format": "Excel 97 Workbook",
   "puid": "fmt/61",
-  "size": 0.052734375
+  "size": 0.052734375,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Spreadsheet"
 }

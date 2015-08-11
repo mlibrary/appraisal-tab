@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "d6665e1f-36fb-4ad2-87de-57891fcb5425",
-  "parent": "296d389d-6cae-459b-94b9-2b11cd701f49",
-  "label": "Background-Info-Western-Lime-3.doc",
+  "title": "Background-Info-Western-Lime-3.doc",
   "format": "Microsoft Word Document 97-2003",
   "puid": "fmt/40",
-  "size": 0.0224609375
+  "size": 0.0224609375,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Word Processing"
 }

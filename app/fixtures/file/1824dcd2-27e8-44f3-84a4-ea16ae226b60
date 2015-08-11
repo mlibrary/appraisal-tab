@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "1824dcd2-27e8-44f3-84a4-ea16ae226b60",
-  "parent": "3da0777a-da75-49f1-862f-b117cd3aae50",
-  "label": "Question4-What-type-of-additional-training.xls",
+  "title": "Question4-What-type-of-additional-training.xls",
   "format": "Excel 97 Workbook",
   "puid": "fmt/61",
-  "size": 0.0712890625
+  "size": 0.0712890625,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Spreadsheet"
 }

@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "0efdfb9f-b49e-4925-b3fa-9b44bd775d0c",
-  "parent": "0871253d-5849-4f78-90ee-2da6526bd726",
-  "label": "Inaugural-Invite-List-4.xls",
+  "title": "Inaugural-Invite-List-4.xls",
   "format": "Excel 97 Workbook",
   "puid": "fmt/61",
-  "size": 0.03955078125
+  "size": 0.03955078125,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Spreadsheet"
 }

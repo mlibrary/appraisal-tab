@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "3937a42f-2f40-46c2-87b0-9adc62e8e27f",
-  "parent": "fa51a383-0e0a-4824-83a7-b71ffa2601c8",
-  "label": "GFWC.pdf",
+  "title": "GFWC.pdf",
   "format": "Acrobat PDF 1.6",
   "puid": "fmt/20",
-  "size": 0.15174293518066406
+  "size": 0.15174293518066406,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Portable Document Format"
 }

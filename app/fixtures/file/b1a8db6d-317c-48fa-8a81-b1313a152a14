@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "b1a8db6d-317c-48fa-8a81-b1313a152a14",
-  "parent": "296d389d-6cae-459b-94b9-2b11cd701f49",
-  "label": "Cliffs-Dignitary-Reception-brief.doc",
+  "title": "Cliffs-Dignitary-Reception-brief.doc",
   "format": "Microsoft Word Document 97-2003",
   "puid": "fmt/40",
-  "size": 0.03125
+  "size": 0.03125,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Word Processing"
 }

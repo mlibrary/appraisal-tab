@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "508779d9-8ac7-4d93-993c-e3785bdf7dc7",
-  "parent": "c5d7202d-1ce0-4628-9094-0eb597551fc2",
-  "label": "2004-Master-Calendar.xls",
+  "title": "2004-Master-Calendar.xls",
   "format": "Excel 97 Workbook",
   "puid": "fmt/61",
-  "size": 0.01904296875
+  "size": 0.01904296875,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Spreadsheet"
 }

@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "8ead7e2e-ba40-4aba-9781-0e984e2037de",
-  "parent": "7138fb42-8465-4864-a349-a142678fe739",
-  "label": "up-fair-reading-program-event.doc",
+  "title": "up-fair-reading-program-event.doc",
   "format": "Microsoft Word Document 97-2003",
   "puid": "fmt/40",
-  "size": 0.0322265625
+  "size": 0.0322265625,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Word Processing"
 }

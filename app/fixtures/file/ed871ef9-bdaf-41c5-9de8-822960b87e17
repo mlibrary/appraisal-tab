@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "ed871ef9-bdaf-41c5-9de8-822960b87e17",
-  "parent": "3da0777a-da75-49f1-862f-b117cd3aae50",
-  "label": "2005-Existing-TST.xls",
+  "title": "2005-Existing-TST.xls",
   "format": "Excel 97 Workbook",
   "puid": "fmt/61",
-  "size": 0.01953125
+  "size": 0.01953125,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Spreadsheet"
 }

@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "d439fca5-a632-4d55-8d82-3a424b40cfdd",
-  "parent": "fd45f0d9-f966-428c-af77-59b73a445b84",
-  "label": "Newberry-Codebook.xls",
+  "title": "Newberry-Codebook.xls",
   "format": "Excel 97 Workbook",
   "puid": "fmt/61",
-  "size": 0.0908203125
+  "size": 0.0908203125,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Spreadsheet"
 }

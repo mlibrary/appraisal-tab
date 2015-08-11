@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "32f6cae5-c60c-4328-a7ba-41a160714f1a",
-  "parent": "aca4b6a9-4f6a-4923-9516-1501eecc3919",
-  "label": "No-Worker-Left-Behind-Event.doc",
+  "title": "No-Worker-Left-Behind-Event.doc",
   "format": "Microsoft Word Document 97-2003",
   "puid": "fmt/40",
-  "size": 0.0322265625
+  "size": 0.0322265625,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Word Processing"
 }

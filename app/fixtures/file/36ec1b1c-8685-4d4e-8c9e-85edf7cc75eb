@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "36ec1b1c-8685-4d4e-8c9e-85edf7cc75eb",
-  "parent": "2d1132f1-f4eb-41d4-81b5-1591be73cba8",
-  "label": "UP-HOT-TOPICS-2008.doc",
+  "title": "UP-HOT-TOPICS-2008.doc",
   "format": "Microsoft Word Document 97-2003",
   "puid": "fmt/40",
-  "size": 0.13623046875
+  "size": 0.13623046875,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Word Processing"
 }

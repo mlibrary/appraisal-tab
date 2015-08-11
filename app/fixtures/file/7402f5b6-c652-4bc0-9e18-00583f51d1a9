@@ -1,7 +1,13 @@
 {
-  "type": "file",
   "id": "7402f5b6-c652-4bc0-9e18-00583f51d1a9",
-  "parent": "f87d69f8-df46-4753-bbfa-751c8d8c9a9a",
-  "label": "IMG-5327.jpg",
-  "size": 0.11837291717529297
+  "title": "IMG-5327.jpg",
+  "size": 0.11837291717529297,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "puid": "",
+  "tags": [
+
+  ]
 }

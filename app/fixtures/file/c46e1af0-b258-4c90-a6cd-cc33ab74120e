@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "c46e1af0-b258-4c90-a6cd-cc33ab74120e",
-  "parent": "296d389d-6cae-459b-94b9-2b11cd701f49",
-  "label": "Tim-Kobasic-WYKK-Interview-brief.doc",
+  "title": "Tim-Kobasic-WYKK-Interview-brief.doc",
   "format": "Microsoft Word Document 97-2003",
   "puid": "fmt/40",
-  "size": 0.02978515625
+  "size": 0.02978515625,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Word Processing"
 }

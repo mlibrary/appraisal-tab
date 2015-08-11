@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "4a0b65f0-fbd3-422d-9246-ce8db2739f80",
-  "parent": "2f77b316-5c7e-4c1d-939b-8f4c61cd459b",
-  "label": "Truck-study-Raw-comments-Lanse.doc",
+  "title": "Truck-study-Raw-comments-Lanse.doc",
   "format": "Microsoft Word Document 97-2003",
   "puid": "fmt/40",
-  "size": 0.05419921875
+  "size": 0.05419921875,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Word Processing"
 }

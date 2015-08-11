@@ -1,6 +1,33 @@
 {
-  "type": "directory",
   "id": "6b2caf8b-bee7-44a0-bb54-e42201540e13",
-  "parent": "87139ae8-9730-4e32-81a0-1549af9a46ef",
-  "label": "objects"
+  "title": "objects",
+  "groups": [
+    "Word Processing",
+    "Presentation",
+    "Portable Document Format",
+    "Text (Plain)",
+    "Audio",
+    "Spreadsheet",
+    "Package"
+  ],
+  "puids": [
+    "fmt/412",
+    "fmt/215",
+    "fmt/19",
+    "x-fmt/18",
+    "fmt/61",
+    "fmt/40",
+    "fmt/214",
+    "x-fmt/263",
+    "fmt/126",
+    "x-fmt/111"
+  ],
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "directory",
+  "puid": "",
+  "tags": [
+
+  ]
 }

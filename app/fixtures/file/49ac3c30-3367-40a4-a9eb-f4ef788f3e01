@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "49ac3c30-3367-40a4-a9eb-f4ef788f3e01",
-  "parent": "27ee652e-1464-46d0-95fa-5f2751b34b04",
-  "label": "final-48-take1.ppt",
+  "title": "final-48-take1.ppt",
   "format": "Powerpoint 97-2002",
   "puid": "fmt/126",
-  "size": 5.6044921875
+  "size": 5.6044921875,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Presentation"
 }

@@ -1,6 +1,18 @@
 {
-  "type": "directory",
   "id": "d12aaf8b-1265-47a4-97c3-64ab03fb2c20",
-  "parent": "6b2caf8b-bee7-44a0-bb54-e42201540e13",
-  "label": "Fake_SSNs"
+  "title": "Fake_SSNs",
+  "groups": [
+    "Text (Plain)"
+  ],
+  "puids": [
+    "x-fmt/111"
+  ],
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "directory",
+  "puid": "",
+  "tags": [
+
+  ]
 }

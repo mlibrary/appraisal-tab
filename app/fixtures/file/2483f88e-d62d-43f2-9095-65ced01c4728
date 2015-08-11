@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "2483f88e-d62d-43f2-9095-65ced01c4728",
-  "parent": "2d1132f1-f4eb-41d4-81b5-1591be73cba8",
-  "label": "Mascoma-Meeting.doc",
+  "title": "Mascoma-Meeting.doc",
   "format": "Microsoft Word Document 97-2003",
   "puid": "fmt/40",
-  "size": 0.02783203125
+  "size": 0.02783203125,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Word Processing"
 }

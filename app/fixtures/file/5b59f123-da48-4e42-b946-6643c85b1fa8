@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "5b59f123-da48-4e42-b946-6643c85b1fa8",
-  "parent": "296d389d-6cae-459b-94b9-2b11cd701f49",
-  "label": "Schoolcraft-County.doc",
+  "title": "Schoolcraft-County.doc",
   "format": "Microsoft Word Document 97-2003",
   "puid": "fmt/40",
-  "size": 0.02099609375
+  "size": 0.02099609375,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Word Processing"
 }

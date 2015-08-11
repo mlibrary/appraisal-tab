@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "c22aad0d-4379-4f0d-8d22-2d81176a5ae9",
-  "parent": "3da0777a-da75-49f1-862f-b117cd3aae50",
-  "label": "Book5.xls",
+  "title": "Book5.xls",
   "format": "Excel 97 Workbook",
   "puid": "fmt/61",
-  "size": 0.0146484375
+  "size": 0.0146484375,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Spreadsheet"
 }

@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "6878efa1-d7d0-47f8-b11d-89e8d53a5f9b",
-  "parent": "c5d7202d-1ce0-4628-9094-0eb597551fc2",
-  "label": "Shared-Services-Metting-Notes.doc",
+  "title": "Shared-Services-Metting-Notes.doc",
   "format": "Microsoft Word Document 97-2003",
   "puid": "fmt/40",
-  "size": 0.02490234375
+  "size": 0.02490234375,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Word Processing"
 }

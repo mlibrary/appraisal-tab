@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "57623ea4-3415-47cc-a19e-c42b9d671890",
-  "parent": "ca7cf1dd-743c-4b71-b29f-9e1c2d317d2e",
-  "label": "Briefing-2-17-05-WNMU.doc",
+  "title": "Briefing-2-17-05-WNMU.doc",
   "format": "Microsoft Word Document 97-2003",
   "puid": "fmt/40",
-  "size": 0.021484375
+  "size": 0.021484375,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Word Processing"
 }

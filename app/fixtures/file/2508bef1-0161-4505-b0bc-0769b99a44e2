@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "2508bef1-0161-4505-b0bc-0769b99a44e2",
-  "parent": "6136fc85-4d42-45bc-affd-5f521c1db4ee",
-  "label": "Final-Leadership-Michigan-Presentation.ppt",
+  "title": "Final-Leadership-Michigan-Presentation.ppt",
   "format": "Powerpoint 97-2002",
   "puid": "fmt/126",
-  "size": 8.13134765625
+  "size": 8.13134765625,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Presentation"
 }

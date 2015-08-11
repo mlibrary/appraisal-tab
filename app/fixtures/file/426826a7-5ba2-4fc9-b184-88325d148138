@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "426826a7-5ba2-4fc9-b184-88325d148138",
-  "parent": "f87d69f8-df46-4753-bbfa-751c8d8c9a9a",
-  "label": "Arnold-Transit.JPG",
+  "title": "Arnold-Transit.JPG",
   "format": "JPEG 1.01",
   "puid": "fmt/43",
-  "size": 1.6122140884399414
+  "size": 1.6122140884399414,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Image (Raster)"
 }

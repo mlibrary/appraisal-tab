@@ -1,6 +1,28 @@
 {
-  "type": "directory",
   "id": "639257b7-1aef-4fbb-880c-a1de7b16ca2d",
-  "parent": "4c573917-007e-4684-acf3-1688c49fed78",
-  "label": "Matts-Presenations"
+  "title": "Matts-Presenations",
+  "groups": [
+    "Presentation",
+    "Portable Document Format",
+    "Word Processing",
+    "Image (Raster)",
+    "Spreadsheet",
+    "Audio"
+  ],
+  "puids": [
+    "fmt/126",
+    "fmt/215",
+    "fmt/17",
+    "fmt/40",
+    "fmt/43",
+    "fmt/61"
+  ],
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "directory",
+  "puid": "",
+  "tags": [
+
+  ]
 }

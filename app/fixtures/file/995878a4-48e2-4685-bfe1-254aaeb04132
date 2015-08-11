@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "995878a4-48e2-4685-bfe1-254aaeb04132",
-  "parent": "22ca959a-b4da-42ae-aed4-4de86ba3c7b1",
-  "label": "StudentPhoto-Op.rtf",
+  "title": "StudentPhoto-Op.rtf",
   "format": "RTF 1.7",
   "puid": "fmt/52",
-  "size": 0.09092235565185547
+  "size": 0.09092235565185547,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Word Processing"
 }

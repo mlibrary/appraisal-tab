@@ -1,10 +1,18 @@
 {
-  "type": "file",
   "id": "8f5abbd7-046f-40bd-bae6-6646463c2a41",
-  "parent": "6b2caf8b-bee7-44a0-bb54-e42201540e13",
-  "label": "request.zip",
+  "title": "request.zip",
   "format": "ZIP file",
   "puid": "x-fmt/263",
+  "extension": ".zip",
   "size": 0.00031948089599609375,
-  "bulk_extractor": "fixtures/transferdata/bulk-8f5abbd7-046f-40bd-bae6-6646463c2a41.zip"
+  "bulk_extractor": "fixtures/transferdata/bulk-8f5abbd7-046f-40bd-bae6-6646463c2a41.zip",
+  "bulk_extractor_reports": [
+    "pii",
+    "ccn"
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Package"
 }

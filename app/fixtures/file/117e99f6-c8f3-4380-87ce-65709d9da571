@@ -1,6 +1,25 @@
 {
-  "type": "directory",
   "id": "117e99f6-c8f3-4380-87ce-65709d9da571",
-  "parent": "a9d7da66-e504-4b9a-ad02-63efeaaaaef6",
-  "label": "2005-Governors-Visits"
+  "title": "2005-Governors-Visits",
+  "groups": [
+    "Word Processing",
+    "Image (Raster)",
+    "Spreadsheet",
+    "Audio"
+  ],
+  "puids": [
+    "fmt/40",
+    "x-fmt/391",
+    "fmt/52",
+    "fmt/61",
+    "fmt/523"
+  ],
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "directory",
+  "puid": "",
+  "tags": [
+
+  ]
 }

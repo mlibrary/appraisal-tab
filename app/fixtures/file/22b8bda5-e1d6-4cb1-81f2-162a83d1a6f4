@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "22b8bda5-e1d6-4cb1-81f2-162a83d1a6f4",
-  "parent": "fd45f0d9-f966-428c-af77-59b73a445b84",
-  "label": "Newberry-Survey-Data-Sheet-without-no-response.xls",
+  "title": "Newberry-Survey-Data-Sheet-without-no-response.xls",
   "format": "Excel 97 Workbook",
   "puid": "fmt/61",
-  "size": 0.02001953125
+  "size": 0.02001953125,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Spreadsheet"
 }

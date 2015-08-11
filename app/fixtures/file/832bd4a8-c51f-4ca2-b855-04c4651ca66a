@@ -1,7 +1,13 @@
 {
-  "type": "file",
   "id": "832bd4a8-c51f-4ca2-b855-04c4651ca66a",
-  "parent": "f87d69f8-df46-4753-bbfa-751c8d8c9a9a",
-  "label": "DSC-0084.JPG",
-  "size": 2.270421028137207
+  "title": "DSC-0084.JPG",
+  "size": 2.270421028137207,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "puid": "",
+  "tags": [
+
+  ]
 }

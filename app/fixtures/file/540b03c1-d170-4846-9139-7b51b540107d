@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "540b03c1-d170-4846-9139-7b51b540107d",
-  "parent": "6136fc85-4d42-45bc-affd-5f521c1db4ee",
-  "label": "UP-Events-by-County.xls",
+  "title": "UP-Events-by-County.xls",
   "format": "Excel 97 Workbook",
   "puid": "fmt/61",
-  "size": 0.01904296875
+  "size": 0.01904296875,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Spreadsheet"
 }

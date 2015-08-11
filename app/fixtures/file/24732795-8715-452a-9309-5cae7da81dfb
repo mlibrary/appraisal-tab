@@ -1,6 +1,19 @@
 {
-  "type": "directory",
   "id": "24732795-8715-452a-9309-5cae7da81dfb",
-  "parent": "4c573917-007e-4684-acf3-1688c49fed78",
-  "label": "Chriss-Folder"
+  "title": "Chriss-Folder",
+  "groups": [
+    "Image (Raster)"
+  ],
+  "puids": [
+    "fmt/43",
+    "x-fmt/391"
+  ],
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "directory",
+  "puid": "",
+  "tags": [
+
+  ]
 }

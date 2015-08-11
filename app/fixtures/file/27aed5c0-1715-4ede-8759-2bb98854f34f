@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "27aed5c0-1715-4ede-8759-2bb98854f34f",
-  "parent": "27ee652e-1464-46d0-95fa-5f2751b34b04",
-  "label": "Big-Wheels-T02.jpg",
+  "title": "Big-Wheels-T02.jpg",
   "format": "JPEG 1.01",
   "puid": "fmt/43",
-  "size": 0.016592979431152344
+  "size": 0.016592979431152344,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Image (Raster)"
 }

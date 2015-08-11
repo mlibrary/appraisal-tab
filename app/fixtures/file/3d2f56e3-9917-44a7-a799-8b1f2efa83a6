@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "3d2f56e3-9917-44a7-a799-8b1f2efa83a6",
-  "parent": "c7d10d01-a6e6-4942-9d5e-6b7022308536",
-  "label": "UPDON-2-12-09.ppt",
+  "title": "UPDON-2-12-09.ppt",
   "format": "Powerpoint 97-2002",
   "puid": "fmt/126",
-  "size": 2.423828125
+  "size": 2.423828125,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Presentation"
 }

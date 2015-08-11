@@ -1,7 +1,13 @@
 {
-  "type": "file",
   "id": "f140c613-848e-40bf-925f-6dcd98c31f48",
-  "parent": "f87d69f8-df46-4753-bbfa-751c8d8c9a9a",
-  "label": "IMG-5274.jpg",
-  "size": 0.13155460357666016
+  "title": "IMG-5274.jpg",
+  "size": 0.13155460357666016,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "puid": "",
+  "tags": [
+
+  ]
 }

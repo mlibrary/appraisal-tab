@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "db28ed82-029d-4c43-9b1d-fa11829a9f24",
-  "parent": "8bbcb4d1-4cb1-4008-9704-08372abf86ba",
-  "label": "hospital-attach-3.jpg",
+  "title": "hospital-attach-3.jpg",
   "format": "JPEG 1.01",
   "puid": "fmt/43",
-  "size": 0.2659187316894531
+  "size": 0.2659187316894531,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Image (Raster)"
 }

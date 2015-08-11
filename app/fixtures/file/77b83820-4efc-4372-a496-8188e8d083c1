@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "77b83820-4efc-4372-a496-8188e8d083c1",
-  "parent": "639257b7-1aef-4fbb-880c-a1de7b16ca2d",
-  "label": "AppropSub-on-Nat-Res-12-11-07.ppt",
+  "title": "AppropSub-on-Nat-Res-12-11-07.ppt",
   "format": "Powerpoint 97-2002",
   "puid": "fmt/126",
-  "size": 8.68115234375
+  "size": 8.68115234375,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Presentation"
 }

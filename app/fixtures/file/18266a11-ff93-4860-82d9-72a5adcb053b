@@ -1,7 +1,13 @@
 {
-  "type": "file",
   "id": "18266a11-ff93-4860-82d9-72a5adcb053b",
-  "parent": "f87d69f8-df46-4753-bbfa-751c8d8c9a9a",
-  "label": "IMG-5323.jpg",
-  "size": 0.1215972900390625
+  "title": "IMG-5323.jpg",
+  "size": 0.1215972900390625,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "puid": "",
+  "tags": [
+
+  ]
 }

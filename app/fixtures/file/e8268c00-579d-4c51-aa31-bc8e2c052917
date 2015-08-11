@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "e8268c00-579d-4c51-aa31-bc8e2c052917",
-  "parent": "46f92aef-74d5-4bcb-83fc-694e34d21019",
-  "label": "Scan0005.jpg",
+  "title": "Scan0005.jpg",
   "format": "JPEG 1.02",
   "puid": "fmt/44",
-  "size": 2.816020965576172
+  "size": 2.816020965576172,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Image (Raster)"
 }

@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "8d830bc1-3b32-4dce-a902-ed67c5d3c114",
-  "parent": "f87d69f8-df46-4753-bbfa-751c8d8c9a9a",
-  "label": "SA400252.JPG",
+  "title": "SA400252.JPG",
   "format": "Exchangeable Image File Format (Compressed) 2.2",
   "puid": "x-fmt/391",
-  "size": 0.2390613555908203
+  "size": 0.2390613555908203,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Image (Raster)"
 }

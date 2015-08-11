@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "879328d6-ec06-4447-b3c4-611204ec71e6",
-  "parent": "7138fb42-8465-4864-a349-a142678fe739",
-  "label": "up-state-dnr-pocket-park.doc",
+  "title": "up-state-dnr-pocket-park.doc",
   "format": "Microsoft Word Document 97-2003",
   "puid": "fmt/40",
-  "size": 0.03076171875
+  "size": 0.03076171875,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Word Processing"
 }

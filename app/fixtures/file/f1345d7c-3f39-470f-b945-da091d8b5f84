@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "f1345d7c-3f39-470f-b945-da091d8b5f84",
-  "parent": "22ca959a-b4da-42ae-aed4-4de86ba3c7b1",
-  "label": "Radio-InterviewBriefing.doc",
+  "title": "Radio-InterviewBriefing.doc",
   "format": "Microsoft Word Document 97-2003",
   "puid": "fmt/40",
-  "size": 0.02197265625
+  "size": 0.02197265625,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Word Processing"
 }

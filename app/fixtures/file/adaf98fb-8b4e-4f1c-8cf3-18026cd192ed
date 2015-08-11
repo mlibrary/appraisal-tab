@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "adaf98fb-8b4e-4f1c-8cf3-18026cd192ed",
-  "parent": "22ca959a-b4da-42ae-aed4-4de86ba3c7b1",
-  "label": "Channel-5-10-TapeBriefing.doc",
+  "title": "Channel-5-10-TapeBriefing.doc",
   "format": "Microsoft Word Document 97-2003",
   "puid": "fmt/40",
-  "size": 0.02197265625
+  "size": 0.02197265625,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Word Processing"
 }

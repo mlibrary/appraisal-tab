@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "9a3d1321-3a5e-41b2-8b92-90bf28a64a9f",
-  "parent": "7138fb42-8465-4864-a349-a142678fe739",
-  "label": "UP-State-Fair-Veterans-Ceremony2.doc",
+  "title": "UP-State-Fair-Veterans-Ceremony2.doc",
   "format": "Microsoft Word Document 97-2003",
   "puid": "fmt/40",
-  "size": 0.03173828125
+  "size": 0.03173828125,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Word Processing"
 }

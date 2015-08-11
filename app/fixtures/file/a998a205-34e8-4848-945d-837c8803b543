@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "a998a205-34e8-4848-945d-837c8803b543",
-  "parent": "7138fb42-8465-4864-a349-a142678fe739",
-  "label": "international-paper-bd.doc",
+  "title": "international-paper-bd.doc",
   "format": "Microsoft Word Document 97-2003",
   "puid": "fmt/40",
-  "size": 0.044921875
+  "size": 0.044921875,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Word Processing"
 }

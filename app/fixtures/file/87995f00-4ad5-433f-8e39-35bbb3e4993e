@@ -1,6 +1,31 @@
 {
-  "type": "directory",
   "id": "87995f00-4ad5-433f-8e39-35bbb3e4993e",
-  "parent": "4c573917-007e-4684-acf3-1688c49fed78",
-  "label": "NW-Intern"
+  "title": "NW-Intern",
+  "groups": [
+    "Spreadsheet",
+    "Word Processing",
+    "Presentation",
+    "Audio",
+    "Image (Raster)",
+    "Text (Markup)"
+  ],
+  "puids": [
+    "fmt/61",
+    "fmt/40",
+    "fmt/126",
+    "fmt/43",
+    "fmt/99",
+    "fmt/50",
+    "fmt/44",
+    "fmt/4",
+    "fmt/353"
+  ],
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "directory",
+  "puid": "",
+  "tags": [
+
+  ]
 }

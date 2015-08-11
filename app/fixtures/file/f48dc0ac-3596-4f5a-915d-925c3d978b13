@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "f48dc0ac-3596-4f5a-915d-925c3d978b13",
-  "parent": "8bbcb4d1-4cb1-4008-9704-08372abf86ba",
-  "label": "Schedule-Aug-17-18.doc",
+  "title": "Schedule-Aug-17-18.doc",
   "format": "Microsoft Word Document 97-2003",
   "puid": "fmt/40",
-  "size": 0.04248046875
+  "size": 0.04248046875,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Word Processing"
 }

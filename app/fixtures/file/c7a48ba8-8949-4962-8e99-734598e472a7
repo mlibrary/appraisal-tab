@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "c7a48ba8-8949-4962-8e99-734598e472a7",
-  "parent": "296d389d-6cae-459b-94b9-2b11cd701f49",
-  "label": "Govs-luncheon-Attendees.doc",
+  "title": "Govs-luncheon-Attendees.doc",
   "format": "Microsoft Word Document 97-2003",
   "puid": "fmt/40",
-  "size": 0.63134765625
+  "size": 0.63134765625,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Word Processing"
 }

@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "b1ed33b9-ba6b-41e0-9063-00099f809d57",
-  "parent": "92ab70a7-886e-42e6-85e9-df571705498b",
-  "label": "Ore-Dock-2.bmp",
+  "title": "Ore-Dock-2.bmp",
   "format": "Windows BItmap 3.0",
   "puid": "fmt/116",
-  "size": 4.162527084350586
+  "size": 4.162527084350586,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Image (Raster)"
 }

@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "432c49a8-44c9-40e2-b146-db6ed682d455",
-  "parent": "639257b7-1aef-4fbb-880c-a1de7b16ca2d",
-  "label": "CUPPAD.ppt",
+  "title": "CUPPAD.ppt",
   "format": "Powerpoint 97-2002",
   "puid": "fmt/126",
-  "size": 12.71728515625
+  "size": 12.71728515625,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Presentation"
 }

@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "fbc9698f-0f15-40d8-8206-c92ffb9ac87d",
-  "parent": "941a7160-8063-43bc-bf64-d50d8de6f703",
-  "label": "UP-State-Fair-Governors-Luncheon-2007.doc",
+  "title": "UP-State-Fair-Governors-Luncheon-2007.doc",
   "format": "Microsoft Word Document 97-2003",
   "puid": "fmt/40",
-  "size": 0.08203125
+  "size": 0.08203125,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Word Processing"
 }

@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "06d8687e-4e78-4324-adbc-06f6d996ada6",
-  "parent": "f9b9190e-42be-4b98-bbe5-c78711a861b8",
-  "label": "Summer-06-up-trip1.doc",
+  "title": "Summer-06-up-trip1.doc",
   "format": "Microsoft Word Document 97-2003",
   "puid": "fmt/40",
-  "size": 0.03759765625
+  "size": 0.03759765625,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Word Processing"
 }

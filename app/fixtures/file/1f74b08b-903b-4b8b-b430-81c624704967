@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "1f74b08b-903b-4b8b-b430-81c624704967",
-  "parent": "27ee652e-1464-46d0-95fa-5f2751b34b04",
-  "label": "Stacys-Grandpa.doc",
+  "title": "Stacys-Grandpa.doc",
   "format": "Microsoft Word Document 97-2003",
   "puid": "fmt/40",
-  "size": 0.53662109375
+  "size": 0.53662109375,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Word Processing"
 }

@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "3625e2d2-0e27-4ffe-9d51-db07bfdcc259",
-  "parent": "fa51a383-0e0a-4824-83a7-b71ffa2601c8",
-  "label": "Briefing-Memo-Manistique-Memorial-Fountain.doc",
+  "title": "Briefing-Memo-Manistique-Memorial-Fountain.doc",
   "format": "Microsoft Word Document 97-2003",
   "puid": "fmt/40",
-  "size": 0.02783203125
+  "size": 0.02783203125,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Word Processing"
 }

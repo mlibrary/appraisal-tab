@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "5c8cb018-9a53-4e87-9f18-dd4229846032",
-  "parent": "c5d7202d-1ce0-4628-9094-0eb597551fc2",
-  "label": "UP-Events.xls",
+  "title": "UP-Events.xls",
   "format": "Excel 97 Workbook",
   "puid": "fmt/61",
-  "size": 0.017578125
+  "size": 0.017578125,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Spreadsheet"
 }

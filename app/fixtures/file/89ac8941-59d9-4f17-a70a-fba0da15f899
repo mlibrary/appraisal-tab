@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "89ac8941-59d9-4f17-a70a-fba0da15f899",
-  "parent": "296d389d-6cae-459b-94b9-2b11cd701f49",
-  "label": "Governor-s-UP-FINAL-Schedule.doc",
+  "title": "Governor-s-UP-FINAL-Schedule.doc",
   "format": "Microsoft Word Document 97-2003",
   "puid": "fmt/40",
-  "size": 0.04541015625
+  "size": 0.04541015625,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Word Processing"
 }

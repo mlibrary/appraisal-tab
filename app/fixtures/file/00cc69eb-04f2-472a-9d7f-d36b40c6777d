@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "00cc69eb-04f2-472a-9d7f-d36b40c6777d",
-  "parent": "3da0777a-da75-49f1-862f-b117cd3aae50",
-  "label": "Individual-Files.xls",
+  "title": "Individual-Files.xls",
   "format": "Excel 97 Workbook",
   "puid": "fmt/61",
-  "size": 0.0146484375
+  "size": 0.0146484375,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Spreadsheet"
 }

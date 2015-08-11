@@ -1,6 +1,19 @@
 {
-  "type": "directory",
   "id": "6f8389e8-5af4-40f1-9dbc-e7db0ffdf548",
-  "parent": "22ca959a-b4da-42ae-aed4-4de86ba3c7b1",
-  "label": "Events"
+  "title": "Events",
+  "groups": [
+    "Word Processing"
+  ],
+  "puids": [
+    "fmt/40",
+    "fmt/52"
+  ],
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "directory",
+  "puid": "",
+  "tags": [
+
+  ]
 }

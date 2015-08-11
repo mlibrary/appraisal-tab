@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "20676ce4-29f2-42cf-81df-2e19cf5cb3ab",
-  "parent": "06a98817-da21-46be-8062-b24d213a84df",
-  "label": "Thank-you-list.doc",
+  "title": "Thank-you-list.doc",
   "format": "Microsoft Word Document 97-2003",
   "puid": "fmt/40",
-  "size": 0.0400390625
+  "size": 0.0400390625,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Word Processing"
 }

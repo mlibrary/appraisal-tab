@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "6da5567a-a26f-4aa3-8712-e8cb91c99ee0",
-  "parent": "eac31bd2-0edc-448d-bd93-0c5e9dd8d671",
-  "label": "August-20052.doc",
+  "title": "August-20052.doc",
   "format": "Microsoft Word Document 97-2003",
   "puid": "fmt/40",
-  "size": 0.03173828125
+  "size": 0.03173828125,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Word Processing"
 }

@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "c791010d-493a-4e16-9a66-235b97b0db0e",
-  "parent": "2d1132f1-f4eb-41d4-81b5-1591be73cba8",
-  "label": "Marquette-County.doc",
+  "title": "Marquette-County.doc",
   "format": "Microsoft Word Document 97-2003",
   "puid": "fmt/40",
-  "size": 0.021484375
+  "size": 0.021484375,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Word Processing"
 }

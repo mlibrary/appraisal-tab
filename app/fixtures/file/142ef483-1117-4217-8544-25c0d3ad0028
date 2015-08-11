@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "142ef483-1117-4217-8544-25c0d3ad0028",
-  "parent": "aca4b6a9-4f6a-4923-9516-1501eecc3919",
-  "label": "Photo-Op-with-Orrin-Bailey.doc",
+  "title": "Photo-Op-with-Orrin-Bailey.doc",
   "format": "Microsoft Word Document 97-2003",
   "puid": "fmt/40",
-  "size": 0.0302734375
+  "size": 0.0302734375,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Word Processing"
 }

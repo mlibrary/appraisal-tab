@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "467f9b0f-12db-461d-8bb4-894c6cd55fc6",
-  "parent": "fa51a383-0e0a-4824-83a7-b71ffa2601c8",
-  "label": "CONTACTS-August-19-20-2010.xls",
+  "title": "CONTACTS-August-19-20-2010.xls",
   "format": "Excel 97 Workbook",
   "puid": "fmt/61",
-  "size": 0.0205078125
+  "size": 0.0205078125,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Spreadsheet"
 }

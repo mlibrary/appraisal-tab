@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "dafc2bc7-2081-4882-8763-2cce2ae59f4b",
-  "parent": "6136fc85-4d42-45bc-affd-5f521c1db4ee",
-  "label": "Viosport-briefing.doc",
+  "title": "Viosport-briefing.doc",
   "format": "Microsoft Word Document 97-2003",
   "puid": "fmt/40",
-  "size": 0.025390625
+  "size": 0.025390625,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Word Processing"
 }

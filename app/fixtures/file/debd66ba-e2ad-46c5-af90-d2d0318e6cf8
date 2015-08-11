@@ -1,6 +1,29 @@
 {
-  "type": "directory",
   "id": "debd66ba-e2ad-46c5-af90-d2d0318e6cf8",
-  "parent": "87995f00-4ad5-433f-8e39-35bbb3e4993e",
-  "label": "NMU-Internship"
+  "title": "NMU-Internship",
+  "groups": [
+    "Word Processing",
+    "Spreadsheet",
+    "Text (Markup)",
+    "Image (Raster)",
+    "Audio"
+  ],
+  "puids": [
+    "fmt/40",
+    "fmt/61",
+    "fmt/99",
+    "fmt/43",
+    "fmt/50",
+    "fmt/44",
+    "fmt/4",
+    "fmt/353"
+  ],
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "directory",
+  "puid": "",
+  "tags": [
+
+  ]
 }

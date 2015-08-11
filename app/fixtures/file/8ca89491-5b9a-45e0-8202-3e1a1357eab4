@@ -1,9 +1,16 @@
 {
-  "type": "file",
   "id": "8ca89491-5b9a-45e0-8202-3e1a1357eab4",
-  "parent": "6b2caf8b-bee7-44a0-bb54-e42201540e13",
-  "label": "Department.csv",
+  "title": "Department.csv",
   "format": "Comma Separated Values",
   "puid": "x-fmt/18",
-  "size": 0.0016050338745117188
+  "extension": ".csv",
+  "size": 0.0016050338745117188,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Text (Plain)"
 }

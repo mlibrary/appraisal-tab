@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "40769334-200a-45ac-b226-d063f17931f1",
-  "parent": "7138fb42-8465-4864-a349-a142678fe739",
-  "label": "numbers-and-addresses-for-august-2005-visit.doc",
+  "title": "numbers-and-addresses-for-august-2005-visit.doc",
   "format": "Microsoft Word Document 97-2003",
   "puid": "fmt/40",
-  "size": 0.0595703125
+  "size": 0.0595703125,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Word Processing"
 }

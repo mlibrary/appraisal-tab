@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "02f4fafa-60b8-421e-b288-7d16abe9691a",
-  "parent": "296d389d-6cae-459b-94b9-2b11cd701f49",
-  "label": "WMXG-FM-radio-interview-brief.doc",
+  "title": "WMXG-FM-radio-interview-brief.doc",
   "format": "Microsoft Word Document 97-2003",
   "puid": "fmt/40",
-  "size": 0.0244140625
+  "size": 0.0244140625,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Word Processing"
 }

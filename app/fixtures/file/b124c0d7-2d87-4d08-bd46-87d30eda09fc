@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "b124c0d7-2d87-4d08-bd46-87d30eda09fc",
-  "parent": "c5d7202d-1ce0-4628-9094-0eb597551fc2",
-  "label": "INTERN.doc",
+  "title": "INTERN.doc",
   "format": "Microsoft Word Document 97-2003",
   "puid": "fmt/40",
-  "size": 0.02294921875
+  "size": 0.02294921875,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Word Processing"
 }

@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "700af938-facb-4933-b177-60aefd6e9996",
-  "parent": "0ff81300-dc48-4aea-b81e-486fb1e699fc",
-  "label": "tilden-mine.jpg",
+  "title": "tilden-mine.jpg",
   "format": "JPEG 1.01",
   "puid": "fmt/43",
-  "size": 0.012227058410644531
+  "size": 0.012227058410644531,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Image (Raster)"
 }

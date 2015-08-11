@@ -1,6 +1,18 @@
 {
-  "type": "directory",
   "id": "a2f5cfb5-87eb-47be-9c97-5ae5837f5410",
-  "parent": "6b2caf8b-bee7-44a0-bb54-e42201540e13",
-  "label": "Samples"
+  "title": "Samples",
+  "groups": [
+    "Text (Plain)"
+  ],
+  "puids": [
+    "x-fmt/111"
+  ],
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "directory",
+  "puid": "",
+  "tags": [
+
+  ]
 }

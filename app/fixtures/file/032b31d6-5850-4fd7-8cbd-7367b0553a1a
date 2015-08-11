@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "032b31d6-5850-4fd7-8cbd-7367b0553a1a",
-  "parent": "6136fc85-4d42-45bc-affd-5f521c1db4ee",
-  "label": "Intergovernmental-Relations.ppt",
+  "title": "Intergovernmental-Relations.ppt",
   "format": "Powerpoint 97-2002",
   "puid": "fmt/126",
-  "size": 7.2451171875
+  "size": 7.2451171875,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Presentation"
 }

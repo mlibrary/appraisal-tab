@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "af96037d-13ec-4e8c-8087-64a06e186c96",
-  "parent": "22ca959a-b4da-42ae-aed4-4de86ba3c7b1",
-  "label": "UP-Roadbuilders.rtf",
+  "title": "UP-Roadbuilders.rtf",
   "format": "RTF 1.7",
   "puid": "fmt/52",
-  "size": 0.024362564086914062
+  "size": 0.024362564086914062,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Word Processing"
 }

@@ -1,6 +1,18 @@
 {
-  "type": "directory",
   "id": "2eff7757-93df-41a3-876f-ff6092661cfb",
-  "parent": "3da0777a-da75-49f1-862f-b117cd3aae50",
-  "label": "final-48-take1-bhl-48b0260b"
+  "title": "final-48-take1-bhl-48b0260b",
+  "groups": [
+    "Presentation"
+  ],
+  "puids": [
+    "fmt/126"
+  ],
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "directory",
+  "puid": "",
+  "tags": [
+
+  ]
 }

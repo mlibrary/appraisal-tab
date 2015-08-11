@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "189584fd-3b38-49fb-b9dd-d32abfa3c207",
-  "parent": "f9b9190e-42be-4b98-bbe5-c78711a861b8",
-  "label": "manistique-diner-meet-and-greet.doc",
+  "title": "manistique-diner-meet-and-greet.doc",
   "format": "Microsoft Word Document 97-2003",
   "puid": "fmt/40",
-  "size": 0.02294921875
+  "size": 0.02294921875,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Word Processing"
 }

@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "b839983f-3b05-4ae3-8831-d4b0f012b76b",
-  "parent": "6136fc85-4d42-45bc-affd-5f521c1db4ee",
-  "label": "goals-resp.doc",
+  "title": "goals-resp.doc",
   "format": "Microsoft Word Document 97-2003",
   "puid": "fmt/40",
-  "size": 0.03662109375
+  "size": 0.03662109375,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Word Processing"
 }

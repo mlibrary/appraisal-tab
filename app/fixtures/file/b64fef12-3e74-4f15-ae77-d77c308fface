@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "b64fef12-3e74-4f15-ae77-d77c308fface",
-  "parent": "6136fc85-4d42-45bc-affd-5f521c1db4ee",
-  "label": "LeadAcadJan6.ppt",
+  "title": "LeadAcadJan6.ppt",
   "format": "Powerpoint 97-2002",
   "puid": "fmt/126",
-  "size": 3.40283203125
+  "size": 3.40283203125,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Presentation"
 }

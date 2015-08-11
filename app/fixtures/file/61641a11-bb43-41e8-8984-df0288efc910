@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "61641a11-bb43-41e8-8984-df0288efc910",
-  "parent": "3da0777a-da75-49f1-862f-b117cd3aae50",
-  "label": "2005-submitted-report.doc",
+  "title": "2005-submitted-report.doc",
   "format": "Microsoft Word Document 97-2003",
   "puid": "fmt/40",
-  "size": 0.0244140625
+  "size": 0.0244140625,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Word Processing"
 }

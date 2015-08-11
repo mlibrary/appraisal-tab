@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "2a3a96f2-0398-4197-b39e-d9de872c5a0c",
-  "parent": "06a98817-da21-46be-8062-b24d213a84df",
-  "label": "Mqt-Dem-Reception.doc",
+  "title": "Mqt-Dem-Reception.doc",
   "format": "Microsoft Word Document 97-2003",
   "puid": "fmt/40",
-  "size": 0.0283203125
+  "size": 0.0283203125,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Word Processing"
 }

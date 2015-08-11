@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "7b8c218c-e209-491b-91b2-1b24887a823f",
-  "parent": "6136fc85-4d42-45bc-affd-5f521c1db4ee",
-  "label": "All-American-City-Award.doc",
+  "title": "All-American-City-Award.doc",
   "format": "Microsoft Word Document 97-2003",
   "puid": "fmt/40",
-  "size": 0.033203125
+  "size": 0.033203125,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Word Processing"
 }

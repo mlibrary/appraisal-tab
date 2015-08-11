@@ -1,6 +1,21 @@
 {
-  "type": "directory",
   "id": "22ca959a-b4da-42ae-aed4-4de86ba3c7b1",
-  "parent": "117e99f6-c8f3-4380-87ce-65709d9da571",
-  "label": "Gov-Visit-on-2-17-2-18-05"
+  "title": "Gov-Visit-on-2-17-2-18-05",
+  "groups": [
+    "Word Processing",
+    "Spreadsheet"
+  ],
+  "puids": [
+    "fmt/40",
+    "fmt/61",
+    "fmt/52"
+  ],
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "directory",
+  "puid": "",
+  "tags": [
+
+  ]
 }

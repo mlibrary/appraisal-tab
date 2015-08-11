@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "8a98f1f1-f1a1-41d5-a3be-487b06499eb4",
-  "parent": "ca7cf1dd-743c-4b71-b29f-9e1c2d317d2e",
-  "label": "Duty-Logf.xls",
+  "title": "Duty-Logf.xls",
   "format": "Excel 97 Workbook",
   "puid": "fmt/61",
-  "size": 0.0146484375
+  "size": 0.0146484375,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Spreadsheet"
 }

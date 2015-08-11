@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "886d1d5b-f228-4566-be95-398dc1b83fd4",
-  "parent": "fa51a383-0e0a-4824-83a7-b71ffa2601c8",
-  "label": "Briefing-Memo-War-Memorial-Hospital-Medical-Building.doc",
+  "title": "Briefing-Memo-War-Memorial-Hospital-Medical-Building.doc",
   "format": "Microsoft Word Document 97-2003",
   "puid": "fmt/40",
-  "size": 0.0234375
+  "size": 0.0234375,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Word Processing"
 }

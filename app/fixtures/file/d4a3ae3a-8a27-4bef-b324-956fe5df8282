@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "d4a3ae3a-8a27-4bef-b324-956fe5df8282",
-  "parent": "8bbcb4d1-4cb1-4008-9704-08372abf86ba",
-  "label": "hospital-map.jpg",
+  "title": "hospital-map.jpg",
   "format": "JPEG 1.01",
   "puid": "fmt/43",
-  "size": 0.3233680725097656
+  "size": 0.3233680725097656,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Image (Raster)"
 }

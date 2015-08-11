@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "faa8c154-1139-4fb6-a34d-4f279a63e760",
-  "parent": "fd45f0d9-f966-428c-af77-59b73a445b84",
-  "label": "2005-numbers.xls",
+  "title": "2005-numbers.xls",
   "format": "Excel 97 Workbook",
   "puid": "fmt/61",
-  "size": 0.01708984375
+  "size": 0.01708984375,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Spreadsheet"
 }

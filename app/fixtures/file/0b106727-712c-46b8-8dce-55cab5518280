@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "0b106727-712c-46b8-8dce-55cab5518280",
-  "parent": "8bbcb4d1-4cb1-4008-9704-08372abf86ba",
-  "label": "skelton-schedule-draft.doc",
+  "title": "skelton-schedule-draft.doc",
   "format": "Microsoft Word Document 97-2003",
   "puid": "fmt/40",
-  "size": 0.041015625
+  "size": 0.041015625,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Word Processing"
 }

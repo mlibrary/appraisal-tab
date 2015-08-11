@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "e1a42695-2c6a-4b90-8d65-7c869ceec5a2",
-  "parent": "2d1132f1-f4eb-41d4-81b5-1591be73cba8",
-  "label": "Governor-UP-August-2008.doc",
+  "title": "Governor-UP-August-2008.doc",
   "format": "Microsoft Word Document 97-2003",
   "puid": "fmt/40",
-  "size": 0.03173828125
+  "size": 0.03173828125,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Word Processing"
 }

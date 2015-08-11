@@ -1,8 +1,16 @@
 {
-  "type": "file",
   "id": "80d5379d-7b42-48ba-a601-a377be775b76",
-  "parent": "7fa523ad-dbef-4b56-9735-1f9d909240e2",
-  "label": "Document-Scrap-UPDATE-ON-THE-MA.shs",
+  "title": "Document-Scrap-UPDATE-ON-THE-MA.shs",
   "format": "Generic AIFF",
-  "size": 0.076171875
+  "extension": ".aif",
+  "size": 0.076171875,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "puid": "",
+  "tags": [
+
+  ],
+  "group": "Audio"
 }

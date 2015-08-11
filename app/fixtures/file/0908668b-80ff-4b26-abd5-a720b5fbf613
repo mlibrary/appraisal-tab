@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "0908668b-80ff-4b26-abd5-a720b5fbf613",
-  "parent": "639257b7-1aef-4fbb-880c-a1de7b16ca2d",
-  "label": "Khoury-Presentation3.ppt",
+  "title": "Khoury-Presentation3.ppt",
   "format": "Powerpoint 97-2002",
   "puid": "fmt/126",
-  "size": 13.8837890625
+  "size": 13.8837890625,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Presentation"
 }

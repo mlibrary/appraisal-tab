@@ -1,6 +1,24 @@
 {
-  "type": "directory",
   "id": "0871253d-5849-4f78-90ee-2da6526bd726",
-  "parent": "4c573917-007e-4684-acf3-1688c49fed78",
-  "label": "Inaugural-2007"
+  "title": "Inaugural-2007",
+  "groups": [
+    "Image (Raster)",
+    "Spreadsheet",
+    "Audio",
+    "Presentation"
+  ],
+  "puids": [
+    "x-fmt/391",
+    "fmt/61",
+    "fmt/43",
+    "fmt/126"
+  ],
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "directory",
+  "puid": "",
+  "tags": [
+
+  ]
 }

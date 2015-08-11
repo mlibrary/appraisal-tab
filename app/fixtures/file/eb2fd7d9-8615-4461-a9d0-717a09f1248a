@@ -1,8 +1,16 @@
 {
-  "type": "file",
   "id": "eb2fd7d9-8615-4461-a9d0-717a09f1248a",
-  "parent": "f87d69f8-df46-4753-bbfa-751c8d8c9a9a",
-  "label": "Bridge-Walk-101.JPG",
+  "title": "Bridge-Walk-101.JPG",
   "format": "Generic AIFF",
-  "size": 1.546875
+  "extension": ".aif",
+  "size": 1.546875,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "puid": "",
+  "tags": [
+
+  ],
+  "group": "Audio"
 }

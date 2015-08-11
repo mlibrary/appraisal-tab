@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "721214c2-f7c7-4165-9d90-f424e270fdf1",
-  "parent": "639257b7-1aef-4fbb-880c-a1de7b16ca2d",
-  "label": "SBT-presentation.ppt",
+  "title": "SBT-presentation.ppt",
   "format": "Powerpoint 97-2002",
   "puid": "fmt/126",
-  "size": 0.125
+  "size": 0.125,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Presentation"
 }

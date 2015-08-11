@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "b8067234-b6dc-43c9-97fc-1a546e5c6a25",
-  "parent": "c5d7202d-1ce0-4628-9094-0eb597551fc2",
-  "label": "memo-from-kennecott-presentation.doc",
+  "title": "memo-from-kennecott-presentation.doc",
   "format": "Microsoft Word Document 97-2003",
   "puid": "fmt/40",
-  "size": 0.04052734375
+  "size": 0.04052734375,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Word Processing"
 }

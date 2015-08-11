@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "7f33d40e-4078-43cf-b21d-1f4478c181fb",
-  "parent": "c5d7202d-1ce0-4628-9094-0eb597551fc2",
-  "label": "UP-Shared-Service-Examples.doc",
+  "title": "UP-Shared-Service-Examples.doc",
   "format": "Microsoft Word Document 97-2003",
   "puid": "fmt/40",
-  "size": 0.0341796875
+  "size": 0.0341796875,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Word Processing"
 }

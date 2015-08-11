@@ -1,8 +1,16 @@
 {
-  "type": "file",
   "id": "8d3463b3-7c92-4b2f-a139-f02ab9168da8",
-  "parent": "639257b7-1aef-4fbb-880c-a1de7b16ca2d",
-  "label": "PPT-CRC-FINAL-10-5-07.ppt",
+  "title": "PPT-CRC-FINAL-10-5-07.ppt",
   "format": "Generic AIFF",
-  "size": 0.04685211181640625
+  "extension": ".aif",
+  "size": 0.04685211181640625,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "puid": "",
+  "tags": [
+
+  ],
+  "group": "Audio"
 }

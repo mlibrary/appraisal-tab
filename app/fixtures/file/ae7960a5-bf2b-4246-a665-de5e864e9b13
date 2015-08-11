@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "ae7960a5-bf2b-4246-a665-de5e864e9b13",
-  "parent": "4332f40c-5b43-4192-ae9d-ec4396019b88",
-  "label": "SERA.doc",
+  "title": "SERA.doc",
   "format": "Microsoft Word Document 97-2003",
   "puid": "fmt/40",
-  "size": 0.0283203125
+  "size": 0.0283203125,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Word Processing"
 }

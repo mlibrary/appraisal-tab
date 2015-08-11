@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "3fd2135d-fb8d-4d1c-ae2c-fde24cf3881b",
-  "parent": "89d1887b-a0a2-4369-832c-b1b9bc7695fa",
-  "label": "Logging-Presentation.ppt",
+  "title": "Logging-Presentation.ppt",
   "format": "Powerpoint 97-2002",
   "puid": "fmt/126",
-  "size": 0.7734375
+  "size": 0.7734375,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Presentation"
 }

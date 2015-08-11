@@ -1,6 +1,20 @@
 {
-  "type": "directory",
   "id": "296d389d-6cae-459b-94b9-2b11cd701f49",
-  "parent": "c818f091-9f65-42ae-8f2f-a4bce9176e30",
-  "label": "2007"
+  "title": "2007",
+  "groups": [
+    "Word Processing",
+    "Spreadsheet"
+  ],
+  "puids": [
+    "fmt/40",
+    "fmt/61"
+  ],
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "directory",
+  "puid": "",
+  "tags": [
+
+  ]
 }

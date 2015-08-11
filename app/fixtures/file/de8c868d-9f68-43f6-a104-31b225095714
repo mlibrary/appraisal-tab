@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "de8c868d-9f68-43f6-a104-31b225095714",
-  "parent": "9c22685d-6dd8-4827-a354-7fb71c66f171",
-  "label": "P1000541.JPG",
+  "title": "P1000541.JPG",
   "format": "Exchangeable Image File Format (Compressed) 2.2",
   "puid": "x-fmt/391",
-  "size": 0.8187351226806641
+  "size": 0.8187351226806641,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Image (Raster)"
 }

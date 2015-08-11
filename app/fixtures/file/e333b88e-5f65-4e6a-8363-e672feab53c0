@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "e333b88e-5f65-4e6a-8363-e672feab53c0",
-  "parent": "639257b7-1aef-4fbb-880c-a1de7b16ca2d",
-  "label": "Marquette-County-Township-Presentation.ppt",
+  "title": "Marquette-County-Township-Presentation.ppt",
   "format": "Powerpoint 97-2002",
   "puid": "fmt/126",
-  "size": 15.89501953125
+  "size": 15.89501953125,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Presentation"
 }

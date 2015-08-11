@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "e85a95b5-2cea-415e-ade8-5e0c0ff979d8",
-  "parent": "92c8fd20-c362-4154-a590-e917c76f54de",
-  "label": "artwork03.jpg",
+  "title": "artwork03.jpg",
   "format": "JPEG 1.02",
   "puid": "fmt/44",
-  "size": 0.05019664764404297
+  "size": 0.05019664764404297,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Image (Raster)"
 }

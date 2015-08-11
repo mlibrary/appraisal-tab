@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "45b96dff-daf5-4a08-8002-0a1098d78abe",
-  "parent": "fd45f0d9-f966-428c-af77-59b73a445b84",
-  "label": "legend.doc",
+  "title": "legend.doc",
   "format": "Microsoft Word Document 97-2003",
   "puid": "fmt/40",
-  "size": 0.02294921875
+  "size": 0.02294921875,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Word Processing"
 }

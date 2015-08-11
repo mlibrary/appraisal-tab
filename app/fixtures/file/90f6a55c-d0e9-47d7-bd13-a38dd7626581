@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "90f6a55c-d0e9-47d7-bd13-a38dd7626581",
-  "parent": "aca4b6a9-4f6a-4923-9516-1501eecc3919",
-  "label": "IM-Schools-Meeting.doc",
+  "title": "IM-Schools-Meeting.doc",
   "format": "Microsoft Word Document 97-2003",
   "puid": "fmt/40",
-  "size": 0.033203125
+  "size": 0.033203125,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Word Processing"
 }

@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "d83f5b19-66ae-448f-9595-b9d293d5924f",
-  "parent": "fd45f0d9-f966-428c-af77-59b73a445b84",
-  "label": "Truck-study-Raw-comments-Newberry.doc",
+  "title": "Truck-study-Raw-comments-Newberry.doc",
   "format": "Microsoft Word Document 97-2003",
   "puid": "fmt/40",
-  "size": 0.046875
+  "size": 0.046875,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Word Processing"
 }

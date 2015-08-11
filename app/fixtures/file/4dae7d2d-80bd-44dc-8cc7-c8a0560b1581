@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "4dae7d2d-80bd-44dc-8cc7-c8a0560b1581",
-  "parent": "0ff81300-dc48-4aea-b81e-486fb1e699fc",
-  "label": "leadership.gif",
+  "title": "leadership.gif",
   "format": "1989a",
   "puid": "fmt/4",
-  "size": 0.004961967468261719
+  "size": 0.004961967468261719,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Image (Raster)"
 }

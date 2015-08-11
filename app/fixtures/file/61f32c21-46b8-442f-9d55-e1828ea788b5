@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "61f32c21-46b8-442f-9d55-e1828ea788b5",
-  "parent": "6b2caf8b-bee7-44a0-bb54-e42201540e13",
-  "label": "students.ppt",
+  "title": "students.ppt",
   "format": "Powerpoint 97-2002",
   "puid": "fmt/126",
-  "size": 0.1494140625
+  "size": 0.1494140625,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Presentation"
 }

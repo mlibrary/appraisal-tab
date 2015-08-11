@@ -1,7 +1,13 @@
 {
-  "type": "file",
   "id": "158da30d-a323-41a1-9b49-d780010091a9",
-  "parent": "f87d69f8-df46-4753-bbfa-751c8d8c9a9a",
-  "label": "IMG-5297.jpg",
-  "size": 0.1011962890625
+  "title": "IMG-5297.jpg",
+  "size": 0.1011962890625,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "puid": "",
+  "tags": [
+
+  ]
 }

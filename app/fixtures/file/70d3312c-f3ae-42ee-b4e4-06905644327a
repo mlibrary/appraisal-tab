@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "70d3312c-f3ae-42ee-b4e4-06905644327a",
-  "parent": "4bfc882c-0530-4fe9-8923-7afed07f7b3d",
-  "label": "Briefing-Format.doc",
+  "title": "Briefing-Format.doc",
   "format": "Microsoft Word Document 97-2003",
   "puid": "fmt/40",
-  "size": 0.021484375
+  "size": 0.021484375,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Word Processing"
 }

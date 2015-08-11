@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "f7e605d7-5302-424e-9c69-864c6bd7dc9a",
-  "parent": "eac31bd2-0edc-448d-bd93-0c5e9dd8d671",
-  "label": "stacys-info-for-oct-15.doc",
+  "title": "stacys-info-for-oct-15.doc",
   "format": "Microsoft Word Document 97-2003",
   "puid": "fmt/40",
-  "size": 0.201171875
+  "size": 0.201171875,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Word Processing"
 }

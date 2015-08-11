@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "899932ad-4292-4e12-b524-ed9c8e617df9",
-  "parent": "0871253d-5849-4f78-90ee-2da6526bd726",
-  "label": "up-staff-slide.ppt",
+  "title": "up-staff-slide.ppt",
   "format": "Powerpoint 97-2002",
   "puid": "fmt/126",
-  "size": 4.3955078125
+  "size": 4.3955078125,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Presentation"
 }

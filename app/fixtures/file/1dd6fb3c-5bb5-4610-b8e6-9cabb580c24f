@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "1dd6fb3c-5bb5-4610-b8e6-9cabb580c24f",
-  "parent": "4bfc882c-0530-4fe9-8923-7afed07f7b3d",
-  "label": "governors-up-tour-schedule.doc",
+  "title": "governors-up-tour-schedule.doc",
   "format": "Microsoft Word Document 97-2003",
   "puid": "fmt/40",
-  "size": 0.03857421875
+  "size": 0.03857421875,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Word Processing"
 }

@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "b9d7b8ef-5b53-4de5-94f7-cbab34e2493e",
-  "parent": "344a8de5-fa9c-4f2e-8e98-a0719c4fe8e2",
-  "label": "Lunch-with-Bay-College-Bd-of-Trustees.doc",
+  "title": "Lunch-with-Bay-College-Bd-of-Trustees.doc",
   "format": "Microsoft Word Document 97-2003",
   "puid": "fmt/40",
-  "size": 0.03076171875
+  "size": 0.03076171875,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Word Processing"
 }

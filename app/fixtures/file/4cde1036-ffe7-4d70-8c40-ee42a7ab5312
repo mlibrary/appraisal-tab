@@ -1,9 +1,16 @@
 {
-  "type": "file",
   "id": "4cde1036-ffe7-4d70-8c40-ee42a7ab5312",
-  "parent": "a2f5cfb5-87eb-47be-9c97-5ae5837f5410",
-  "label": "SSN.txt",
+  "title": "SSN.txt",
   "format": "Generic TXT",
   "puid": "x-fmt/111",
-  "size": 0.00034046173095703125
+  "extension": ".txt",
+  "size": 0.00034046173095703125,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Text (Plain)"
 }

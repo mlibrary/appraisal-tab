@@ -1,6 +1,20 @@
 {
-  "type": "directory",
   "id": "d0ea44a3-042a-4f15-b26d-3e8ee087514b",
-  "parent": "4c573917-007e-4684-acf3-1688c49fed78",
-  "label": "State-Fair-Documents"
+  "title": "State-Fair-Documents",
+  "groups": [
+    "Word Processing",
+    "Portable Document Format"
+  ],
+  "puids": [
+    "fmt/40",
+    "fmt/17"
+  ],
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "directory",
+  "puid": "",
+  "tags": [
+
+  ]
 }

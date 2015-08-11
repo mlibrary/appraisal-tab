@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "00a94dd2-4a7e-43dc-ab38-ca2601b4eafe",
-  "parent": "22ca959a-b4da-42ae-aed4-4de86ba3c7b1",
-  "label": "Student-List-for-2-18-05-final.xls",
+  "title": "Student-List-for-2-18-05-final.xls",
   "format": "Excel 97 Workbook",
   "puid": "fmt/61",
-  "size": 0.02001953125
+  "size": 0.02001953125,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Spreadsheet"
 }

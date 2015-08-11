@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "16d6595e-4675-4e5a-9d10-06c317e602cd",
-  "parent": "4bfc882c-0530-4fe9-8923-7afed07f7b3d",
-  "label": "Luncheon-8-21-Briefing-Format.doc",
+  "title": "Luncheon-8-21-Briefing-Format.doc",
   "format": "Microsoft Word Document 97-2003",
   "puid": "fmt/40",
-  "size": 0.03125
+  "size": 0.03125,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Word Processing"
 }

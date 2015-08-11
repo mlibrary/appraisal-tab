@@ -1,9 +1,15 @@
 {
-  "type": "file",
   "id": "6610e54d-2c50-4056-8030-791d79408078",
-  "parent": "f87d69f8-df46-4753-bbfa-751c8d8c9a9a",
-  "label": "Granholm-Bridge-2-2004.JPG",
+  "title": "Granholm-Bridge-2-2004.JPG",
   "format": "JPEG 1.01",
   "puid": "fmt/43",
-  "size": 1.6088199615478516
+  "size": 1.6088199615478516,
+  "bulk_extractor_reports": [
+
+  ],
+  "type": "file",
+  "tags": [
+
+  ],
+  "group": "Image (Raster)"
 }
