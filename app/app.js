@@ -43,11 +43,10 @@ config(['$routeSegmentProvider', function($routeSegmentProvider) {
   $routeSegmentProvider.
     when('/analysis', 'analysis').
     when('/analysis/report', 'analysis.report').
-    when('/analysis/report/format', 'analysis.report.format').
-    when('/analysis/report/tags', 'analysis.report.tags').
     when('/analysis/visualizations', 'analysis.visualizations').
     when('/analysis/visualizations/files', 'analysis.visualizations.files').
     when('/analysis/visualizations/size', 'analysis.visualizations.size').
+    when('/tags', 'tags').
     when('/contents', 'examine_contents').
     when('/contents/:type', 'examine_contents').
     when('/contents/:id/:type', 'examine_contents.file_info').
@@ -61,20 +60,9 @@ config(['$routeSegmentProvider', function($routeSegmentProvider) {
     within().
       segment('report', {
         default: true,
-        templateUrl: 'report/report.html',
-        controller: 'ReportSelectionController',
+        templateUrl: 'report/format.html',
+        controller: 'ReportController',
       }).
-      within().
-        segment('format', {
-          default: true,
-          templateUrl: 'report/format.html',
-          controller: 'ReportController',
-        }).
-        segment('tags', {
-          templateUrl: 'report/tags.html',
-          controller: 'ReportController',
-        }).
-      up().
       segment('visualizations', {
         templateUrl: 'visualizations/visualizations.html',
         controller: 'VisualizationsController',
@@ -89,6 +77,11 @@ config(['$routeSegmentProvider', function($routeSegmentProvider) {
         }).
       up().
     up().
+
+    segment('tags', {
+      templateUrl: 'report/tags.html',
+      controller: 'ReportController',
+    }).
 
     segment('examine_contents', {
       templateUrl: 'examine_contents/examine_contents.html',

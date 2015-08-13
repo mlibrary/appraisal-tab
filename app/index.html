@@ -134,6 +134,9 @@
           <li ng-class="{ active: $routeSegment.contains('analysis') }">
             <a href="#{{ $routeSegment.getSegmentUrl('analysis') }}">Analysis</a>
           </li>
+          <li ng-class="{ active: $routeSegment.contains('tags') }">
+            <a href="#{{ $routeSegment.getSegmentUrl('tags') }}">Tags</a>
+          </li>
           <li ng-class="{ active: $routeSegment.contains('examine_contents') }">
             <a href="#{{ $routeSegment.getSegmentUrl('examine_contents', {type: ''}) }}">Examine contents</a>
           </li>
