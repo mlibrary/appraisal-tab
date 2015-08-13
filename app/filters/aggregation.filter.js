@@ -26,7 +26,7 @@
         format_data[record.format].puid = record.puid || '';
         format_data[record.format].format = record.format;
         format_data[record.format].group = record.group;
-        format_data[record.format].size += Number.parseFloat(record.size) || 0;
+        format_data[record.format].size += parseFloat(record.size) || 0;
       }
 
       var out_data = [];
