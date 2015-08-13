@@ -41,11 +41,11 @@ config(['$routeSegmentProvider', function($routeSegmentProvider) {
   $routeSegmentProvider.options.strictMode = true;
 
   $routeSegmentProvider.
-    when('/analysis', 'analysis').
-    when('/analysis/report', 'analysis.report').
-    when('/analysis/visualizations', 'analysis.visualizations').
-    when('/analysis/visualizations/files', 'analysis.visualizations.files').
-    when('/analysis/visualizations/size', 'analysis.visualizations.size').
+    when('/objects', 'objects').
+    when('/objects/report', 'objects.report').
+    when('/objects/visualizations', 'objects.visualizations').
+    when('/objects/visualizations/files', 'objects.visualizations.files').
+    when('/objects/visualizations/size', 'objects.visualizations.size').
     when('/tags', 'tags').
     when('/contents', 'examine_contents').
     when('/contents/:type', 'examine_contents').
@@ -53,7 +53,7 @@ config(['$routeSegmentProvider', function($routeSegmentProvider) {
     when('/preview', 'preview').
     when('/preview/:id', 'preview').
 
-    segment('analysis', {
+    segment('objects', {
       templateUrl: 'analysis/analysis.html',
       controller: 'AnalysisController',
     }).
