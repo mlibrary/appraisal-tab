@@ -19,6 +19,7 @@
 
         Facet.add('tags', selected, {name: 'Tag', text: selected});
         Transfer.filter();
+        $scope.tag_facet = '';
       });
     }]);
 })();
