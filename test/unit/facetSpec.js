@@ -137,4 +137,12 @@ describe('Facet', function() {
     Facet.add('key', 'test');
     expect(Facet.passes_filters({'key': []})).toBe(false);
   }));
+
+  it('should delete the facet key if all filters for that facet have been removed', inject(function(Facet) {
+    expect(Facet.facets['key']).toBeUndefined();
+    Facet.add('key', 'value');
+    expect(Facet.facets['key']).toBeDefined();
+    Facet.remove('key', 'value');
+    expect(Facet.facets['key']).toBeUndefined();
+  }));
 });

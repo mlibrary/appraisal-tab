@@ -66,6 +66,9 @@
         // TODO: filtering over two arrays is unnecessarily expensive;
         //       see about ways to optimize this later
         this.facets[name] = this.facets[name].filter(filter_fn);
+        if (this.facets[name].length === 0) {
+          delete this.facets[name];
+        }
         this.facet_list = this.facet_list.filter(filter_fn);
       }
     };
@@ -75,6 +78,9 @@
         return element.id !== id;
       };
       this.facets[name] = this.facets[name].filter(filter_fn);
+      if (this.facets[name].length === 0) {
+        delete this.facets[name];
+      }
       this.facet_list = this.facet_list.filter(filter_fn);
     };
 
