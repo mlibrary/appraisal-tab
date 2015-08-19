@@ -36,6 +36,7 @@ angular.module('appraisalTab', [
 ]).
 
 config(['RestangularProvider', function(RestangularProvider) {
+  RestangularProvider.setRequestSuffix('/');
   RestangularProvider.setDefaultHttpFields({cache: true});
 }]).
 
