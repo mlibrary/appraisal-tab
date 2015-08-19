@@ -3,7 +3,7 @@
 describe('ArchivesSpace', function() {
   beforeEach(module('archivesSpaceService'));
   beforeEach(angular.mock.inject(function(_$httpBackend_) {
-    _$httpBackend_.when('GET', '/archivesspace.json').respond([
+    _$httpBackend_.when('GET', '/access/archivesspace').respond([
       {
         'dates': '2015-01-01',
         'title': 'Test fonds',
@@ -14,7 +14,7 @@ describe('ArchivesSpace', function() {
         'id': '/repositories/2/resources/1',
       },
     ]);
-    _$httpBackend_.when('GET', '/archivesspace/-repositories-2-archival_objects-4').respond({
+    _$httpBackend_.when('GET', '/access/archivesspace/-repositories-2-archival_objects-4').respond({
         'dates': '',
         'title': 'Test file',
         'levelOfDescription': 'file',
@@ -23,7 +23,7 @@ describe('ArchivesSpace', function() {
         'identifier': 'F1-1-1-1',
         'id': '/repositories/2/archival_objects/4',
     });
-    _$httpBackend_.when('GET', '/archivesspace/levels').respond([
+    _$httpBackend_.when('GET', '/access/archivesspace/levels').respond([
       'class',
       'collection',
       'file',
@@ -36,7 +36,7 @@ describe('ArchivesSpace', function() {
       'subgrp',
       'subseries',
     ]);
-    _$httpBackend_.when('PUT', '/archivesspace/-repositories-2-archival_objects-4/children').respond({
+    _$httpBackend_.when('PUT', '/access/archivesspace/-repositories-2-archival_objects-4/children').respond({
       'success': true,
       'id': '/repositories/2/archival_objects/5',
       'message': 'New record successfully created',

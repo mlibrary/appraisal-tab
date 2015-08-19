@@ -36,7 +36,6 @@ angular.module('appraisalTab', [
 ]).
 
 config(['RestangularProvider', function(RestangularProvider) {
-  RestangularProvider.setBaseUrl('/app/fixtures');
   RestangularProvider.setDefaultHttpFields({cache: true});
 }]).
 
