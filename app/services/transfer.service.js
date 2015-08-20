@@ -17,13 +17,14 @@
       return map;
     };
 
-    var Transfer = Restangular.all('transfers.json');
+    var Transfer = Restangular.all('ingest').all('appraisal_list');
     return {
       data: [],
       formats: [],
       id_map: {},
       all: function() {
-        return Transfer.customGET();
+        // TODO don't hardcode this
+        return Transfer.customGET('', {query: '', field: '', type: 'term'});
       },
       resolve: function() {
         var self = this;

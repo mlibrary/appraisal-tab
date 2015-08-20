@@ -3,7 +3,7 @@
 describe('Transfer', function() {
   beforeEach(module('transferService'));
   beforeEach(angular.mock.inject(function(_$httpBackend_) {
-    _$httpBackend_.when('GET', '/transfers.json').respond({
+    _$httpBackend_.when('GET', '/ingest/appraisal_list?field=&query=&type=term').respond({
       'formats': [
         {
           'label': 'Powerpoint 97-2002',
