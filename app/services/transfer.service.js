@@ -17,6 +17,13 @@
       return map;
     };
 
+    var clean_record_titles = function(records) {
+      angular.forEach(records, function(record) {
+        record.title = Base64.decode(record.title);
+        record.relative_path = Base64.decode(record.relative_path);
+      });
+    };
+
     var Transfer = Restangular.all('ingest').all('appraisal_list');
     return {
       data: [],
@@ -40,6 +47,7 @@
           self.data = data.transfers;
           self.formats = data.formats;
           self.id_map = create_flat_map(data.transfers);
+          clean_record_titles(self.id_map);
           self.filter();
         }, on_failure);
       },
