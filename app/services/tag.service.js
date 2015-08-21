@@ -3,12 +3,13 @@
 (function() {
   angular.module('tagService', ['transferService']).
 
-  factory('Tag', ['$log', 'Transfer', function($log, Transfer) {
+  factory('Tag', ['$log', 'Restangular', 'Transfer', function($log, Restangular, Transfer) {
     var tags = {};
+    var Tag = Restangular.all('file');
 
     // public
 
-    var add = function(id, tag) {
+    var add = function(id, tag, skip_submit) {
       tags[id] = tags[id] || [];
 
       if (tags[id].indexOf(tag) !== -1) {
@@ -29,6 +30,11 @@
       }
       record.tags = record.tags || [];
       record.tags.push(tag);
+
+      if (!skip_submit) {
+        // TODO error handling
+        Tag.one(id).one('tags').customPUT(record.tags);
+      }
     };
 
     var add_list = function(ids, tag) {
@@ -38,7 +44,7 @@
       });
     };
 
-    var remove = function(id, tag) {
+    var remove = function(id, tag, skip_submit) {
       var self = this;
       if (tag === undefined) {
         var tags_for_id = tags[id];
@@ -68,6 +74,11 @@
 
       // If this is the last occurrence of this tag, delete it from the tag list
       remove_tag_if_necessary(self, tag);
+
+      if (!skip_submit) {
+        // TODO error handling
+        Tag.one(id).one('tags').customPUT(record.tags);
+      }
     };
 
     var get = function(id) {
