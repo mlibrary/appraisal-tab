@@ -15,10 +15,14 @@
           return el.id !== uuid;
         });
       },
-      list_ids: function() {
-        return this.selected.map(function(record) {
-          return record.id;
+      list_file_ids: function() {
+        var ids = [];
+        angular.forEach(this.selected, function(file) {
+          if (file.type === 'file') {
+            ids.push(file.id);
+          }
         });
+        return ids;
       },
       // TODO: look at optimizing file lookup-by-id if this gets used a lot
       get: function(id) {

@@ -73,7 +73,7 @@
         return;
       }
 
-      Tag.add_list(SelectedFiles.list_ids(), tag);
+      Tag.add_list(SelectedFiles.list_file_ids(), tag);
       this.tag = '';
     };
   }]);
