@@ -218,7 +218,7 @@
             <td>{{ file.size | number}} MB</td>
             <td>{{ file.last_modified }}</td>
             <td>
-              <span class="tag" ng-repeat="tag in file.tags">{{ tag }} <span ng-click="remove_tag(file.id, tag)"><i class="fa fa-minus-square"></i></span></span>
+              <span class="tag" ng-repeat="tag in file.tags">{{ tag }} <span ng-click="vm.remove_tag(file.id, tag)"><i class="fa fa-minus-square"></i></span></span>
             </td>
             <td>
               <i class="fa fa-minus-square" ng-click="vm.file_list.remove(file.id)"></i>
