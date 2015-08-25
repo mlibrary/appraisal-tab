@@ -1,9 +1,20 @@
 'use strict';
 
 (function() {
-  angular.module('transferService', ['alertService', 'facetService', 'restangular']).
+  angular.module('transferService', ['alertService', 'facetService', 'tagService', 'restangular']).
 
-  factory('Transfer', ['Alert', 'Facet', 'Restangular', function(Alert, Facet, Restangular) {
+  factory('Transfer', ['Alert', 'Facet', 'Restangular', 'Tag', function(Alert, Facet, Restangular, Tag) {
+    var tags = {};
+
+    var get_record = function(id) {
+      var record = this.id_map[id];
+      if (!record) {
+        throw 'Unable to find a record of name ' + String(id) + ' in Transfer\'s ID map';
+      } else {
+        return record;
+      }
+    };
+
     var create_flat_map = function(records, map) {
       if (map === undefined) {
         map = {};
@@ -24,11 +35,29 @@
       });
     };
 
+    var remove_tag_if_necessary = function(self, tag) {
+      if (self.list_tags(tag).length === 0) {
+        self.tags = self.tags.filter(function(element) {
+          return element !== tag;
+        });
+      }
+    };
+
+    var remove_all = function(id) {
+      tags[id] = [];
+      var record = this.id_map[id];
+      if (record) {
+        record.tags = [];
+      }
+    };
+
     var Transfer = Restangular.all('ingest').all('appraisal_list');
+
     return {
       data: [],
       formats: [],
       id_map: {},
+      tags: [],
       all: function() {
         // TODO don't hardcode this
         return Transfer.customGET('', {query: '', field: '', type: 'term'});
@@ -59,6 +88,90 @@
             file.display = true;
           }
         });
+      },
+
+      add_tag: function(id, tag, skip_submit) {
+        tags[id] = tags[id] || [];
+
+        if (tags[id].indexOf(tag) !== -1) {
+          return;
+        }
+        tags[id].push(tag);
+
+        // Add this tag to the flat list of current tags if not already present
+        if (this.tags.indexOf(tag) === -1) {
+          this.tags.push(tag);
+        }
+
+        var record = get_record.apply(this, [id]);
+        record.tags = record.tags || [];
+        record.tags.push(tag);
+
+        if (!skip_submit) {
+          Tag.submit(id, record.tags);
+        }
+      },
+      add_list_of_tags: function(ids, tag, skip_submit) {
+        var self = this;
+        angular.forEach(ids, function(id) {
+          self.add_tag(id, tag, skip_submit);
+        });
+      },
+      remove_tag: function(id, tag, skip_submit) {
+        var self = this;
+        if (!tag) {
+          var tags_for_id = tags[id];
+
+          remove_all.apply(self, [id]);
+          angular.forEach(tags_for_id, function(tag) {
+            remove_tag_if_necessary(self, tag);
+          });
+
+          if (!skip_submit) {
+            Tag.remove(id);
+          }
+
+          return;
+        }
+
+        if (tags[id] === undefined) {
+          $log.warn('Tried to remove tag for file with ID ' + String(id) + ' but no tags are specified for that file');
+          return;
+        }
+
+        tags[id].pop(tag);
+        var record = self.id_map[id];
+        if (!record) {
+          $log.warn('Tried to remove tag for file with ID ' + String(id) + ' which was not found in Transfer map');
+          return;
+        }
+        if (record.tags) {
+          record.tags.pop(tag);
+        }
+
+        // If this is the last occurrence of this tag, delete it from the tag list
+        remove_tag_if_necessary(self, tag);
+
+        if (!skip_submit) {
+          Tag.submit(id, record.tags);
+        }
+      },
+      get_tag: function(id) {
+        return tags[id] || [];
+      },
+      list_tags: function(tag) {
+        var results = [];
+        angular.forEach(tags, function(taglist, id) {
+          if (taglist.indexOf(tag) !== -1) {
+            results.push(id);
+          }
+        });
+
+        return results;
+      },
+      clear_tags: function() {
+        tags = {};
+        this.tags = [];
       },
     };
   }]);

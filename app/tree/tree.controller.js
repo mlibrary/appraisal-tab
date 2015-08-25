@@ -3,7 +3,7 @@
 (function() {
   var treeController = angular.module('treeController', []).
 
-  controller('TreeController', ['$scope', 'SelectedFiles', 'Tag', 'Transfer', function($scope, SelectedFiles, Tag, Transfer) {
+  controller('TreeController', ['$scope', 'SelectedFiles', 'Transfer', function($scope, SelectedFiles, Transfer) {
     $scope.helper = function() {
       var uuid = $(this).attr('uuid');
       var file = Transfer.id_map[uuid];
@@ -28,7 +28,7 @@
     $scope.filter_comparator = true;
 
     $scope.remove_tag = function(id, tag) {
-      Tag.remove(id, tag);
+      Transfer.remove_tag(id, tag);
     };
 
     var add_file = function(node) {
@@ -73,7 +73,7 @@
         return;
       }
 
-      Tag.add_list(SelectedFiles.list_file_ids(), tag);
+      Transfer.add_list_of_tags(SelectedFiles.list_file_ids(), tag);
       this.tag = '';
     };
   }]);

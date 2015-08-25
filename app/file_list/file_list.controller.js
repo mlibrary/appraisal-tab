@@ -3,13 +3,13 @@
 (function() {
   angular.module('fileListController', ['fileListService']).
 
-  controller('FileListController', ['$scope', '$routeSegment', 'FileList', 'Tag', function($scope, $routeSegment, FileList, Tag) {
+  controller('FileListController', ['$scope', '$routeSegment', 'FileList', 'Transfer', function($scope, $routeSegment, FileList, Transfer) {
     var vm = this;
 
     vm.$routeSegment = $routeSegment;
     vm.file_list = FileList;
     vm.remove_tag = function(id, tag) {
-      Tag.remove(id, tag);
+      Transfer.remove_tag(id, tag);
     };
 
     $scope.$watch('file_list.files', function() {
@@ -38,7 +38,7 @@
         return;
       }
 
-      Tag.add_list(uuids, tag);
+      Transfer.add_list_of_tags(uuids, tag);
       this.tag = '';
     };
 

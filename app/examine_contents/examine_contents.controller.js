@@ -3,7 +3,7 @@
 (function() {
   angular.module('examineContentsController', []).
 
-  controller('ExamineContentsController', ['$routeSegment', 'FileList', 'SelectedFiles', 'Tag', function($routeSegment, FileList, SelectedFiles, Tag) {
+  controller('ExamineContentsController', ['$routeSegment', 'FileList', 'SelectedFiles', 'Transfer', function($routeSegment, FileList, SelectedFiles, Transfer) {
     var vm = this;
 
     vm.$routeSegment = $routeSegment;
@@ -31,7 +31,7 @@
         return;
       }
 
-      Tag.add_list(ids, tag);
+      Transfer.add_list_of_tags(ids, tag);
       this.tag = '';
     };
 

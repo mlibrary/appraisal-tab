@@ -15,7 +15,20 @@ describe('Transfer', function() {
           'id': 'd5700e44-68f1-4eec-a7e4-c5a5c7da2373',
           'title': 'SW1hZ2VzLTQ5YzQ3MzE5LTEzODctNDhjNC1hYWI3LTM4MTkyM2YwN2Y3Yw==',
           'relative_path': 'SW1hZ2VzLTQ5YzQ3MzE5LTEzODctNDhjNC1hYWI3LTM4MTkyM2YwN2Y3Yw==',
-          'children': [],
+          'children': [
+            {
+              'id': '042340ba-e682-4454-aa26-a9230de79c5f',
+              'title': 'cnVieS5yYg==',
+              'relative_path': 'SW1hZ2VzLTQ5YzQ3MzE5LTEzODctNDhjNC1hYWI3LTM4MTkyM2YwN2Y3Yy9ydWJ5LnJi',
+              'tags': [],
+            },
+            {
+              'id': 'c3908e0d-3ac7-4603-8d0b-9b26a0df9c64',
+              'title': 'c2FwcGhpcmUuY2xq',
+              'relative_path': 'SW1hZ2VzLTQ5YzQ3MzE5LTEzODctNDhjNC1hYWI3LTM4MTkyM2YwN2Y3Yy9zYXBwaGlyZS5jbGo=',
+              'tags': [],
+            },
+          ],
         },
       ],
     });
@@ -48,4 +61,43 @@ describe('Transfer', function() {
     expect(Transfer.formats.length).toEqual(1);
     expect(Transfer.formats[0].puid).toEqual('fmt/126');
   }));
+
+  it('should be able to add tags to files', inject(function(_$httpBackend_, Transfer) {
+    Transfer.resolve();
+    _$httpBackend_.flush();
+    var ruby = Transfer.id_map['042340ba-e682-4454-aa26-a9230de79c5f'];
+    expect(ruby.tags.length).toEqual(0);
+    Transfer.add_tag('042340ba-e682-4454-aa26-a9230de79c5f', 'test', true);
+    expect(ruby.tags.length).toEqual(1);
+  }));
+
+  it('should be able to remove tags for a given file', inject(function(_$httpBackend_, Transfer) {
+    Transfer.resolve();
+    _$httpBackend_.flush();
+    var ruby = Transfer.id_map['042340ba-e682-4454-aa26-a9230de79c5f'];
+    Transfer.add_tag('042340ba-e682-4454-aa26-a9230de79c5f', 'test', true);
+    expect(ruby.tags.length).toEqual(1);
+    Transfer.remove_tag('042340ba-e682-4454-aa26-a9230de79c5f', 'test', true);
+    expect(ruby.tags.length).toEqual(0);
+  }));
+
+  it('should be able to remove all tags for a given file if no tag is specified', inject(function(_$httpBackend_, Transfer) {
+    Transfer.resolve();
+    _$httpBackend_.flush();
+    var ruby = Transfer.id_map['042340ba-e682-4454-aa26-a9230de79c5f'];
+    Transfer.add_tag('042340ba-e682-4454-aa26-a9230de79c5f', 'test1', true);
+    Transfer.add_tag('042340ba-e682-4454-aa26-a9230de79c5f', 'test2', true);
+    expect(ruby.tags.length).toEqual(2);
+    Transfer.remove_tag('042340ba-e682-4454-aa26-a9230de79c5f', null, true);
+    expect(ruby.tags.length).toEqual(0);
+  }));
+
+  it('should track a flat list of all applied tags', inject(function(_$httpBackend_, Transfer) {
+    Transfer.resolve();
+    _$httpBackend_.flush();
+    expect(Transfer.tags).toEqual([]);
+    Transfer.add_tag('042340ba-e682-4454-aa26-a9230de79c5f', 'test1');
+    Transfer.add_tag('c3908e0d-3ac7-4603-8d0b-9b26a0df9c64', 'test2');
+    expect(Transfer.tags).toEqual(['test1', 'test2']);
+  }))
 });

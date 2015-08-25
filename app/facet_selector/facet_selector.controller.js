@@ -3,14 +3,13 @@
 (function() {
   angular.module('facetController', ['tagService']).
 
-  controller('FacetController', ['$scope', 'Transfer', 'Facet', 'Tag', function($scope, Transfer, Facet, Tag) {
+  controller('FacetController', ['$scope', 'Transfer', 'Facet', function($scope, Transfer, Facet) {
       $scope.remove_facet = function(name, id) {
         Facet.remove_by_id(name, id);
         Transfer.filter();
       };
       $scope.Facet = Facet;
       $scope.transfers = Transfer;
-      $scope.tags = Tag;
 
       $scope.$watch('tag_facet', function(selected) {
         if (!selected) {
