@@ -26,6 +26,20 @@
       return map;
     };
 
+    var populate_tag_list = function(records, list) {
+      angular.forEach(records, function(record, id) {
+        if (!record.tags) {
+          return;
+        }
+        for (var i = 0; i < record.tags.length; i++) {
+          var tag = record.tags[i];
+          if (list.indexOf(tag) === -1) {
+            list.push(tag);
+          }
+        }
+      });
+    };
+
     var clean_record_titles = function(records) {
       angular.forEach(records, function(record) {
         record.title = Base64.decode(record.title);
@@ -73,6 +87,7 @@
           self.data = data.transfers;
           self.formats = data.formats;
           self.id_map = create_flat_map(data.transfers);
+          populate_tag_list(self.id_map, self.tags);
           clean_record_titles(self.id_map);
           self.filter();
         }, on_failure);
