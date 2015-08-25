@@ -4,8 +4,6 @@
   angular.module('transferService', ['alertService', 'facetService', 'tagService', 'restangular']).
 
   factory('Transfer', ['Alert', 'Facet', 'Restangular', 'Tag', function(Alert, Facet, Restangular, Tag) {
-    var tags = {};
-
     var get_record = function(id) {
       var record = this.id_map[id];
       if (!record) {
@@ -44,7 +42,6 @@
     };
 
     var remove_all = function(id) {
-      tags[id] = [];
       var record = this.id_map[id];
       if (record) {
         record.tags = [];
@@ -91,21 +88,18 @@
       },
 
       add_tag: function(id, tag, skip_submit) {
-        tags[id] = tags[id] || [];
+        var record = get_record.apply(this, [id]);
+        record.tags = record.tags || [];
 
-        if (tags[id].indexOf(tag) !== -1) {
+        if (record.tags.indexOf(tag) !== -1) {
           return;
         }
-        tags[id].push(tag);
+        record.tags.push(tag);
 
         // Add this tag to the flat list of current tags if not already present
         if (this.tags.indexOf(tag) === -1) {
           this.tags.push(tag);
         }
-
-        var record = get_record.apply(this, [id]);
-        record.tags = record.tags || [];
-        record.tags.push(tag);
 
         if (!skip_submit) {
           Tag.submit(id, record.tags);
@@ -119,8 +113,11 @@
       },
       remove_tag: function(id, tag, skip_submit) {
         var self = this;
+        var record = get_record.apply(this, [id]);
+
         if (!tag) {
-          var tags_for_id = tags[id];
+          var record = get_record.apply(this, [id]);
+          var tags_for_id = record.tags;
 
           remove_all.apply(self, [id]);
           angular.forEach(tags_for_id, function(tag) {
@@ -134,20 +131,11 @@
           return;
         }
 
-        if (tags[id] === undefined) {
+        if (record.tags === undefined) {
           $log.warn('Tried to remove tag for file with ID ' + String(id) + ' but no tags are specified for that file');
           return;
         }
-
-        tags[id].pop(tag);
-        var record = self.id_map[id];
-        if (!record) {
-          $log.warn('Tried to remove tag for file with ID ' + String(id) + ' which was not found in Transfer map');
-          return;
-        }
-        if (record.tags) {
-          record.tags.pop(tag);
-        }
+        record.tags.pop(tag);
 
         // If this is the last occurrence of this tag, delete it from the tag list
         remove_tag_if_necessary(self, tag);
@@ -157,12 +145,14 @@
         }
       },
       get_tag: function(id) {
-        return tags[id] || [];
+        var record = get_record.apply(this, [id]);
+        return record.tags || [];
       },
       list_tags: function(tag) {
         var results = [];
-        angular.forEach(tags, function(taglist, id) {
-          if (taglist.indexOf(tag) !== -1) {
+        angular.forEach(this.id_map, function(record, id) {
+          var tags = record.tags || [];
+          if (tags.indexOf(tag) !== -1) {
             results.push(id);
           }
         });
@@ -170,7 +160,6 @@
         return results;
       },
       clear_tags: function() {
-        tags = {};
         this.tags = [];
       },
     };
