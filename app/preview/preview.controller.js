@@ -8,7 +8,7 @@
 
     vm.set_file_data = function(file) {
       $scope.file = file;
-      $scope.url = 'fixtures/content/' + file.title;
+      $scope.url = '/filesystem/' + file.id + '/download';
     };
 
     $scope.$routeSegment = $routeSegment;
