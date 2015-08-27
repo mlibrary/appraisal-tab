@@ -10,8 +10,10 @@
       get: function(uuid) {
         return File.one(uuid).get();
       },
-      bulk_extractor_info: function(uuid) {
-        return FileData.one(uuid).get();
+      bulk_extractor_info: function(uuid, reports) {
+        reports = reports || [];
+        reports = reports.join(',');
+        return FileData.one(uuid).get({reports: reports});
       },
     };
   }]);

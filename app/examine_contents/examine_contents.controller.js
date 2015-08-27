@@ -47,7 +47,7 @@
 
     vm.id = $routeSegment.$routeParams.id;
     vm.type = $routeSegment.$routeParams.type;
-    File.bulk_extractor_info(vm.id).then(function(data) {
+    File.bulk_extractor_info(vm.id, [vm.type]).then(function(data) {
       vm.file = data;
     });
   }]);
