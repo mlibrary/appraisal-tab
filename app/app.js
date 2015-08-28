@@ -15,6 +15,7 @@ angular.module('appraisalTab', [
   'archivesSpaceService',
   'facetService',
   'selectedFilesService',
+  'sipArrangeService',
   'transferService',
   'fileService',
   'tagService',

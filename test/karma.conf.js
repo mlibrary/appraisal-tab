@@ -9,10 +9,12 @@ module.exports = function(config){
       'app/bower_components/angular-mocks/angular-mocks.js',
       'app/bower_components/lodash/dist/lodash.min.js',
       'app/bower_components/restangular/src/restangular.js',
+      'app/bower_components/jquery/dist/jquery.min.js',
       'app/app.js',
       'app/filters/*.js',
       'app/services/*.js',
       'app/components/**/*.js',
+      'app/vendor/base64.js',
       'test/unit/**/*.js'
     ],
 
