@@ -257,6 +257,55 @@
       </div>
     </div>
   </ui-minimize-panel>
+
+  <ui-minimize-panel title='Arrangement'>
+  <div class='panel panel-default'>
+    <div class='panel-heading'>
+      Arrangement
+    </div>
+    <div class="transfer-tree panel-body" ng-controller="ArrangementController as vm">
+      <input type="button"
+             class="btn btn-primary"
+             id="delete_directory"
+             ng-disabled="!vm.selected"
+             ng-click="vm.delete_directory(vm.selected)"
+             value="Delete">
+      <input type="button"
+             class="btn btn-primary"
+             id="start_sip_arrangemnt"
+             ng-disabled="!vm.selected"
+             ng-click="vm.start_sip(vm.selected)"
+             value="Create SIP">
+      <input type="button"
+             class="btn btn-primary"
+             id="edit_metadata_arrangement"
+             ng-disabled="true"
+             value="Edit Metadata">
+      <input type="button"
+             class="btn btn-primary"
+             id="add_directory"
+             ng-disabled="!vm.data"
+             ng-click="vm.create_directory(vm.selected)"
+             value="Add Directory">
+      <treecontrol id="arrangement-tree"
+            class="tree-classic"
+            tree-model="vm.data"
+            options="vm.options"
+            selected-node="vm.selected"
+            on-node-toggle="vm.on_toggle(node, expanded)"
+            filter-expression="vm.filter_expression"
+            filter-comparator="vm.filter_comparator">
+        <!-- New files can only be dragged into directories, not other files -->
+        <span tree-droppable on-drop="vm.drop" ng-if="node.directory">
+          {{ node.title }} <span ng-if="node.properties">({{ node.properties.display_string }})</span>
+        </span>
+        <span ng-if="!node.directory">
+          {{ node.title }}
+        </span>
+      </treecontrol>
+    </div>
+  </div>
+  </ui-minimize-panel>
   </ui-minimize-bar>
 
   <script src="bower_components/lodash/dist/lodash.min.js"></script>
@@ -295,6 +344,7 @@
   <script src="alert/alert.controller.js"></script>
   <script src="archivesspace/archivesspace.controller.js"></script>
   <script src="analysis/analysis.controller.js"></script>
+  <script src="arrangement/arrangement.controller.js"></script>
   <script src="examine_contents/examine_contents.controller.js"></script>
   <script src="facet_selector/facet_selector.controller.js"></script>
   <script src="file_list/file_list.controller.js"></script>
