@@ -15,6 +15,9 @@
           // are both fetching from real services and not fixtures
           return Restangular.all('archivesspace').one(url_fragment).get();
         },
+        get_levels_of_description: function() {
+          return Restangular.all('archivesspace').one('levels').getList();
+        },
       };
   }]);
 })();

@@ -23,6 +23,19 @@ describe('ArchivesSpace', function() {
         'identifier': 'F1-1-1-1',
         'id': '/repositories/2/archival_objects/4',
     });
+    _$httpBackend_.when('GET', '/archivesspace/levels').respond([
+      'class',
+      'collection',
+      'file',
+      'fonds',
+      'item',
+      'otherlevel',
+      'recordgrp',
+      'series',
+      'subfonds',
+      'subgrp',
+      'subseries',
+    ]);
   }));
 
   it('should be able to return a list of all ArchivesSpace records', inject(function(_$httpBackend_, ArchivesSpace) {
@@ -38,5 +51,14 @@ describe('ArchivesSpace', function() {
       expect(object.children).toBe(false);
       expect(object.title).toEqual('Test file');
     });
+    _$httpBackend_.flush();
+  }));
+
+  it('should be able to fetch the levels of description', inject(function(_$httpBackend_, ArchivesSpace) {
+    ArchivesSpace.get_levels_of_description().then(function(levels) {
+      expect(levels.length).toEqual(11);
+      expect(levels[0]).toEqual('class');
+    });
+    _$httpBackend_.flush();
   }));
 });
