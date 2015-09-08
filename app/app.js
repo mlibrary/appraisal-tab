@@ -8,6 +8,7 @@ angular.module('appraisalTab', [
   'angularCharts',
   'restangular',
   'treeControl',
+  'ui.bootstrap',
   'appraisalTab.version',
   'checklistDirective',
   'treeDirectives',

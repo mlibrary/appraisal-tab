@@ -1,9 +1,33 @@
 'use strict';
 
 (function() {
-  angular.module('archivesSpaceController', ['transferService']).
+  angular.module('archivesSpaceController', ['transferService', 'ui.bootstrap']).
 
-  controller('ArchivesSpaceController', ['$scope', 'ArchivesSpace', 'Transfer', function($scope, ArchivesSpace, Transfer) {
+  controller('ArchivesSpaceController', ['$scope', '$modal', 'ArchivesSpace', 'Transfer', function($scope, $modal, ArchivesSpace, Transfer) {
+      $scope.edit = function(node) {
+        var form = $modal.open({
+          templateUrl: 'archivesspace/form.html',
+          controller: 'ArchivesSpaceEditController',
+          controllerAs: 'form',
+          resolve: {
+            levels: function() {
+              return ArchivesSpace.get_levels_of_description().$object;
+            },
+            title: function() {
+              return node.title;
+            },
+            level: function() {
+              return node.levelOfDescription;
+            },
+          },
+        });
+        form.result.then(function(result) {
+          // TODO: submit when the real backend is added
+          node.title = result.title;
+          node.levelOfDescription = result.level;
+        });
+      };
+
       $scope.options = {
         dirSelectable: true,
         equality: function(a, b) {
@@ -104,5 +128,20 @@
           }
         });
       }
-    }]);
+    }]).
+
+  controller('ArchivesSpaceEditController', ['$modalInstance', 'levels', 'level', 'title', function($modalInstance, levels, level, title) {
+    var vm = this;
+
+    vm.levels = levels;
+    vm.level = level;
+    vm.title = title;
+
+    vm.ok = function() {
+      $modalInstance.close(vm);
+    };
+    vm.cancel = function() {
+      $modalInstance.dismiss('cancel');
+    };
+  }]);
 })();
