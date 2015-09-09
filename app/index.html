@@ -89,6 +89,12 @@
     </ul>
   </div>
 
+  <div ng-controller="AlertController as vm">
+    <alert ng-repeat="alert in vm.alert.alerts" type="{{ alert.type }}" close="vm.remove($index)">
+      {{ alert.message }}
+    </alert>
+  </div>
+
   <ui-minimize-bar>
 
   <ui-minimize-panel title='Backlog' open='true'>
@@ -282,6 +288,7 @@
   <script src="ui/ui.directive.js"></script>
   <script src="checklist/checklist.directive.js"></script>
   <script src="tree/tree.directive.js"></script>
+  <script src="services/alert.service.js"></script>
   <script src="services/archivesspace.service.js"></script>
   <script src="services/facet.service.js"></script>
   <script src="services/file.service.js"></script>
@@ -292,6 +299,7 @@
   <script src="services/transfer.service.js"></script>
   <script src="filters/aggregation.filter.js"></script>
   <script src="filters/facet.filter.js"></script>
+  <script src="alert/alert.controller.js"></script>
   <script src="archivesspace/archivesspace.controller.js"></script>
   <script src="analysis/analysis.controller.js"></script>
   <script src="examine_contents/examine_contents.controller.js"></script>

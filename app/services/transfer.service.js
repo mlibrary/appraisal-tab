@@ -1,9 +1,9 @@
 'use strict';
 
 (function() {
-  angular.module('transferService', ['facetService', 'restangular']).
+  angular.module('transferService', ['alertService', 'facetService', 'restangular']).
 
-  factory('Transfer', ['Facet', 'Restangular', function(Facet, Restangular) {
+  factory('Transfer', ['Alert', 'Facet', 'Restangular', function(Alert, Facet, Restangular) {
     var create_flat_map = function(records, map) {
       if (map === undefined) {
         map = {};
@@ -27,12 +27,21 @@
       },
       resolve: function() {
         var self = this;
+
+        var on_failure = function(error) {
+          Alert.alerts.push({
+            type: 'danger',
+            message: 'Unable to retrieve transfer data from Archivematica.',
+          });
+          console.log(Alert);
+        };
+
         self.all().then(function(data) {
           self.data = data.transfers;
           self.formats = data.formats;
           self.id_map = create_flat_map(data.transfers);
           self.filter();
-        });
+        }, on_failure);
       },
       filter: function() {
         angular.forEach(this.id_map, function(file) {

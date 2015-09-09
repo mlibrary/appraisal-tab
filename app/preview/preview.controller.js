@@ -3,7 +3,7 @@
 (function() {
   angular.module('previewController', ['route-segment', 'fileListService']).
 
-  controller('PreviewController', ['$scope', '$routeSegment', 'File', 'FileList', function($scope, $routeSegment, File, FileList) {
+  controller('PreviewController', ['$scope', '$routeSegment', 'Alert', 'File', 'FileList', function($scope, $routeSegment, Alert, File, FileList) {
     var vm = this;
 
     vm.set_file_data = function(file) {
@@ -21,9 +21,15 @@
       } else {
         // If the data isn't available, contact the server to fetch file info;
         // it may not have been loaded.
+        var on_failure = function(error) {
+          Alert.alerts.push({
+            type: 'danger',
+            message: 'Unable to retrieve metadata for file with UUID ' + $scope.id,
+          });
+        };
         File.get($scope.id).then(function (file) {
           vm.set_file_data(file);
-        });
+        }, on_failure);
       }
     }
   }]);

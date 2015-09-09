@@ -1,9 +1,9 @@
 'use strict';
 
 (function() {
-  angular.module('archivesSpaceController', ['transferService', 'ui.bootstrap']).
+  angular.module('archivesSpaceController', ['alertService', 'transferService', 'ui.bootstrap']).
 
-  controller('ArchivesSpaceController', ['$scope', '$modal', 'ArchivesSpace', 'Transfer', function($scope, $modal, ArchivesSpace, Transfer) {
+  controller('ArchivesSpaceController', ['$scope', '$modal', 'Alert', 'ArchivesSpace', 'Transfer', function($scope, $modal, Alert, ArchivesSpace, Transfer) {
       $scope.edit = function(node) {
         var form = $modal.open({
           templateUrl: 'archivesspace/form.html',
@@ -51,12 +51,25 @@
           return;
         }
 
+        var on_failure = function(error) {
+          Alert.alerts.push({
+            type: 'danger',
+            message: 'Unable to fetch record ' + node.id + ' from ArchivesSpace!',
+          });
+          console.log(Alert);
+        };
+
         ArchivesSpace.get(node.id).then(function(resource) {
           node.children = node.children.concat(resource.children);
           node.children_fetched = true;
-        });
+        }, on_failure);
       };
 
+      // TODO: handle failure to contact ArchivesSpace here;
+      //       probably want to scope this to only happen if ASpace pane is opened.
+      //       (The controller is always instantiated before the pane opens,
+      //       so adding an alert here would always render even if ArchivesSpace
+      //       wasn't clicked.)
       ArchivesSpace.all().then(function(data) {
         $scope.data = data;
       });
