@@ -18,6 +18,10 @@
         get_levels_of_description: function() {
           return Restangular.all('archivesspace').one('levels').getList();
         },
+        add_child: function(id, record) {
+          var url_fragment = id.replace(/\//g, '-');
+          return Restangular.all('archivesspace').one(url_fragment).one('children').customPUT(record);
+        },
       };
   }]);
 })();

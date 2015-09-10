@@ -36,6 +36,11 @@ describe('ArchivesSpace', function() {
       'subgrp',
       'subseries',
     ]);
+    _$httpBackend_.when('PUT', '/archivesspace/-repositories-2-archival_objects-4/children').respond({
+      'success': true,
+      'id': '/repositories/2/archival_objects/5',
+      'message': 'New record successfully created',
+    });
   }));
 
   it('should be able to return a list of all ArchivesSpace records', inject(function(_$httpBackend_, ArchivesSpace) {
@@ -58,6 +63,17 @@ describe('ArchivesSpace', function() {
     ArchivesSpace.get_levels_of_description().then(function(levels) {
       expect(levels.length).toEqual(11);
       expect(levels[0]).toEqual('class');
+    });
+    _$httpBackend_.flush();
+  }));
+
+  it('should be able to add child records', inject(function(_$httpBackend_, ArchivesSpace) {
+    ArchivesSpace.add_child('/repositories/2/archival_objects/4', {
+      'title': 'New record',
+      'level': 'series',
+    }).then(function(response) {
+      expect(response.success).toBe(true);
+      expect(response.id).toEqual('/repositories/2/archival_objects/5');
     });
     _$httpBackend_.flush();
   }));
