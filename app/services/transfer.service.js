@@ -33,7 +33,6 @@
             type: 'danger',
             message: 'Unable to retrieve transfer data from Archivematica.',
           });
-          console.log(Alert);
         };
 
         self.all().then(function(data) {
