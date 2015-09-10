@@ -3,7 +3,7 @@
 (function() {
   angular.module('alertController', ['alertService']).
 
-  controller('AlertController', ['Alert', function(Alert) {
+  controller('AlertDisplayController', ['Alert', function(Alert) {
     var vm = this;
 
     vm.alert = Alert;

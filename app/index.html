@@ -89,7 +89,7 @@
     </ul>
   </div>
 
-  <div ng-controller="AlertController as vm">
+  <div ng-controller="AlertDisplayController as vm">
     <alert ng-repeat="alert in vm.alert.alerts" type="{{ alert.type }}" close="vm.remove($index)">
       {{ alert.message }}
     </alert>
