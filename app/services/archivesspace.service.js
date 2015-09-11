@@ -7,7 +7,7 @@
       var ArchivesSpace = Restangular.all('archivesspace.json');
       return {
         all: function() {
-          return ArchivesSpace.customGET();
+          return ArchivesSpace.getList();
         },
         get: function(id) {
           var url_fragment = id.replace(/\//g, '-');
