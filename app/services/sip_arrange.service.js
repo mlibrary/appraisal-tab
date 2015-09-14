@@ -62,7 +62,7 @@
         new_response[key] = response[key].map(Base64.decode);
       });
       angular.forEach(response.properties, function(value, key) {
-        new_response.properties[key] = Base64.decode(value);
+        new_response.properties[Base64.decode(key)] = value;
       });
 
       return new_response;
