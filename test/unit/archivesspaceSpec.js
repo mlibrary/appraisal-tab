@@ -23,6 +23,26 @@ describe('ArchivesSpace', function() {
         'identifier': 'F1-1-1-1',
         'id': '/repositories/2/archival_objects/4',
     });
+    _$httpBackend_.when('GET', '/access/archivesspace/accession/AS-1').respond([
+      {
+        'dates': '2015-01-01',
+        'title': 'Series created from accession AS-1',
+        'levelOfDescription': 'series',
+        'children': false,
+        'sortPosition': 5,
+        'identifier': 'AS-1',
+        'id': '/repositories/2/resources/2',
+      },
+      {
+        'dates': '2015-01-01',
+        'title': 'Collection created from accession AS-1',
+        'levelOfDescription': 'collection',
+        'children': false,
+        'sortPosition': 6,
+        'identifier': 'AS-1',
+        'id': '/repositories/2/resources/3',
+      },
+      ]);
     _$httpBackend_.when('GET', '/access/archivesspace/levels').respond([
       'class',
       'collection',
@@ -36,10 +56,14 @@ describe('ArchivesSpace', function() {
       'subgrp',
       'subseries',
     ]);
-    _$httpBackend_.when('PUT', '/access/archivesspace/-repositories-2-archival_objects-4/children').respond({
+    _$httpBackend_.when('POST', '/access/archivesspace/-repositories-2-archival_objects-4/children').respond({
       'success': true,
       'id': '/repositories/2/archival_objects/5',
       'message': 'New record successfully created',
+    });
+    _$httpBackend_.when('PUT', '/access/archivesspace/-repositories-2-archival_objects-4').respond({
+      'success': true,
+      'message': 'Record successfully edited',
     });
   }));
 
@@ -59,6 +83,14 @@ describe('ArchivesSpace', function() {
     _$httpBackend_.flush();
   }));
 
+  it('should be able to fetch records by accession number', inject(function(_$httpBackend_, ArchivesSpace) {
+    ArchivesSpace.get_by_accession('AS-1').then(function(results) {
+      expect(results.length).toBe(2);
+      expect(results[0].title).toEqual('Series created from accession AS-1');
+    });
+    _$httpBackend_.flush();
+  }));
+
   it('should be able to fetch the levels of description', inject(function(_$httpBackend_, ArchivesSpace) {
     ArchivesSpace.get_levels_of_description().then(function(levels) {
       expect(levels.length).toEqual(11);
@@ -74,6 +106,16 @@ describe('ArchivesSpace', function() {
     }).then(function(response) {
       expect(response.success).toBe(true);
       expect(response.id).toEqual('/repositories/2/archival_objects/5');
+    });
+    _$httpBackend_.flush();
+  }));
+
+  it('should be able to edit existing records', inject(function(_$httpBackend_, ArchivesSpace) {
+    ArchivesSpace.edit('/repositories/2/archival_objects/4', {
+      'title': 'Changed title',
+      'level': 'subsubseries',
+    }).then(function(response) {
+      expect(response.success).toBe(true);
     });
     _$httpBackend_.flush();
   }));
