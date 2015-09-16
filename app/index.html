@@ -234,6 +234,12 @@
                value='Edit Metadata'>
         <input type='button'
                class='btn btn-primary'
+               id='add_child_record'
+               ng-disabled="!selected"
+               ng-click="add_child(selected)"
+               value='Add New Child Record'>
+        <input type='button'
+               class='btn btn-primary'
                id='finalize_arrange'
                ng-disabled="!selected"
                value='Finalize Arrangement'>

@@ -58,6 +58,42 @@
         });
       };
 
+      $scope.add_child = function(node) {
+        var form = $modal.open({
+          templateUrl: 'archivesspace/form.html',
+          controller: 'ArchivesSpaceEditController',
+          controllerAs: 'form',
+          resolve: {
+            levels: function() {
+              return ArchivesSpace.get_levels_of_description().$object;
+            },
+            title: function() {
+              return '';
+            },
+            level: function() {
+              return '';
+            },
+          },
+        });
+        form.result.then(function(result) {
+          result.levelOfDescription = result.level;
+
+          var on_success = function(response) {
+            result.id = response.id;
+            node.children.append(result);
+          };
+
+          var on_failure = function(error) {
+            Alert.alerts.append({
+              type: 'danger',
+              message: 'Unable to add new child record to record ' + node.id,
+            });
+          };
+
+          ArchivesSpace.add_child(node.id, result).then(on_success, on_failure);
+        });
+      };
+
       $scope.options = {
         dirSelectable: true,
         equality: function(a, b) {
