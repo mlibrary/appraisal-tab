@@ -31,6 +31,7 @@ angular.module('appraisalTab', [
   'fileListController',
   'previewController',
   'reportController',
+  'searchController',
   'treeController',
   'visualizationsController',
 ]).

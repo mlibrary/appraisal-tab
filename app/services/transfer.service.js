@@ -1,7 +1,7 @@
 'use strict';
 
 (function() {
-  angular.module('transferService', ['alertService', 'facetService', 'tagService', 'restangular']).
+  angular.module('transferService', ['alertService', 'facetService', 'tagService']).
 
   factory('Transfer', ['Alert', 'Facet', 'Restangular', 'Tag', function(Alert, Facet, Restangular, Tag) {
     var get_record = function(id) {
@@ -62,35 +62,18 @@
       }
     };
 
-    var Transfer = Restangular.all('ingest').all('appraisal_list');
-
     return {
       data: [],
       formats: [],
       id_map: {},
       tags: [],
-      all: function() {
-        // TODO don't hardcode this
-        return Transfer.customGET('', {query: '', field: '', type: 'term'});
-      },
-      resolve: function() {
-        var self = this;
-
-        var on_failure = function(error) {
-          Alert.alerts.push({
-            type: 'danger',
-            message: 'Unable to retrieve transfer data from Archivematica.',
-          });
-        };
-
-        self.all().then(function(data) {
-          self.data = data.transfers;
-          self.formats = data.formats;
-          self.id_map = create_flat_map(data.transfers);
-          populate_tag_list(self.id_map, self.tags);
-          clean_record_titles(self.id_map);
-          self.filter();
-        }, on_failure);
+      resolve: function(data) {
+        this.data = data.transfers;
+        this.formats = data.formats;
+        this.id_map = create_flat_map(data.transfers);
+        populate_tag_list(this.id_map, this.tags);
+        clean_record_titles(this.id_map);
+        this.filter();
       },
       filter: function() {
         angular.forEach(this.id_map, function(file) {

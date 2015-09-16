@@ -60,7 +60,6 @@
       }
     };
     $scope.transfers = Transfer;
-    Transfer.resolve();
 
     $scope.deselect = function() {
       SelectedFiles.selected = [];
