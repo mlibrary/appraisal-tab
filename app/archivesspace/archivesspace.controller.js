@@ -22,9 +22,37 @@
           },
         });
         form.result.then(function(result) {
-          // TODO: submit when the real backend is added
+          // Assign these to variables so we can restore them if the PUT fails
+          var original_title = node.title;
+          var original_level = node.levelOfDescription;
+
           node.title = result.title;
           node.levelOfDescription = result.level;
+          // Any node with pending requests will be marked as non-editable
+          node.request_pending = true;
+
+          var on_success = function(response) {
+            node.request_pending = false;
+          };
+
+          var on_failure = function(error) {
+            // Restore the original title/level since the request failed
+            node.title = original_title;
+            node.levelOfDescription = original_level;
+            node.request_pending = false;
+
+            var title = node.title;
+            if (node.identifier) {
+              title = title + ' (' + node.identifier + ')';
+            }
+
+            Alert.alerts.push({
+              type: 'danger',
+              message: 'Unable to submit edits to record "' + title + '"; check dashboard logs.',
+            });
+          };
+
+          ArchivesSpace.edit(node.id, node).then(on_success, on_failure);
         });
       };
 

@@ -229,7 +229,7 @@
         <input type='button'
                class='btn btn-primary'
                id='edit_record'
-               ng-disabled="!selected"
+               ng-disabled="!selected || selected.request_pending"
                ng-click="edit(selected)"
                value='Edit Metadata'>
         <input type='button'
