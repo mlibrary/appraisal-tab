@@ -125,8 +125,8 @@
           console.log(Alert);
         };
 
-        ArchivesSpace.get(node.id).then(function(resource) {
-          node.children = node.children.concat(resource.children);
+        ArchivesSpace.get_children(node.id).then(function(children) {
+          node.children = node.children.concat(children);
           node.children_fetched = true;
         }, on_failure);
       };
