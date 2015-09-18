@@ -4,6 +4,8 @@
   angular.module('archivesSpaceController', ['alertService', 'transferService', 'ui.bootstrap']).
 
   controller('ArchivesSpaceController', ['$scope', '$modal', 'Alert', 'ArchivesSpace', 'Transfer', function($scope, $modal, Alert, ArchivesSpace, Transfer) {
+      var levels_of_description = ArchivesSpace.get_levels_of_description().$object;
+
       $scope.edit = function(node) {
         var form = $modal.open({
           templateUrl: 'archivesspace/form.html',
@@ -11,7 +13,7 @@
           controllerAs: 'form',
           resolve: {
             levels: function() {
-              return ArchivesSpace.get_levels_of_description().$object;
+              return levels_of_description;
             },
             title: function() {
               return node.title;
