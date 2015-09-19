@@ -3,7 +3,7 @@
 describe('SipArrange', function() {
   beforeEach(module('sipArrangeService'));
   beforeEach(angular.mock.inject(function(_$httpBackend_) {
-    _$httpBackend_.when('POST', '/filesystem/create_directory_within_arrange', 'path=bmV3X3BhdGg%3D').respond({'success': true});
+    _$httpBackend_.when('POST', '/filesystem/create_directory_within_arrange', 'path=L2FycmFuZ2UvYS9mdWxsL25ld19wYXRo').respond({'success': true});
     _$httpBackend_.when('GET', '/filesystem/contents/arrange?path=').respond({
       'entries': [
         'VGVzdA==',
@@ -14,8 +14,8 @@ describe('SipArrange', function() {
       'properties': [],
     });
     _$httpBackend_.when('GET', '/filesystem/contents/arrange?path=L2FycmFuZ2UvY2hpbGQv').respond({
-      'entries': [],
-      'directories': [],
+      'entries': ['ZmlsZQ==', 'ZGlyZWN0b3J5'],
+      'directories': ['ZGlyZWN0b3J5'],
       'properties': [],
     });
     _$httpBackend_.when('POST', '/filesystem/move_within_arrange', 'filepath=c291cmNl&destination=ZGVzdGluYXRpb24%3D').respond({
@@ -33,26 +33,31 @@ describe('SipArrange', function() {
   }));
 
   it('should be able to create SIP arrange directories', inject(function(_$httpBackend_, SipArrange) {
-    SipArrange.create_directory('new_path').then(function(response) {
-      expect(response.success).toBe(true);
+    var parent = {title: 'parent'};
+    SipArrange.create_directory('/arrange/a/full/new_path', 'new_path', parent).then(function(directory) {
+      expect(directory.title).toEqual('new_path');
+      expect(directory.path).toEqual('a/full/new_path');
+      expect(directory.parent).toBe(parent);
     });
     _$httpBackend_.flush();
   }));
 
   it('should be able to list arrange contents', inject(function(_$httpBackend_, SipArrange) {
-    SipArrange.list_contents().then(function(response) {
-      expect(response.entries).toEqual(['Test']);
-      expect(response.directories).toEqual(['Test']);
-      expect(response.properties).toEqual([]);
+    SipArrange.list_contents().then(function(directories) {
+      expect(directories.length).toEqual(1);
+      expect(directories[0].title).toEqual('Test');
+      expect(directories[0].directory).toBe(true);
     });
     _$httpBackend_.flush();
   }));
 
   it('should be able to list arrange contents within a given directory', inject(function(_$httpBackend_, SipArrange) {
-    SipArrange.list_contents('/arrange/child/').then(function(response) {
-      expect(response.entries).toEqual([]);
-      expect(response.directories).toEqual([]);
-      expect(response.properties).toEqual([]);
+    var parent = {title: '/a/parent/node'};
+    SipArrange.list_contents('/arrange/child/', parent).then(function(entries) {
+      expect(entries.length).toEqual(2);
+      expect(entries[0].directory).toBe(false);
+      expect(entries[0].title).toEqual('file');
+      expect(entries[1].directory).toBe(true);
     });
     _$httpBackend_.flush();
   }));

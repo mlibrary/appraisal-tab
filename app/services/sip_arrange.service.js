@@ -8,8 +8,21 @@
 
     // public
 
-    var create_directory = function(path) {
-      return post_form(SipArrange, 'create_directory_within_arrange', {path: Base64.encode(path)});
+    var create_directory = function(path, title, parent) {
+      // Return a formatted directory object
+      var on_success = function(success) {
+        return {
+          title: title,
+          directory: true,
+          children: [],
+          path: path.replace(/^\/arrange\//, ''),
+          parent: parent,
+          display: true,
+          children_fetched: false,
+        };
+      };
+
+      return post_form(SipArrange, 'create_directory_within_arrange', {path: Base64.encode(path)}).then(on_success);
     };
 
     var copy_to_arrange = function(source, destination) {
@@ -20,9 +33,52 @@
       return post_form(SipArrange, 'copy_to_arrange', params);
     };
 
-    var list_contents = function(path) {
+    var list_contents = function(path, parent) {
+      var format_root = function(data) {
+        return data.directories.map(function(directory) {
+          return {
+            title: directory,
+            directory: true,
+            children: [],
+            // "path" tracks the full path to the directory, including
+            // all of its parents.
+            // Since these are top-level directories, their paths are the
+            // same as their names.
+            path: directory,
+            display: true,
+            properties: data.properties[directory],
+            children_fetched: false,
+          };
+        });
+      };
+
+      var format_entries = function(data) {
+        return data.entries.map(function(element) {
+          var child = {
+            title: element,
+            path: parent ? parent.title + '/' + element : element,
+            parent: parent,
+            display: true,
+            properties: data.properties[element],
+          };
+
+          if (data.directories.indexOf(element) > -1) {
+            // directory
+            child.directory = true;
+            child.children = [];
+            child.children_fetched = false;
+          } else {
+            // file
+            child.directory = false;
+          }
+
+          return child;
+        });
+      };
+
       path = path || '';
-      return SipArrange.one('contents').one('arrange').get({path: Base64.encode(path)}).then(decode_entry_response);
+      var on_success = path === '' ? format_root : format_entries;
+      return SipArrange.one('contents').one('arrange').get({path: Base64.encode(path)}).then(decode_entry_response).then(on_success);
     };
 
     var move = function(source, destination) {

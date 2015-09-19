@@ -7,22 +7,8 @@
     var vm = this;
 
     var load_data = function() {
-      SipArrange.list_contents().then(function(data) {
-        vm.data = data.directories.map(function(directory) {
-          return {
-            title: directory,
-            directory: true,
-            children: [],
-            // "path" tracks the full path to the directory, including
-            // all of its parents.
-            // Since these are top-level directories, their paths are the
-            // same as their names.
-            path: directory,
-            display: true,
-            properties: data.properties[directory],
-            children_fetched: false,
-          };
-        });
+      SipArrange.list_contents().then(function(directories) {
+        vm.data = directories;
       });
     };
 
@@ -41,29 +27,8 @@
       }
 
       var path = '/arrange/' + node.path;
-      SipArrange.list_contents(path).then(function(data) {
-        node.children = data.entries.map(function(element) {
-          var child = {
-            title: element,
-            path: node.title + '/' + element,
-            parent: node,
-            display: true,
-            properties: data.properties[element],
-          }
-
-          if (data.directories.indexOf(element) > -1) {
-            // directory
-            child.directory = true;
-            child.children = [];
-            child.children_fetched = false;
-          } else {
-            // file
-            child.directory = false;
-          }
-
-          return child;
-        });
-
+      SipArrange.list_contents(path).then(function(entries) {
+        node.children = entries;
         node.children_fetched = true;
       });
     };
@@ -82,16 +47,8 @@
         var full_path = parent.path + '/' + path;
       }
 
-      SipArrange.create_directory('/arrange/' + full_path).then(function(success) {
-        target.push({
-          title: path,
-          directory: true,
-          children: [],
-          path: full_path,
-          parent: parent,
-          display: true,
-          children_fetched: false,
-        });
+      SipArrange.create_directory('/arrange/' + full_path, path, parent).then(function(result) {
+        target.push(result);
       });
     };
 
