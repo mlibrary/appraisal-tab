@@ -1,11 +1,10 @@
 'use strict';
 
 (function() {
-  angular.module('archivesSpaceController', ['alertService', 'transferService', 'ui.bootstrap']).
+  angular.module('archivesSpaceController', ['alertService', 'sipArrangeService', 'transferService', 'ui.bootstrap']).
 
-  controller('ArchivesSpaceController', ['$scope', '$modal', 'Alert', 'ArchivesSpace', 'Transfer', function($scope, $modal, Alert, ArchivesSpace, Transfer) {
-      var levels_of_description = ArchivesSpace.get_levels_of_description().$object;
-
+  controller('ArchivesSpaceController', ['$scope', '$modal', 'Alert', 'ArchivesSpace', 'SipArrange', 'Transfer', function($scope, $modal, Alert, ArchivesSpace, SipArrange, Transfer) {
+    var levels_of_description = ArchivesSpace.get_levels_of_description().$object;
       $scope.edit = function(node) {
         var form = $modal.open({
           templateUrl: 'archivesspace/form.html',
@@ -99,8 +98,11 @@
         equality: function(a, b) {
           if (a === undefined || b === undefined) {
             return false;
+          } else if (a.id && b.id) {
+            return a.id === b.id;
+          } else {
+            return a.path === b.path;
           }
-          return a.id === b.id;
         },
         isLeaf: function(node) {
           // TODO: add .has_children to Transfer objects, too
@@ -112,23 +114,36 @@
         },
       };
 
-      $scope.on_toggle = function(node, expanded) {
-        if (!expanded || !node.has_children || node.children_fetched) {
-          return;
-        }
-
+      // Loads the children of the specified element,
+      // along with arranged SIP contents that might exist
+      var load_element_children = function(node) {
         var on_failure = function(error) {
           Alert.alerts.push({
             type: 'danger',
             message: 'Unable to fetch record ' + node.id + ' from ArchivesSpace!',
           });
-          console.log(Alert);
         };
+
+        node.children = [];
 
         ArchivesSpace.get_children(node.id).then(function(children) {
           node.children = node.children.concat(children);
           node.children_fetched = true;
         }, on_failure);
+
+        // Also call into SIP arrange to see if there are any contents at this
+        // level of description; if so, render them like any other ASpace objects
+        ArchivesSpace.list_arrange_contents(node.id).then(function(entries) {
+          node.children = node.children.concat(entries);
+        });
+      };
+
+      $scope.on_toggle = function(node, expanded) {
+        if (!expanded || !node.has_children || node.children_fetched) {
+          return;
+        }
+
+        load_element_children(node);
       };
 
       // TODO: handle failure to contact ArchivesSpace here;
@@ -175,14 +190,22 @@
       };
 
       $scope.drop = function(unused, ui) {
-        var self = this;
-
         var file_uuid = ui.draggable.attr('uuid');
         var file = Transfer.id_map[file_uuid];
         if (dragged_ids.indexOf(file_uuid) !== -1) {
-          alert("File \"" + file.title + "\" already added.");
+          alert('File "' + file.title + '" already added.');
           return;
         }
+
+        if (this.path) {  // file within arrange
+          return drop_onto_arrange_directory.apply(this, [file]);
+        } else {  // ArchivesSpace information object
+          return drop_onto_aspace_record.apply(this, [file]);
+        }
+      };
+
+      var drop_onto_aspace_record = function(file) {
+        var self = this;
 
         // create a deep copy of the file and its children so we don't mutate
         // the copies used in the backlog
@@ -191,14 +214,24 @@
           return;
         }
 
+        var on_directory_creation = function() {
+          ArchivesSpace.copy_to_arrange(self.id, '/originals/' + source_path).then(on_copy);
+        };
+
+        // Reload the directory to reflect new contents
+        var on_copy = function() {
+          load_element_children(self);
+        };
+
+        var source_path;
+        if (file.type === 'file') {
+          source_path = file.relative_path;
+        } else {
+          source_path = file.relative_path + '/';
+        }
+
         $scope.$apply(function() {
-          // TODO: ping ArchivesSpace to upload a new record using this file
-          if (!self.children) {
-            self.children = [];
-            self.has_children = true;
-          }
-          self.children = self.children.concat(file);
-          log_ids(file);
+          ArchivesSpace.create_directory(self.id).then(on_directory_creation);
 
           if ($scope.expanded_nodes.indexOf(self) === -1) {
             $scope.expanded_nodes.push(self);
@@ -206,7 +239,44 @@
             $scope.on_toggle(self, true);
           }
         });
-      }
+      };
+
+      var drop_onto_arrange_directory = function(file) {
+        var self = this;
+
+        // Reload the directory to reflect new contents
+        var on_success = function(entries) {
+          self.parent.children = entries;
+        };
+
+        $scope.$apply(function() {
+          SipArrange.list_contents('/arrange/' + self.parent.path, self.parent.parent).then(on_success);
+        });
+      };
+
+      $scope.finalize_arrangement = function(node) {
+        var on_success = function() {
+          Alert.alerts.push({
+            type: 'success',
+            message: 'Successfully started SIP from record "' + node.title + '"',
+          });
+        };
+        var on_failure = function(error) {
+          var message;
+          // error.message won't be defined if this returned an HTML 500
+          if (error.message && error.message.startsWith('No SIP Arrange mapping')) {
+            message = 'Unable to start SIP; no files arranged into record "' + node.title + '".';
+          } else {
+            message = 'Unable to start SIP; check dashboard logs.';
+          }
+          Alert.alerts.push({
+            type: 'danger',
+            message: message,
+          });
+        };
+
+        ArchivesSpace.start_sip(node.id).then(on_success, on_failure);
+      };
     }]).
 
   controller('ArchivesSpaceEditController', ['$modalInstance', 'levels', 'level', 'title', function($modalInstance, levels, level, title) {
