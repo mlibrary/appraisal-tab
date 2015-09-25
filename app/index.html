@@ -105,7 +105,7 @@
                      selected-nodes="files.selected"
                      filter-expression="filter_expression"
                      filter-comparator="filter_comparator">
-          <span tree-draggable helper="helper" uuid="{{ node.id }}" ng-if="!node.not_draggable">
+          <span tree-draggable helper="helper" file-type="backlog" uuid="{{ node.id }}" ng-if="!node.not_draggable">
             {{ node.title }} <span class="tag" ng-repeat="tag in node.tags">{{ tag }} <span ng-click="remove_tag(id, tag)"><i class="fa fa-minus-square"></i></span></span>
           </span>
           <span class="disabled" ng-if="node.not_draggable">
@@ -297,10 +297,10 @@
             filter-expression="vm.filter_expression"
             filter-comparator="vm.filter_comparator">
         <!-- New files can only be dragged into directories, not other files -->
-        <span tree-droppable on-drop="vm.drop" ng-if="node.directory">
+        <span tree-draggable tree-droppable file-type="arrange" file-path="/arrange/{{ node.path }}" on-drop="vm.drop" ng-if="node.directory">
           {{ node.title }} <span ng-if="node.properties">({{ node.properties.display_string }})</span>
         </span>
-        <span ng-if="!node.directory">
+        <span tree-draggable file-type="arrange" file-path="{{ node.path }}" ng-if="!node.directory">
           {{ node.title }}
         </span>
       </treecontrol>

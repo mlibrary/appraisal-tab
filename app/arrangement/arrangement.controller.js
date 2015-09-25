@@ -116,29 +116,35 @@
     };
 
     vm.drop = function(unused, ui) {
-      var self = this;
+      if (ui.draggable.attr('file-type') === 'arrange') {
+        return drop_from_arrange.apply(this, [unused, ui]);
+      } else {
+        return drop_from_backlog.apply(this, [unused, ui]);
+      }
+    };
 
+    var on_copy_failure = function(error) {
+      Alert.alerts.push({
+        'type': 'danger',
+        'message': 'Failed to copy files to SIP arrange; check Dashboard logs.',
+      });
+    };
+    var on_copy_success = function(success) {
+      // Reload the tree, rather than recreating the structure locally,
+      // since it's possible the structure of the dragged files
+      // may differ from the structure of what actually entered arrange.
+      // TODO: when bugs about dragging contents into the wrong directory are
+      //       resolved, maybe want to reload only the directory into which
+      //       contents were dragged and not the entire tree.
+      load_data();
+    };
+
+    var drop_from_backlog = function(unused, ui) {
       var file_uuid = ui.draggable.attr('uuid');
       var file = Transfer.id_map[file_uuid];
       // create a deep copy of the file and its children so we don't mutate
       // the copies used in the backlog
       file = filter_files(_.extend({}, file));
-
-      var on_failure = function(error) {
-        Alert.alerts.push({
-          'type': 'danger',
-          'message': 'Failed to copy files to SIP arrange; check Dashboard logs.',
-        });
-      };
-      var on_success = function(success) {
-        // Reload the tree, rather than recreating the structure locally,
-        // since it's possible the structure of the dragged files
-        // may differ from the structure of what actually entered arrange.
-        // TODO: when bugs about dragging contents into the wrong directory are
-        //       resolved, maybe want to reload only the directory into which
-        //       contents were dragged and not the entire tree.
-        load_data();
-      };
 
       var source_path;
       if (file.type === 'file') {
@@ -147,7 +153,13 @@
         source_path = file.relative_path + '/';
       }
 
-      SipArrange.copy_to_arrange('/originals/' + source_path, '/arrange/' + self.path + '/').then(on_success, on_failure);
+      SipArrange.copy_to_arrange('/originals/' + source_path, '/arrange/' + this.path + '/').then(on_copy_success, on_copy_failure);
+    };
+
+    var drop_from_arrange = function(unused, ui) {
+      var path = ui.draggable.attr('file-path');
+
+      SipArrange.move('/arrange/' + path, '/arrange/' + this.path + '/').then(on_copy_success, on_copy_failure);
     };
 
     load_data();
