@@ -56,7 +56,7 @@
         return data.entries.map(function(element) {
           var child = {
             title: element,
-            path: parent ? parent.title + '/' + element : element,
+            path: parent ? parent.path + '/' + element : element,
             parent: parent,
             display: true,
             properties: data.properties[element],
