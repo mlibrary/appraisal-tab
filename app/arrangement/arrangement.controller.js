@@ -27,7 +27,7 @@
       }
 
       var path = '/arrange/' + node.path;
-      SipArrange.list_contents(path).then(function(entries) {
+      SipArrange.list_contents(path, node).then(function(entries) {
         node.children = entries;
         node.children_fetched = true;
       });
