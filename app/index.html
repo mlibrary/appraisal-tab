@@ -263,8 +263,17 @@
                selected-node="selected"
                on-node-toggle="on_toggle(node, expanded)"
                expanded-nodes="expanded_nodes">
-          <span tree-droppable on-drop="drop">
+          <!-- ArchivesSpace record -->
+          <span ng-if="node.type !== 'arrange_entry'" tree-droppable on-drop="drop" file-type="record">
             {{ node.title }} <div ng-if="node.identifier">({{ node.identifier }})</div>
+          </span>
+          <!-- SIP arrange directory -->
+          <span ng-if="(node.type === 'arrange_entry') &amp;&amp; node.directory" tree-droppable tree-draggable on-drop="drop" file-type="arrange" file-path="{{ node.path }}">
+            {{ node.title }}
+          </span>
+          <!-- SIP arrange file -->
+          <span ng-if="(node.type === 'arrange_entry') &amp;&amp; !node.directory" tree-draggable file-type="arrange" file-path="{{ node.path }}">
+            {{ node.title }}
           </span>
         </treecontrol>
       </div>

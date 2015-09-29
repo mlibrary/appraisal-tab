@@ -281,21 +281,46 @@
           return;
         }
 
-        var file_uuid = ui.draggable.attr('uuid');
-        var file = Transfer.id_map[file_uuid];
-        if (dragged_ids.indexOf(file_uuid) !== -1) {
-          alert('File "' + file.title + '" already added.');
-          return;
-        }
-
-        if (this.id) {  // ArchivesSpace information object
-          return drop_onto_aspace_record.apply(this, [file]);
-        } else {  // file within arrange
-          return drop_onto_arrange_directory.apply(this, [file]);
+        var type = ui.draggable.attr('file-type');
+        var is_arrange_file = !this.id;
+        if (type === 'arrange') {
+          var path = ui.draggable.attr('file-path');
+          if (is_arrange_file) {
+            return copy_arrange_to_arrange.apply(this, [path]);
+          } else {
+            return copy_arrange_to_aspace.apply(this, [path]);
+          }
+        } else {
+          var file = Transfer.id_map[ui.draggable.attr('uuid')];
+          if (is_arrange_file) {
+            return copy_backlog_to_arrange.apply(this, [file]);
+          } else {
+            return copy_backlog_to_aspace.apply(this, [file]);
+          }
         }
       };
 
-      var drop_onto_aspace_record = function(file) {
+      var copy_arrange_to_arrange = function(path) {
+        var self = this;
+
+        var on_move = function() {
+          load_element_children(self);
+        };
+
+        SipArrange.move(path, '/arrange/' + this.path).then(on_move);
+      };
+
+      var copy_arrange_to_aspace = function(path) {
+        var self = this;
+
+        var on_move = function() {
+          load_element_children(self);
+        };
+
+        ArchivesSpace.move(path, this.id).then(on_move);
+      };
+
+      var copy_backlog_to_aspace = function(file) {
         var self = this;
 
         // create a deep copy of the file and its children so we don't mutate
@@ -339,16 +364,23 @@
         });
       };
 
-      var drop_onto_arrange_directory = function(file) {
+      var copy_backlog_to_arrange = function(file) {
         var self = this;
 
+        var source_path;
+        if (file.type === 'file') {
+          source_path = file.relative_path;
+        } else {
+          source_path = file.relative_path + '/';
+        }
+
         // Reload the directory to reflect new contents
-        var on_success = function(entries) {
-          self.parent.children = entries;
+        var on_copy = function() {
+          load_element_children(self);
         };
 
         $scope.$apply(function() {
-          SipArrange.list_contents('/arrange/' + self.parent.path, self.parent.parent).then(on_success);
+          SipArrange.copy_to_arrange('/arrange/' + source_path, '/arrange/' + self.path).then(on_copy);
         });
       };
 

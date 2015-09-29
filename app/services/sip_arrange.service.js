@@ -19,6 +19,8 @@
           parent: parent,
           display: true,
           children_fetched: false,
+          type: 'arrange_entry',
+          directory: true,
         };
       };
 
@@ -48,6 +50,8 @@
             display: true,
             properties: data.properties[directory],
             children_fetched: false,
+            type: 'arrange_entry',
+            directory: true,
           };
         });
       };
@@ -60,6 +64,7 @@
             parent: parent,
             display: true,
             properties: data.properties[element],
+            type: 'arrange_entry',
           };
 
           if (data.directories.indexOf(element) > -1) {
@@ -67,9 +72,11 @@
             child.has_children = true;
             child.children = [];
             child.children_fetched = false;
+            child.directory = true;
           } else {
             // file
             child.has_children = false;
+            child.directory = false;
           }
 
           return child;
