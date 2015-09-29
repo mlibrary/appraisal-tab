@@ -117,11 +117,14 @@
       // Loads the children of the specified element,
       // along with arranged SIP contents that might exist
       var load_element_children = function(node) {
+        $scope.loading = true;
+
         var on_failure = function(error) {
           Alert.alerts.push({
             type: 'danger',
             message: 'Unable to fetch record ' + node.id + ' from ArchivesSpace!',
           });
+          $scope.loading = false;
         };
 
         node.children = [];
@@ -129,6 +132,7 @@
         ArchivesSpace.get_children(node.id).then(function(children) {
           node.children = node.children.concat(children);
           node.children_fetched = true;
+          $scope.loading = false;
         }, on_failure);
 
         // Also call into SIP arrange to see if there are any contents at this
@@ -190,6 +194,10 @@
       };
 
       $scope.drop = function(unused, ui) {
+        if ($scope.loading) {
+          return;
+        }
+
         var file_uuid = ui.draggable.attr('uuid');
         var file = Transfer.id_map[file_uuid];
         if (dragged_ids.indexOf(file_uuid) !== -1) {
@@ -231,6 +239,8 @@
         }
 
         $scope.$apply(function() {
+          $scope.loading = true;
+
           ArchivesSpace.create_directory(self.id).then(on_directory_creation);
 
           if ($scope.expanded_nodes.indexOf(self) === -1) {

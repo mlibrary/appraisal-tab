@@ -221,11 +221,11 @@
   </ui-minimize-panel>
 
   <ui-minimize-panel title='ArchivesSpace'>
-    <div class='panel panel-default'>
+    <div class='panel panel-default' ng-controller="ArchivesSpaceController">
       <div class='panel-heading'>
-        ArchivesSpace
+        ArchivesSpace <span ng-if="loading"><i class="fa fa-spinner fa-spin"></i></span>
       </div>
-      <div class="transfer-tree panel-body" ng-controller="ArchivesSpaceController">
+      <div class="transfer-tree panel-body">
         <input type='button'
                class='btn btn-primary'
                id='edit_record'
