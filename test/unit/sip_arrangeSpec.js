@@ -46,7 +46,7 @@ describe('SipArrange', function() {
     SipArrange.list_contents().then(function(directories) {
       expect(directories.length).toEqual(1);
       expect(directories[0].title).toEqual('Test');
-      expect(directories[0].directory).toBe(true);
+      expect(directories[0].has_children).toBe(true);
     });
     _$httpBackend_.flush();
   }));
@@ -55,9 +55,9 @@ describe('SipArrange', function() {
     var parent = {title: '/a/parent/node'};
     SipArrange.list_contents('/arrange/child/', parent).then(function(entries) {
       expect(entries.length).toEqual(2);
-      expect(entries[0].directory).toBe(false);
+      expect(entries[0].has_children).toBe(false);
       expect(entries[0].title).toEqual('file');
-      expect(entries[1].directory).toBe(true);
+      expect(entries[1].has_children).toBe(true);
     });
     _$httpBackend_.flush();
   }));

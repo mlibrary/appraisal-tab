@@ -157,7 +157,7 @@ describe('ArchivesSpace', function() {
     ArchivesSpace.list_arrange_contents('/repositories/2/archival_objects/6').then(function(records) {
       expect(records.length).toEqual(1);
       expect(records[0].title).toEqual('Test');
-      expect(records[0].directory).toBe(true);
+      expect(records[0].has_children).toBe(true);
     });
     _$httpBackend_.flush();
   }));

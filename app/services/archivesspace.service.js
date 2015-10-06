@@ -48,7 +48,7 @@
             {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'}
           );
         },
-        list_arrange_contents: function(id) {
+        list_arrange_contents: function(id, parent) {
           // TODO don't clone these from SIPArrange
           var decode_entry_response = function(response) {
             var new_response = _.extend({}, response);
@@ -68,7 +68,7 @@
             return data.entries.map(function(element) {
               var child = {
                 title: element,
-                path: parent ? parent.title + '/' + element : element,
+                path: parent ? parent.path + '/' + element : element,
                 parent: parent,
                 display: true,
                 properties: data.properties[element],
@@ -76,12 +76,12 @@
 
               if (data.directories.indexOf(element) > -1) {
                 // directory
-                child.directory = true;
+                child.has_children = true;
                 child.children = [];
                 child.children_fetched = false;
               } else {
                 // file
-                child.directory = false;
+                child.has_children = false;
               }
 
               return child;

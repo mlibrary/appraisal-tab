@@ -15,7 +15,7 @@
     vm.options = {
       dirSelectable: true,
       isLeaf: function(node) {
-        return !node.directory;
+        return !node.has_children;
       },
     };
     vm.filter_expression = {display: true};

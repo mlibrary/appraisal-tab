@@ -13,7 +13,7 @@
       var on_success = function(success) {
         return {
           title: title,
-          directory: true,
+          has_children: true,
           children: [],
           path: path.replace(/^\/arrange\//, ''),
           parent: parent,
@@ -38,7 +38,7 @@
         return data.directories.map(function(directory) {
           return {
             title: directory,
-            directory: true,
+            has_children: true,
             children: [],
             // "path" tracks the full path to the directory, including
             // all of its parents.
@@ -64,12 +64,12 @@
 
           if (data.directories.indexOf(element) > -1) {
             // directory
-            child.directory = true;
+            child.has_children = true;
             child.children = [];
             child.children_fetched = false;
           } else {
             // file
-            child.directory = false;
+            child.has_children = false;
           }
 
           return child;

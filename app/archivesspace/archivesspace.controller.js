@@ -105,12 +105,7 @@
           }
         },
         isLeaf: function(node) {
-          // TODO: add .has_children to Transfer objects, too
-          if (Object.keys(node).indexOf('type') !== -1) {
-            return node.type === 'file';
-          } else {
-            return !node.has_children;
-          }
+          return !node.has_children;
         },
       };
 
@@ -119,7 +114,7 @@
       var load_element_children = function(node) {
         $scope.loading = true;
 
-        var on_failure = function(error) {
+        var on_failure_aspace = function(error) {
           Alert.alerts.push({
             type: 'danger',
             message: 'Unable to fetch record ' + node.id + ' from ArchivesSpace!',
@@ -127,19 +122,35 @@
           $scope.loading = false;
         };
 
+        var on_failure_arrange = function(error) {
+          Alert.alerts.push({
+            type: 'danger',
+            message: 'Unable to fetch record ' + node.path + ' from Arrangement!',
+          });
+          $scope.loading = false;
+        };
+
         node.children = [];
 
-        ArchivesSpace.get_children(node.id).then(function(children) {
-          node.children = node.children.concat(children);
-          node.children_fetched = true;
-          $scope.loading = false;
-        }, on_failure);
+        if (node.id) {  // ArchivesSpace node
+          ArchivesSpace.get_children(node.id).then(function(children) {
+            node.children = node.children.concat(children);
+            node.children_fetched = true;
+            $scope.loading = false;
+          }, on_failure_aspace);
 
-        // Also call into SIP arrange to see if there are any contents at this
-        // level of description; if so, render them like any other ASpace objects
-        ArchivesSpace.list_arrange_contents(node.id).then(function(entries) {
-          node.children = node.children.concat(entries);
-        });
+          // Also call into SIP arrange to see if there are any contents at this
+          // level of description; if so, render them like any other ASpace objects
+          ArchivesSpace.list_arrange_contents(node.id, node).then(function(entries) {
+            node.children = node.children.concat(entries);
+          });
+        } else {  // SipArrange node
+          SipArrange.list_contents(node.path, node).then(function(entries) {
+            node.children = entries;
+            node.children_fetched = true;
+            $scope.loading = false;
+          }, on_failure_arrange);
+        }
       };
 
       $scope.on_toggle = function(node, expanded) {
