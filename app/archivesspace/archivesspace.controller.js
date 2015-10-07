@@ -216,10 +216,10 @@
           return;
         }
 
-        if (this.path) {  // file within arrange
-          return drop_onto_arrange_directory.apply(this, [file]);
-        } else {  // ArchivesSpace information object
+        if (this.id) {  // ArchivesSpace information object
           return drop_onto_aspace_record.apply(this, [file]);
+        } else {  // file within arrange
+          return drop_onto_arrange_directory.apply(this, [file]);
         }
       };
 
@@ -233,13 +233,21 @@
           return;
         }
 
-        var on_directory_creation = function() {
+        var on_directory_creation = function(response) {
+          // Add path to parent
+          self.path = response.path;
           ArchivesSpace.copy_to_arrange(self.id, '/originals/' + source_path).then(on_copy);
         };
 
-        // Reload the directory to reflect new contents
         var on_copy = function() {
-          load_element_children(self);
+          if ($scope.expanded_nodes.indexOf(self) === -1) {
+            $scope.expanded_nodes.push(self);
+            // expanded event will not fire if the node was programmatically expanded - this loads children
+            $scope.on_toggle(self, true);
+          } else {
+            // Reload the directory to reflect new contents
+            load_element_children(self);
+          }
         };
 
         var source_path;
@@ -253,12 +261,6 @@
           $scope.loading = true;
 
           ArchivesSpace.create_directory(self.id).then(on_directory_creation);
-
-          if ($scope.expanded_nodes.indexOf(self) === -1) {
-            $scope.expanded_nodes.push(self);
-            // expanded event will not fire if the node was programmatically expanded
-            $scope.on_toggle(self, true);
-          }
         });
       };
 
