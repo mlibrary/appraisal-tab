@@ -79,7 +79,12 @@
 
           var on_success = function(response) {
             result.id = response.id;
-            node.children.append(result);
+            if (!node.has_children) {
+              node.has_children = true;
+              node.children = [];
+              node.children_fetched = false;
+            }
+            node.children.push(result);
           };
 
           var on_failure = function(error) {
