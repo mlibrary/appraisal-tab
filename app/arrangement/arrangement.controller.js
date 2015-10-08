@@ -59,6 +59,7 @@
 
         var idx = parent.indexOf(element);
         parent.splice(idx, 1);
+        vm.selected = undefined;
       });
     };
 

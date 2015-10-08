@@ -284,6 +284,29 @@
         });
       };
 
+      $scope.remove = function(node) {
+        if ($scope.loading) {
+          return;
+        }
+
+        var on_delete = function(element) {
+          // `node.parent` is undefined if this is a root-level directory
+          var siblings = node.parent ? node.parent.children : $scope.data.children;
+          var idx = siblings.indexOf(node);
+          if (idx !== -1){
+            siblings.splice(idx, 1);
+          }
+          $scope.selected = undefined;
+        };
+
+        // TODO is this a reliable way to tell nodes apart?
+        if (node.id) { // ArchivesSpace node
+          ArchivesSpace.remove(node.id).then(on_delete);
+        } else {  // SipArrange node
+          SipArrange.remove(node.path).then(on_delete);
+        }
+      };
+
       $scope.finalize_arrangement = function(node) {
         var on_success = function() {
           Alert.alerts.push({

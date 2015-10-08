@@ -240,6 +240,12 @@
                value='Edit Metadata'>
         <input type='button'
                class='btn btn-primary'
+               id='delete_record'
+               ng-disabled="!selected || selected.request_pending"
+               ng-click="remove(selected)"
+               value='Delete selected'>
+        <input type='button'
+               class='btn btn-primary'
                id='finalize_arrange'
                ng-disabled="!selected"
                ng-click="finalize_arrangement(selected)"
@@ -280,7 +286,7 @@
              id="delete_directory"
              ng-disabled="!vm.selected"
              ng-click="vm.delete_directory(vm.selected)"
-             value="Delete">
+             value="Delete selected">
       <input type="button"
              class="btn btn-primary"
              id="start_sip_arrangemnt"

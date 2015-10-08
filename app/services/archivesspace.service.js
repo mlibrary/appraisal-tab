@@ -91,6 +91,10 @@
           var url_fragment = id_to_urlsafe(id);
           return ArchivesSpace.one(url_fragment).one('contents').one('arrange').get(url_fragment).then(decode_entry_response).then(format_results);
         },
+        remove: function(id) {
+          var url_fragment = id_to_urlsafe(id);
+          return ArchivesSpace.one(url_fragment).remove();
+        },
         start_sip: function(id) {
           var url_fragment = id_to_urlsafe(id);
           return ArchivesSpace.one(url_fragment).one('copy_from_arrange').post();

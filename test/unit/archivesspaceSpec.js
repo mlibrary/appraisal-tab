@@ -84,6 +84,10 @@ describe('ArchivesSpace', function() {
     _$httpBackend_.when('POST', '/access/archivesspace/-repositories-2-archival_objects-6/copy_from_arrange').respond({
       'message': 'SIP created.',
     });
+    _$httpBackend_.when('DELETE', '/access/archivesspace/-repositories-2-archival_objects-6').respond({
+      'status': 'Deleted',
+      'id': 26,
+    });
   }));
 
   it('should be able to return a list of all ArchivesSpace records', inject(function(_$httpBackend_, ArchivesSpace) {
@@ -158,6 +162,13 @@ describe('ArchivesSpace', function() {
       expect(records.length).toEqual(1);
       expect(records[0].title).toEqual('Test');
       expect(records[0].has_children).toBe(true);
+    });
+    _$httpBackend_.flush();
+  }));
+
+  it('should be able to delete a record', inject(function(_$httpBackend_, ArchivesSpace) {
+    ArchivesSpace.remove('/repositories/2/archival_objects/6').then(function(result) {
+      expect(result.status).toEqual('Deleted');
     });
     _$httpBackend_.flush();
   }));
