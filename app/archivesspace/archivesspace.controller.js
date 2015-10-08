@@ -79,6 +79,7 @@
 
           var on_success = function(response) {
             result.id = response.id;
+            result.parent = node;
             if (!node.has_children) {
               node.has_children = true;
               node.children = [];
@@ -139,6 +140,7 @@
 
         if (node.id) {  // ArchivesSpace node
           ArchivesSpace.get_children(node.id).then(function(children) {
+            children.map(function(element) { element.parent = node; });
             node.children = node.children.concat(children);
             node.children_fetched = true;
             $scope.loading = false;
