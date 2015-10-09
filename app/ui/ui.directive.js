@@ -43,6 +43,23 @@
         minimizeBar.addPane(scope, attrs.open === 'true');
       },
     };
+  }]).
+
+  directive('ngConfirmClick', [function() {
+    // From http://zachsnow.com/#!/blog/2013/confirming-ng-click/
+    return {
+      priority: -1,
+      restrict: 'A',
+      link: function(scope, element, attrs) {
+        element.bind('click', function(e){
+          var message = attrs.ngConfirmClick;
+          if(message && !confirm(message)){
+            e.stopImmediatePropagation();
+            e.preventDefault();
+          }
+        });
+      }
+    };
   }]);
 
 })();

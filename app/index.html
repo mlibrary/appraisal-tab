@@ -242,6 +242,7 @@
                class='btn btn-primary'
                id='delete_record'
                ng-disabled="!selected || selected.request_pending"
+               ng-confirm-click="Are you sure you want to delete this?"
                ng-click="remove(selected)"
                value='Delete selected'>
         <input type='button'
@@ -285,6 +286,7 @@
              class="btn btn-primary"
              id="delete_directory"
              ng-disabled="!vm.selected"
+             ng-confirm-click="Are you sure you want to delete this?"
              ng-click="vm.delete_directory(vm.selected)"
              value="Delete selected">
       <input type="button"
