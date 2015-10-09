@@ -160,6 +160,14 @@
         }
       };
 
+      $scope.refresh = function(node) {
+        if (node) {
+          load_element_children(node);
+        } else {
+          load_data();
+        }
+      };
+
       $scope.on_toggle = function(node, expanded) {
         if (!expanded || !node.has_children || node.children_fetched) {
           return;
@@ -168,14 +176,17 @@
         load_element_children(node);
       };
 
-      // TODO: handle failure to contact ArchivesSpace here;
-      //       probably want to scope this to only happen if ASpace pane is opened.
-      //       (The controller is always instantiated before the pane opens,
-      //       so adding an alert here would always render even if ArchivesSpace
-      //       wasn't clicked.)
-      ArchivesSpace.all().then(function(data) {
-        $scope.data = data;
-      });
+      var load_data = function() {
+        // TODO: handle failure to contact ArchivesSpace here;
+        //       probably want to scope this to only happen if ASpace pane is opened.
+        //       (The controller is always instantiated before the pane opens,
+        //       so adding an alert here would always render even if ArchivesSpace
+        //       wasn't clicked.)
+        ArchivesSpace.all().then(function(data) {
+          $scope.data = data;
+        });
+      };
+      load_data();
 
       // Prevent a given file or its descendants from being dragged more than once
       var dragged_ids = [];

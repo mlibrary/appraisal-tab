@@ -21,16 +21,27 @@
     vm.filter_expression = {display: true};
     vm.filter_comparator = true;
 
-    vm.on_toggle = function(node, expanded) {
-      if (!expanded || node.children_fetched) {
-        return;
+    vm.refresh = function(node) {
+      if (node) {
+        load_element_children(node);
+      } else {
+        load_data();
       }
+    };
 
+    var load_element_children = function(node) {
       var path = '/arrange/' + node.path;
       SipArrange.list_contents(path, node).then(function(entries) {
         node.children = entries;
         node.children_fetched = true;
       });
+    };
+
+    vm.on_toggle = function(node, expanded) {
+      if (!expanded || node.children_fetched) {
+        return;
+      }
+      load_element_children(node);
     };
 
     vm.create_directory = function(parent) {

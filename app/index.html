@@ -251,6 +251,11 @@
                ng-disabled="!selected"
                ng-click="finalize_arrangement(selected)"
                value='Finalize Arrangement'>
+        <input type='button'
+               class='btn btn-primary'
+               id='refresh'
+               ng-click="refresh(selected)"
+               value='Reload'>
         <treecontrol id="archivesspace-tree"
                class="tree-classic"
                tree-model="data"
@@ -295,6 +300,11 @@
              ng-disabled="!vm.selected"
              ng-click="vm.start_sip(vm.selected)"
              value="Create SIP">
+      <input type="button"
+             class="btn btn-primary"
+             id="refresh"
+             ng-click="vm.refresh(vm.selected)"
+             value="Reload">
       <treecontrol id="arrangement-tree"
             class="tree-classic"
             tree-model="vm.data"
