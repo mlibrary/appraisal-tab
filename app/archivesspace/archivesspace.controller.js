@@ -254,6 +254,9 @@
         var on_directory_creation = function(response) {
           // Add path to parent
           self.path = response.path;
+          self.has_children = true;
+          self.children = [];
+          self.children_fetched = false;
           ArchivesSpace.copy_to_arrange(self.id, '/originals/' + source_path).then(on_copy);
         };
 
