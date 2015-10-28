@@ -20,6 +20,11 @@
             level: function() {
               return node.levelOfDescription;
             },
+            dates: function() {
+              if (node.dates) {
+                return new Date(node.dates);
+              }
+            },
             note: function() {
               if (node.notes && node.notes[0]) {
                 return node.notes[0].content;
@@ -32,9 +37,11 @@
           var original_title = node.title;
           var original_level = node.levelOfDescription;
           var original_note = node.notes;
+          var original_dates = node.dates;
 
           node.title = result.title;
           node.levelOfDescription = result.level;
+          node.dates = result.dates.toISOString();
           node.notes = [{
             type: 'odd',
             content: result.note,
@@ -50,6 +57,7 @@
             // Restore the original title/level since the request failed
             node.title = original_title;
             node.levelOfDescription = original_level;
+            node.dates = original_dates;
             node.notes = original_note;
             node.request_pending = false;
 
@@ -81,6 +89,9 @@
               return '';
             },
             level: function() {
+              return '';
+            },
+            dates: function() {
               return '';
             },
             note: function() {
@@ -367,12 +378,13 @@
       };
     }]).
 
-  controller('ArchivesSpaceEditController', ['$modalInstance', 'levels', 'level', 'title', 'note', function($modalInstance, levels, level, title, note) {
+  controller('ArchivesSpaceEditController', ['$modalInstance', 'levels', 'level', 'title', 'dates', 'note', function($modalInstance, levels, level, title, dates, note) {
     var vm = this;
 
     vm.levels = levels;
     vm.level = level;
     vm.title = title;
+    vm.dates = dates;
     vm.note = note;
 
     vm.ok = function() {

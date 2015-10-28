@@ -3,6 +3,7 @@
   <label>Level of description:</label> <select ng-model="form.level"
                                 ng-options="level for level in form.levels">
                                 </select>
+  <label>Dates:</label> <uib-datepicker ng-model="form.dates"></uib-datepicker>
   <label>Note:</label> <textarea ng-model="form.note"></textarea>
   <input type="submit" ng-click="form.ok()" value="Save" />
   <input type="submit" ng-click="form.cancel()" value="Cancel" />
