@@ -20,15 +20,25 @@
             level: function() {
               return node.levelOfDescription;
             },
+            note: function() {
+              if (node.notes && node.notes[0]) {
+                return node.notes[0].content;
+              }
+            },
           },
         });
         form.result.then(function(result) {
           // Assign these to variables so we can restore them if the PUT fails
           var original_title = node.title;
           var original_level = node.levelOfDescription;
+          var original_note = node.notes;
 
           node.title = result.title;
           node.levelOfDescription = result.level;
+          node.notes = [{
+            type: 'odd',
+            content: result.note,
+          }];
           // Any node with pending requests will be marked as non-editable
           node.request_pending = true;
 
@@ -40,6 +50,7 @@
             // Restore the original title/level since the request failed
             node.title = original_title;
             node.levelOfDescription = original_level;
+            node.notes = original_note;
             node.request_pending = false;
 
             var title = node.title;
@@ -72,10 +83,18 @@
             level: function() {
               return '';
             },
+            note: function() {
+              return '';
+            },
           },
         });
         form.result.then(function(result) {
           result.levelOfDescription = result.level;
+          result.notes = [{
+            type: 'odd',
+            content: result.note,
+          }];
+          delete result['note'];
 
           var on_success = function(response) {
             result.id = response.id;
@@ -182,8 +201,10 @@
         //       (The controller is always instantiated before the pane opens,
         //       so adding an alert here would always render even if ArchivesSpace
         //       wasn't clicked.)
+        $scope.loading = true;
         ArchivesSpace.all().then(function(data) {
           $scope.data = data;
+          $scope.loading = false;
         });
       };
       load_data();
@@ -346,12 +367,13 @@
       };
     }]).
 
-  controller('ArchivesSpaceEditController', ['$modalInstance', 'levels', 'level', 'title', function($modalInstance, levels, level, title) {
+  controller('ArchivesSpaceEditController', ['$modalInstance', 'levels', 'level', 'title', 'note', function($modalInstance, levels, level, title, note) {
     var vm = this;
 
     vm.levels = levels;
     vm.level = level;
     vm.title = title;
+    vm.note = note;
 
     vm.ok = function() {
       $modalInstance.close(vm);
