@@ -20,10 +20,11 @@
             level: function() {
               return node.levelOfDescription;
             },
-            dates: function() {
-              if (node.dates) {
-                return new Date(node.dates);
-              }
+            start_date: function() {
+              return false;
+            },
+            end_date: function() {
+              return false;
             },
             note: function() {
               if (node.notes && node.notes[0]) {
@@ -37,11 +38,9 @@
           var original_title = node.title;
           var original_level = node.levelOfDescription;
           var original_note = node.notes;
-          var original_dates = node.dates;
 
           node.title = result.title;
           node.levelOfDescription = result.level;
-          node.dates = result.dates.toISOString();
           node.notes = [{
             type: 'odd',
             content: result.note,
@@ -57,7 +56,6 @@
             // Restore the original title/level since the request failed
             node.title = original_title;
             node.levelOfDescription = original_level;
-            node.dates = original_dates;
             node.notes = original_note;
             node.request_pending = false;
 
@@ -91,8 +89,11 @@
             level: function() {
               return '';
             },
-            dates: function() {
-              return '';
+            start_date: function() {
+              return new Date();
+            },
+            end_date: function() {
+              return new Date();
             },
             note: function() {
               return '';
@@ -106,6 +107,8 @@
             content: result.note,
           }];
           delete result['note'];
+
+          result.dates = result.start_date.toISOString().slice(0, 10) + '-' + result.end_date.toISOString().slice(0, 10);
 
           var on_success = function(response) {
             result.id = response.id;
@@ -378,13 +381,14 @@
       };
     }]).
 
-  controller('ArchivesSpaceEditController', ['$modalInstance', 'levels', 'level', 'title', 'dates', 'note', function($modalInstance, levels, level, title, dates, note) {
+  controller('ArchivesSpaceEditController', ['$modalInstance', 'levels', 'level', 'title', 'start_date', 'end_date', 'note', function($modalInstance, levels, level, title, start_date, end_date, note) {
     var vm = this;
 
     vm.levels = levels;
     vm.level = level;
     vm.title = title;
-    vm.dates = dates;
+    vm.start_date = start_date;
+    vm.end_date = end_date;
     vm.note = note;
 
     vm.ok = function() {
@@ -392,6 +396,14 @@
     };
     vm.cancel = function() {
       $modalInstance.dismiss('cancel');
+    };
+    vm.open_datepicker = function(picker, $event) {
+      var prop = picker + '_date_opened';
+      this.status[prop] = true;
+    };
+    vm.status = {
+      start_date_opened: false,
+      end_date_opened: false,
     };
   }]);
 })();
