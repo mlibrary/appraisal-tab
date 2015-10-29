@@ -1,24 +1,34 @@
 <form class="resource-form">
-  <label>Title:</label> <input type="text" ng-model="form.title">
-  <label>Level of description:</label> <select ng-model="form.level"
-                                ng-options="level for level in form.levels">
-                                </select>
+  <div class="row">
+    <div class="col-md-6">
+      <label>Title:</label> <input type="text" ng-model="form.title">
+    </div>
+    <div class="col-md-6">
+      <label>Level of description:</label> <select ng-model="form.level"
+                                  ng-options="level for level in form.levels">
+                                  </select>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <label>Note:</label> <textarea ng-model="form.note"></textarea>
+    </div>
+  </div>
   <!-- Start and end dates are only in the form for creating a new item, not editing -->
-  <div ng-if="form.start_date !== false">
+  <div class="row" ng-if="form.start_date !== false &amp;&amp; form.end_date !== false">
+  <div class="col-md-6">
     <label>Dates:</label>
     <input type="text" class="form-control" uib-datepicker-popup ng-model="form.start_date" is-open="form.status.start_date_opened" ng-required="true" close-text="Close"/>
-    <span class="input-group-btn">
-      <button type="button" class="btn btn-default" ng-click="form.open_datepicker('start', $event)"><i class="fa fa-calendar"></i></button>
-    </span>
+    <button type="button" class="btn btn-default" ng-click="form.open_datepicker('start', $event)"><i class="fa fa-calendar"></i></button>
   </div>
-  <div ng-if="form.end_date !== false">
+  <div class="col-md-6">
     <label>Dates:</label>
     <input type="text" class="form-control" uib-datepicker-popup ng-model="form.end_date" is-open="form.status.end_date_opened" ng-required="false" close-text="Close"/>
-    <span class="input-group-btn">
-      <button type="button" class="btn btn-default" ng-click="form.open_datepicker('end', $event)"><i class="fa fa-calendar"></i></button>
-    </span>
+    <button type="button" class="btn btn-default" ng-click="form.open_datepicker('end', $event)"><i class="fa fa-calendar"></i></button>
   </div>
-  <label>Note:</label> <textarea ng-model="form.note"></textarea>
-  <input type="submit" ng-click="form.ok()" value="Save" />
-  <input type="submit" ng-click="form.cancel()" value="Cancel" />
+  </div>
+  <div class="btn-group" role="group">
+    <button type="submit" class="btn btn-success" ng-click="form.ok()">Save</button>
+    <button type="submit" class="btn btn-danger" ng-click="form.cancel()">Cancel</button>
+  </div>
 </form>
