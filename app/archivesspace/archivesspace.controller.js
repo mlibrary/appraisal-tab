@@ -26,6 +26,9 @@
             end_date: function() {
               return false;
             },
+            date_expression: function() {
+              return false;
+            },
             note: function() {
               if (node.notes && node.notes[0]) {
                 return node.notes[0].content;
@@ -94,6 +97,9 @@
             },
             end_date: function() {
               return new Date();
+            },
+            date_expression: function() {
+              return '';
             },
             note: function() {
               return '';
@@ -381,7 +387,7 @@
       };
     }]).
 
-  controller('ArchivesSpaceEditController', ['$modalInstance', 'levels', 'level', 'title', 'start_date', 'end_date', 'note', function($modalInstance, levels, level, title, start_date, end_date, note) {
+  controller('ArchivesSpaceEditController', ['$modalInstance', 'levels', 'level', 'title', 'start_date', 'end_date', 'date_expression', 'note', function($modalInstance, levels, level, title, start_date, end_date, date_expression, note) {
     var vm = this;
 
     vm.levels = levels;
@@ -389,6 +395,7 @@
     vm.title = title;
     vm.start_date = start_date;
     vm.end_date = end_date;
+    vm.date_expression = date_expression;
     vm.note = note;
 
     vm.ok = function() {

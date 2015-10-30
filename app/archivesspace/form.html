@@ -25,6 +25,7 @@
     <label>Dates:</label>
     <input type="text" class="form-control" uib-datepicker-popup ng-model="form.end_date" is-open="form.status.end_date_opened" ng-required="false" close-text="Close"/>
     <button type="button" class="btn btn-default" ng-click="form.open_datepicker('end', $event)"><i class="fa fa-calendar"></i></button>
+    <label>Expression:</label> <input type="text" ng-model="form.date_expression">
   </div>
   </div>
   <div class="btn-group" role="group">
