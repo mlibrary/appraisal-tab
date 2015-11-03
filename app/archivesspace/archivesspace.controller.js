@@ -128,7 +128,7 @@
           };
 
           var on_failure = function(error) {
-            Alert.alerts.append({
+            Alert.alerts.push({
               type: 'danger',
               message: 'Unable to add new child record to record ' + node.id,
             });
