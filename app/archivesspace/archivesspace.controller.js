@@ -4,6 +4,27 @@
   angular.module('archivesSpaceController', ['alertService', 'sipArrangeService', 'transferService', 'ui.bootstrap']).
 
   controller('ArchivesSpaceController', ['$scope', '$modal', 'Alert', 'ArchivesSpace', 'SipArrange', 'Transfer', function($scope, $modal, Alert, ArchivesSpace, SipArrange, Transfer) {
+    // Reformats several properties on the form object, returning them in
+    // a format suitable for use with the ArchivesSpace service's `edit`
+    // and `add_child` functions.
+    // Returns a modified copy of the passed-in object.
+    var reformat_form_results = function(form) {
+      var copy = _.extend({}, form);
+
+      copy.levelOfDescription = form.level;
+      copy.notes = [{
+        type: 'odd',
+        content: form.note,
+      }];
+      delete copy.note;
+
+      if (form.start_date) {
+        copy.dates = form.start_date.toISOString().slice(0, 10) + '-' + form.end_date.toISOString().slice(0, 10);
+      }
+
+      return copy;
+    };
+
     var levels_of_description = ArchivesSpace.get_levels_of_description().$object;
       $scope.edit = function(node) {
         var form = $modal.open({
@@ -43,11 +64,10 @@
           var original_note = node.notes;
 
           node.title = result.title;
-          node.levelOfDescription = result.level;
-          node.notes = [{
-            type: 'odd',
-            content: result.note,
-          }];
+          var formatted = reformat_form_results(result);
+          node.levelOfDescription = formatted.levelOfDescription;
+          node.notes = formatted.notes;
+          node.dates = formatted.dates;
           // Any node with pending requests will be marked as non-editable
           node.request_pending = true;
 
@@ -107,14 +127,7 @@
           },
         });
         form.result.then(function(result) {
-          result.levelOfDescription = result.level;
-          result.notes = [{
-            type: 'odd',
-            content: result.note,
-          }];
-          delete result['note'];
-
-          result.dates = result.start_date.toISOString().slice(0, 10) + '-' + result.end_date.toISOString().slice(0, 10);
+          var result = reformat_form_results(result);
 
           var on_success = function(response) {
             result.id = response.id;
