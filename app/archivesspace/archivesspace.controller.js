@@ -3,7 +3,7 @@
 (function() {
   angular.module('archivesSpaceController', ['alertService', 'sipArrangeService', 'transferService', 'ui.bootstrap']).
 
-  controller('ArchivesSpaceController', ['$scope', '$modal', 'Alert', 'ArchivesSpace', 'SipArrange', 'Transfer', function($scope, $modal, Alert, ArchivesSpace, SipArrange, Transfer) {
+  controller('ArchivesSpaceController', ['$scope', '$uibModal', 'Alert', 'ArchivesSpace', 'SipArrange', 'Transfer', function($scope, $uibModal, Alert, ArchivesSpace, SipArrange, Transfer) {
     // Reformats several properties on the form object, returning them in
     // a format suitable for use with the ArchivesSpace service's `edit`
     // and `add_child` functions.
@@ -27,7 +27,7 @@
 
     var levels_of_description = ArchivesSpace.get_levels_of_description().$object;
       $scope.edit = function(node) {
-        var form = $modal.open({
+        var form = $uibModal.open({
           templateUrl: 'archivesspace/form.html',
           controller: 'ArchivesSpaceEditController',
           controllerAs: 'form',
@@ -98,7 +98,7 @@
       };
 
       $scope.add_child = function(node) {
-        var form = $modal.open({
+        var form = $uibModal.open({
           templateUrl: 'archivesspace/form.html',
           controller: 'ArchivesSpaceEditController',
           controllerAs: 'form',
@@ -432,7 +432,7 @@
       };
     }]).
 
-  controller('ArchivesSpaceEditController', ['$modalInstance', 'levels', 'level', 'title', 'start_date', 'end_date', 'date_expression', 'note', function($modalInstance, levels, level, title, start_date, end_date, date_expression, note) {
+  controller('ArchivesSpaceEditController', ['$uibModalInstance', 'levels', 'level', 'title', 'start_date', 'end_date', 'date_expression', 'note', function($uibModalInstance, levels, level, title, start_date, end_date, date_expression, note) {
     var vm = this;
 
     vm.levels = levels;
@@ -444,10 +444,10 @@
     vm.note = note;
 
     vm.ok = function() {
-      $modalInstance.close(vm);
+      $uibModalInstance.close(vm);
     };
     vm.cancel = function() {
-      $modalInstance.dismiss('cancel');
+      $uibModalInstance.dismiss('cancel');
     };
     vm.open_datepicker = function(picker, $event) {
       var prop = picker + '_date_opened';
