@@ -25,8 +25,66 @@
       return copy;
     };
 
+    var append_child = function(node, child) {
+      if (!node.has_children) {
+        node.has_children = true;
+        node.children = [];
+        node.children_fetched = false;
+      }
+      node.children.push(child);
+    };
+
     var levels_of_description = ArchivesSpace.get_levels_of_description().$object;
-      $scope.edit = function(node) {
+    $scope.edit = function(node) {
+      if (node.type === 'digital_object') {
+        return edit_component(node);
+      } else if (node.type === 'resource' || node.type === 'resource_component') {
+        return edit_record(node);
+      }
+    };
+
+    var edit_component = function(node) {
+      var form = $uibModal.open({
+        templateUrl: 'archivesspace/digital_object_form.html',
+        controller: 'DigitalObjectEditController',
+        controllerAs: 'form',
+        resolve: {
+          title: function() {
+            return node.title;
+          },
+          label: function() {
+            return node.label;
+          },
+        },
+      });
+      form.result.then(function(result) {
+        var original_title = node.title;
+        var original_label = node.label;
+
+        var on_success = function(result) {
+          node.request_pending = false;
+        };
+
+        var on_failure = function(result) {
+          node.request_pending = false;
+          node.title = original_title;
+          node.label = original_label;
+
+          Alert.alerts.push({
+            type: 'danger',
+            message: 'Unable to submit edits to record "' + node.title + '"; check dashboard logs.',
+          });
+        };
+
+        node.request_pending = true;
+        node.title = result.title;
+        node.label = result.label;
+        result.component_id = node.id;
+        ArchivesSpace.edit_digital_object_component(node.resourceid, result).then(on_success, on_failure);
+      });
+    };
+
+      var edit_record = function(node) {
         var form = $uibModal.open({
           templateUrl: 'archivesspace/form.html',
           controller: 'ArchivesSpaceEditController',
@@ -132,12 +190,7 @@
           var on_success = function(response) {
             result.id = response.id;
             result.parent = node;
-            if (!node.has_children) {
-              node.has_children = true;
-              node.children = [];
-              node.children_fetched = false;
-            }
-            node.children.push(result);
+            append_child(node, result);
           };
 
           var on_failure = function(error) {
@@ -148,6 +201,41 @@
           };
 
           ArchivesSpace.add_child(node.id, result).then(on_success, on_failure);
+        });
+      };
+
+      // Add a "digital object" object, to which files can be dragged in order
+      // to produce digital object components
+      $scope.add_digital_object = function(node) {
+        var form = $uibModal.open({
+          templateUrl: 'archivesspace/digital_object_form.html',
+          controller: 'DigitalObjectEditController',
+          controllerAs: 'form',
+          resolve: {
+            title: function() {
+              return '';
+            },
+            label: function() {
+              return '';
+            },
+          },
+        });
+
+        form.result.then(function(result) {
+          var on_success = function(response) {
+            result.id = response.component_id;
+            result.type = 'digital_object';
+            append_child(node, result);
+          };
+
+          var on_failure = function(result) {
+            Alert.alerts.push({
+              type: 'danger',
+              message: 'Unable to add new digital object component to record ' + node.id,
+            });
+          };
+
+          ArchivesSpace.create_digital_object_component(node.id, result).then(on_success, on_failure);
         });
       };
 
@@ -456,6 +544,20 @@
     vm.status = {
       start_date_opened: false,
       end_date_opened: false,
+    };
+  }]).
+
+  controller('DigitalObjectEditController', ['$uibModalInstance', 'title', 'label', function($uibModalInstance, title, label) {
+    var vm = this;
+
+    vm.title = title;
+    vm.label = label;
+
+    vm.ok = function() {
+      $uibModalInstance.close(vm);
+    };
+    vm.cancel = function() {
+      $uibModalInstance.dismiss('cancel');
     };
   }]);
 })();

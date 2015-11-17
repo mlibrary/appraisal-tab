@@ -234,6 +234,12 @@
                value='Add New Child Record'>
         <input type='button'
                class='btn btn-primary'
+               id='add_child_record'
+               ng-disabled="selected.type !== 'resource' &amp;&amp; selected.type !== 'resource_component'"
+               ng-click="add_digital_object(selected)"
+               value='Add New Digital Object Component'>
+        <input type='button'
+               class='btn btn-primary'
                id='edit_record'
                ng-disabled="!selected || selected.request_pending"
                ng-click="edit(selected)"
@@ -248,7 +254,7 @@
         <input type='button'
                class='btn btn-primary'
                id='finalize_arrange'
-               ng-disabled="!selected"
+               ng-disabled="selected.type !== 'digital_object'"
                ng-click="finalize_arrangement(selected)"
                value='Finalize Arrangement'>
         <input type='button'
@@ -284,6 +290,11 @@
           <!-- SIP arrange file -->
           <span ng-if="(node.type === 'arrange_entry') &amp;&amp; !node.directory" tree-draggable file-type="arrange" file-path="{{ node.path }}">
             <i class="fa fa-file-code-o"></i>
+            {{ node.title }}
+          </span>
+          <!-- Digital object -->
+          <span ng-if="node.type === 'digital_object'">
+            <i class="fa fa-barcode"></i>
             {{ node.title }}
           </span>
         </treecontrol>

@@ -72,6 +72,22 @@ describe('ArchivesSpace', function() {
     _$httpBackend_.when('POST', '/access/archivesspace/-repositories-2-archival_objects-6/copy_to_arrange').respond({
       'message': 'Files added to the SIP.',
     });
+    _$httpBackend_.when('GET', '/access/archivesspace/-repositories-2-archival_objects-7/digital_object_components').respond([{
+      'id': 1,
+    }]);
+    _$httpBackend_.when('POST', '/access/archivesspace/-repositories-2-archival_objects-7/digital_object_components').respond({
+      'id': 2,
+    });
+    _$httpBackend_.when('PUT', '/access/archivesspace/-repositories-2-archival_objects-7/digital_object_components').respond('');
+    _$httpBackend_.when('GET', '/access/archivesspace/-repositories-2-archival_objects-7/digital_object_components/2/files').respond({
+      'entries': [
+        'VGVzdA==',
+      ],
+      'directories': [
+        'VGVzdA==',
+      ],
+      'properties': [],
+    });
     _$httpBackend_.when('GET', '/access/archivesspace/-repositories-2-archival_objects-6/contents/arrange').respond({
       'entries': [
         'VGVzdA==',
@@ -146,6 +162,40 @@ describe('ArchivesSpace', function() {
   it('should be able to create a new SIP arrange directory to back a record', inject(function(_$httpBackend_, ArchivesSpace) {
     ArchivesSpace.create_directory('/repositories/2/archival_objects/6').then(function(result) {
       expect(result.success).toBe(true);
+    });
+    _$httpBackend_.flush();
+  }));
+
+  it('should be able to list digital object components for a record', inject(function(_$httpBackend_, ArchivesSpace) {
+    ArchivesSpace.digital_object_components('/repositories/2/archival_objects/7').then(function(result) {
+      expect(result.length).toBe(1);
+      expect(result[0].id).toEqual(1);
+    });
+    _$httpBackend_.flush();
+  }));
+
+  it('should be able to create a new digital object component', inject(function(_$httpBackend_, ArchivesSpace) {
+    ArchivesSpace.create_digital_object_component('/repositories/2/archival_objects/7').then(function(result) {
+      expect(result.id).toEqual(2);
+    });
+    _$httpBackend_.flush();
+  }));
+
+  it('should be able to edit an existing digital object component', inject(function(_$httpBackend_, ArchivesSpace) {
+    var updated_record = {
+      'id': 2,
+      'label': 'Updated label',
+      'title': 'Updated title',
+    };
+    ArchivesSpace.edit_digital_object_component('/repositories/2/archival_objects/7', updated_record);
+    _$httpBackend_.flush();
+  }));
+
+  it('should be able to list files within a digital object component', inject(function(_$httpBackend_, ArchivesSpace) {
+    ArchivesSpace.list_digital_object_component_contents('/repositories/2/archival_objects/7', '2').then(function(records) {
+      expect(records.length).toEqual(1);
+      expect(records[0].title).toEqual('Test');
+      expect(records[0].has_children).toBe(true);
     });
     _$httpBackend_.flush();
   }));
