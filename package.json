@@ -6,7 +6,7 @@
   "repository": "https://github.com/artefactual-labs/appraisal-tab",
   "license": "AGPL3",
   "devDependencies": {
-    "karma": "~0.10",
+    "karma": "~0.13",
     "protractor": "^1.1.1",
     "http-server": "^0.6.1",
     "bower": "^1.3.1",
