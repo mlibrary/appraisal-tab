@@ -251,7 +251,7 @@
           }
         },
         isLeaf: function(node) {
-          return !node.has_children;
+          return !node.has_children && node.type !== 'digital_object';
         },
       };
 
@@ -278,7 +278,7 @@
 
         node.children = [];
 
-        if (node.id) {  // ArchivesSpace node
+        if (node.id && node.type !== 'digital_object') {  // ArchivesSpace node
           ArchivesSpace.get_children(node.id).then(function(children) {
             children.map(function(element) { element.parent = node; });
             node.children = node.children.concat(children);
@@ -286,10 +286,10 @@
             $scope.loading = false;
           }, on_failure_aspace);
 
-          // Also call into SIP arrange to see if there are any contents at this
-          // level of description; if so, render them like any other ASpace objects
-          ArchivesSpace.list_arrange_contents(node.id, node).then(function(entries) {
-            node.children = node.children.concat(entries);
+          // Also check to see if there are any digital object components;
+          // if so, render them like any other ASpace objects
+          ArchivesSpace.digital_object_components(node.id).then(function(components) {
+            node.children = node.children.concat(components);
           });
         } else {  // SipArrange node
           SipArrange.list_contents(node.path, node).then(function(entries) {
@@ -309,7 +309,7 @@
       };
 
       $scope.on_toggle = function(node, expanded) {
-        if (!expanded || !node.has_children || node.children_fetched) {
+        if ((!expanded || !node.has_children || node.children_fetched) && node.type !== 'digital_object') {
           return;
         }
 
@@ -370,7 +370,7 @@
         }
 
         var type = ui.draggable.attr('file-type');
-        var is_arrange_file = !this.id;
+        var is_arrange_file = this.type !== 'digital_object';
         if (type === 'arrange') {
           var path = ui.draggable.attr('file-path');
           if (is_arrange_file) {
@@ -405,7 +405,7 @@
           load_element_children(self);
         };
 
-        ArchivesSpace.copy_to_arrange(path, this.id).then(on_move);
+        SipArrange.copy_to_arrange(path, this.path).then(on_move);
       };
 
       var copy_backlog_to_aspace = function(file) {
@@ -417,15 +417,6 @@
         if (!file.id) {
           return;
         }
-
-        var on_directory_creation = function(response) {
-          // Add path to parent
-          self.path = response.path;
-          self.has_children = true;
-          self.children = [];
-          self.children_fetched = false;
-          ArchivesSpace.copy_to_arrange(self.id, '/originals/' + source_path).then(on_copy);
-        };
 
         var on_copy = function() {
           if ($scope.expanded_nodes.indexOf(self) === -1) {
@@ -445,10 +436,14 @@
           source_path = file.relative_path + '/';
         }
 
+        // TODO make sure `path` property is correctly specified
         $scope.$apply(function() {
           $scope.loading = true;
 
-          ArchivesSpace.create_directory(self.id).then(on_directory_creation);
+          self.has_children = true;
+          self.children = [];
+          self.children_fetched = false;
+          SipArrange.copy_to_arrange('/originals/' + source_path, self.path).then(on_copy);
         });
       };
 
@@ -500,6 +495,11 @@
           Alert.alerts.push({
             type: 'success',
             message: 'Successfully started SIP from record "' + node.title + '"',
+          });
+
+          // Remove the digital object components so the user doesn't try to add new items
+          node.children = node.children.filter(function(element) {
+            return element.type !== 'digital_object';
           });
         };
         var on_failure = function(error) {

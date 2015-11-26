@@ -254,7 +254,7 @@
         <input type='button'
                class='btn btn-primary'
                id='finalize_arrange'
-               ng-disabled="selected.type !== 'digital_object'"
+               ng-disabled="selected.type !== 'resource' &amp;&amp; selected.type !== 'resource_component'"
                ng-click="finalize_arrangement(selected)"
                value='Finalize Arrangement'>
         <input type='button'
@@ -270,12 +270,12 @@
                on-node-toggle="on_toggle(node, expanded)"
                expanded-nodes="expanded_nodes">
           <!-- ArchivesSpace record -->
-          <span ng-if="node.type === 'resource'" tree-droppable on-drop="drop" file-type="record">
+          <span ng-if="node.type === 'resource'" file-type="record">
             <i ng-if="node.has_children" class="fa fa-folder-o"></i>
             <i ng-if="!node.has_children" class="fa fa-file-o"></i>
             {{ node.title }} <div ng-if="node.identifier">({{ node.identifier }})</div>
           </span>
-          <span ng-if="node.type === 'resource_component'" tree-droppable on-drop="drop" file-type="record">
+          <span ng-if="node.type === 'resource_component'" file-type="record">
             <i ng-if="node.has_children" class="fa fa-folder-o"></i>
             <i ng-if="!node.has_children" class="fa fa-file-o"></i>
             <div ng-if="node.display_title">{{ node.display_title }}</div>
@@ -293,7 +293,7 @@
             {{ node.title }}
           </span>
           <!-- Digital object -->
-          <span ng-if="node.type === 'digital_object'">
+          <span ng-if="node.type === 'digital_object'" tree-droppable on-drop="drop" file-type="digital_object">
             <i class="fa fa-barcode"></i>
             {{ node.title }}
           </span>
