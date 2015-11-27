@@ -307,7 +307,7 @@
           load_element_children(self);
         };
 
-        SipArrange.move(path, '/arrange/' + this.path).then(on_move);
+        SipArrange.copy_to_arrange(path, '/arrange/' + this.path).then(on_move);
       };
 
       var copy_arrange_to_aspace = function(path) {

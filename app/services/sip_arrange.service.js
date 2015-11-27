@@ -88,14 +88,6 @@
       return SipArrange.one('contents').one('arrange').get({path: Base64.encode(path)}).then(decode_entry_response).then(on_success);
     };
 
-    var move = function(source, destination) {
-      var params = {
-        'filepath': Base64.encode(source),
-        'destination': Base64.encode(destination),
-      };
-      return post_form(SipArrange, 'move_within_arrange', params);
-    };
-
     var remove = function(target) {
       return post_form(SipArrange.one('delete'), 'arrange', {filepath: Base64.encode(target)});
     };
@@ -135,7 +127,6 @@
       create_directory: create_directory,
       copy_to_arrange: copy_to_arrange,
       list_contents: list_contents,
-      move: move,
       remove: remove,
       start_sip: start_sip,
     };

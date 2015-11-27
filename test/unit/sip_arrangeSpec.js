@@ -18,9 +18,6 @@ describe('SipArrange', function() {
       'directories': ['ZGlyZWN0b3J5'],
       'properties': [],
     });
-    _$httpBackend_.when('POST', '/filesystem/move_within_arrange', 'filepath=c291cmNl&destination=ZGVzdGluYXRpb24%3D').respond({
-      'message': 'SIP files successfully moved.',
-    });
     _$httpBackend_.when('POST', '/filesystem/delete/arrange', 'filepath=dGFyZ2V0').respond({
       'message': 'Delete successful.',
     });
@@ -58,13 +55,6 @@ describe('SipArrange', function() {
       expect(entries[0].has_children).toBe(false);
       expect(entries[0].title).toEqual('file');
       expect(entries[1].has_children).toBe(true);
-    });
-    _$httpBackend_.flush();
-  }));
-
-  it('should be able to move contents within arrange', inject(function(_$httpBackend_, SipArrange) {
-    SipArrange.move('source', 'destination').then(function(response) {
-      expect(response.message).toEqual('SIP files successfully moved.');
     });
     _$httpBackend_.flush();
   }));
