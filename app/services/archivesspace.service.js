@@ -48,15 +48,6 @@
             {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'}
           );
         },
-        move: function(filepath, id) {
-          var url_fragment = id_to_urlsafe(id);
-          return ArchivesSpace.one(url_fragment).customPOST(
-            $.param({filepath: Base64.encode(filepath)}),
-            'move_within_arrange',
-            {},
-            {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'}
-          );
-        },
         list_arrange_contents: function(id, parent) {
           // TODO don't clone these from SIPArrange
           var decode_entry_response = function(response) {

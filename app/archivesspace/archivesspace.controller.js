@@ -317,7 +317,7 @@
           load_element_children(self);
         };
 
-        ArchivesSpace.move(path, this.id).then(on_move);
+        ArchivesSpace.copy_to_arrange(path, this.id).then(on_move);
       };
 
       var copy_backlog_to_aspace = function(file) {
