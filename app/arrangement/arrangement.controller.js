@@ -171,7 +171,7 @@
     var drop_from_arrange = function(unused, ui) {
       var path = ui.draggable.attr('file-path');
 
-      SipArrange.move('/arrange/' + path, '/arrange/' + this.path + '/').then(on_copy_success, on_copy_failure);
+      SipArrange.copy_to_arrange('/arrange/' + path, '/arrange/' + this.path + '/').then(on_copy_success, on_copy_failure);
     };
 
     load_data();
