@@ -257,7 +257,7 @@
                ng-click="refresh(selected)"
                value='Reload'>
         <treecontrol id="archivesspace-tree"
-               class="tree-classic"
+               class="tree-light"
                tree-model="data"
                options="options"
                selected-node="selected"
@@ -265,19 +265,25 @@
                expanded-nodes="expanded_nodes">
           <!-- ArchivesSpace record -->
           <span ng-if="node.type === 'resource'" tree-droppable on-drop="drop" file-type="record">
+            <i ng-if="node.has_children" class="fa fa-folder-o"></i>
+            <i ng-if="!node.has_children" class="fa fa-file-o"></i>
             {{ node.title }} <div ng-if="node.identifier">({{ node.identifier }})</div>
           </span>
           <span ng-if="node.type === 'resource_component'" tree-droppable on-drop="drop" file-type="record">
+            <i ng-if="node.has_children" class="fa fa-folder-o"></i>
+            <i ng-if="!node.has_children" class="fa fa-file-o"></i>
             <div ng-if="node.display_title">{{ node.display_title }}</div>
             <div ng-if="!node.display_title">{{ node.title }}</div>
             <div ng-if="node.identifier">({{ node.identifier }})</div>
           </span>
           <!-- SIP arrange directory -->
           <span ng-if="(node.type === 'arrange_entry') &amp;&amp; node.directory" tree-droppable tree-draggable on-drop="drop" file-type="arrange" file-path="{{ node.path }}">
+            <i class="fa fa-folder-o"></i>
             {{ node.title }}
           </span>
           <!-- SIP arrange file -->
           <span ng-if="(node.type === 'arrange_entry') &amp;&amp; !node.directory" tree-draggable file-type="arrange" file-path="{{ node.path }}">
+            <i class="fa fa-file-code-o"></i>
             {{ node.title }}
           </span>
         </treecontrol>
