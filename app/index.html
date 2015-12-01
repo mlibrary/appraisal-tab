@@ -264,7 +264,7 @@
                on-node-toggle="on_toggle(node, expanded)"
                expanded-nodes="expanded_nodes">
           <!-- ArchivesSpace record -->
-          <span ng-if="node.type !== 'arrange_entry'" tree-droppable on-drop="drop" file-type="record">
+          <span ng-if="node.type === 'resource' || node.type === 'resource_component'" tree-droppable on-drop="drop" file-type="record">
             {{ node.title }} <div ng-if="node.identifier">({{ node.identifier }})</div>
           </span>
           <!-- SIP arrange directory -->
