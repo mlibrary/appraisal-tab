@@ -48,7 +48,7 @@
               return false;
             },
             date_expression: function() {
-              return false;
+              return node.date_expression;
             },
             note: function() {
               if (node.notes && node.notes[0]) {
