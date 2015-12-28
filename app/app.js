@@ -45,6 +45,20 @@ import './ui/ui.directive.js';
 import './filters/aggregation.filter.js';
 import './filters/facet.filter.js';
 
+// partials
+import 'ng-cache!./analysis/analysis.html';
+import 'ng-cache!./archivesspace/digital_object_form.html';
+import 'ng-cache!./archivesspace/form.html';
+import 'ng-cache!./examine_contents/file_info.html';
+import 'ng-cache!./preview/preview.html';
+import 'ng-cache!./report/format.html';
+import 'ng-cache!./report/tags.html';
+import 'ng-cache!./ui/minimize-bar.html';
+import 'ng-cache!./ui/minimize-panel.html';
+import 'ng-cache!./visualizations/formats_by_files.html';
+import 'ng-cache!./visualizations/formats_by_size.html';
+import 'ng-cache!./visualizations/visualizations.html';
+
 // services
 import './services/alert.service.js';
 import './services/archivesspace.service.js';

@@ -16,6 +16,7 @@
     "karma-chrome-launcher": "^0.2.1",
     "karma-jasmine": "^0.3.6",
     "karma-junit-reporter": "^0.2.2",
+    "ng-cache-loader": "0.0.15",
     "protractor": "^1.1.1",
     "shelljs": "^0.2.6",
     "style-loader": "^0.13.0",
