@@ -1,7 +1,68 @@
 'use strict';
 
+// styles
+import './app.css';
+import './css/directory-picker.css';
+import './css/file-explorer.css';
+import './css/search.css';
+import './css/style.css';
+import 'bootstrap/dist/css/bootstrap.css';
+import 'font-awesome/css/font-awesome.min.css';
+import './vendor/angular-tree-control/css/tree-control.css';
+import './vendor/angular-tree-control/css/tree-control-attribute.css';
+
+// third-party modules
+import angular from 'angular';
+import 'angular-charts';
+import 'angular-route';
+import 'angular-route-segment';
+import './vendor/angular-tree-control/angular-tree-control.js';
+import 'd3';
+import 'jquery';
+import 'jquery-ui';
+import 'restangular';
+
+// controllers
+import './alert/alert.controller.js';
+import './analysis/analysis.controller.js';
+import './archivesspace/archivesspace.controller.js';
+import './arrangement/arrangement.controller.js';
+import './examine_contents/examine_contents.controller.js';
+import './facet_selector/facet_selector.controller.js';
+import './file_list/file_list.controller.js';
+import './preview/preview.controller.js';
+import './report/report.controller.js';
+import './search/search.controller.js';
+import './tree/tree.controller.js';
+import './visualizations/visualizations.controller.js';
+
+// directives
+import './checklist/checklist.directive.js';
+import './tree/tree.directive.js';
+import './ui/ui.directive.js';
+
+// filters
+import './filters/aggregation.filter.js';
+import './filters/facet.filter.js';
+
+// services
+import './services/alert.service.js';
+import './services/archivesspace.service.js';
+import './services/facet.service.js';
+import './services/file.service.js';
+import './services/file_list.service.js';
+import './services/selected.service.js';
+import './services/sip_arrange.service.js';
+import './services/tag.service.js';
+import './services/transfer.service.js';
+
+// misc
+import './components/version/interpolate-filter.js';
+import './components/version/version-directive.js';
+import './components/version/version.js';
+
 // Declare app level module which depends on views, and components
-angular.module('appraisalTab', [
+module.exports = angular.module('appraisalTab', [
   'ngRoute',
   'route-segment',
   'view-segment',

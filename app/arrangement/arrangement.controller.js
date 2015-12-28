@@ -1,5 +1,8 @@
 'use strict';
 
+import angular from 'angular';
+import _ from 'lodash';
+
 (function() {
   angular.module('arrangementController', ['sipArrangeService']).
 

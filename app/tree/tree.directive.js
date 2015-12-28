@@ -1,5 +1,8 @@
 'use strict';
 
+import angular from 'angular';
+import $ from 'jquery';
+
 (function() {
   angular.module('treeDirectives', []).
 

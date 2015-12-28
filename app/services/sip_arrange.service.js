@@ -1,5 +1,10 @@
 'use strict';
 
+import angular from 'angular';
+import $ from 'jquery';
+import _ from 'lodash';
+import 'restangular';
+
 (function() {
   angular.module('sipArrangeService', ['restangular']).
 

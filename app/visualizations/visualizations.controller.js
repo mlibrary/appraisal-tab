@@ -1,5 +1,7 @@
 'use strict';
 
+import angular from 'angular';
+
 (function() {
   angular.module('visualizationsController', [
     'angularCharts',

@@ -1,5 +1,8 @@
 'use strict';
 
+import angular from 'angular';
+import _ from 'lodash';
+
 (function() {
   // The default hash function may confuse two arrays of objects
   // of the same length as the same set of records.

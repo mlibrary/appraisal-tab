@@ -4,13 +4,6 @@
   background-position: right top;
 }
 
-.backbone-file-explorer-busy {
-  background-color: '#eee';
-  opacity: .5;
-  background-image: url('../img/ajax-loader.gif');
-  background-position: 99% 50%;
-}
-
 .backbone-file-explorer-idle {
   background-color: 'white';
   opacity: 1;
@@ -32,16 +25,6 @@
 
 .backbone-file-explorer-entry-highlighted {
   background-color: #ffcc00;
-}
-
-.backbone-file-explorer-directory {
-  background-image: url('../img/folder.png');
-  background-repeat: no-repeat;
-  background-position: 3px 50%;
-}
-
-.backbone-file-explorer-directory_open {
-  background-image: url('../img/folderopen.png');
 }
 
 .backbone-file-explorer-directory_icon_button {

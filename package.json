@@ -6,17 +6,23 @@
   "repository": "https://github.com/artefactual-labs/appraisal-tab",
   "license": "AGPL3",
   "devDependencies": {
-    "bower": "^1.3.1",
+    "babel-core": "^6.3.26",
+    "babel-loader": "^6.2.0",
+    "babel-preset-es2015": "^6.3.13",
+    "css-loader": "^0.23.1",
+    "file-loader": "^0.8.5",
     "http-server": "^0.6.1",
     "karma": "~0.13",
     "karma-chrome-launcher": "^0.2.1",
     "karma-jasmine": "^0.3.6",
     "karma-junit-reporter": "^0.2.2",
     "protractor": "^1.1.1",
-    "shelljs": "^0.2.6"
+    "shelljs": "^0.2.6",
+    "style-loader": "^0.13.0",
+    "url-loader": "^0.5.7",
+    "webpack": "^1.12.9"
   },
   "scripts": {
-    "postinstall": "bower install",
     "prestart": "npm install",
     "start": "http-server -a localhost -p 8000 -c-1",
     "pretest": "npm install",
@@ -25,7 +31,21 @@
     "preupdate-webdriver": "npm install",
     "update-webdriver": "webdriver-manager update",
     "preprotractor": "npm run update-webdriver",
-    "protractor": "protractor e2e-tests/protractor.conf.js",
-    "update-index-async": "node -e \"require('shelljs/global'); sed('-i', /\\/\\/@@NG_LOADER_START@@[\\s\\S]*\\/\\/@@NG_LOADER_END@@/, '//@@NG_LOADER_START@@\\n' + sed(/sourceMappingURL=angular-loader.min.js.map/,'sourceMappingURL=bower_components/angular-loader/angular-loader.min.js.map','app/bower_components/angular-loader/angular-loader.min.js') + '\\n//@@NG_LOADER_END@@', 'app/index-async.html');\""
+    "protractor": "protractor e2e-tests/protractor.conf.js"
+  },
+  "dependencies": {
+    "angular": "^1.3.20",
+    "angular-charts": "git+https://github.com/chinmaymk/angular-charts.git#1ef68b8ec94768dbc4b317b7563b029182a1fa6d",
+    "angular-loader": "^1.3.20",
+    "angular-mocks": "^1.3.20",
+    "angular-route": "^1.3.20",
+    "angular-route-segment": "^1.5.0",
+    "bootstrap": "^3.3.6",
+    "d3": "^3.5.12",
+    "font-awesome": "^4.3.0",
+    "jquery": "^1.11.3",
+    "jquery-ui": "^1.10.5",
+    "lodash": "^1.3.1",
+    "restangular": "^1.3.1"
   }
 }

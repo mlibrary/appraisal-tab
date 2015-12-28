@@ -1,5 +1,8 @@
 'use strict';
 
+import angular from 'angular';
+import 'restangular';
+
 (function() {
   angular.module('tagService', ['restangular']).
 

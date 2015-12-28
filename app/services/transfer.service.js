@@ -1,5 +1,10 @@
 'use strict';
 
+import angular from 'angular';
+import '../services/alert.service';
+import '../services/facet.service';
+import '../services/tag.service';
+
 (function() {
   angular.module('transferService', ['alertService', 'facetService', 'tagService']).
 
