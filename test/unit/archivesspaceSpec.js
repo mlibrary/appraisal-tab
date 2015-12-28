@@ -1,7 +1,9 @@
 'use strict';
 
+import '../../app/services/archivesspace.service.js';
+
 describe('ArchivesSpace', function() {
-  beforeEach(module('archivesSpaceService'));
+  beforeEach(angular.mock.module('archivesSpaceService'));
   beforeEach(angular.mock.inject(function(_$httpBackend_) {
     _$httpBackend_.when('GET', '/access/archivesspace').respond([
       {

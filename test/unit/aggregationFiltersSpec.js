@@ -1,5 +1,8 @@
 'use strict';
 
+import '../../app/filters/aggregation.filter.js';
+import '../../app/services/transfer.service.js';
+
 describe('AggregationFilters', function() {
   var format_data;
   var find_files;
@@ -67,8 +70,8 @@ describe('AggregationFilters', function() {
   }];
 
   beforeEach(function() {
-    module('aggregationFilters');
-    module('transferService');
+    angular.mock.module('aggregationFilters');
+    angular.mock.module('transferService');
 
     inject(function($injector) {
       format_data = $injector.get('$filter')('format_data');

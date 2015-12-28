@@ -4,18 +4,8 @@ module.exports = function(config){
     basePath : '../',
 
     files : [
-      'app/bower_components/angular/angular.js',
-      'app/bower_components/angular-route/angular-route.js',
-      'app/bower_components/angular-mocks/angular-mocks.js',
-      'app/bower_components/lodash/dist/lodash.min.js',
-      'app/bower_components/restangular/src/restangular.js',
-      'app/bower_components/jquery/dist/jquery.min.js',
-      'app/app.js',
-      'app/filters/*.js',
-      'app/services/*.js',
-      'app/components/**/*.js',
+      'test/tests.webpack.js',
       'app/vendor/base64.js',
-      'test/unit/**/*.js'
     ],
 
     autoWatch : true,
@@ -26,13 +16,27 @@ module.exports = function(config){
 
     plugins : [
             'karma-chrome-launcher',
-            'karma-jasmine'
+            'karma-jasmine',
+            'karma-webpack',
             ],
 
     junitReporter : {
       outputFile: 'test_out/unit.xml',
-      suite: 'unit'
-    }
+      suite: 'unit',
+    },
+
+    preprocessors: {
+      'test/tests.webpack.js': ['webpack'],
+    },
+
+    webpack: {
+      devtool: 'inline-source-map',
+      module: {
+        loaders: [
+          { test: /\.js$/, loader: 'babel?presets[]=es2015' },
+        ],
+      },
+    },
 
   });
 };

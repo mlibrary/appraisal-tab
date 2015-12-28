@@ -1,7 +1,9 @@
 'use strict';
 
+import '../../app/services/tag.service.js';
+
 describe('Tag', function() {
-  beforeEach(module('tagService'));
+  beforeEach(angular.mock.module('tagService'));
   beforeEach(angular.mock.inject(function(_$httpBackend_) {
     _$httpBackend_.when('GET', '/file/e9010578-e065-4fa1-91c8-a105665037d6/tags').respond([
       'fetched_tag_1', 'fetched_tag_2',

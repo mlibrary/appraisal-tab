@@ -1,7 +1,9 @@
 'use strict';
 
+import '../../app/services/sip_arrange.service.js';
+
 describe('SipArrange', function() {
-  beforeEach(module('sipArrangeService'));
+  beforeEach(angular.mock.module('sipArrangeService'));
   beforeEach(angular.mock.inject(function(_$httpBackend_) {
     _$httpBackend_.when('POST', '/filesystem/create_directory_within_arrange', 'path=L2FycmFuZ2UvYS9mdWxsL25ld19wYXRo').respond({'success': true});
     _$httpBackend_.when('GET', '/filesystem/contents/arrange?path=').respond({

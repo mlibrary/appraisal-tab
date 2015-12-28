@@ -1,7 +1,9 @@
 'use strict';
 
+import '../../app/services/selected.service.js';
+
 describe('SelectedFiles', function() {
-  beforeEach(module('selectedFilesService'));
+  beforeEach(angular.mock.module('selectedFilesService'));
 
   var test_item_1 = {
     'id': '054a0f2c-79bb-4051-b82b-4b0f14564811',

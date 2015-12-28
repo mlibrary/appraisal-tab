@@ -1,7 +1,9 @@
 'use strict';
 
+import '../../app/services/transfer.service.js';
+
 describe('Transfer', function() {
-  beforeEach(module('transferService'));
+  beforeEach(angular.mock.module('transferService'));
   beforeEach(angular.mock.inject(function(Transfer) {
     Transfer.resolve({
       'formats': [

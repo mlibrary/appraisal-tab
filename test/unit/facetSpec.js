@@ -1,7 +1,9 @@
 'use strict';
 
+import '../../app/services/facet.service.js';
+
 describe('Facet', function() {
-  beforeEach(module('facetService'));
+  beforeEach(angular.mock.module('facetService'));
 
   it('should allow new facets to be defined by name', inject(function(Facet) {
     expect(Facet.get('foo')).toBe(undefined);

@@ -1,7 +1,9 @@
 'use strict';
 
+import '../../app/services/file_list.service.js';
+
 describe('FileList', function() {
-  beforeEach(module('fileListService'));
+  beforeEach(angular.mock.module('fileListService'));
   beforeEach(inject(function(FileList) {
     FileList.files = [];
   }));
