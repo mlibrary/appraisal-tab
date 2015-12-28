@@ -13,7 +13,7 @@ import './vendor/angular-tree-control/css/tree-control-attribute.css';
 
 // third-party modules
 import angular from 'angular';
-import 'angular-charts';
+import './vendor/angular-charts/angular-charts.js';
 import 'angular-route';
 import 'angular-route-segment';
 import './vendor/angular-tree-control/angular-tree-control.js';
