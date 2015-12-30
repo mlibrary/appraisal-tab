@@ -1,4 +1,5 @@
 {
+  "parser": "babel-eslint",
   "rules": {
     "array-bracket-spacing": [1, "never"],
     "brace-style": [2, "1tbs"],
@@ -27,7 +28,7 @@
     "space-after-keywords": 2,
     "space-before-blocks": 1,
     "space-before-function-paren": [1, "never"],
-    "strict": [2, "global"]
+    "strict": [0]
   },
   "env": {
     "browser": true,
