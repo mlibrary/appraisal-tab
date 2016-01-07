@@ -1,6 +1,6 @@
 import angular from 'angular';
 
-var treeController = angular.module('treeController', []).
+angular.module('treeController', []).
 
 controller('TreeController', ['$scope', 'SelectedFiles', 'Transfer', function($scope, SelectedFiles, Transfer) {
   $scope.helper = function() {
