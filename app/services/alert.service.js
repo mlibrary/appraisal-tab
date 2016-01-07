@@ -1,11 +1,9 @@
 import angular from 'angular';
 
-(function() {
-  angular.module('alertService', []).
+angular.module('alertService', []).
 
-  service('Alert', function() {
-    return {
-      alerts: [],
-    };
-  });
-})();
+service('Alert', function() {
+  return {
+    alerts: [],
+  };
+});

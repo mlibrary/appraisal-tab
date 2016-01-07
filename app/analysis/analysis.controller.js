@@ -1,9 +1,7 @@
 import angular from 'angular';
 
-(function() {
-  angular.module('analysisController', ['route-segment']).
+angular.module('analysisController', ['route-segment']).
 
-  controller('AnalysisController', ['$scope', '$routeSegment', function($scope, $routeSegment) {
-    $scope.$routeSegment = $routeSegment;
-  }]);
-})();
+controller('AnalysisController', ['$scope', '$routeSegment', function($scope, $routeSegment) {
+  $scope.$routeSegment = $routeSegment;
+}]);
