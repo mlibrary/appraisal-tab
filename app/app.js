@@ -1,5 +1,3 @@
-'use strict';
-
 // styles
 import './app.css';
 import './css/directory-picker.css';

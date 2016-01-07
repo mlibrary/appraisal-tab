@@ -1,5 +1,3 @@
-'use strict';
-
 import angular from 'angular';
 import _ from 'lodash';
 import '../vendor/angular-ui-bootstrap/ui-bootstrap-custom-tpls-0.14.3.min.js';

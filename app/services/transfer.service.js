@@ -1,5 +1,3 @@
-'use strict';
-
 import angular from 'angular';
 import '../services/alert.service';
 import '../services/facet.service';
