@@ -113,7 +113,7 @@ factory('SipArrange', ['Restangular', function(Restangular) {
   };
 
   var decode_entry_response = function(response) {
-    var new_response = _.extend({}, response);
+    var new_response = Object.assign({}, response);
 
     angular.forEach(['entries', 'directories'], function(key) {
       new_response[key] = response[key].map(Base64.decode);

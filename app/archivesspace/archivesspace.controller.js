@@ -1,5 +1,4 @@
 import angular from 'angular';
-import _ from 'lodash';
 import '../vendor/angular-ui-bootstrap/ui-bootstrap-custom-tpls-0.14.3.min.js';
 
 angular.module('archivesSpaceController', ['alertService', 'sipArrangeService', 'transferService', 'ui.bootstrap']).
@@ -10,7 +9,7 @@ controller('ArchivesSpaceController', ['$scope', '$uibModal', 'Alert', 'Archives
   // and `add_child` functions.
   // Returns a modified copy of the passed-in object.
   var reformat_form_results = form => {
-    var copy = _.extend({}, form);
+    var copy = Object.assign({}, form);
 
     copy.levelOfDescription = form.level;
     copy.notes = [{
@@ -408,7 +407,7 @@ controller('ArchivesSpaceController', ['$scope', '$uibModal', 'Alert', 'Archives
     var copy_backlog_to_aspace = function(file) {
       // create a deep copy of the file and its children so we don't mutate
       // the copies used in the backlog
-      file = filter_files(_.extend({}, file));
+      file = filter_files(Object.assign({}, file));
       if (!file.id) {
         return;
       }

@@ -12,7 +12,7 @@ factory('ArchivesSpace', ['Restangular', function(Restangular) {
 
     // TODO don't clone these from SIPArrange
     var decode_entry_response = response => {
-      var new_response = _.extend({}, response);
+      var new_response = Object.assign({}, response);
 
       angular.forEach(['entries', 'directories'], key => {
         new_response[key] = response[key].map(Base64.decode);

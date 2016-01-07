@@ -1,5 +1,4 @@
 import angular from 'angular';
-import _ from 'lodash';
 
 angular.module('arrangementController', ['sipArrangeService']).
 
@@ -156,7 +155,7 @@ controller('ArrangementController', ['$scope', 'Alert', 'Transfer', 'SipArrange'
     var file = Transfer.id_map[file_uuid];
     // create a deep copy of the file and its children so we don't mutate
     // the copies used in the backlog
-    file = filter_files(_.extend({}, file));
+    file = filter_files(Object.assign({}, file));
 
     var source_path;
     if (file.type === 'file') {
