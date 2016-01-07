@@ -6,18 +6,18 @@ import 'restangular';
 angular.module('archivesSpaceService', ['restangular']).
 
 factory('ArchivesSpace', ['Restangular', function(Restangular) {
-    var id_to_urlsafe = function(id) {
+    var id_to_urlsafe = id => {
       return id.replace(/\//g, '-');
     };
 
     // TODO don't clone these from SIPArrange
-    var decode_entry_response = function(response) {
+    var decode_entry_response = response => {
       var new_response = _.extend({}, response);
 
-      angular.forEach(['entries', 'directories'], function(key) {
+      angular.forEach(['entries', 'directories'], key => {
         new_response[key] = response[key].map(Base64.decode);
       });
-      angular.forEach(response.properties, function(value, key) {
+      angular.forEach(response.properties, (value, key) => {
         new_response.properties[Base64.decode(key)] = value;
       });
 
@@ -25,8 +25,8 @@ factory('ArchivesSpace', ['Restangular', function(Restangular) {
     };
 
     // TODO don't dupe this from SipArrange
-    var format_results = function(data) {
-      return data.entries.map(function(element) {
+    var format_results = data => {
+      return data.entries.map(element => {
         var child = {
           title: element,
           path: parent ? parent.path + '/' + element : element,

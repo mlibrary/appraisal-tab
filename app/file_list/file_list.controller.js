@@ -7,11 +7,11 @@ controller('FileListController', ['$scope', '$routeSegment', 'FileList', 'Transf
 
   vm.$routeSegment = $routeSegment;
   vm.file_list = FileList;
-  vm.remove_tag = function(id, tag) {
+  vm.remove_tag = (id, tag) => {
     Transfer.remove_tag(id, tag);
   };
 
-  $scope.$watch('file_list.files', function() {
+  $scope.$watch('file_list.files', () => {
     vm.selected = [];
     vm.all_selected = false;
   });
@@ -19,11 +19,9 @@ controller('FileListController', ['$scope', '$routeSegment', 'FileList', 'Transf
   vm.selected = [];
   vm.all_selected = false;
 
-  vm.select_all = function() {
+  vm.select_all = () => {
     if (!vm.all_selected) {
-      vm.selected = FileList.files.map(function(file) {
-        return file.id;
-      });
+      vm.selected = FileList.files.map(file => file.id);
       vm.all_selected = true;
     } else {
       vm.selected = [];
@@ -31,7 +29,7 @@ controller('FileListController', ['$scope', '$routeSegment', 'FileList', 'Transf
     }
   };
 
-  vm.submit = function(uuids) {
+  vm.submit = uuids => {
     var tag = this.tag;
     if (!tag) {
       return;
@@ -45,7 +43,7 @@ controller('FileListController', ['$scope', '$routeSegment', 'FileList', 'Transf
   vm.sort_property = 'title';
   vm.sort_reverse = false;
 
-  vm.set_sort_property = function(property) {
+  vm.set_sort_property = property => {
     if (vm.sort_property === property) {
       vm.sort_reverse = !vm.sort_reverse;
     } else {
@@ -56,7 +54,7 @@ controller('FileListController', ['$scope', '$routeSegment', 'FileList', 'Transf
 
   vm.date_regex = '\\d\\d\\d\\d([-\/]\\d\\d?)?([-\/]\\d\\d?)?';
 
-  var format_date = function(start, end) {
+  var format_date = (start, end) => {
     var s;
     if (!start) {
       s = ' -';
@@ -70,25 +68,25 @@ controller('FileListController', ['$scope', '$routeSegment', 'FileList', 'Transf
     return s;
   };
 
-  var date_is_valid = function(date) {
+  var date_is_valid = date => {
     if (date === undefined) {
       return false;
     } else {
       return date.length < 4 ? false : true;
     }
-  }
+  };
 
-  var default_filter = function() {
+  var default_filter = () => {
     return true;
   };
   vm.facet_filter = default_filter;
 
-  vm.reset_dates = function() {
+  vm.reset_dates = () => {
     vm.date_facet = '';
     vm.facet_filter = default_filter;
-  }
+  };
 
-  vm.set_date_filter = function(start_date, end_date) {
+  vm.set_date_filter = (start_date, end_date) => {
     // Remove the facet immediately, so that the facet is updated if a user
     // enters an invalid date
     vm.date_facet = '';
@@ -108,7 +106,7 @@ controller('FileListController', ['$scope', '$routeSegment', 'FileList', 'Transf
     }
 
     vm.date_facet = format_date(start_date, end_date);
-    vm.facet_filter = function(date) {
+    vm.facet_filter = date => {
       if (date === undefined) {
         return true;
       }

@@ -12,11 +12,9 @@ controller('ExamineContentsController', ['$routeSegment', 'FileList', 'SelectedF
   vm.selected = [];
   vm.all_selected = false;
 
-  vm.select_all = function(files) {
+  vm.select_all = files => {
     if (!vm.all_selected) {
-      vm.selected = files.map(function(file) {
-        return file.id;
-      });
+      vm.selected = files.map(file => file.id);
       vm.all_selected = true;
     } else {
       vm.selected = [];
@@ -24,7 +22,7 @@ controller('ExamineContentsController', ['$routeSegment', 'FileList', 'SelectedF
     }
   };
 
-  vm.submit = function(ids) {
+  vm.submit = ids => {
     var tag = this.tag;
     if (!tag) {
       return;
@@ -34,10 +32,8 @@ controller('ExamineContentsController', ['$routeSegment', 'FileList', 'SelectedF
     this.tag = '';
   };
 
-  vm.add_to_file_list = function(ids) {
-    FileList.files = SelectedFiles.selected.filter(function(file) {
-      return ids.indexOf(file.id) > -1;
-    });
+  vm.add_to_file_list = ids => {
+    FileList.files = SelectedFiles.selected.filter(file => ids.indexOf(file.id) > -1);
   };
 }]).
 
@@ -46,7 +42,7 @@ controller('ExamineContentsFileController', ['$routeSegment', 'File', function($
 
   vm.id = $routeSegment.$routeParams.id;
   vm.type = $routeSegment.$routeParams.type;
-  File.bulk_extractor_info(vm.id, [vm.type]).then(function(data) {
+  File.bulk_extractor_info(vm.id, [vm.type]).then(data => {
     vm.file = data;
   });
 }]);

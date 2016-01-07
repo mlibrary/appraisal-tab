@@ -13,12 +13,12 @@ directive('checklist', ['$compile', '$parse', function($compile, $parse) {
 
       element.attr('type', 'checkbox');
 
-      element.bind('click', function() {
+      element.bind('click', () => {
         var selected = get_selected($scope);
         var record = get_record($scope);
 
         var index = selected.indexOf(record.id);
-        $scope.$apply(function() {
+        $scope.$apply(() => {
           // remove from selection
           if (index > -1) {
             selected.splice(index, 1);

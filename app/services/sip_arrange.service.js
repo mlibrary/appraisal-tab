@@ -12,7 +12,7 @@ factory('SipArrange', ['Restangular', function(Restangular) {
 
   var create_directory = function(path, title, parent) {
     // Return a formatted directory object
-    var on_success = function(success) {
+    var on_success = success => {
       return {
         title: title,
         has_children: true,
@@ -38,8 +38,8 @@ factory('SipArrange', ['Restangular', function(Restangular) {
   };
 
   var list_contents = function(path, parent) {
-    var format_root = function(data) {
-      return data.directories.map(function(directory) {
+    var format_root = data => {
+      return data.directories.map(directory => {
         return {
           title: directory,
           has_children: true,
@@ -58,8 +58,8 @@ factory('SipArrange', ['Restangular', function(Restangular) {
       });
     };
 
-    var format_entries = function(data) {
-      return data.entries.map(function(element) {
+    var format_entries = data => {
+      return data.entries.map(element => {
         var child = {
           title: element,
           path: parent ? parent.path + '/' + element : element,

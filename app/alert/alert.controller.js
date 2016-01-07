@@ -6,7 +6,7 @@ controller('AlertDisplayController', ['Alert', function(Alert) {
   var vm = this;
 
   vm.alert = Alert;
-  vm.remove = function(index) {
+  vm.remove = index => {
     Alert.alerts.splice(index, 1);
   };
 }]);

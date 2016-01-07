@@ -30,7 +30,7 @@ controller('TreeController', ['$scope', 'SelectedFiles', 'Transfer', function($s
     Transfer.remove_tag(id, tag);
   };
 
-  var add_file = function(node) {
+  var add_file = node => {
     SelectedFiles.add(node);
     if (node.children) {
       for (var i = 0; i < node.children.length; i++) {
@@ -40,7 +40,7 @@ controller('TreeController', ['$scope', 'SelectedFiles', 'Transfer', function($s
     }
   };
 
-  var remove_file = function(node) {
+  var remove_file = node => {
     SelectedFiles.remove(node.id);
     if (node.children) {
       for (var i = 0; i < node.children.length; i++) {

@@ -15,12 +15,12 @@ factory('Transfer', ['Alert', 'Facet', 'Restangular', 'Tag', function(Alert, Fac
     }
   };
 
-  var create_flat_map = function(records, map) {
+  var create_flat_map = (records, map) => {
     if (map === undefined) {
       map = {};
     }
 
-    angular.forEach(records, function(record) {
+    angular.forEach(records, record => {
       map[record.id] = record;
       create_flat_map(record.children, map);
     });
@@ -28,8 +28,8 @@ factory('Transfer', ['Alert', 'Facet', 'Restangular', 'Tag', function(Alert, Fac
     return map;
   };
 
-  var populate_tag_list = function(records, list) {
-    angular.forEach(records, function(record, id) {
+  var populate_tag_list = (records, list) => {
+    angular.forEach(records, (record, id) => {
       if (!record.tags) {
         return;
       }
@@ -42,18 +42,16 @@ factory('Transfer', ['Alert', 'Facet', 'Restangular', 'Tag', function(Alert, Fac
     });
   };
 
-  var clean_record_titles = function(records) {
-    angular.forEach(records, function(record) {
+  var clean_record_titles = records => {
+    angular.forEach(records, record => {
       record.title = Base64.decode(record.title);
       record.relative_path = Base64.decode(record.relative_path);
     });
   };
 
-  var remove_tag_if_necessary = function(self, tag) {
+  var remove_tag_if_necessary = (self, tag) => {
     if (self.list_tags(tag).length === 0) {
-      self.tags = self.tags.filter(function(element) {
-        return element !== tag;
-      });
+      self.tags = self.tags.filter(element => element !== tag);
     }
   };
 
@@ -78,7 +76,7 @@ factory('Transfer', ['Alert', 'Facet', 'Restangular', 'Tag', function(Alert, Fac
       this.filter();
     },
     filter: function() {
-      angular.forEach(this.id_map, function(file) {
+      angular.forEach(this.id_map, file => {
         if (file.type === 'file') {
           file.display = Facet.passes_filters(file);
         } else {
@@ -106,22 +104,20 @@ factory('Transfer', ['Alert', 'Facet', 'Restangular', 'Tag', function(Alert, Fac
       }
     },
     add_list_of_tags: function(ids, tag, skip_submit) {
-      var self = this;
-      angular.forEach(ids, function(id) {
-        self.add_tag(id, tag, skip_submit);
+      angular.forEach(ids, id => {
+        this.add_tag(id, tag, skip_submit);
       });
     },
     remove_tag: function(id, tag, skip_submit) {
-      var self = this;
       var record = get_record.apply(this, [id]);
 
       if (!tag) {
         var record = get_record.apply(this, [id]);
         var tags_for_id = record.tags;
 
-        remove_all.apply(self, [id]);
-        angular.forEach(tags_for_id, function(tag) {
-          remove_tag_if_necessary(self, tag);
+        remove_all.apply(this, [id]);
+        angular.forEach(tags_for_id, tag => {
+          remove_tag_if_necessary(this, tag);
         });
 
         if (!skip_submit) {
@@ -138,7 +134,7 @@ factory('Transfer', ['Alert', 'Facet', 'Restangular', 'Tag', function(Alert, Fac
       record.tags.pop(tag);
 
       // If this is the last occurrence of this tag, delete it from the tag list
-      remove_tag_if_necessary(self, tag);
+      remove_tag_if_necessary(this, tag);
 
       if (!skip_submit) {
         Tag.submit(id, record.tags);
@@ -150,7 +146,7 @@ factory('Transfer', ['Alert', 'Facet', 'Restangular', 'Tag', function(Alert, Fac
     },
     list_tags: function(tag) {
       var results = [];
-      angular.forEach(this.id_map, function(record, id) {
+      angular.forEach(this.id_map, (record, id) => {
         var tags = record.tags || [];
         if (tags.indexOf(tag) !== -1) {
           results.push(id);

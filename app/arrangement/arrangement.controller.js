@@ -6,22 +6,22 @@ angular.module('arrangementController', ['sipArrangeService']).
 controller('ArrangementController', ['$scope', 'Alert', 'Transfer', 'SipArrange', function($scope, Alert, Transfer, SipArrange) {
   var vm = this;
 
-  var load_data = function() {
-    SipArrange.list_contents().then(function(directories) {
+  var load_data = () => {
+    SipArrange.list_contents().then(directories => {
       vm.data = directories;
     });
   };
 
   vm.options = {
     dirSelectable: true,
-    isLeaf: function(node) {
+    isLeaf: node => {
       return !node.has_children;
     },
   };
   vm.filter_expression = {display: true};
   vm.filter_comparator = true;
 
-  vm.refresh = function(node) {
+  vm.refresh = node => {
     if (node) {
       load_element_children(node);
     } else {
@@ -29,22 +29,22 @@ controller('ArrangementController', ['$scope', 'Alert', 'Transfer', 'SipArrange'
     }
   };
 
-  var load_element_children = function(node) {
+  var load_element_children = node => {
     var path = '/arrange/' + node.path;
-    SipArrange.list_contents(path, node).then(function(entries) {
+    SipArrange.list_contents(path, node).then(entries => {
       node.children = entries;
       node.children_fetched = true;
     });
   };
 
-  vm.on_toggle = function(node, expanded) {
+  vm.on_toggle = (node, expanded) => {
     if (!expanded || node.children_fetched) {
       return;
     }
     load_element_children(node);
   };
 
-  vm.create_directory = function(parent) {
+  vm.create_directory = parent => {
     var path = prompt('Name of new directory?');
     if (!path) {
       return;
@@ -58,13 +58,13 @@ controller('ArrangementController', ['$scope', 'Alert', 'Transfer', 'SipArrange'
       var full_path = parent.path + '/' + path;
     }
 
-    SipArrange.create_directory('/arrange/' + full_path, path, parent).then(function(result) {
+    SipArrange.create_directory('/arrange/' + full_path, path, parent).then(result => {
       target.push(result);
     });
   };
 
-  vm.delete_directory = function(element) {
-    SipArrange.remove('/arrange/' + element.path).then(function(success) {
+  vm.delete_directory = element => {
+    SipArrange.remove('/arrange/' + element.path).then(success => {
       // `element.parent` is undefined if this is a root-level directory
       var parent = element.parent ? element.parent.children : vm.data;
 
@@ -74,7 +74,7 @@ controller('ArrangementController', ['$scope', 'Alert', 'Transfer', 'SipArrange'
     });
   };
 
-  var hide_elements = function(node) {
+  var hide_elements = node => {
     node.display = false;
     if (node.children) {
       for (var i = 0; i < node.children.length; i++) {
@@ -83,8 +83,8 @@ controller('ArrangementController', ['$scope', 'Alert', 'Transfer', 'SipArrange'
     }
   };
 
-  vm.start_sip = function(directory) {
-    var on_success = function(success) {
+  vm.start_sip = directory => {
+    var on_success = success => {
       // Hide elements from the UI so user doesn't try to start it again
       hide_elements(directory);
 
@@ -94,7 +94,7 @@ controller('ArrangementController', ['$scope', 'Alert', 'Transfer', 'SipArrange'
       });
     };
 
-    var on_failure = function(error) {
+    var on_failure = error => {
       Alert.alerts.push({
         'type': 'danger',
         'message': 'SIP could not be started! Check dashboard logs.',
@@ -106,7 +106,7 @@ controller('ArrangementController', ['$scope', 'Alert', 'Transfer', 'SipArrange'
 
   // Filter the list of dragged files to contain only files with the "display"
   // parameter, so that only visibly selected files are dragged over
-  var filter_files = function(file) {
+  var filter_files = file => {
     if (!file.display) {
       return {};
     }
@@ -115,7 +115,7 @@ controller('ArrangementController', ['$scope', 'Alert', 'Transfer', 'SipArrange'
     if (file.children) {
       var children = file.children;
       file.children = [];
-      angular.forEach(children, function(child) {
+      angular.forEach(children, child => {
         child = filter_files(child);
         // Omit empty objects, or directories whose children have all been filtered out
         if (child.id && child.type === 'file' || (child.children && child.children.length > 0)) {
@@ -127,7 +127,7 @@ controller('ArrangementController', ['$scope', 'Alert', 'Transfer', 'SipArrange'
     return file;
   };
 
-  vm.drop = function(unused, ui) {
+  vm.drop = (unused, ui) => {
     if (ui.draggable.attr('file-type') === 'arrange') {
       return drop_from_arrange.apply(this, [unused, ui]);
     } else {
@@ -135,13 +135,13 @@ controller('ArrangementController', ['$scope', 'Alert', 'Transfer', 'SipArrange'
     }
   };
 
-  var on_copy_failure = function(error) {
+  var on_copy_failure = error => {
     Alert.alerts.push({
       'type': 'danger',
       'message': 'Failed to copy files to SIP arrange; check Dashboard logs.',
     });
   };
-  var on_copy_success = function(success) {
+  var on_copy_success = success => {
     // Reload the tree, rather than recreating the structure locally,
     // since it's possible the structure of the dragged files
     // may differ from the structure of what actually entered arrange.

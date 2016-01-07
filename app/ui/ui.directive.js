@@ -12,11 +12,9 @@ directive('uiMinimizeBar', [function() {
 
       $scope.toggle = function(pane) {
         pane.selected = !pane.selected;
-        var width = 100 / panes.filter(function(e) { return e.selected; }).length + '%';
+        var width = 100 / panes.filter(e => e.selected).length + '%';
         // Update child element widths
-        angular.forEach(panes, function(p) {
-          p.width = width;
-        });
+        angular.forEach(panes, p => p.width = width);
       };
 
       this.addPane = function(pane, open) {
@@ -50,7 +48,7 @@ directive('ngConfirmClick', [function() {
     priority: -1,
     restrict: 'A',
     link: function(scope, element, attrs) {
-      element.bind('click', function(e){
+      element.bind('click', e => {
         var message = attrs.ngConfirmClick;
         if(message && !confirm(message)){
           e.stopImmediatePropagation();

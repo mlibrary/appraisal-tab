@@ -3,14 +3,14 @@ import _ from 'lodash';
 
 // The default hash function may confuse two arrays of objects
 // of the same length as the same set of records.
-var hash_fn = function(records) {
+var hash_fn = records => {
   return JSON.stringify(records);
 };
 
 angular.module('aggregationFilters', []).
 
 filter('format_data', function() {
-  var format_data_fn = function(records) {
+  var format_data_fn = records => {
     var format_data = {};
     for (var i in records) {
       var record = records[i];
@@ -34,21 +34,19 @@ filter('format_data', function() {
       out_data.push({format: key, data: format_data[key]});
     }
 
-    return _.sortBy(out_data, function(format) {
-      return format.format;
-    });
+    return _.sortBy(out_data, format => format.format);
   };
 
   return _.memoize(format_data_fn, hash_fn);
 }).
 
-filter('format_graph', function() {
-  var format_graph_fn = function(records) {
+filter('format_graph', () => {
+  var format_graph_fn = records => {
     var data = {
       series: ['Format'],
       data: [],
     };
-    angular.forEach(records, function(format_data, _) {
+    angular.forEach(records, (format_data, _) => {
       var readable_name = format_data.format;
       if (format_data.data.puid) {
        readable_name += ' (' + format_data.data.puid + ')';
@@ -67,12 +65,12 @@ filter('format_graph', function() {
 }).
 
 filter('size_graph', function($filter) {
-  var size_graph_fn = function(records) {
+  var size_graph_fn = records => {
     var data = {
       series: ['Format'],
       data: [],
     };
-    angular.forEach(records, function(format_data, _) {
+    angular.forEach(records, (format_data, _) => {
       var readable_name = format_data.format;
       if (format_data.data.puid) {
        readable_name += ' (' + format_data.data.puid + ')';
@@ -91,27 +89,19 @@ filter('size_graph', function($filter) {
 }).
 
 filter('find_transfers', function() {
-  var transfer_fn = function(records) {
-    return records.filter(function(el) {
-      return el.type === 'transfer';
-    });
-  };
+  var transfer_fn = records => records.filter(el => el.type === 'transfer');
 
   return _.memoize(transfer_fn, hash_fn);
 }).
 
 filter('find_files', function() {
-  var file_fn = function(records) {
-    return records.filter(function(el) {
-      return el.type === 'file' && el.bulk_extractor_reports;
-    });
-  };
+  var file_fn = records => records.filter(el => el.type === 'file' && el.bulk_extractor_reports);
 
   return _.memoize(file_fn, hash_fn);
 }).
 
 filter('tag_count', function() {
-  var tag_fn = function(records) {
+  var tag_fn = records => {
     var out = {};
     for (var i in records) {
       var record = records[i];
@@ -122,7 +112,7 @@ filter('tag_count', function() {
     }
 
     // Return as array so it is sortable
-    return _.map(out, function(count, tag) { return [tag, count]; });
+    return _.map(out, (count, tag) => [tag, count]);
   };
 
   return _.memoize(tag_fn, hash_fn);

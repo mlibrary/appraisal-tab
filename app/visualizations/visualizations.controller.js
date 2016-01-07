@@ -14,9 +14,7 @@ controller('VisualizationsController', ['$scope', 'FileList', 'SelectedFiles', f
   $scope.format_config = {
     // Formats (total)
     click: function(d) {
-      FileList.files = SelectedFiles.selected.filter(function (file) {
-        return file.format === d.data.format;
-      });
+      FileList.files = SelectedFiles.selected.filter(file => file.format === d.data.format);
     },
     tooltips: true,
     labels: false,
@@ -31,9 +29,7 @@ controller('VisualizationsController', ['$scope', 'FileList', 'SelectedFiles', f
   $scope.size_config = {
     // Formats (by size)
     click: function(d) {
-      FileList.files = SelectedFiles.selected.filter(function (file) {
-        return file.format === d.data.format;
-      });
+      FileList.files = SelectedFiles.selected.filter(file => file.format === d.data.format);
     },
     tooltips: true,
     labels: false,

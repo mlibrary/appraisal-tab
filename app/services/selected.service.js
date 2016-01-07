@@ -10,13 +10,11 @@ service('SelectedFiles', [function() {
       this.selected.push(file);
     },
     remove: function(uuid) {
-      this.selected = this.selected.filter(function(el) {
-        return el.id !== uuid;
-      });
+      this.selected = this.selected.filter(el => el.id !== uuid);
     },
     list_file_ids: function() {
       var ids = [];
-      angular.forEach(this.selected, function(file) {
+      angular.forEach(this.selected, file => {
         if (file.type === 'file') {
           ids.push(file.id);
         }

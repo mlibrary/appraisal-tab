@@ -37,14 +37,10 @@ controller('ReportController', ['$scope', 'FileList', 'SelectedFiles', function(
   };
 
   $scope.set_file_list = function(type, attr) {
-    FileList.files = SelectedFiles.selected.filter(function(file) {
-      return file[attr] === type;
-    });
+    FileList.files = SelectedFiles.selected.filter(file => file[attr] === type);
   };
 
   $scope.add_tags_to_file_list = function(tag) {
-    FileList.files = SelectedFiles.selected.filter(function(file) {
-      return file.tags.indexOf(tag) > -1;
-    });
+    FileList.files = SelectedFiles.selected.filter(file => file.tags.indexOf(tag) > -1);
   };
 }]);

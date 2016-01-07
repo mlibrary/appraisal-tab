@@ -9,7 +9,7 @@ controller('ArchivesSpaceController', ['$scope', '$uibModal', 'Alert', 'Archives
   // a format suitable for use with the ArchivesSpace service's `edit`
   // and `add_child` functions.
   // Returns a modified copy of the passed-in object.
-  var reformat_form_results = function(form) {
+  var reformat_form_results = form => {
     var copy = _.extend({}, form);
 
     copy.levelOfDescription = form.level;
@@ -26,7 +26,7 @@ controller('ArchivesSpaceController', ['$scope', '$uibModal', 'Alert', 'Archives
     return copy;
   };
 
-  var append_child = function(node, child) {
+  var append_child = (node, child) => {
     if (!node.has_children) {
       node.has_children = true;
       node.children = [];
@@ -44,29 +44,29 @@ controller('ArchivesSpaceController', ['$scope', '$uibModal', 'Alert', 'Archives
     }
   };
 
-  var edit_component = function(node) {
+  var edit_component = node => {
     var form = $uibModal.open({
       templateUrl: 'archivesspace/digital_object_form.html',
       controller: 'DigitalObjectEditController',
       controllerAs: 'form',
       resolve: {
-        title: function() {
+        title: () => {
           return node.title;
         },
-        label: function() {
+        label: () => {
           return node.label;
         },
       },
     });
-    form.result.then(function(result) {
+    form.result.then(result => {
       var original_title = node.title;
       var original_label = node.label;
 
-      var on_success = function(result) {
+      var on_success = result => {
         node.request_pending = false;
       };
 
-      var on_failure = function(result) {
+      var on_failure = result => {
         node.request_pending = false;
         node.title = original_title;
         node.label = original_label;
@@ -85,38 +85,38 @@ controller('ArchivesSpaceController', ['$scope', '$uibModal', 'Alert', 'Archives
     });
   };
 
-    var edit_record = function(node) {
+    var edit_record = node => {
       var form = $uibModal.open({
         templateUrl: 'archivesspace/form.html',
         controller: 'ArchivesSpaceEditController',
         controllerAs: 'form',
         resolve: {
-          levels: function() {
+          levels: () => {
             return levels_of_description;
           },
-          title: function() {
+          title: () => {
             return node.title;
           },
-          level: function() {
+          level: () => {
             return node.levelOfDescription;
           },
-          start_date: function() {
+          start_date: () => {
             return false;
           },
-          end_date: function() {
+          end_date: () => {
             return false;
           },
-          date_expression: function() {
+          date_expression: () => {
             return node.date_expression;
           },
-          note: function() {
+          note: () => {
             if (node.notes && node.notes[0]) {
               return node.notes[0].content;
             }
           },
         },
       });
-      form.result.then(function(result) {
+      form.result.then(result => {
         // Assign these to variables so we can restore them if the PUT fails
         var original_title = node.title;
         var original_level = node.levelOfDescription;
@@ -130,11 +130,11 @@ controller('ArchivesSpaceController', ['$scope', '$uibModal', 'Alert', 'Archives
         // Any node with pending requests will be marked as non-editable
         node.request_pending = true;
 
-        var on_success = function(response) {
+        var on_success = response => {
           node.request_pending = false;
         };
 
-        var on_failure = function(error) {
+        var on_failure = error => {
           // Restore the original title/level since the request failed
           node.title = original_title;
           node.levelOfDescription = original_level;
@@ -162,39 +162,39 @@ controller('ArchivesSpaceController', ['$scope', '$uibModal', 'Alert', 'Archives
         controller: 'ArchivesSpaceEditController',
         controllerAs: 'form',
         resolve: {
-          levels: function() {
+          levels: () => {
             return ArchivesSpace.get_levels_of_description().$object;
           },
-          title: function() {
+          title: () => {
             return '';
           },
-          level: function() {
+          level: () => {
             return '';
           },
-          start_date: function() {
+          start_date: () => {
             return new Date();
           },
-          end_date: function() {
+          end_date: () => {
             return new Date();
           },
-          date_expression: function() {
+          date_expression: () => {
             return '';
           },
-          note: function() {
+          note: () => {
             return '';
           },
         },
       });
-      form.result.then(function(result) {
+      form.result.then(result => {
         var result = reformat_form_results(result);
 
-        var on_success = function(response) {
+        var on_success = response => {
           result.id = response.id;
           result.parent = node;
           append_child(node, result);
         };
 
-        var on_failure = function(error) {
+        var on_failure = error => {
           Alert.alerts.push({
             type: 'danger',
             message: 'Unable to add new child record to record ' + node.id,
@@ -213,23 +213,23 @@ controller('ArchivesSpaceController', ['$scope', '$uibModal', 'Alert', 'Archives
         controller: 'DigitalObjectEditController',
         controllerAs: 'form',
         resolve: {
-          title: function() {
+          title: () => {
             return '';
           },
-          label: function() {
+          label: () => {
             return '';
           },
         },
       });
 
-      form.result.then(function(result) {
-        var on_success = function(response) {
+      form.result.then(result => {
+        var on_success = response => {
           result.id = response.component_id;
           result.type = 'digital_object';
           append_child(node, result);
         };
 
-        var on_failure = function(result) {
+        var on_failure = result => {
           Alert.alerts.push({
             type: 'danger',
             message: 'Unable to add new digital object component to record ' + node.id,
@@ -242,7 +242,7 @@ controller('ArchivesSpaceController', ['$scope', '$uibModal', 'Alert', 'Archives
 
     $scope.options = {
       dirSelectable: true,
-      equality: function(a, b) {
+      equality: (a, b) => {
         if (a === undefined || b === undefined) {
           return false;
         } else if (a.id && b.id) {
@@ -251,17 +251,17 @@ controller('ArchivesSpaceController', ['$scope', '$uibModal', 'Alert', 'Archives
           return a.path === b.path;
         }
       },
-      isLeaf: function(node) {
+      isLeaf: node => {
         return !node.has_children && node.type !== 'digital_object';
       },
     };
 
     // Loads the children of the specified element,
     // along with arranged SIP contents that might exist
-    var load_element_children = function(node) {
+    var load_element_children = node => {
       $scope.loading = true;
 
-      var on_failure_aspace = function(error) {
+      var on_failure_aspace = error => {
         Alert.alerts.push({
           type: 'danger',
           message: 'Unable to fetch record ' + node.id + ' from ArchivesSpace!',
@@ -269,7 +269,7 @@ controller('ArchivesSpaceController', ['$scope', '$uibModal', 'Alert', 'Archives
         $scope.loading = false;
       };
 
-      var on_failure_arrange = function(error) {
+      var on_failure_arrange = error => {
         Alert.alerts.push({
           type: 'danger',
           message: 'Unable to fetch record ' + node.path + ' from Arrangement!',
@@ -280,8 +280,8 @@ controller('ArchivesSpaceController', ['$scope', '$uibModal', 'Alert', 'Archives
       node.children = [];
 
       if (node.id && node.type !== 'digital_object') {  // ArchivesSpace node
-        ArchivesSpace.get_children(node.id).then(function(children) {
-          children.map(function(element) { element.parent = node; });
+        ArchivesSpace.get_children(node.id).then(children => {
+          children.map(element => element.parent = node);
           node.children = node.children.concat(children);
           node.children_fetched = true;
           $scope.loading = false;
@@ -289,11 +289,11 @@ controller('ArchivesSpaceController', ['$scope', '$uibModal', 'Alert', 'Archives
 
         // Also check to see if there are any digital object components;
         // if so, render them like any other ASpace objects
-        ArchivesSpace.digital_object_components(node.id).then(function(components) {
+        ArchivesSpace.digital_object_components(node.id).then(components => {
           node.children = node.children.concat(components);
         });
       } else {  // SipArrange node
-        SipArrange.list_contents(node.path, node).then(function(entries) {
+        SipArrange.list_contents(node.path, node).then(entries => {
           node.children = entries;
           node.children_fetched = true;
           $scope.loading = false;
@@ -317,14 +317,14 @@ controller('ArchivesSpaceController', ['$scope', '$uibModal', 'Alert', 'Archives
       load_element_children(node);
     };
 
-    var load_data = function() {
+    var load_data = () => {
       // TODO: handle failure to contact ArchivesSpace here;
       //       probably want to scope this to only happen if ASpace pane is opened.
       //       (The controller is always instantiated before the pane opens,
       //       so adding an alert here would always render even if ArchivesSpace
       //       wasn't clicked.)
       $scope.loading = true;
-      ArchivesSpace.all().then(function(data) {
+      ArchivesSpace.all().then(data => {
         $scope.data = data;
         $scope.loading = false;
       });
@@ -333,18 +333,18 @@ controller('ArchivesSpaceController', ['$scope', '$uibModal', 'Alert', 'Archives
 
     // Prevent a given file or its descendants from being dragged more than once
     var dragged_ids = [];
-    var log_ids = function(file) {
+    var log_ids = file => {
       dragged_ids.push(file.id);
       if (file.children) {
         for (var i = 0; i < file.children.length; i++) {
           log_ids(file.children[i]);
         }
       }
-    }
+    };
 
     // Filter the list of dragged files to contain only files with the "display"
     // parameter, so that only visibly selected files are dragged over
-    var filter_files = function(file) {
+    var filter_files = file => {
       if (!file.display) {
         return {};
       }
@@ -353,7 +353,7 @@ controller('ArchivesSpaceController', ['$scope', '$uibModal', 'Alert', 'Archives
       if (file.children) {
         var children = file.children;
         file.children = [];
-        angular.forEach(children, function(child) {
+        angular.forEach(children, child => {
           child = filter_files(child);
           // Omit empty objects, or directories whose children have all been filtered out
           if (child.id && child.type === 'file' || (child.children && child.children.length > 0)) {
@@ -390,28 +390,22 @@ controller('ArchivesSpaceController', ['$scope', '$uibModal', 'Alert', 'Archives
     };
 
     var copy_arrange_to_arrange = function(path) {
-      var self = this;
-
-      var on_move = function() {
-        load_element_children(self);
+      var on_move = () => {
+        load_element_children(this);
       };
 
       SipArrange.copy_to_arrange(path, '/arrange/' + this.path).then(on_move);
     };
 
     var copy_arrange_to_aspace = function(path) {
-      var self = this;
-
-      var on_move = function() {
-        load_element_children(self);
+      var on_move = () => {
+        load_element_children(this);
       };
 
       SipArrange.copy_to_arrange(path, this.path).then(on_move);
     };
 
     var copy_backlog_to_aspace = function(file) {
-      var self = this;
-
       // create a deep copy of the file and its children so we don't mutate
       // the copies used in the backlog
       file = filter_files(_.extend({}, file));
@@ -419,14 +413,14 @@ controller('ArchivesSpaceController', ['$scope', '$uibModal', 'Alert', 'Archives
         return;
       }
 
-      var on_copy = function() {
-        if ($scope.expanded_nodes.indexOf(self) === -1) {
-          $scope.expanded_nodes.push(self);
+      var on_copy = () => {
+        if ($scope.expanded_nodes.indexOf(this) === -1) {
+          $scope.expanded_nodes.push(this);
           // expanded event will not fire if the node was programmatically expanded - this loads children
-          $scope.on_toggle(self, true);
+          $scope.on_toggle(this, true);
         } else {
           // Reload the directory to reflect new contents
-          load_element_children(self);
+          load_element_children(this);
         }
       };
 
@@ -438,19 +432,17 @@ controller('ArchivesSpaceController', ['$scope', '$uibModal', 'Alert', 'Archives
       }
 
       // TODO make sure `path` property is correctly specified
-      $scope.$apply(function() {
+      $scope.$apply(() => {
         $scope.loading = true;
 
-        self.has_children = true;
-        self.children = [];
-        self.children_fetched = false;
-        SipArrange.copy_to_arrange('/originals/' + source_path, self.path).then(on_copy);
+        this.has_children = true;
+        this.children = [];
+        this.children_fetched = false;
+        SipArrange.copy_to_arrange('/originals/' + source_path, this.path).then(on_copy);
       });
     };
 
     var copy_backlog_to_arrange = function(file) {
-      var self = this;
-
       var source_path;
       if (file.type === 'file') {
         source_path = file.relative_path;
@@ -459,12 +451,12 @@ controller('ArchivesSpaceController', ['$scope', '$uibModal', 'Alert', 'Archives
       }
 
       // Reload the directory to reflect new contents
-      var on_copy = function() {
-        load_element_children(self);
+      var on_copy = () => {
+        load_element_children(this);
       };
 
-      $scope.$apply(function() {
-        SipArrange.copy_to_arrange('/arrange/' + source_path, '/arrange/' + self.path).then(on_copy);
+      $scope.$apply(() => {
+        SipArrange.copy_to_arrange('/arrange/' + source_path, '/arrange/' + this.path).then(on_copy);
       });
     };
 
@@ -473,7 +465,7 @@ controller('ArchivesSpaceController', ['$scope', '$uibModal', 'Alert', 'Archives
         return;
       }
 
-      var on_delete = function(element) {
+      var on_delete = element => {
         // `node.parent` is undefined if this is a root-level directory
         var siblings = node.parent ? node.parent.children : $scope.data.children;
         var idx = siblings.indexOf(node);
@@ -492,18 +484,16 @@ controller('ArchivesSpaceController', ['$scope', '$uibModal', 'Alert', 'Archives
     };
 
     $scope.finalize_arrangement = function(node) {
-      var on_success = function() {
+      var on_success = () => {
         Alert.alerts.push({
           type: 'success',
           message: 'Successfully started SIP from record "' + node.title + '"',
         });
 
         // Remove the digital object components so the user doesn't try to add new items
-        node.children = node.children.filter(function(element) {
-          return element.type !== 'digital_object';
-        });
+        node.children = node.children.filter(element => element.type !== 'digital_object');
       };
-      var on_failure = function(error) {
+      var on_failure = error => {
         var message;
         // error.message won't be defined if this returned an HTML 500
         if (error.message && error.message.startsWith('No SIP Arrange mapping')) {
@@ -538,7 +528,7 @@ controller('ArchivesSpaceEditController', ['$uibModalInstance', 'levels', 'level
   vm.cancel = function() {
     $uibModalInstance.dismiss('cancel');
   };
-  vm.open_datepicker = function(picker, $event) {
+  vm.open_datepicker = (picker, $event) => {
     var prop = picker + '_date_opened';
     this.status[prop] = true;
   };
@@ -554,10 +544,10 @@ controller('DigitalObjectEditController', ['$uibModalInstance', 'title', 'label'
   vm.title = title;
   vm.label = label;
 
-  vm.ok = function() {
+  vm.ok = () => {
     $uibModalInstance.close(vm);
   };
-  vm.cancel = function() {
+  vm.cancel = () => {
     $uibModalInstance.dismiss('cancel');
   };
 }]);

@@ -16,9 +16,7 @@ service('FileList', function() {
       }
     },
     remove: function(id) {
-      this.files = this.files.filter(function(file) {
-        return file.id !== id;
-      });
+      this.files = this.files.filter(file => file.id !== id);
     },
     clear: function() {
       this.files = [];
