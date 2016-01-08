@@ -60,7 +60,7 @@ angular.module('angularCharts').directive('acChart', [
    */
     function getChildrenByClassname(childrens, className) {
       var child = null;
-      for (var i in childrens) {
+      for (var i = 0; i < childrens.length; i++) {
         if (angular.isElement(childrens[i])) {
           child = angular.element(childrens[i]);
           if (child.hasClass(className))
