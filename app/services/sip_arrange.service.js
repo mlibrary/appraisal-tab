@@ -1,5 +1,6 @@
 import angular from 'angular';
 import $ from 'jquery';
+import Base64 from 'base64-helpers';
 import 'lodash';
 import 'restangular';
 
