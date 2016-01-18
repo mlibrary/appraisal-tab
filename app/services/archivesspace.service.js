@@ -1,4 +1,5 @@
 import angular from 'angular';
+import {decode_browse_response, format_entries} from 'archivematica-browse-helpers';
 import Base64 from 'base64-helpers';
 import $ from 'jquery';
 import _ from 'lodash';
@@ -9,46 +10,6 @@ angular.module('archivesSpaceService', ['restangular']).
 factory('ArchivesSpace', ['Restangular', function(Restangular) {
     var id_to_urlsafe = id => {
       return id.replace(/\//g, '-');
-    };
-
-    // TODO don't clone these from SIPArrange
-    var decode_entry_response = response => {
-      var new_response = Object.assign({}, response);
-
-      angular.forEach(['entries', 'directories'], key => {
-        new_response[key] = response[key].map(Base64.decode);
-      });
-      angular.forEach(response.properties, (value, key) => {
-        new_response.properties[Base64.decode(key)] = value;
-      });
-
-      return new_response;
-    };
-
-    // TODO don't dupe this from SipArrange
-    var format_results = data => {
-      return data.entries.map(element => {
-        var child = {
-          title: element,
-          path: parent ? parent.path + '/' + element : element,
-          parent: parent,
-          display: true,
-          properties: data.properties[element],
-          type: 'arrange_entry',
-        };
-
-        if (data.directories.indexOf(element) > -1) {
-          // directory
-          child.has_children = true;
-          child.children = [];
-          child.children_fetched = false;
-        } else {
-          // file
-          child.has_children = false;
-        }
-
-        return child;
-      });
     };
 
     var ArchivesSpace = Restangular.all('access').all('archivesspace');
@@ -96,7 +57,7 @@ factory('ArchivesSpace', ['Restangular', function(Restangular) {
       },
       list_digital_object_component_contents: function(id, component_id) {
         var id_fragment = id_to_urlsafe(id);
-        return ArchivesSpace.one(id_fragment).one('digital_object_components').one(String(component_id)).one('files').get().then(decode_entry_response).then(format_results);
+        return ArchivesSpace.one(id_fragment).one('digital_object_components').one(String(component_id)).one('files').get().then(decode_browse_response).then(format_entries);
       },
       copy_to_arrange: function(id, filepath) {
         var url_fragment = id_to_urlsafe(id);
@@ -109,7 +70,11 @@ factory('ArchivesSpace', ['Restangular', function(Restangular) {
       },
       list_arrange_contents: function(id, parent) {
         var url_fragment = id_to_urlsafe(id);
-        return ArchivesSpace.one(url_fragment).one('contents').one('arrange').get(url_fragment).then(decode_entry_response).then(format_results);
+        return ArchivesSpace.one(url_fragment).one('contents').one('arrange').get(url_fragment).then(decode_browse_response).then(data => {
+          let entries = format_entries(data, parent.path, parent);
+          entries.forEach(entry => entry.type = 'arrange_entry');
+          return entries;
+        });
       },
       remove: function(id) {
         var url_fragment = id_to_urlsafe(id);

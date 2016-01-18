@@ -42,6 +42,7 @@
     "angular-mocks": "^1.3.20",
     "angular-route": "^1.3.20",
     "angular-route-segment": "^1.5.0",
+    "archivematica-browse-helpers": "git+https://github.com/artefactual-labs/archivematica-browse-helpers.git",
     "base64-helpers": "git+https://github.com/artefactual-labs/base64-helpers.git",
     "bootstrap": "^3.3.6",
     "d3": "^3.5.12",

@@ -1,4 +1,5 @@
 import angular from 'angular';
+import {decode_browse_response, format_entries} from 'archivematica-browse-helpers';
 import $ from 'jquery';
 import Base64 from 'base64-helpers';
 import 'lodash';
@@ -59,36 +60,15 @@ factory('SipArrange', ['Restangular', function(Restangular) {
       });
     };
 
-    var format_entries = data => {
-      return data.entries.map(element => {
-        var child = {
-          title: element,
-          path: parent ? parent.path + '/' + element : element,
-          parent: parent,
-          display: true,
-          properties: data.properties[element],
-          type: 'arrange_entry',
-        };
-
-        if (data.directories.indexOf(element) > -1) {
-          // directory
-          child.has_children = true;
-          child.children = [];
-          child.children_fetched = false;
-          child.directory = true;
-        } else {
-          // file
-          child.has_children = false;
-          child.directory = false;
-        }
-
-        return child;
-      });
+    let format_files = data => {
+      let entries = format_entries(data, parent.path, parent);
+      entries.forEach(entry => entry.type = 'arrange_entry');
+      return entries;
     };
 
     path = path || '';
-    var on_success = path === '' ? format_root : format_entries;
-    return SipArrange.one('contents').one('arrange').get({path: Base64.encode(path)}).then(decode_entry_response).then(on_success);
+    var on_success = path === '' ? format_root : format_files;
+    return SipArrange.one('contents').one('arrange').get({path: Base64.encode(path)}).then(decode_browse_response).then(on_success);
   };
 
   var remove = function(target) {
@@ -111,19 +91,6 @@ factory('SipArrange', ['Restangular', function(Restangular) {
       {}, // URL parameters - always empty
       {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'}
     )
-  };
-
-  var decode_entry_response = function(response) {
-    var new_response = Object.assign({}, response);
-
-    angular.forEach(['entries', 'directories'], function(key) {
-      new_response[key] = response[key].map(Base64.decode);
-    });
-    angular.forEach(response.properties, function(value, key) {
-      new_response.properties[Base64.decode(key)] = value;
-    });
-
-    return new_response;
   };
 
   return {
