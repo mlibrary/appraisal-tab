@@ -50,6 +50,7 @@
     <tr ng-repeat="record in vm.SelectedFiles.selected | find_files | filter:{bulk_extractor_reports: vm.type}">
       <td>
         <input checklist
+             type="checkbox"
              name="checked_files[]"
              ng-model="record"
              ng-checked="vm.selected.indexOf(record.id) > -1"

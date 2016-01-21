@@ -185,6 +185,7 @@
           <tr ng-repeat="file in vm.file_list.files | filter: {'date': '*'} : vm.facet_filter | orderBy: vm.sort_property : vm.sort_reverse">
             <td>
               <input checklist
+                   type="checkbox"
                    name="checked_files[]"
                    ng-model="file"
                    ng-checked="vm.selected.indexOf(file.id) > -1"

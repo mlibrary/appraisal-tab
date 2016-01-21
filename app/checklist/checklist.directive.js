@@ -11,8 +11,6 @@ directive('checklist', ['$compile', '$parse', function($compile, $parse) {
       var set_all_selected = $parse(attrs.allSelected).assign;
       var get_record_count = $parse(attrs.recordCount);
 
-      element.attr('type', 'checkbox');
-
       element.bind('click', () => {
         var selected = get_selected($scope);
         var record = get_record($scope);
