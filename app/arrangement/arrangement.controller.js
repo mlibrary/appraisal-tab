@@ -126,7 +126,7 @@ controller('ArrangementController', ['$scope', 'Alert', 'Transfer', 'SipArrange'
     return file;
   };
 
-  vm.drop = (unused, ui) => {
+  vm.drop = function(unused, ui) {
     if (ui.draggable.attr('file-type') === 'arrange') {
       return drop_from_arrange.apply(this, [unused, ui]);
     } else {
