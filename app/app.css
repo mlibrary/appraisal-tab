@@ -27,6 +27,17 @@
   border: 1px solid #dddddd;
 }
 
+/**
+ * Limit the size of panel bodies to 500px at most, and
+ * scroll within them.
+ * It would be great to fix these to something relative to the
+ * size of the screen, but I'm not sure how best to do that.
+ */
+.panel-body {
+  overflow: auto;
+  max-height: 500px;
+}
+
 .ui-panel {
   float: left;
   padding: 1em;
@@ -35,10 +46,6 @@
 .nav-pane {
   background-color: #f5f5f5;
   border-bottom: 1px solid #dddddd;
-}
-
-.panel-body {
-  overflow-x: auto;
 }
 
 treecontrol>ul>li {
