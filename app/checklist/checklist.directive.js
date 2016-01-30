@@ -6,7 +6,7 @@ directive('checklist', ['$compile', '$parse', function($compile, $parse) {
   return {
     restrict: 'A',
     link: function($scope, element, attrs) {
-      var get_record = $parse(attrs.ngModel);
+      var get_record = $parse(attrs.ngElement);
       var get_selected = $parse(attrs.selectedList);
       var set_all_selected = $parse(attrs.allSelected).assign;
       var get_record_count = $parse(attrs.recordCount);

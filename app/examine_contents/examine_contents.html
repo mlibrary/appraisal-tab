@@ -52,7 +52,7 @@
         <input checklist
              type="checkbox"
              name="checked_files[]"
-             ng-model="record"
+             ng-element="record"
              ng-checked="vm.selected.indexOf(record.id) > -1"
              record-count="(vm.SelectedFiles.selected | find_files | filter:{bulk_extractor_reports: vm.type}).length"
              selected-list="vm.selected"
