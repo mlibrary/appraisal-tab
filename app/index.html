@@ -270,9 +270,9 @@
           <span ng-if="node.type === 'resource_component'" file-type="record">
             <i ng-if="node.has_children" class="fa fa-folder-o"></i>
             <i ng-if="!node.has_children" class="fa fa-file-o"></i>
-            <div ng-if="node.display_title">{{ node.display_title }}</div>
-            <div ng-if="!node.display_title">{{ node.title }}</div>
-            <div ng-if="node.identifier">({{ node.identifier }})</div>
+            <span ng-if="node.display_title">{{ node.display_title }}</span>
+            <span ng-if="!node.display_title">{{ node.title }}</span>
+            <span ng-if="node.identifier">({{ node.identifier }})</span>
           </span>
           <!-- SIP arrange directory -->
           <span ng-if="(node.type === 'arrange_entry') &amp;&amp; node.directory" tree-droppable tree-draggable on-drop="drop" file-type="arrange" file-path="{{ node.path }}">
