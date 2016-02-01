@@ -28,6 +28,7 @@ directive('treeDroppable', ['$parse', function($parse) {
 
       $(element).droppable({
         drop: drop_fn.bind($scope.node),
+        tolerance: 'pointer',
       });
     },
   };
