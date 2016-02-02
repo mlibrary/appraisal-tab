@@ -1,15 +1,18 @@
 Getting started
 ---------------
 
-This application uses npm and Bower to manage its dependencies; npm is used for commandline tools and libraries, and Bower is used to manage browser dependencies.
-When first installing or updating the application, run `npm install` in the terminal to install all dependencies.
+This application uses npm to manage its dependencies; dependencies used in the browser are bundled together using [webpack](https://webpack.github.io).
+When first installing or updating the application, run `npm install` in the terminal to install all dependencies and build a copy of the bundled app in app/appraisal_tab.js.
 
 Running a server
 ----------------
 
-A test server is provided as a part of the project's npm dependencies.
-To run a test server, run `npm start` in the terminal while in the project directory; the demo site will be available at `http://localhost:8000/app/`.
-The port can be customized in the `package.json` file in the root of this repository.
+This application currently can't be run standalone; it can only be run as a part of an Archivematica installation, since it depends on some external JavaScript and some backend APIs.
+To deploy within Archivematica, use the following steps:
+
+1. Run `npm install` to generate a bundled asset.
+2. Copy the `app/index.html` and `app/appraisal_tab.js` files into an Archivematica installation's static file directory.
+   (In future versions of Archivematica, these files will be deployed to the /media/appraisal directory.)
 
 Application architecture
 ------------------------
@@ -134,3 +137,141 @@ it('should be able to fetch a specific file', inject(function(_$httpBackend_, Fi
 
 Because the result from calling `File.get` is a *promise*, it's only executed when a response is received from the server - so it probably won't actually be executed before the test completes.
 Calling `_$httpBackend_.flush()` ensures that the mocked response is immediately returned, and the promise returned by `File.get` immediately resolves.
+
+
+Using Babel
+-----------
+
+All of the source code in this project is processed through [Babel](https://babeljs.io), which allows code to be written using ES2015, the latest version of the JS standard which isn't yet fully supported by web browsers.
+When a bundle is written, Babel transpiles the code into browser-compatible JavaScript.
+
+Here's a quick overview of new ES2015 features and how they're used in this project; a more complete guide to new features can be found [in the Babel documentation](https://babeljs.io/docs/learn-es2015/).
+
+### Arrow functions
+
+ES6 includes a second function syntax, the arrow function.
+It looks like this:
+
+```js
+arg => {
+  // function body
+}
+```
+
+Or:
+
+```js
+(arg1, arg2) => {
+  // function body
+}
+```
+
+This form has two main advantages:
+
+#### Callback arguments
+
+Arrow functions can only be used as anonymous function expressions, and look cleaner when passed as a literal argument to a function.
+Compare:
+
+```js
+[1, 2].forEach(function(element) {
+  console.log(element);
+})
+
+[1, 2].forEach(element => {
+  console.log(element);
+})
+```
+
+With one-line arrow functions, it's also possible to omit the braces; in this case there's implicit return and the value of the statement is always returned.
+This is useful to write concise `map` statements, for example:
+
+```js
+[1, 2, 3].map(n => `Value is: ${n}`) //=> [ 'Value is: 1', 'Value is: 2', 'Value is: 3' ]
+```
+
+#### `this` scope
+
+Arrow functions inherit `this` from the calling scope.
+
+Traditional JS functions have their own scope for `this`; in strict mode `this` is undefined for unbound functions, and in non-strict mode it refers to the global object.
+This makes using function expressions as callbacks in an OO context really confusing, and is why this has been a common idiom:
+
+```js
+var self = this;
+Transfer.get().then(function(response) {
+  self.data = response;
+});
+```
+
+Arrow functions don't define their own `this`; they inherit it from the parent scope. Here's an example from the new transfer browser:
+
+```js
+this.source_location_browser.list().then(locations => {
+  locations.forEach(location => {
+    this.source_locations[location.uuid] = location;
+  });
+  // preselect the first location, and browse its contents
+  this.source_location = locations[0].uuid;
+  this.browse(this.source_location);
+}, error => {
+  this.source_locations = previous_locations;
+});
+```
+
+In order to avoid confusion, use the following rule:
+
+* Functions which are bound to a name via the `function name()` syntax remain as traditional functions.
+* Functions which are assigned to variables or which are passed as literals to function calls are written as arrow functions, even if `this` is not used.
+
+### `let` variable definition
+
+JavaScript's `var` statement isn't block-scoped; instead it's scoped to the enclosing function, regardless of location.
+This means that it's possible (by accident) to override an existing variable in a way you might not expect to work:
+
+```js
+var i = 255;
+for (var i in [1, 2, 3]) {
+  // ...
+}
+i // => is now 3
+```
+
+For backwards compatibility, `var`'s scoping remains the same, but a new variable definition statement has been added: `let`.
+`let` is block-scoped:
+
+```js
+var i = 255;
+for (let i in [1, 2, 3]) {
+  // ...
+}
+i // => is still 255
+```
+
+For consistency, define all variables as `let` unless the scoping of `var` is needed.
+
+### Classes
+
+ES6 provides support for classes with constructors, alongside existing prototype-based objects.
+It turns out to be quite easy to define Angular services and controllers as objects, and this makes some stuff quite a bit cleaner.
+For example, instance methods on controller objects can be easily referenced from templates, which obviates the need to assign functions to properties as older versions of the appraisal tab have.
+
+Here's a good guide that covers over how this works: http://angular-tips.com/blog/2015/06/using-angular-1-dot-x-with-es6-and-webpack/
+
+### Modules
+
+ES6 provides support for real modules with their own separate namespaces.
+They're somewhat similar to Python modules, except that values are exported explicitly rather than every defined name being automatically importable.
+For example, instead of the `angular` name being globally available, we need to obtain a reference to it by importing it:
+
+```js
+import angular from 'angular';
+```
+
+This has a few implications:
+
+* Write every file as a module, and export appropriate values if there's something to export. This behaves a bit strangely in the context of Angular modules (since Angular has its own module system which defines modules via side effects of `angular.module` calls), but works very well for things like helper functions and classes.
+* Within modules, it's not necessary to worry about polluting the global object: variables are no longer being magically attached to `window`. This means IIFEs are unnecessary.
+* Make sure that all dependencies get imported in the places they're used, instead of relying on global <script> tags in the HTML page.
+
+Prefer using the ES2015 `import` syntax over the `require` function when writing code in the appraisal tab.
