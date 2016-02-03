@@ -2,6 +2,8 @@ import angular from 'angular';
 
 angular.module('arrangementController', ['sipArrangeService']).
 
+// This controller is responsible for the appraisal tab's implementation of SIP arrange.
+// It doesn't have its own partial, and its scope is located in front_page/content.html
 controller('ArrangementController', ['$scope', 'Alert', 'Transfer', 'SipArrange', function($scope, Alert, Transfer, SipArrange) {
   var vm = this;
 
@@ -11,12 +13,14 @@ controller('ArrangementController', ['$scope', 'Alert', 'Transfer', 'SipArrange'
     });
   };
 
+  // angular-tree-view options
   vm.options = {
     dirSelectable: true,
     isLeaf: node => {
       return !node.has_children;
     },
   };
+  // Filters the displayed tree to omit items with the display property set to false
   vm.filter_expression = {display: true};
   vm.filter_comparator = true;
 
@@ -126,6 +130,9 @@ controller('ArrangementController', ['$scope', 'Alert', 'Transfer', 'SipArrange'
     return file;
   };
 
+  // Called when files are dropped from either the transfer backlog
+  // or from elsewhere in arrange. Dispatches to the separate
+  // functions below.
   vm.drop = function(unused, ui) {
     if (ui.draggable.attr('file-type') === 'arrange') {
       return drop_from_arrange.apply(this, [unused, ui]);
