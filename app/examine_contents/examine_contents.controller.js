@@ -2,6 +2,7 @@ import angular from 'angular';
 
 angular.module('examineContentsController', []).
 
+// Controls the table which displays bulk_extractor log contents.
 controller('ExamineContentsController', ['$routeSegment', 'SelectedFiles', 'Transfer', function($routeSegment, SelectedFiles, Transfer) {
   var vm = this;
 
