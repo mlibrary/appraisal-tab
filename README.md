@@ -252,6 +252,23 @@ i // => is still 255
 
 For consistency, define all variables as `let` unless the scoping of `var` is needed.
 
+### Template strings
+
+Before ES2015, JavaScript didn't have string interpolation or format strings.
+As a result, including values in strings tends to look pretty verbose:
+
+```js
+var message = 'Oh no! Something terrible happened with file "' + file.title + '"!';
+```
+
+ES2015 adds a new string type, the [template string](https://babeljs.io/docs/learn-es2015/#template-strings); this string type uses backticks instead of quotes, and supports string interpolation using the bash-like `${}` syntax:
+
+```js
+let message = `Oh no! Something terrible happened with file "${file.title}"`;
+```
+
+Prefer using template strings over catting multiple strings together, unless the latter is shorter or easier to read.
+
 ### Classes
 
 ES6 provides support for classes with constructors, alongside existing prototype-based objects.
