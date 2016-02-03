@@ -13,6 +13,12 @@ factory('SipArrange', ['Restangular', function(Restangular) {
 
   // public
 
+  // Creates a new SIP arrange directory.
+  // * path - The full destination path within the arrange space; must begin with /arrange/
+  // * title - String to display within the UI
+  // * parent - Will be attached as the "parent" property in the returned object
+  //
+  // Returns an object formatted in the same format used by `list_contents`.
   var create_directory = function(path, title, parent) {
     // Return a formatted directory object
     var on_success = success => {
@@ -32,6 +38,8 @@ factory('SipArrange', ['Restangular', function(Restangular) {
     return post_form(SipArrange, 'create_directory_within_arrange', {path: Base64.encode(path)}).then(on_success);
   };
 
+  // Copies a file (or a directory, and its children) from `source` to `destination`.
+  // `source` must begin with /originals/, and `destination` must begin with /arrange/.
   var copy_to_arrange = function(source, destination) {
     var params = {
       'filepath': Base64.encode(source),
@@ -40,6 +48,12 @@ factory('SipArrange', ['Restangular', function(Restangular) {
     return post_form(SipArrange, 'copy_to_arrange', params);
   };
 
+  // Lists the files in a given location.
+  // * path - A directory located in SIP arrange. Must begin with /arrange/
+  // * parent - If specified, will be attached to the returned objects as the `parent` key
+  //
+  // Returns a list of objects; check archivematica-browse-helpers for the format:
+  // https://github.com/artefactual-labs/archivematica-browse-helpers
   var list_contents = function(path, parent) {
     var format_root = data => {
       return data.directories.map(directory => {
@@ -72,10 +86,14 @@ factory('SipArrange', ['Restangular', function(Restangular) {
     return SipArrange.one('contents').one('arrange').get({path: Base64.encode(path)}).then(decode_browse_response).then(on_success);
   };
 
+  // Deletes a file or directory from arrangement at the location `target`.
+  // `target` must begin with /arrange/.
   var remove = function(target) {
     return post_form(SipArrange.one('delete'), 'arrange', {filepath: Base64.encode(target)});
   };
 
+  // Starts a SIP from the directory at `target`.
+  // `target` must begin with /arrange/.
   var start_sip = function(target) {
     return post_form(SipArrange, 'copy_from_arrange', {filepath: Base64.encode(target)});
   };
