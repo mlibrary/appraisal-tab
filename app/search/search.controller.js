@@ -18,5 +18,7 @@ controller('SearchController', ['$scope', 'Alert', 'Transfer', function($scope, 
     });
   };
 
+  // This function comes from Archivematica's backlog.js, not from the appraisal tab itself.
+  // The on_request and on_error callbacks are provided to a jQuery.ajax call.
   renderBacklogSearchForm('/ingest/appraisal_list/', on_request, on_error);
 }]);
