@@ -3,7 +3,7 @@
 ## Deploying
 
 1. Clone this repository.
-2. Install [node.js (or io.js) and npm](https://nodejs.org/download/).
+2. Install [node.js and npm](https://nodejs.org/download/).
 3. Inside the repository, run `npm install`.
 4. Run `npm start`.
 
