@@ -2,6 +2,7 @@ import angular from 'angular';
 
 angular.module('fileListController', ['selectedFilesService']).
 
+// Controls the UI for viewing/manipulating the FileList.
 controller('FileListController', ['$scope', '$routeSegment', 'SelectedFiles', 'Transfer', function($scope, $routeSegment, SelectedFiles, Transfer) {
   var vm = this;
 
@@ -11,6 +12,7 @@ controller('FileListController', ['$scope', '$routeSegment', 'SelectedFiles', 'T
     Transfer.remove_tag(id, tag);
   };
 
+// Catch changes to the file list and update the checkbox selections
   $scope.$watch('selected_files.selected', () => {
     vm.selected = [];
     vm.all_selected = false;
