@@ -107,7 +107,7 @@ controller('ArchivesSpaceController', ['$scope', '$uibModal', 'Alert', 'Archives
 
         Alert.alerts.push({
           type: 'danger',
-          message: 'Unable to submit edits to record "' + node.title + '"; check dashboard logs.',
+          message: `Unable to submit edits to record "${node.title}"; check dashboard logs.`,
         });
       };
 
@@ -189,12 +189,12 @@ controller('ArchivesSpaceController', ['$scope', '$uibModal', 'Alert', 'Archives
 
           var title = node.title;
           if (node.identifier) {
-            title = title + ' (' + node.identifier + ')';
+            title = `${title} (${node.identifier})`;
           }
 
           Alert.alerts.push({
             type: 'danger',
-            message: 'Unable to submit edits to record "' + title + '"; check dashboard logs.',
+            message: `Unable to submit edits to record "${title}"; check dashboard logs.`,
           });
         };
 
@@ -257,7 +257,7 @@ controller('ArchivesSpaceController', ['$scope', '$uibModal', 'Alert', 'Archives
         var on_failure = error => {
           Alert.alerts.push({
             type: 'danger',
-            message: 'Unable to add new child record to record ' + node.id,
+            message: `Unable to add new child record to record ${node.id}`,
           });
         };
 
@@ -291,7 +291,7 @@ controller('ArchivesSpaceController', ['$scope', '$uibModal', 'Alert', 'Archives
         var on_failure = result => {
           Alert.alerts.push({
             type: 'danger',
-            message: 'Unable to add new digital object component to record ' + node.id,
+            message: `Unable to add new digital object component to record ${node.id}`,
           });
         };
 
@@ -324,7 +324,7 @@ controller('ArchivesSpaceController', ['$scope', '$uibModal', 'Alert', 'Archives
       var on_failure_aspace = error => {
         Alert.alerts.push({
           type: 'danger',
-          message: 'Unable to fetch record ' + node.id + ' from ArchivesSpace!',
+          message: `Unable to fetch record ${node.id} from ArchivesSpace!`,
         });
         $scope.loading = false;
       };
@@ -332,7 +332,7 @@ controller('ArchivesSpaceController', ['$scope', '$uibModal', 'Alert', 'Archives
       var on_failure_arrange = error => {
         Alert.alerts.push({
           type: 'danger',
-          message: 'Unable to fetch record ' + node.path + ' from Arrangement!',
+          message: `Unable to fetch record ${node.path} from Arrangement!`,
         });
         $scope.loading = false;
       };
@@ -555,7 +555,7 @@ controller('ArchivesSpaceController', ['$scope', '$uibModal', 'Alert', 'Archives
       var on_success = () => {
         Alert.alerts.push({
           type: 'success',
-          message: 'Successfully started SIP from record "' + node.title + '"',
+          message: `Successfully started SIP from record "${node.title}"`,
         });
 
         // Remove the digital object components so the user doesn't try to add new items
@@ -565,7 +565,7 @@ controller('ArchivesSpaceController', ['$scope', '$uibModal', 'Alert', 'Archives
         var message;
         // error.message won't be defined if this returned an HTML 500
         if (error.message && error.message.startsWith('No SIP Arrange mapping')) {
-          message = 'Unable to start SIP; no files arranged into record "' + node.title + '".';
+          message = `Unable to start SIP; no files arranged into record "${node.title}".`;
         } else {
           message = 'Unable to start SIP; check dashboard logs.';
         }
