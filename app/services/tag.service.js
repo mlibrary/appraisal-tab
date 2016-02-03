@@ -10,7 +10,7 @@ factory('Tag', ['$log', 'Restangular', function($log, Restangular) {
   // public
 
   // Returns an array of tags for the file with the specified UUID.
-  var get = function(id, tags) {
+  var get = function(id) {
     return Tag.one(id).one('tags').getList();
   };
 
