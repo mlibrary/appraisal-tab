@@ -56,10 +56,6 @@ factory('ArchivesSpace', ['Restangular', function(Restangular) {
         var url_fragment = id_to_urlsafe(id);
         return ArchivesSpace.one(url_fragment).one('children').customPOST(record);
       },
-      create_directory: function(id) {
-        var url_fragment = id_to_urlsafe(id);
-        return ArchivesSpace.one(url_fragment).one('create_directory_within_arrange').customPOST();
-      },
       // Lists all of the digital object components associated with a given record.
       // This returns digital object components tracked by Archivematica in its
       // database - not necessarily components which have been submitted to
@@ -87,23 +83,6 @@ factory('ArchivesSpace', ['Restangular', function(Restangular) {
       list_digital_object_component_contents: function(id, component_id) {
         var id_fragment = id_to_urlsafe(id);
         return ArchivesSpace.one(id_fragment).one('digital_object_components').one(String(component_id)).one('files').get().then(decode_browse_response).then(format_entries);
-      },
-      copy_to_arrange: function(id, filepath) {
-        var url_fragment = id_to_urlsafe(id);
-        return ArchivesSpace.one(url_fragment).customPOST(
-          $.param({filepath: Base64.encode(filepath)}),
-          'copy_to_arrange',
-          {},
-          {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'}
-        );
-      },
-      list_arrange_contents: function(id, parent) {
-        var url_fragment = id_to_urlsafe(id);
-        return ArchivesSpace.one(url_fragment).one('contents').one('arrange').get(url_fragment).then(decode_browse_response).then(data => {
-          let entries = format_entries(data, parent.path, parent);
-          entries.forEach(entry => entry.type = 'arrange_entry');
-          return entries;
-        });
       },
       // Removes the ArchivesSpace record with the given ID.
       // The deletion occurs immediately on the remote ArchivesSpace server.

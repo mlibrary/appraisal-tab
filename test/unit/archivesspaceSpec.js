@@ -67,13 +67,6 @@ describe('ArchivesSpace', function() {
       'success': true,
       'message': 'Record successfully edited',
     });
-    _$httpBackend_.when('POST', '/access/archivesspace/-repositories-2-archival_objects-6/create_directory_within_arrange').respond({
-      'success': true,
-      'message': 'Creation successful.',
-    });
-    _$httpBackend_.when('POST', '/access/archivesspace/-repositories-2-archival_objects-6/copy_to_arrange').respond({
-      'message': 'Files added to the SIP.',
-    });
     _$httpBackend_.when('GET', '/access/archivesspace/-repositories-2-archival_objects-7/digital_object_components').respond([{
       'id': 1,
     }]);
@@ -82,15 +75,6 @@ describe('ArchivesSpace', function() {
     });
     _$httpBackend_.when('PUT', '/access/archivesspace/-repositories-2-archival_objects-7/digital_object_components').respond('');
     _$httpBackend_.when('GET', '/access/archivesspace/-repositories-2-archival_objects-7/digital_object_components/2/files').respond({
-      'entries': [
-        'VGVzdA==',
-      ],
-      'directories': [
-        'VGVzdA==',
-      ],
-      'properties': [],
-    });
-    _$httpBackend_.when('GET', '/access/archivesspace/-repositories-2-archival_objects-6/contents/arrange').respond({
       'entries': [
         'VGVzdA==',
       ],
@@ -161,13 +145,6 @@ describe('ArchivesSpace', function() {
     _$httpBackend_.flush();
   }));
 
-  it('should be able to create a new SIP arrange directory to back a record', inject(function(_$httpBackend_, ArchivesSpace) {
-    ArchivesSpace.create_directory('/repositories/2/archival_objects/6').then(function(result) {
-      expect(result.success).toBe(true);
-    });
-    _$httpBackend_.flush();
-  }));
-
   it('should be able to list digital object components for a record', inject(function(_$httpBackend_, ArchivesSpace) {
     ArchivesSpace.digital_object_components('/repositories/2/archival_objects/7').then(function(result) {
       expect(result.length).toBe(1);
@@ -195,22 +172,6 @@ describe('ArchivesSpace', function() {
 
   it('should be able to list files within a digital object component', inject(function(_$httpBackend_, ArchivesSpace) {
     ArchivesSpace.list_digital_object_component_contents('/repositories/2/archival_objects/7', '2').then(function(records) {
-      expect(records.length).toEqual(1);
-      expect(records[0].title).toEqual('Test');
-      expect(records[0].has_children).toBe(true);
-    });
-    _$httpBackend_.flush();
-  }));
-
-  it('should be able to add files to a record', inject(function(_$httpBackend_, ArchivesSpace) {
-    ArchivesSpace.copy_to_arrange('/repositories/2/archival_objects/6').then(function(result) {
-      expect(result.message).toEqual('Files added to the SIP.');
-    });
-    _$httpBackend_.flush();
-  }));
-
-  it('should be able to list arrange files within a record', inject(function(_$httpBackend_, ArchivesSpace) {
-    ArchivesSpace.list_arrange_contents('/repositories/2/archival_objects/6').then(function(records) {
       expect(records.length).toEqual(1);
       expect(records[0].title).toEqual('Test');
       expect(records[0].has_children).toBe(true);
