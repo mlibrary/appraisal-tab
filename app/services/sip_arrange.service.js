@@ -2,6 +2,7 @@ import angular from 'angular';
 import {decode_browse_response, format_entries} from 'archivematica-browse-helpers';
 import $ from 'jquery';
 import Base64 from 'base64-helpers';
+// lodash is used by restangular
 import 'lodash';
 import 'restangular';
 
