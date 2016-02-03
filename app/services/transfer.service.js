@@ -1,15 +1,14 @@
 import angular from 'angular';
 import Base64 from 'base64-helpers';
-import '../services/alert.service';
 import '../services/facet.service';
 import '../services/tag.service';
 
-angular.module('transferService', ['alertService', 'facetService', 'tagService']).
+angular.module('transferService', ['facetService', 'tagService']).
 
 // Provides functions to manage transfer backlog data fetched from Archivematica.
 // The Transfer service is able to take a set of data and track it internally,
 // while also tracking reformatted copies of the data for convenience.
-factory('Transfer', ['Alert', 'Facet', 'Restangular', 'Tag', function(Alert, Facet, Restangular, Tag) {
+factory('Transfer', ['Facet', 'Tag', function(Facet, Tag) {
   var get_record = function(id) {
     var record = this.id_map[id];
     if (!record) {
