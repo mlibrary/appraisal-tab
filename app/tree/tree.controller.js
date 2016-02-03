@@ -2,7 +2,9 @@ import angular from 'angular';
 
 angular.module('treeController', []).
 
+// Handles fetching the data for the transfer backlog tree view.
 controller('TreeController', ['$scope', 'SelectedFiles', 'Transfer', function($scope, SelectedFiles, Transfer) {
+  // Used by jquery-ui's "draggable" to render the dragged object.
   $scope.helper = function() {
     var uuid = $(this).attr('uuid');
     var file = Transfer.id_map[uuid];
@@ -10,6 +12,7 @@ controller('TreeController', ['$scope', 'SelectedFiles', 'Transfer', function($s
     return $('<div>' + file.title + '</div>');
   };
 
+  // angular-tree-view options
   $scope.options = {
     dirSelectable: true,
     multiSelection: true,
@@ -23,6 +26,7 @@ controller('TreeController', ['$scope', 'SelectedFiles', 'Transfer', function($s
       li: 'file',
     },
   };
+  // Hides objects with display set to "false"
   $scope.filter_expression = {display: true};
   $scope.filter_comparator = true;
 
@@ -30,6 +34,8 @@ controller('TreeController', ['$scope', 'SelectedFiles', 'Transfer', function($s
     Transfer.remove_tag(id, tag);
   };
 
+  // These functions add/remove files from the SelectedFiles service we use
+  // to share files between controllers.
   var add_file = node => {
     SelectedFiles.add(node);
     if (node.children) {
