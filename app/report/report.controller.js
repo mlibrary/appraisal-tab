@@ -6,9 +6,14 @@ controller('ReportSelectionController', ['$scope', '$routeSegment', function($sc
   $scope.$routeSegment = $routeSegment;
 }]).
 
+// Used to display the file information table.
 controller('ReportController', ['$scope', 'Facet', 'SelectedFiles', 'Transfer', function($scope, Facet, SelectedFiles, Transfer) {
   $scope.records = SelectedFiles;
 
+  // There are several columns which can be sorted on; the user can click on the
+  // table header to sort ascending/descending by that field.
+  // These properties control that; check for the set_sort_property() calls in
+  // the partials to see how this is used.
   $scope.format_sort_property = 'format';
   $scope.format_reverse = false;
   $scope.format_sort_fn = function(record) {
