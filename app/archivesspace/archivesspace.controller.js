@@ -3,6 +3,26 @@ import '../vendor/angular-ui-bootstrap/ui-bootstrap-custom-tpls-0.14.3.min.js';
 
 angular.module('archivesSpaceController', ['alertService', 'sipArrangeService', 'transferService', 'ui.bootstrap']).
 
+// This controller does a lot. Functions handled by this controller and its partial include:
+// * Fetching data from ArchivesSpace to feed to the tree view in the partial.
+// * Creating new ArchivesSpace records, and editing existing records
+// * Creating new digital object components, and editing existing components
+// * SIP arrange interactions with the contents of digital object components
+//
+// The tree displayed in the partial has three types of objects:
+// * ArchivesSpace records
+// * digital object components
+// * SIP arrange files/directories
+// These are distinguished via the "type" parameter, which has the following values:
+// * resource (ArchivesSpace resource record)
+// * resource_component (ArchivesSpace archival object record)
+// * arrange_entry (SIP arrange file or directory)
+// * digital_object (digital object component)
+//
+// These share several key properties, such as "title", some other values differ.
+// Both the partials and some parts of code in the controller distinguish between these
+// categories using the "type" parameter, and use that to control display logic and to
+// dispatch to different functions which operate on them.
 controller('ArchivesSpaceController', ['$scope', '$uibModal', 'Alert', 'ArchivesSpace', 'SipArrange', 'Transfer', function($scope, $uibModal, Alert, ArchivesSpace, SipArrange, Transfer) {
   $scope.get_rights_url = (record) => {
     if (record === undefined) {
@@ -57,6 +77,7 @@ controller('ArchivesSpaceController', ['$scope', '$uibModal', 'Alert', 'Archives
     }
   };
 
+  // Opens a modal to edit a digital object component.
   var edit_component = node => {
     var form = $uibModal.open({
       templateUrl: 'archivesspace/digital_object_form.html',
@@ -98,6 +119,7 @@ controller('ArchivesSpaceController', ['$scope', '$uibModal', 'Alert', 'Archives
     });
   };
 
+    // Opens a modal to edit an ArchivesSpace record.
     var edit_record = node => {
       var form = $uibModal.open({
         templateUrl: 'archivesspace/form.html',
@@ -188,6 +210,9 @@ controller('ArchivesSpaceController', ['$scope', '$uibModal', 'Alert', 'Archives
       });
     };
 
+    // Opens a modal to add a new ArchivesSpace record.
+    // This is slightly different from the "edit" form above,
+    // since there are a few fields that are read-only.
     $scope.add_child = function(node) {
       var form = $uibModal.open({
         templateUrl: 'archivesspace/form.html',
@@ -240,8 +265,7 @@ controller('ArchivesSpaceController', ['$scope', '$uibModal', 'Alert', 'Archives
       });
     };
 
-    // Add a "digital object" object, to which files can be dragged in order
-    // to produce digital object components
+    // Add a "digital object component" object, to which files can be dragged
     $scope.add_digital_object = function(node) {
       var form = $uibModal.open({
         templateUrl: 'archivesspace/digital_object_form.html',
@@ -275,6 +299,7 @@ controller('ArchivesSpaceController', ['$scope', '$uibModal', 'Alert', 'Archives
       });
     };
 
+    // tree options used by angular-tree-view
     $scope.options = {
       dirSelectable: true,
       equality: (a, b) => {
@@ -399,6 +424,11 @@ controller('ArchivesSpaceController', ['$scope', '$uibModal', 'Alert', 'Archives
       return file;
     };
 
+    // Called when a file is dragged from the transfer backlog onto an element,
+    // or when a file is dragged from SIP arrange onto an element.
+    // This dispatches to different functions depending on whether the source is
+    // transfer backlog or SIP arrange, and whether the target is an ArchivesSpace
+    // record or a SIP arrange directory (including ArchivesSpace records).
     $scope.drop = function(unused, ui) {
       if ($scope.loading) {
         return;
@@ -494,6 +524,7 @@ controller('ArchivesSpaceController', ['$scope', '$uibModal', 'Alert', 'Archives
       });
     };
 
+    // Deletes an ArchivesSpace record or a SIP arrange file/directory.
     $scope.remove = function(node) {
       if ($scope.loading) {
         return;
@@ -517,6 +548,9 @@ controller('ArchivesSpaceController', ['$scope', '$uibModal', 'Alert', 'Archives
       }
     };
 
+    // Starts a SIP from an ArchivesSpace record.
+    // This uses the digital object components attached to the ArchivesSpace record,
+    // each of which will become a directory in the newly-created SIP.
     $scope.finalize_arrangement = function(node) {
       var on_success = () => {
         Alert.alerts.push({
