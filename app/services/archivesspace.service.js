@@ -2,7 +2,7 @@ import angular from 'angular';
 import {decode_browse_response, format_entries} from 'archivematica-browse-helpers';
 import Base64 from 'base64-helpers';
 import $ from 'jquery';
-import _ from 'lodash';
+import 'lodash';
 import 'restangular';
 
 angular.module('archivesSpaceService', ['restangular']).
