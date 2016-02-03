@@ -18,14 +18,14 @@ factory('Tag', ['$log', 'Restangular', function($log, Restangular) {
   var submit = function(id, tags) {
     Tag.one(id).one('tags').customPUT(tags).then(null, response => {
       // TODO display error handling
-      $log.error('Submitting tags for file ' + String(id) + ' failed with response: ', response.status);
+      $log.error(`Submitting tags for file ${String(id)} failed with response: ${response.status}`);
     });
   };
 
   // Removes all tags from the file with the specified `uuid`.
   var remove = function(id) {
     Tag.one(id).one('tags').remove().then(null, response => {
-      $log.error('Deleting tags for file ' + String(id) + ' failed with response: ' + response.status);
+      $log.error(`Deleting tags for file ${String(id)} failed with response: ${response.status}`);
     });
   };
 
