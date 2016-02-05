@@ -230,6 +230,12 @@
                ng-disabled="selected.type !== 'resource' &amp;&amp; selected.type !== 'resource_component'"
                ng-click="add_digital_object(selected)"
                value='Add New Digital Object Component'>
+        <a class='btn btn-primary'
+           href="{{ get_rights_url(selected) }}"
+           ng-disabled="selected.type !== 'resource' &amp;&amp; selected.type !== 'resource_component'"
+           target='_blank'>
+          Edit Rights Metadata
+        </a>
         <input type='button'
                class='btn btn-primary'
                id='edit_record'

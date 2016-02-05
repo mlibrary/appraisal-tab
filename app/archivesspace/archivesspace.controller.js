@@ -4,6 +4,13 @@ import '../vendor/angular-ui-bootstrap/ui-bootstrap-custom-tpls-0.14.3.min.js';
 angular.module('archivesSpaceController', ['alertService', 'sipArrangeService', 'transferService', 'ui.bootstrap']).
 
 controller('ArchivesSpaceController', ['$scope', '$uibModal', 'Alert', 'ArchivesSpace', 'SipArrange', 'Transfer', function($scope, $uibModal, Alert, ArchivesSpace, SipArrange, Transfer) {
+  $scope.get_rights_url = (record) => {
+    if (record === undefined) {
+      return '';
+    }
+    return `/access/archivesspace/${record.id.replace(/\//g, '-')}/rights/`;
+  };
+
   // Reformats several properties on the form object, returning them in
   // a format suitable for use with the ArchivesSpace service's `edit`
   // and `add_child` functions.
