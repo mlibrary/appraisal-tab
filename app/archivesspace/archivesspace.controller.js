@@ -343,7 +343,6 @@ controller('ArchivesSpaceController', ['$scope', '$uibModal', 'Alert', 'Archives
         $scope.loading = false;
       });
     };
-    load_data();
 
     // Prevent a given file or its descendants from being dragged more than once
     var dragged_ids = [];
