@@ -16,6 +16,39 @@ describe('ArchivesSpace', function() {
         'id': '/repositories/2/resources/1',
       },
     ]);
+    _$httpBackend_.when('GET', '/access/archivesspace?title=Test+record').respond([
+      {
+        'dates': '2015-01-01',
+        'title': 'Test record',
+        'levelOfDescription': 'series',
+        'children': [],
+        'sortPosition': 2,
+        'identifier': 'F8',
+        'id': '/repositories/2/resources/9',
+      },
+    ]);
+    _$httpBackend_.when('GET', '/access/archivesspace?identifier=F9').respond([
+      {
+        'dates': '2015-01-01',
+        'title': 'Artefactual fonds',
+        'levelOfDescription': 'fonds',
+        'children': [],
+        'sortPosition': 2,
+        'identifier': 'F9',
+        'id': '/repositories/2/resources/10',
+      },
+    ]);
+    _$httpBackend_.when('GET', '/access/archivesspace?identifier=F10&title=Record').respond([
+      {
+        'dates': '2015-01-01',
+        'title': 'Record with a matching identifier and title',
+        'levelOfDescription': 'fonds',
+        'children': [],
+        'sortPosition': 2,
+        'identifier': 'F10',
+        'id': '/repositories/2/resources/11',
+      },
+    ]);
     _$httpBackend_.when('GET', '/access/archivesspace/-repositories-2-archival_objects-4').respond({
         'dates': '',
         'title': 'Test file',
@@ -98,6 +131,30 @@ describe('ArchivesSpace', function() {
     ArchivesSpace.all().then(function(objects) {
       expect(objects.length).toEqual(1);
       expect(objects[0].title).toEqual('Test fonds');
+    });
+    _$httpBackend_.flush();
+  }));
+
+  it('should be able to search for ArchivesSpace records by title', inject(function(_$httpBackend_, ArchivesSpace) {
+    ArchivesSpace.search({'title': 'Test record'}).then(function(objects) {
+      expect(objects.length).toEqual(1);
+      expect(objects[0].title).toEqual('Test record');
+    });
+    _$httpBackend_.flush();
+  }));
+
+  it('should be able to search for ArchivesSpace records by identifier', inject(function(_$httpBackend_, ArchivesSpace) {
+    ArchivesSpace.search({'identifier': 'F9'}).then(function(objects) {
+      expect(objects.length).toEqual(1);
+      expect(objects[0].title).toEqual('Artefactual fonds');
+    });
+    _$httpBackend_.flush();
+  }));
+
+  it('should be able to search for ArchivesSpace records by title and identifier', inject(function(_$httpBackend_, ArchivesSpace) {
+    ArchivesSpace.search({'identifier': 'F10', 'title': 'Record'}).then(function(objects) {
+      expect(objects.length).toEqual(1);
+      expect(objects[0].title).toEqual('Record with a matching identifier and title');
     });
     _$httpBackend_.flush();
   }));

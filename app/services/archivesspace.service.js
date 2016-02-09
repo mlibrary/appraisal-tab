@@ -20,6 +20,9 @@ factory('ArchivesSpace', ['Restangular', function(Restangular) {
       all: function() {
         return ArchivesSpace.getList();
       },
+      search: function(opts) {
+        return ArchivesSpace.getList({'title': opts.title, 'identifier': opts.identifier});
+      },
       // Returns a single record, given its ID (e.g., /repositories/2/resources/1)
       get: function(id) {
         var url_fragment = id_to_urlsafe(id);
