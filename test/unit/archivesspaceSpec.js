@@ -45,19 +45,21 @@ describe('ArchivesSpace', function() {
         'id': '/repositories/2/resources/3',
       },
       ]);
-    _$httpBackend_.when('GET', '/access/archivesspace/levels').respond([
-      'class',
-      'collection',
-      'file',
-      'fonds',
-      'item',
-      'otherlevel',
-      'recordgrp',
-      'series',
-      'subfonds',
-      'subgrp',
-      'subseries',
-    ]);
+    _$httpBackend_.when('GET', '/access/archivesspace/levels').respond(function() {
+      return [
+        'class',
+        'collection',
+        'file',
+        'fonds',
+        'item',
+        'otherlevel',
+        'recordgrp',
+        'series',
+        'subfonds',
+        'subgrp',
+        'subseries',
+      ];
+    });
     _$httpBackend_.when('POST', '/access/archivesspace/-repositories-2-archival_objects-4/children').respond({
       'success': true,
       'id': '/repositories/2/archival_objects/5',
