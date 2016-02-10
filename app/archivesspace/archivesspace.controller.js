@@ -315,14 +315,6 @@ controller('ArchivesSpaceController', ['$scope', '$uibModal', 'Alert', 'Archives
       }
     };
 
-    $scope.refresh = function(node) {
-      if (node) {
-        load_element_children(node);
-      } else {
-        load_data();
-      }
-    };
-
     $scope.on_toggle = function(node, expanded) {
       if ((!expanded || !node.has_children || node.children_fetched) && node.type !== 'digital_object') {
         return;
@@ -331,17 +323,25 @@ controller('ArchivesSpaceController', ['$scope', '$uibModal', 'Alert', 'Archives
       load_element_children(node);
     };
 
-    var load_data = () => {
-      // TODO: handle failure to contact ArchivesSpace here;
-      //       probably want to scope this to only happen if ASpace pane is opened.
-      //       (The controller is always instantiated before the pane opens,
-      //       so adding an alert here would always render even if ArchivesSpace
-      //       wasn't clicked.)
-      $scope.loading = true;
-      ArchivesSpace.all().then(data => {
+    $scope.load_data = (query) => {
+      let on_success = data => {
         $scope.data = data;
         $scope.loading = false;
-      });
+      };
+      let on_failure = response => {
+        $scope.loading = false;
+        Alert.alerts.push({
+          type: 'danger',
+          message: 'Unable to access ArchivesSpace; check dashboard logs!',
+        });
+      };
+
+      $scope.loading = true;
+      if (query === undefined) {
+        return ArchivesSpace.all().then(on_success, on_failure);
+      } else {
+        return ArchivesSpace.search(query).then(on_success, on_failure);
+      }
     };
 
     // Prevent a given file or its descendants from being dragged more than once

@@ -216,6 +216,19 @@
     <div class='panel panel-default' ng-controller="ArchivesSpaceController">
       <div class='panel-heading'>
         ArchivesSpace <span ng-if="loading"><i class="fa fa-spinner fa-spin"></i></span>
+
+        <form ng-submit="load_data({title: title_query, identifier: id_query})">
+          <input type="text"
+                 ng-model="title_query"
+                 placeholder="Title">
+          <input type="text"
+                 ng-model="id_query"
+                 placeholder="Identifier">
+          <input type="submit"
+                 class='btn btn-sm btn-primary'
+                 id="archivesspace_search"
+                 value="Search ArchivesSpace">
+         </form>
       </div>
       <div class="transfer-tree panel-body">
         <input type='button'
@@ -255,11 +268,6 @@
                ng-disabled="selected.type !== 'resource' &amp;&amp; selected.type !== 'resource_component'"
                ng-click="finalize_arrangement(selected)"
                value='Finalize Arrangement'>
-        <input type='button'
-               class='btn btn-primary'
-               id='refresh'
-               ng-click="refresh(selected)"
-               value='Reload'>
         <treecontrol id="archivesspace-tree"
                class="tree-light"
                tree-model="data"
