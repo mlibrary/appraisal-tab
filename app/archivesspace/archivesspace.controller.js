@@ -24,6 +24,13 @@ controller('ArchivesSpaceController', ['$scope', '$uibModal', 'Alert', 'Archives
       content: form.note,
     }];
     delete copy.note;
+    if (copy.accessrestrict_note) {
+      copy.notes.push({
+        type: 'accessrestrict',
+        content: copy.accessrestrict_note,
+      });
+    }
+    delete copy.accessrestrict_note;
 
     if (form.start_date) {
       copy.dates = form.start_date.toISOString().slice(0, 10) + '-' + form.end_date.toISOString().slice(0, 10);
@@ -116,8 +123,19 @@ controller('ArchivesSpaceController', ['$scope', '$uibModal', 'Alert', 'Archives
             return node.date_expression;
           },
           note: () => {
-            if (node.notes && node.notes[0]) {
-              return node.notes[0].content;
+            if (node.notes) {
+              let general_notes = node.notes.filter(note => note.type === 'odd');
+              if (general_notes.length > 0) {
+                return general_notes[0].content;
+              }
+            }
+          },
+          accessrestrict_note: () => {
+            if (node.notes) {
+              let use_notes = node.notes.filter(note => note.type === 'accessrestrict');
+              if (use_notes.length > 0) {
+                return use_notes[0].content;
+              }
             }
           },
         },
@@ -195,6 +213,9 @@ controller('ArchivesSpaceController', ['$scope', '$uibModal', 'Alert', 'Archives
             return '';
           },
           note: () => {
+            return '';
+          },
+          accessrestrict_note: () => {
             return '';
           },
         },
@@ -524,7 +545,7 @@ controller('ArchivesSpaceController', ['$scope', '$uibModal', 'Alert', 'Archives
     };
   }]).
 
-controller('ArchivesSpaceEditController', ['$uibModalInstance', 'levels', 'level', 'title', 'start_date', 'end_date', 'date_expression', 'note', function($uibModalInstance, levels, level, title, start_date, end_date, date_expression, note) {
+controller('ArchivesSpaceEditController', ['$uibModalInstance', 'levels', 'level', 'title', 'start_date', 'end_date', 'date_expression', 'note', function($uibModalInstance, levels, level, title, start_date, end_date, date_expression, note, accessrestrict_note) {
   var vm = this;
 
   vm.levels = levels;
@@ -534,6 +555,7 @@ controller('ArchivesSpaceEditController', ['$uibModalInstance', 'levels', 'level
   vm.end_date = end_date;
   vm.date_expression = date_expression;
   vm.note = note;
+  vm.accessrestrict_note = accessrestrict_note;
 
   vm.ok = function() {
     $uibModalInstance.close(vm);
