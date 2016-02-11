@@ -194,7 +194,7 @@
                    all-selected="vm.all_selected">
             </td>
             <td>
-              <a href="#{{ vm.$routeSegment.getSegmentUrl('preview', {id: file.id}) }}">{{ file.title }}</a>
+              <a href="#{{ vm.$routeSegment.getSegmentUrl('preview', {id: file.id}) }}">{{ file.relative_path }}</a>
             </td>
             <td>{{ file.size | number}} MB</td>
             <td>{{ file.last_modified }}</td>
