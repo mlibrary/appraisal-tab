@@ -1,8 +1,8 @@
 import angular from 'angular';
 
-angular.module('previewController', ['route-segment', 'fileListService']).
+angular.module('previewController', ['route-segment', 'selectedFilesService']).
 
-controller('PreviewController', ['$scope', '$routeSegment', 'Alert', 'File', 'FileList', function($scope, $routeSegment, Alert, File, FileList) {
+controller('PreviewController', ['$scope', '$routeSegment', 'Alert', 'File', 'SelectedFiles', function($scope, $routeSegment, Alert, File, SelectedFiles) {
   var vm = this;
 
   vm.set_file_data = file => {
@@ -14,7 +14,7 @@ controller('PreviewController', ['$scope', '$routeSegment', 'Alert', 'File', 'Fi
   $scope.id = $routeSegment.$routeParams.id;
   if ($scope.id !== undefined) {
     // Try to get file from the file list first, to avoid pinging the server.
-    var file = FileList.get($scope.id);
+    var file = SelectedFiles.get($scope.id);
     if (file) {
       vm.set_file_data(file);
     } else {
