@@ -180,7 +180,6 @@
             <th><a ng-click="vm.set_sort_property('size')">Size</a></th>
             <th><a ng-click="vm.set_sort_property('last_modified')">Last modified</a></th>
             <th>Tags</th>
-            <th><i class="fa fa-minus-square" ng-click="vm.file_list.clear()"></i></th>
           </tr>
           <tr ng-repeat="file in vm.file_list.files | filter: {'date': '*'} : vm.facet_filter | orderBy: vm.sort_property : vm.sort_reverse">
             <td>
@@ -200,9 +199,6 @@
             <td>{{ file.last_modified }}</td>
             <td>
               <span class="tag" ng-repeat="tag in file.tags">{{ tag }} <span ng-click="vm.remove_tag(file.id, tag)"><i class="fa fa-minus-square"></i></span></span>
-            </td>
-            <td>
-              <i class="fa fa-minus-square" ng-click="vm.file_list.remove(file.id)"></i>
             </td>
           </tr>
           </table>
