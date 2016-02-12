@@ -6,7 +6,7 @@ controller('ReportSelectionController', ['$scope', '$routeSegment', function($sc
   $scope.$routeSegment = $routeSegment;
 }]).
 
-controller('ReportController', ['$scope', 'FileList', 'SelectedFiles', function($scope, FileList, SelectedFiles) {
+controller('ReportController', ['$scope', 'SelectedFiles', function($scope, SelectedFiles) {
   $scope.records = SelectedFiles;
 
   $scope.format_sort_property = 'format';
@@ -34,13 +34,5 @@ controller('ReportController', ['$scope', 'FileList', 'SelectedFiles', function(
   $scope.tag_sort_fn = function(args) {
     var tag = args[0], count = args[1];
     return $scope.tag_sort_property === 'tag' ? tag : count;
-  };
-
-  $scope.set_file_list = function(type, attr) {
-    FileList.files = SelectedFiles.selected.filter(file => file[attr] === type);
-  };
-
-  $scope.add_tags_to_file_list = function(tag) {
-    FileList.files = SelectedFiles.selected.filter(file => file.tags.indexOf(tag) > -1);
   };
 }]);
