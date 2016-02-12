@@ -181,7 +181,7 @@
             <th><a ng-click="vm.set_sort_property('last_modified')">Last modified</a></th>
             <th>Tags</th>
           </tr>
-          <tr ng-repeat="file in vm.selected_files.selected | filter: {'date': '*'} : vm.facet_filter | orderBy: vm.sort_property : vm.sort_reverse">
+          <tr ng-repeat="file in vm.selected_files.selected | facet | filter: {'date': '*'} : vm.facet_filter | filter: {'type': 'file'} | orderBy: vm.sort_property : vm.sort_reverse">
             <td>
               <input checklist
                    type="checkbox"
