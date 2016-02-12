@@ -157,7 +157,7 @@ factory('Facet', function() {
   // private
 
   var filter_value = function(key, value) {
-    if (undefined === this.facets[key]) {
+    if (undefined === this.facets[key] || undefined === value) {
       // no facet for this key
       return true;
     }
