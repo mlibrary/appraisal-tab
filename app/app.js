@@ -63,7 +63,6 @@ import './services/alert.service.js';
 import './services/archivesspace.service.js';
 import './services/facet.service.js';
 import './services/file.service.js';
-import './services/file_list.service.js';
 import './services/selected.service.js';
 import './services/sip_arrange.service.js';
 import './services/tag.service.js';
