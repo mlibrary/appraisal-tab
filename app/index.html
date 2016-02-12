@@ -135,8 +135,8 @@
         File List
       </div>
       <div class='panel-body' ng-controller="FileListController as vm">
-        <div ng-if="vm.file_list.files.length > 0">
-          <p><b><ng-pluralize count="vm.file_list.files.length" when="{'1': '1 object', 'other': '{} objects'}"></ng-pluralize></b> in list, <ng-pluralize count="vm.selected.length" when="{'1': '1 object', 'other': '{} objects'}"></ng-pluralize> selected</p>
+        <div ng-if="vm.selected_files.selected.length > 0">
+          <p><b><ng-pluralize count="vm.selected_files.selected.length" when="{'1': '1 object', 'other': '{} objects'}"></ng-pluralize></b> in list, <ng-pluralize count="vm.selected.length" when="{'1': '1 object', 'other': '{} objects'}"></ng-pluralize> selected</p>
 
           <fieldset>
             <label for='start-date-facet'>Date range start</label>
@@ -181,14 +181,14 @@
             <th><a ng-click="vm.set_sort_property('last_modified')">Last modified</a></th>
             <th>Tags</th>
           </tr>
-          <tr ng-repeat="file in vm.file_list.files | filter: {'date': '*'} : vm.facet_filter | orderBy: vm.sort_property : vm.sort_reverse">
+          <tr ng-repeat="file in vm.selected_files.selected | filter: {'date': '*'} : vm.facet_filter | orderBy: vm.sort_property : vm.sort_reverse">
             <td>
               <input checklist
                    type="checkbox"
                    name="checked_files[]"
                    ng-element="file"
                    ng-checked="vm.selected.indexOf(file.id) > -1"
-                   record-count="vm.file_list.files.length"
+                   record-count="vm.selected_files.selected.length"
                    selected-list="vm.selected"
                    all-selected="vm.all_selected">
             </td>
@@ -203,7 +203,7 @@
           </tr>
           </table>
         </div>
-        <p ng-if="vm.file_list.files.length === 0">File list is empty.</p>
+        <p ng-if="vm.selected_files.selected.length === 0">File list is empty.</p>
       </div>
     </div>
   </ui-minimize-panel>

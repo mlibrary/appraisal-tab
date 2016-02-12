@@ -1,17 +1,17 @@
 import angular from 'angular';
 
-angular.module('fileListController', ['fileListService']).
+angular.module('fileListController', ['selectedFilesService']).
 
-controller('FileListController', ['$scope', '$routeSegment', 'FileList', 'Transfer', function($scope, $routeSegment, FileList, Transfer) {
+controller('FileListController', ['$scope', '$routeSegment', 'SelectedFiles', 'Transfer', function($scope, $routeSegment, SelectedFiles, Transfer) {
   var vm = this;
 
   vm.$routeSegment = $routeSegment;
-  vm.file_list = FileList;
+  vm.selected_files = SelectedFiles;
   vm.remove_tag = (id, tag) => {
     Transfer.remove_tag(id, tag);
   };
 
-  $scope.$watch('file_list.files', () => {
+  $scope.$watch('selected_files.selected', () => {
     vm.selected = [];
     vm.all_selected = false;
   });
@@ -21,7 +21,7 @@ controller('FileListController', ['$scope', '$routeSegment', 'FileList', 'Transf
 
   vm.select_all = () => {
     if (!vm.all_selected) {
-      vm.selected = FileList.files.map(file => file.id);
+      vm.selected = SelectedFiles.selected.map(file => file.id);
       vm.all_selected = true;
     } else {
       vm.selected = [];
