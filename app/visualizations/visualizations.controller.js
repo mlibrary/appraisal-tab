@@ -2,20 +2,16 @@ import angular from 'angular';
 
 angular.module('visualizationsController', [
   'angularCharts',
-  'fileListService',
   'selectedFilesService',
 ]).
 
-controller('VisualizationsController', ['$scope', 'FileList', 'SelectedFiles', function($scope, FileList, SelectedFiles) {
+controller('VisualizationsController', ['$scope', 'SelectedFiles', function($scope, SelectedFiles) {
   // Displays aggregate information about file formats;
   // the selected record data is filtered/reformatted in the view.
   $scope.records = SelectedFiles;
   $scope.format_chart_type = 'pie';
   $scope.format_config = {
     // Formats (total)
-    click: function(d) {
-      FileList.files = SelectedFiles.selected.filter(file => file.format === d.data.format);
-    },
     tooltips: true,
     labels: false,
     legend: {
@@ -28,9 +24,6 @@ controller('VisualizationsController', ['$scope', 'FileList', 'SelectedFiles', f
   $scope.size_chart_type = 'pie';
   $scope.size_config = {
     // Formats (by size)
-    click: function(d) {
-      FileList.files = SelectedFiles.selected.filter(file => file.format === d.data.format);
-    },
     tooltips: true,
     labels: false,
     legend: {
