@@ -2,7 +2,7 @@ import angular from 'angular';
 
 angular.module('examineContentsController', []).
 
-controller('ExamineContentsController', ['$routeSegment', 'FileList', 'SelectedFiles', 'Transfer', function($routeSegment, FileList, SelectedFiles, Transfer) {
+controller('ExamineContentsController', ['$routeSegment', 'SelectedFiles', 'Transfer', function($routeSegment, SelectedFiles, Transfer) {
   var vm = this;
 
   vm.$routeSegment = $routeSegment;
@@ -30,10 +30,6 @@ controller('ExamineContentsController', ['$routeSegment', 'FileList', 'SelectedF
 
     Transfer.add_list_of_tags(ids, tag);
     this.tag = '';
-  };
-
-  vm.add_to_file_list = ids => {
-    FileList.files = SelectedFiles.selected.filter(file => ids.indexOf(file.id) > -1);
   };
 }]).
 
