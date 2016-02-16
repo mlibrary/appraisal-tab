@@ -58,26 +58,6 @@ describe('ArchivesSpace', function() {
         'identifier': 'F1-1-1-1',
         'id': '/repositories/2/archival_objects/4',
     });
-    _$httpBackend_.when('GET', '/access/archivesspace/accession/AS-1').respond([
-      {
-        'dates': '2015-01-01',
-        'title': 'Series created from accession AS-1',
-        'levelOfDescription': 'series',
-        'children': false,
-        'sortPosition': 5,
-        'identifier': 'AS-1',
-        'id': '/repositories/2/resources/2',
-      },
-      {
-        'dates': '2015-01-01',
-        'title': 'Collection created from accession AS-1',
-        'levelOfDescription': 'collection',
-        'children': false,
-        'sortPosition': 6,
-        'identifier': 'AS-1',
-        'id': '/repositories/2/resources/3',
-      },
-      ]);
     _$httpBackend_.when('GET', '/access/archivesspace/levels').respond(function() {
       return [
         'class',
@@ -163,14 +143,6 @@ describe('ArchivesSpace', function() {
     ArchivesSpace.get('/repositories/2/archival_objects/4').then(function(object) {
       expect(object.children).toBe(false);
       expect(object.title).toEqual('Test file');
-    });
-    _$httpBackend_.flush();
-  }));
-
-  it('should be able to fetch records by accession number', inject(function(_$httpBackend_, ArchivesSpace) {
-    ArchivesSpace.get_by_accession('AS-1').then(function(results) {
-      expect(results.length).toBe(2);
-      expect(results[0].title).toEqual('Series created from accession AS-1');
     });
     _$httpBackend_.flush();
   }));

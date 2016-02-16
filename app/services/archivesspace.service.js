@@ -28,11 +28,6 @@ factory('ArchivesSpace', ['Restangular', function(Restangular) {
         var url_fragment = id_to_urlsafe(id);
         return ArchivesSpace.one(url_fragment).get();
       },
-      // Attempts to fetch every record associated with the provided accession number.
-      // Returns zero or more results.
-      get_by_accession: function(accession) {
-        return ArchivesSpace.one('accession').one(accession).getList();
-      },
       // Fetches all children of the specified record.
       get_children: function(id) {
         var url_fragment = id_to_urlsafe(id);
