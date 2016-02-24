@@ -1,9 +1,5 @@
 // styles
 import './app.css';
-import './css/directory-picker.css';
-import './css/file-explorer.css';
-import './css/search.css';
-import './css/style.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'font-awesome/css/font-awesome.min.css';
 import './vendor/angular-tree-control/css/tree-control.css';
