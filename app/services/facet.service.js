@@ -137,8 +137,8 @@ factory('Facet', function() {
   // which the object doesn't have.
   // Returns true if the object passes at least one facet defined for its
   // keys, false otherwise.
-  var passes_filters = function(object) {
-    var keys = Object.keys(this.facets);
+  // Optionally, keys can be passed, and it will only check filters for those keys.
+  var passes_filters = function(object, keys = Object.keys(this.facets)) {
     var key, value;
     // If no filters, everything passes
     if (keys.length === 0) {
