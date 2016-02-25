@@ -100,7 +100,7 @@ factory('Transfer', ['Facet', 'Tag', function(Facet, Tag) {
     filter: function() {
       angular.forEach(this.id_map, file => {
         if (file.type === 'file') {
-          file.display = Facet.passes_filters(file);
+          file.display = Facet.passes_filters(file, ['tags']);
         } else {
           file.display = true;
         }
