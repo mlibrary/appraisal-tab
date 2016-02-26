@@ -228,7 +228,7 @@
       <input type='button'
              class='btn btn-primary'
              id='finalize_arrange'
-             ng-disabled="selected.type !== 'resource' &amp;&amp; selected.type !== 'resource_component'"
+             ng-disabled="selected.request_pending || (selected.type !== 'resource' &amp;&amp; selected.type !== 'resource_component')"
              ng-click="finalize_arrangement(selected)"
              value='Finalize Arrangement'>
       <treecontrol id="archivesspace-tree"

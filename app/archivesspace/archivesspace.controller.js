@@ -553,6 +553,7 @@ controller('ArchivesSpaceController', ['$scope', '$uibModal', 'Alert', 'Archives
     // each of which will become a directory in the newly-created SIP.
     $scope.finalize_arrangement = function(node) {
       var on_success = () => {
+        node.request_pending = false;
         Alert.alerts.push({
           type: 'success',
           message: `Successfully started SIP from record "${node.title}"`,
@@ -562,6 +563,7 @@ controller('ArchivesSpaceController', ['$scope', '$uibModal', 'Alert', 'Archives
         node.children = node.children.filter(element => element.type !== 'digital_object');
       };
       var on_failure = error => {
+        node.request_pending = false;
         var message;
         // error.message won't be defined if this returned an HTML 500
         if (error.message && error.message.startsWith('No SIP Arrange mapping')) {
@@ -575,6 +577,7 @@ controller('ArchivesSpaceController', ['$scope', '$uibModal', 'Alert', 'Archives
         });
       };
 
+      node.request_pending = true;
       ArchivesSpace.start_sip(node.id).then(on_success, on_failure);
     };
   }]).
