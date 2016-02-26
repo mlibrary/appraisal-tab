@@ -79,3 +79,8 @@ fieldset {
 .digital-object-component-form {
   padding: 15px;
 }
+
+.modal-dialog {
+  /* Navbar is 40px, so this gives a space of 15px in between. */
+  margin-top: 55px;
+}
