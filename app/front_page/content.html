@@ -75,7 +75,7 @@
 </ui-minimize-panel>
 
 <ui-minimize-panel title="Analysis" open='true'>
-  <div class='panel panel-default'>
+  <div class='panel panel-default' ng-controller="AnalysisController">
     <div>
       <ul class="nav nav-pills nav-pane" role='menu'>
         <li ng-class="{ active: $routeSegment.contains('objects') }">
