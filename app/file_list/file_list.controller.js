@@ -3,7 +3,7 @@ import angular from 'angular';
 angular.module('fileListController', ['selectedFilesService']).
 
 // Controls the UI for viewing/manipulating the FileList.
-controller('FileListController', ['$scope', '$routeSegment', 'SelectedFiles', 'Transfer', function($scope, $routeSegment, SelectedFiles, Transfer) {
+controller('FileListController', ['$scope', '$routeSegment', 'SelectedFiles', 'Transfer', 'Facet', function($scope, $routeSegment, SelectedFiles, Transfer, Facet) {
   var vm = this;
 
   vm.$routeSegment = $routeSegment;
@@ -23,7 +23,7 @@ controller('FileListController', ['$scope', '$routeSegment', 'SelectedFiles', 'T
 
   vm.select_all = () => {
     if (!vm.all_selected) {
-      vm.selected = SelectedFiles.selected.map(file => file.id);
+      vm.selected = Facet.filter(SelectedFiles.selected.filter(file => file.type === 'file')).map(file => file.id);
       vm.all_selected = true;
     } else {
       vm.selected = [];
