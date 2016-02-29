@@ -172,8 +172,8 @@ factory('Facet', function() {
       var results = value.map(function(element) {
         return filter_value.apply(self, [key, element]);
       });
-      // if there are no false elements, return true
-      return results.indexOf(false) === -1;
+      // if there are any true elements, return true
+      return results.indexOf(true) !== -1;
     }
 
     for (var i in this.facets[key]) {

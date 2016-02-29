@@ -133,6 +133,7 @@ describe('Facet', function() {
     Facet.add('key', 'test');
     expect(Facet.passes_filters({'key': ['test']})).toBe(true);
     expect(Facet.passes_filters({'key': ['this', 'should', 'fail']})).toBe(false);
+    expect(Facet.passes_filters({'key': ['this', 'should', 'pass', 'test']})).toBe(true);
   }));
 
   it('should consider empty list values to be false', inject(function(Facet) {
