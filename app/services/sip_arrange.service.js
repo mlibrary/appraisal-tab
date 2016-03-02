@@ -38,13 +38,21 @@ factory('SipArrange', ['Restangular', function(Restangular) {
     return post_form(SipArrange, 'create_directory_within_arrange', {path: Base64.encode(path)}).then(on_success);
   };
 
-  // Copies a file (or a directory, and its children) from `source` to `destination`.
-  // `source` must begin with /originals/, and `destination` must begin with /arrange/.
+  // Copies files listed in `source` to `destination`.
+  // Paths in `source` must begin with /originals/ and paths in `destination` must begin with /arrange/
   var copy_to_arrange = function(source, destination) {
-    var params = {
-      'filepath': Base64.encode(source),
-      'destination': Base64.encode(destination),
-    };
+    var params = {};
+    if (typeof source === 'string' && typeof destination === 'string') {
+      params = {
+        'filepath': Base64.encode(source),
+        'destination': Base64.encode(destination),
+      };
+    } else {
+      params = {
+        'filepath': source.map(path => Base64.encode(path)),
+        'destination': destination.map(path => Base64.encode(path)),
+      };
+    }
     return post_form(SipArrange, 'copy_to_arrange', params);
   };
 

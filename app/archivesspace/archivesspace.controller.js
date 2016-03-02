@@ -469,6 +469,33 @@ controller('ArchivesSpaceController', ['$scope', '$uibModal', 'Alert', 'Archives
       SipArrange.copy_to_arrange(path, this.path).then(on_move);
     };
 
+    // TODO use SipArrange's copy
+    var basename = path => path.replace(/\\/g, '/').replace( /.*\//, '' );
+
+    // TODO use SipArrange's copy
+    var generate_files_list = (file, source_path, destination_path) => {
+      let paths = {'source': [], 'destination': []};
+
+      if (!file.display) {
+        return paths;
+      }
+
+      if (file.type === 'file') {
+        paths.source.push(source_path + file.relative_path);
+        paths.destination.push(destination_path + basename(file.relative_path));
+      }
+
+      if (file.children) {
+        angular.forEach(file.children, child => {
+          let child_paths = generate_files_list(child, source_path,
+            destination_path + basename(file.relative_path) + '/');
+          paths.source = paths.source.concat(child_paths.source);
+          paths.destination = paths.destination.concat(child_paths.destination);
+        });
+      }
+      return paths;
+    };
+
     var copy_backlog_to_aspace = function(file) {
       // create a deep copy of the file and its children so we don't mutate
       // the copies used in the backlog
@@ -488,12 +515,10 @@ controller('ArchivesSpaceController', ['$scope', '$uibModal', 'Alert', 'Archives
         }
       };
 
-      var source_path;
-      if (file.type === 'file') {
-        source_path = file.relative_path;
-      } else {
-        source_path = file.relative_path + '/';
-      }
+      let paths = generate_files_list(file,
+        '/originals/',
+        this.path
+      );
 
       // TODO make sure `path` property is correctly specified
       $scope.$apply(() => {
@@ -502,7 +527,7 @@ controller('ArchivesSpaceController', ['$scope', '$uibModal', 'Alert', 'Archives
         this.has_children = true;
         this.children = [];
         this.children_fetched = false;
-        SipArrange.copy_to_arrange('/originals/' + source_path, this.path).then(on_copy);
+        SipArrange.copy_to_arrange(paths.source, paths.destination).then(on_copy);
       });
     };
 

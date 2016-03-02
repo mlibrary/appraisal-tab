@@ -107,27 +107,29 @@ controller('ArrangementController', ['$scope', 'Alert', 'Transfer', 'SipArrange'
     SipArrange.start_sip('/arrange/' + directory.path + '/').then(on_success, on_failure);
   };
 
-  // Filter the list of dragged files to contain only files with the "display"
-  // parameter, so that only visibly selected files are dragged over
-  var filter_files = file => {
+  var basename = path => path.replace(/\\/g, '/').replace( /.*\//, '' );
+
+  var generate_files_list = (file, source_path, destination_path) => {
+    let paths = {'source': [], 'destination': []};
+
     if (!file.display) {
-      return {};
+      return paths;
     }
 
-    // Filter children recursively
+    if (file.type === 'file') {
+      paths.source.push(source_path + file.relative_path);
+      paths.destination.push(destination_path + basename(file.relative_path));
+    }
+
     if (file.children) {
-      var children = file.children;
-      file.children = [];
-      angular.forEach(children, child => {
-        child = filter_files(child);
-        // Omit empty objects, or directories whose children have all been filtered out
-        if (child.id && child.type === 'file' || (child.children && child.children.length > 0)) {
-          file.children.push(child);
-        }
+      angular.forEach(file.children, child => {
+        let child_paths = generate_files_list(child, source_path,
+          destination_path + basename(file.relative_path) + '/');
+        paths.source = paths.source.concat(child_paths.source);
+        paths.destination = paths.destination.concat(child_paths.destination);
       });
     }
-
-    return file;
+    return paths;
   };
 
   // Called when files are dropped from either the transfer backlog
@@ -160,18 +162,13 @@ controller('ArrangementController', ['$scope', 'Alert', 'Transfer', 'SipArrange'
   var drop_from_backlog = function(unused, ui) {
     var file_uuid = ui.draggable.attr('uuid');
     var file = Transfer.id_map[file_uuid];
-    // create a deep copy of the file and its children so we don't mutate
-    // the copies used in the backlog
-    file = filter_files(Object.assign({}, file));
 
-    var source_path;
-    if (file.type === 'file') {
-      source_path = file.relative_path;
-    } else {
-      source_path = file.relative_path + '/';
-    }
+    let paths = generate_files_list(file,
+      '/originals/',
+      '/arrange/' + this.path + '/'
+    );
 
-    SipArrange.copy_to_arrange('/originals/' + source_path, '/arrange/' + this.path + '/').then(on_copy_success, on_copy_failure);
+    SipArrange.copy_to_arrange(paths.source, paths.destination).then(on_copy_success, on_copy_failure);
   };
 
   var drop_from_arrange = function(unused, ui) {

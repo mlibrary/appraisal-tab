@@ -26,6 +26,9 @@ describe('SipArrange', function() {
     _$httpBackend_.when('POST', '/filesystem/copy_to_arrange', 'filepath=c291cmNl&destination=ZGVzdGluYXRpb24%3D').respond({
       'message': 'Files added to the SIP.',
     });
+    _$httpBackend_.when('POST', '/filesystem/copy_to_arrange', 'filepath%5B%5D=cGF0aDE%3D&filepath%5B%5D=cGF0aDI%3D&destination%5B%5D=ZGVzdDE%3D&destination%5B%5D=ZGVzdDI%3D').respond({
+      'message': 'Files added to the SIP.',
+    });
     _$httpBackend_.when('POST', '/filesystem/copy_from_arrange', 'filepath=dGFyZ2V0').respond({
       'message': 'SIP created.',
     });
@@ -70,6 +73,12 @@ describe('SipArrange', function() {
 
   it('should be able to add files to a SIP', inject(function(_$httpBackend_, SipArrange) {
     SipArrange.copy_to_arrange('source', 'destination').then(function(response) {
+      expect(response.message).toEqual('Files added to the SIP.');
+    });
+    _$httpBackend_.flush();
+  }));
+  it('should be able to add a list of files to a SIP', inject(function(_$httpBackend_, SipArrange) {
+    SipArrange.copy_to_arrange(['path1', 'path2'], ['dest1', 'dest2']).then(function(response) {
       expect(response.message).toEqual('Files added to the SIP.');
     });
     _$httpBackend_.flush();
