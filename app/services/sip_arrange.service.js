@@ -84,7 +84,9 @@ factory('SipArrange', ['Restangular', function(Restangular) {
     };
 
     let format_files = data => {
-      let entries = format_entries(data, parent.path, parent);
+      // format_entries expects a directory that does not end in /
+      let parent_path = parent.path && parent.path.slice(-1) === '/' ? parent.path.slice(0, -1) : parent.path;
+      let entries = format_entries(data, parent_path, parent);
       entries.forEach(entry => entry.type = 'arrange_entry');
       return entries;
     };

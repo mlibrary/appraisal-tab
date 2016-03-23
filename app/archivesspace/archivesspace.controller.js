@@ -28,6 +28,9 @@ controller('ArchivesSpaceController', ['$scope', '$uibModal', 'Alert', 'Archives
     if (record === undefined) {
       return '';
     }
+    if (record.type !== 'resource' && record.type !== 'resource_component') {
+      return '';
+    }
     return `/access/archivesspace/${record.id.replace(/\//g, '-')}/rights/`;
   };
 
