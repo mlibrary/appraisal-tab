@@ -5,14 +5,6 @@ angular.module('treeController', []).
 
 // Handles fetching the data for the transfer backlog tree view.
 controller('TreeController', ['$scope', 'SelectedFiles', 'Transfer', function($scope, SelectedFiles, Transfer) {
-  // Used by jquery-ui's "draggable" to render the dragged object.
-  $scope.helper = function() {
-    var uuid = $(this).attr('uuid');
-    var file = Transfer.id_map[uuid];
-    // TODO: style this element
-    return $('<div>' + file.title + '</div>');
-  };
-
   // angular-tree-view options
   $scope.options = {
     dirSelectable: true,

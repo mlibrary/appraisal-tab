@@ -218,7 +218,11 @@ describe('ArchivesSpace', function() {
   }));
 
   it('should be able to start a SIP given a record ID', inject(function(_$httpBackend_, ArchivesSpace) {
-    ArchivesSpace.start_sip('/repositories/2/archival_objects/6').then(function(response) {
+    var node = {
+      id: '/repositories/2/archival_objects/6',
+      title: 'Node title'
+    };
+    ArchivesSpace.start_sip(node).then(function(response) {
       expect(response.message).toEqual('SIP created.');
     });
     _$httpBackend_.flush();

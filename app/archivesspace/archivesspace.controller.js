@@ -122,493 +122,496 @@ controller('ArchivesSpaceController', ['$scope', '$uibModal', 'Alert', 'Archives
     });
   };
 
-    // Opens a modal to edit an ArchivesSpace record.
-    var edit_record = node => {
-      var form = $uibModal.open({
-        templateUrl: 'archivesspace/form.html',
-        controller: 'ArchivesSpaceEditController',
-        controllerAs: 'form',
-        resolve: {
-          levels: () => {
-            return levels_of_description;
-          },
-          title: () => {
-            return node.title;
-          },
-          level: () => {
-            return node.levelOfDescription;
-          },
-          start_date: () => {
-            return false;
-          },
-          end_date: () => {
-            return false;
-          },
-          date_expression: () => {
-            return node.date_expression;
-          },
-          note: () => {
-            if (node.notes) {
-              let general_notes = node.notes.filter(note => note.type === 'odd');
-              if (general_notes.length > 0) {
-                return general_notes[0].content;
-              }
-            }
-          },
-          accessrestrict_note: () => {
-            if (node.notes) {
-              let use_notes = node.notes.filter(note => note.type === 'accessrestrict');
-              if (use_notes.length > 0) {
-                return use_notes[0].content;
-              }
-            }
-          },
+  // Opens a modal to edit an ArchivesSpace record.
+  var edit_record = node => {
+    var form = $uibModal.open({
+      templateUrl: 'archivesspace/form.html',
+      controller: 'ArchivesSpaceEditController',
+      controllerAs: 'form',
+      resolve: {
+        levels: () => {
+          return levels_of_description;
         },
-      });
-      form.result.then(result => {
-        // Assign these to variables so we can restore them if the PUT fails
-        var original_title = node.title;
-        var original_level = node.levelOfDescription;
-        var original_note = node.notes;
-
-        node.title = result.title;
-        var formatted = reformat_form_results(result);
-        node.levelOfDescription = formatted.levelOfDescription;
-        node.notes = formatted.notes;
-        node.dates = formatted.dates;
-        // Any node with pending requests will be marked as non-editable
-        node.request_pending = true;
-
-        var on_success = response => {
-          node.request_pending = false;
-        };
-
-        var on_failure = error => {
-          // Restore the original title/level since the request failed
-          node.title = original_title;
-          node.levelOfDescription = original_level;
-          node.notes = original_note;
-          node.request_pending = false;
-
-          var title = node.title;
-          if (node.identifier) {
-            title = `${title} (${node.identifier})`;
-          }
-
-          Alert.alerts.push({
-            type: 'danger',
-            message: `Unable to submit edits to record "${title}"; check dashboard logs.`,
-          });
-        };
-
-        // Our nodes have cyclic references; elements track a "parent" reference,
-        // but since parents also track their children the relationship goes both
-        // ways.
-        // Make sure we delete the parent reference in the object we're POSTing,
-        // since otherwise we won't be able to JSON-serialize it.
-        let node_to_post = Object.assign({}, node);
-        delete node_to_post['parent'];
-
-        ArchivesSpace.edit(node.id, node_to_post).then(on_success, on_failure);
-      });
-    };
-
-    // Opens a modal to add a new ArchivesSpace record.
-    // This is slightly different from the "edit" form above,
-    // since there are a few fields that are read-only.
-    $scope.add_child = function(node) {
-      var form = $uibModal.open({
-        templateUrl: 'archivesspace/form.html',
-        controller: 'ArchivesSpaceEditController',
-        controllerAs: 'form',
-        resolve: {
-          levels: () => {
-            return ArchivesSpace.get_levels_of_description().$object;
-          },
-          title: () => {
-            return '';
-          },
-          level: () => {
-            return '';
-          },
-          start_date: () => {
-            return new Date();
-          },
-          end_date: () => {
-            return new Date();
-          },
-          date_expression: () => {
-            return '';
-          },
-          note: () => {
-            return '';
-          },
-          accessrestrict_note: () => {
-            return '';
-          },
+        title: () => {
+          return node.title;
         },
-      });
-      form.result.then(result => {
-        var result = reformat_form_results(result);
-
-        var on_success = response => {
-          result.id = response.id;
-          result.parent = node;
-          append_child(node, result);
-        };
-
-        var on_failure = error => {
-          Alert.alerts.push({
-            type: 'danger',
-            message: `Unable to add new child record to record ${node.id}`,
-          });
-        };
-
-        ArchivesSpace.add_child(node.id, result).then(on_success, on_failure);
-      });
-    };
-
-    // Add a "digital object component" object, to which files can be dragged
-    $scope.add_digital_object = function(node) {
-      var form = $uibModal.open({
-        templateUrl: 'archivesspace/digital_object_form.html',
-        controller: 'DigitalObjectEditController',
-        controllerAs: 'form',
-        resolve: {
-          title: () => {
-            return '';
-          },
-          label: () => {
-            return '';
-          },
+        level: () => {
+          return node.levelOfDescription;
         },
-      });
-
-      form.result.then(result => {
-        var on_success = response => {
-          result.id = response.component_id;
-          result.type = 'digital_object';
-          append_child(node, result);
-        };
-
-        var on_failure = result => {
-          Alert.alerts.push({
-            type: 'danger',
-            message: `Unable to add new digital object component to record ${node.id}`,
-          });
-        };
-
-        ArchivesSpace.create_digital_object_component(node.id, result).then(on_success, on_failure);
-      });
-    };
-
-    // tree options used by angular-tree-view
-    $scope.options = {
-      dirSelectable: true,
-      equality: (a, b) => {
-        if (a === undefined || b === undefined) {
+        start_date: () => {
           return false;
-        } else if (a.id && b.id) {
-          return a.id === b.id;
-        } else {
-          return a.path === b.path;
-        }
-      },
-      isLeaf: node => {
-        return !node.has_children && node.type !== 'digital_object';
-      },
-    };
-
-    // Loads the children of the specified element,
-    // along with arranged SIP contents that might exist
-    var load_element_children = node => {
-      $scope.loading = true;
-
-      var on_failure_aspace = error => {
-        Alert.alerts.push({
-          type: 'danger',
-          message: `Unable to fetch record ${node.id} from ArchivesSpace!`,
-        });
-        $scope.loading = false;
-      };
-
-      var on_failure_arrange = error => {
-        Alert.alerts.push({
-          type: 'danger',
-          message: `Unable to fetch record ${node.path} from Arrangement!`,
-        });
-        $scope.loading = false;
-      };
-
-      node.children = [];
-
-      if (node.id && node.type !== 'digital_object') {  // ArchivesSpace node
-        ArchivesSpace.get_children(node.id).then(children => {
-          children.map(element => element.parent = node);
-          node.children = node.children.concat(children);
-          node.children_fetched = true;
-          $scope.loading = false;
-        }, on_failure_aspace);
-
-        // Also check to see if there are any digital object components;
-        // if so, render them like any other ASpace objects
-        ArchivesSpace.digital_object_components(node.id).then(components => {
-          node.children = node.children.concat(components);
-        });
-      } else {  // SipArrange node
-        SipArrange.list_contents(node.path, node).then(entries => {
-          node.children = entries;
-          node.children_fetched = true;
-          $scope.loading = false;
-        }, on_failure_arrange);
-      }
-    };
-
-    $scope.on_toggle = function(node, expanded) {
-      if ((!expanded || !node.has_children || node.children_fetched) && node.type !== 'digital_object') {
-        return;
-      }
-
-      load_element_children(node);
-    };
-
-    $scope.load_data = (query) => {
-      let on_success = data => {
-        $scope.data = data;
-        $scope.loading = false;
-      };
-      let on_failure = response => {
-        $scope.loading = false;
-        Alert.alerts.push({
-          type: 'danger',
-          message: 'Unable to access ArchivesSpace; check dashboard logs!',
-        });
-      };
-
-      $scope.loading = true;
-      if (query === undefined) {
-        return ArchivesSpace.all().then(on_success, on_failure);
-      } else {
-        return ArchivesSpace.search(query).then(on_success, on_failure);
-      }
-    };
-
-    // Prevent a given file or its descendants from being dragged more than once
-    var dragged_ids = [];
-    var log_ids = file => {
-      dragged_ids.push(file.id);
-      if (file.children) {
-        for (var i = 0; i < file.children.length; i++) {
-          log_ids(file.children[i]);
-        }
-      }
-    };
-
-    // Filter the list of dragged files to contain only files with the "display"
-    // parameter, so that only visibly selected files are dragged over
-    var filter_files = file => {
-      if (!file.display) {
-        return {};
-      }
-
-      // Filter children recursively
-      if (file.children) {
-        var children = file.children;
-        file.children = [];
-        angular.forEach(children, child => {
-          child = filter_files(child);
-          // Omit empty objects, or directories whose children have all been filtered out
-          if (child.id && child.type === 'file' || (child.children && child.children.length > 0)) {
-            file.children.push(child);
+        },
+        end_date: () => {
+          return false;
+        },
+        date_expression: () => {
+          return node.date_expression;
+        },
+        note: () => {
+          if (node.notes) {
+            let general_notes = node.notes.filter(note => note.type === 'odd');
+            if (general_notes.length > 0) {
+              return general_notes[0].content;
+            }
           }
-        });
-      }
+        },
+        accessrestrict_note: () => {
+          if (node.notes) {
+            let use_notes = node.notes.filter(note => note.type === 'accessrestrict');
+            if (use_notes.length > 0) {
+              return use_notes[0].content;
+            }
+          }
+        },
+      },
+    });
+    form.result.then(result => {
+      // Assign these to variables so we can restore them if the PUT fails
+      var original_title = node.title;
+      var original_level = node.levelOfDescription;
+      var original_note = node.notes;
 
-      return file;
-    };
+      node.title = result.title;
+      var formatted = reformat_form_results(result);
+      node.levelOfDescription = formatted.levelOfDescription;
+      node.notes = formatted.notes;
+      node.dates = formatted.dates;
+      // Any node with pending requests will be marked as non-editable
+      node.request_pending = true;
 
-    // Called when a file is dragged from the transfer backlog onto an element,
-    // or when a file is dragged from SIP arrange onto an element.
-    // This dispatches to different functions depending on whether the source is
-    // transfer backlog or SIP arrange, and whether the target is an ArchivesSpace
-    // record or a SIP arrange directory (including ArchivesSpace records).
-    $scope.drop = function(unused, ui) {
-      if ($scope.loading) {
-        return;
-      }
-
-      var type = ui.draggable.attr('file-type');
-      var is_arrange_file = this.type !== 'digital_object';
-      if (type === 'arrange') {
-        var path = ui.draggable.attr('file-path');
-        if (is_arrange_file) {
-          return copy_arrange_to_arrange.apply(this, [path]);
-        } else {
-          return copy_arrange_to_aspace.apply(this, [path]);
-        }
-      } else {
-        var file = Transfer.id_map[ui.draggable.attr('uuid')];
-        if (is_arrange_file) {
-          return copy_backlog_to_arrange.apply(this, [file]);
-        } else {
-          return copy_backlog_to_aspace.apply(this, [file]);
-        }
-      }
-    };
-
-    var copy_arrange_to_arrange = function(path) {
-      var on_move = () => {
-        load_element_children(this);
-      };
-
-      SipArrange.copy_to_arrange(path, '/arrange/' + this.path).then(on_move);
-    };
-
-    var copy_arrange_to_aspace = function(path) {
-      var on_move = () => {
-        load_element_children(this);
-      };
-
-      SipArrange.copy_to_arrange(path, this.path).then(on_move);
-    };
-
-    // TODO use SipArrange's copy
-    var basename = path => path.replace(/\\/g, '/').replace( /.*\//, '' );
-
-    // TODO use SipArrange's copy
-    var generate_files_list = (file, source_path, destination_path) => {
-      let paths = {'source': [], 'destination': []};
-
-      if (!file.display) {
-        return paths;
-      }
-
-      if (file.type === 'file') {
-        paths.source.push(source_path + file.relative_path);
-        paths.destination.push(destination_path + basename(file.relative_path));
-      }
-
-      if (file.children) {
-        angular.forEach(file.children, child => {
-          let child_paths = generate_files_list(child, source_path,
-            destination_path + basename(file.relative_path) + '/');
-          paths.source = paths.source.concat(child_paths.source);
-          paths.destination = paths.destination.concat(child_paths.destination);
-        });
-      }
-      return paths;
-    };
-
-    var copy_backlog_to_aspace = function(file) {
-      // create a deep copy of the file and its children so we don't mutate
-      // the copies used in the backlog
-      file = filter_files(Object.assign({}, file));
-      if (!file.id) {
-        return;
-      }
-
-      var on_copy = () => {
-        if ($scope.expanded_nodes.indexOf(this) === -1) {
-          $scope.expanded_nodes.push(this);
-          // expanded event will not fire if the node was programmatically expanded - this loads children
-          $scope.on_toggle(this, true);
-        } else {
-          // Reload the directory to reflect new contents
-          load_element_children(this);
-        }
-      };
-
-      let paths = generate_files_list(file,
-        '/originals/',
-        this.path
-      );
-
-      // TODO make sure `path` property is correctly specified
-      $scope.$apply(() => {
-        $scope.loading = true;
-
-        this.has_children = true;
-        this.children = [];
-        this.children_fetched = false;
-        SipArrange.copy_to_arrange(paths.source, paths.destination).then(on_copy);
-      });
-    };
-
-    var copy_backlog_to_arrange = function(file) {
-      var source_path;
-      if (file.type === 'file') {
-        source_path = file.relative_path;
-      } else {
-        source_path = file.relative_path + '/';
-      }
-
-      // Reload the directory to reflect new contents
-      var on_copy = () => {
-        load_element_children(this);
-      };
-
-      $scope.$apply(() => {
-        SipArrange.copy_to_arrange('/arrange/' + source_path, '/arrange/' + this.path).then(on_copy);
-      });
-    };
-
-    // Deletes an ArchivesSpace record or a SIP arrange file/directory.
-    $scope.remove = function(node) {
-      if ($scope.loading) {
-        return;
-      }
-
-      var on_delete = element => {
-        // `node.parent` is undefined if this is a root-level directory
-        var siblings = node.parent ? node.parent.children : $scope.data.children;
-        var idx = siblings.indexOf(node);
-        if (idx !== -1){
-          siblings.splice(idx, 1);
-        }
-        $scope.selected = undefined;
-      };
-
-      // TODO is this a reliable way to tell nodes apart?
-      if (node.id) { // ArchivesSpace node
-        ArchivesSpace.remove(node.id).then(on_delete);
-      } else {  // SipArrange node
-        SipArrange.remove(node.path).then(on_delete);
-      }
-    };
-
-    // Starts a SIP from an ArchivesSpace record.
-    // This uses the digital object components attached to the ArchivesSpace record,
-    // each of which will become a directory in the newly-created SIP.
-    $scope.finalize_arrangement = function(node) {
-      var on_success = () => {
+      var on_success = response => {
         node.request_pending = false;
-        Alert.alerts.push({
-          type: 'success',
-          message: `Successfully started SIP from record "${node.title}"`,
-        });
-
-        // Remove the digital object components so the user doesn't try to add new items
-        node.children = node.children.filter(element => element.type !== 'digital_object');
       };
+
       var on_failure = error => {
+        // Restore the original title/level since the request failed
+        node.title = original_title;
+        node.levelOfDescription = original_level;
+        node.notes = original_note;
         node.request_pending = false;
-        var message;
-        // error.message won't be defined if this returned an HTML 500
-        if (error.message && error.message.startsWith('No SIP Arrange mapping')) {
-          message = `Unable to start SIP; no files arranged into record "${node.title}".`;
-        } else {
-          message = 'Unable to start SIP; check dashboard logs.';
+
+        var title = node.title;
+        if (node.identifier) {
+          title = `${title} (${node.identifier})`;
         }
+
         Alert.alerts.push({
           type: 'danger',
-          message: message,
+          message: `Unable to submit edits to record "${title}"; check dashboard logs.`,
         });
       };
 
-      node.request_pending = true;
-      ArchivesSpace.start_sip(node.id).then(on_success, on_failure);
+      // Our nodes have cyclic references; elements track a "parent" reference,
+      // but since parents also track their children the relationship goes both
+      // ways.
+      // Make sure we delete the parent reference in the object we're POSTing,
+      // since otherwise we won't be able to JSON-serialize it.
+      let node_to_post = Object.assign({}, node);
+      delete node_to_post['parent'];
+
+      ArchivesSpace.edit(node.id, node_to_post).then(on_success, on_failure);
+    });
+  };
+
+  // Opens a modal to add a new ArchivesSpace record.
+  // This is slightly different from the "edit" form above,
+  // since there are a few fields that are read-only.
+  $scope.add_child = function(node) {
+    var form = $uibModal.open({
+      templateUrl: 'archivesspace/form.html',
+      controller: 'ArchivesSpaceEditController',
+      controllerAs: 'form',
+      resolve: {
+        levels: () => {
+          return ArchivesSpace.get_levels_of_description().$object;
+        },
+        title: () => {
+          return '';
+        },
+        level: () => {
+          return '';
+        },
+        start_date: () => {
+          return new Date();
+        },
+        end_date: () => {
+          return new Date();
+        },
+        date_expression: () => {
+          return '';
+        },
+        note: () => {
+          return '';
+        },
+        accessrestrict_note: () => {
+          return '';
+        },
+      },
+    });
+    form.result.then(result => {
+      var result = reformat_form_results(result);
+
+      var on_success = response => {
+        result.id = response.id;
+        result.parent = node;
+        result.type = 'resource_component';
+        append_child(node, result);
+      };
+
+      var on_failure = error => {
+        Alert.alerts.push({
+          type: 'danger',
+          message: `Unable to add new child record to record ${node.id}`,
+        });
+      };
+
+      ArchivesSpace.add_child(node.id, result).then(on_success, on_failure);
+    });
+  };
+
+  // Add a "digital object component" object, to which files can be dragged
+  $scope.add_digital_object = function(node) {
+    var form = $uibModal.open({
+      templateUrl: 'archivesspace/digital_object_form.html',
+      controller: 'DigitalObjectEditController',
+      controllerAs: 'form',
+      resolve: {
+        title: () => {
+          return '';
+        },
+        label: () => {
+          return '';
+        },
+      },
+    });
+
+    form.result.then(result => {
+      var on_success = response => {
+        result.id = response.component_id;
+        result.path = response.component_path;
+        result.resourceid = node.id;
+        result.type = 'digital_object';
+        append_child(node, result);
+      };
+
+      var on_failure = result => {
+        Alert.alerts.push({
+          type: 'danger',
+          message: `Unable to add new digital object component to record ${node.id}`,
+        });
+      };
+
+      ArchivesSpace.create_digital_object_component(node.id, result).then(on_success, on_failure);
+    });
+  };
+
+  // tree options used by angular-tree-view
+  $scope.options = {
+    dirSelectable: true,
+    equality: (a, b) => {
+      if (a === undefined || b === undefined) {
+        return false;
+      } else if (a.id && b.id) {
+        return a.id === b.id;
+      } else {
+        return a.path === b.path;
+      }
+    },
+    isLeaf: node => {
+      return !node.has_children && node.type !== 'digital_object';
+    },
+  };
+
+  // Loads the children of the specified element,
+  // along with arranged SIP contents that might exist
+  var load_element_children = node => {
+    $scope.loading = true;
+
+    var on_failure_aspace = error => {
+      Alert.alerts.push({
+        type: 'danger',
+        message: `Unable to fetch record ${node.id} from ArchivesSpace!`,
+      });
+      $scope.loading = false;
     };
-  }]).
+
+    var on_failure_arrange = error => {
+      Alert.alerts.push({
+        type: 'danger',
+        message: `Unable to fetch record ${node.path} from Arrangement!`,
+      });
+      $scope.loading = false;
+    };
+
+    node.children = [];
+
+    if (node.id && node.type !== 'digital_object') {  // ArchivesSpace node
+      ArchivesSpace.get_children(node.id).then(children => {
+        children.map(element => element.parent = node);
+        node.children = node.children.concat(children);
+        node.children_fetched = true;
+        $scope.loading = false;
+      }, on_failure_aspace);
+
+      // Also check to see if there are any digital object components;
+      // if so, render them like any other ASpace objects
+      ArchivesSpace.digital_object_components(node.id).then(components => {
+        node.children = node.children.concat(components);
+      });
+    } else {  // SipArrange node
+      SipArrange.list_contents(node.path, node).then(entries => {
+        node.children = entries;
+        node.children_fetched = true;
+        $scope.loading = false;
+      }, on_failure_arrange);
+    }
+  };
+
+  $scope.on_toggle = function(node, expanded) {
+    if ((!expanded || !node.has_children || node.children_fetched) && node.type !== 'digital_object') {
+      return;
+    }
+
+    load_element_children(node);
+  };
+
+  $scope.load_data = (query) => {
+    let on_success = data => {
+      $scope.data = data;
+      $scope.loading = false;
+    };
+    let on_failure = response => {
+      $scope.loading = false;
+      Alert.alerts.push({
+        type: 'danger',
+        message: 'Unable to access ArchivesSpace; check dashboard logs!',
+      });
+    };
+
+    $scope.loading = true;
+    if (query === undefined) {
+      return ArchivesSpace.all().then(on_success, on_failure);
+    } else {
+      return ArchivesSpace.search(query).then(on_success, on_failure);
+    }
+  };
+
+  // Prevent a given file or its descendants from being dragged more than once
+  var dragged_ids = [];
+  var log_ids = file => {
+    dragged_ids.push(file.id);
+    if (file.children) {
+      for (var i = 0; i < file.children.length; i++) {
+        log_ids(file.children[i]);
+      }
+    }
+  };
+
+  // Filter the list of dragged files to contain only files with the "display"
+  // parameter, so that only visibly selected files are dragged over
+  var filter_files = file => {
+    if (!file.display) {
+      return {};
+    }
+
+    // Filter children recursively
+    if (file.children) {
+      var children = file.children;
+      file.children = [];
+      angular.forEach(children, child => {
+        child = filter_files(child);
+        // Omit empty objects, or directories whose children have all been filtered out
+        if (child.id && child.type === 'file' || (child.children && child.children.length > 0)) {
+          file.children.push(child);
+        }
+      });
+    }
+
+    return file;
+  };
+
+  // Called when a file is dragged from the transfer backlog onto an element,
+  // or when a file is dragged from SIP arrange onto an element.
+  // This dispatches to different functions depending on whether the source is
+  // transfer backlog or SIP arrange, and whether the target is an ArchivesSpace
+  // record or a SIP arrange directory (including ArchivesSpace records).
+  $scope.drop = function(unused, ui) {
+    if ($scope.loading) {
+      return;
+    }
+
+    var type = ui.draggable.attr('file-type');
+    var is_arrange_file = this.type !== 'digital_object';
+    if (type === 'arrange') {
+      var path = ui.draggable.attr('file-path');
+      if (is_arrange_file) {
+        return copy_arrange_to_arrange.apply(this, [path]);
+      } else {
+        return copy_arrange_to_aspace.apply(this, [path]);
+      }
+    } else {
+      var file = Transfer.id_map[ui.draggable.attr('uuid')];
+      if (is_arrange_file) {
+        return copy_backlog_to_arrange.apply(this, [file]);
+      } else {
+        return copy_backlog_to_aspace.apply(this, [file]);
+      }
+    }
+  };
+
+  var copy_arrange_to_arrange = function(path) {
+    var on_move = () => {
+      load_element_children(this);
+    };
+
+    SipArrange.copy_to_arrange(path, '/arrange/' + this.path).then(on_move);
+  };
+
+  var copy_arrange_to_aspace = function(path) {
+    var on_move = () => {
+      load_element_children(this);
+    };
+
+    SipArrange.copy_to_arrange(path, this.path).then(on_move);
+  };
+
+  // TODO use SipArrange's copy
+  var basename = path => path.replace(/\\/g, '/').replace( /.*\//, '' );
+
+  // TODO use SipArrange's copy
+  var generate_files_list = (file, source_path, destination_path) => {
+    let paths = {'source': [], 'destination': []};
+
+    if (!file.display) {
+      return paths;
+    }
+
+    if (file.type === 'file') {
+      paths.source.push(source_path + file.relative_path);
+      paths.destination.push(destination_path + basename(file.relative_path));
+    }
+
+    if (file.children) {
+      angular.forEach(file.children, child => {
+        let child_paths = generate_files_list(child, source_path,
+          destination_path + basename(file.relative_path) + '/');
+        paths.source = paths.source.concat(child_paths.source);
+        paths.destination = paths.destination.concat(child_paths.destination);
+      });
+    }
+    return paths;
+  };
+
+  var copy_backlog_to_aspace = function(file) {
+    // create a deep copy of the file and its children so we don't mutate
+    // the copies used in the backlog
+    file = filter_files(Object.assign({}, file));
+    if (!file.id) {
+      return;
+    }
+
+    var on_copy = () => {
+      if ($scope.expanded_nodes.indexOf(this) === -1) {
+        $scope.expanded_nodes.push(this);
+        // expanded event will not fire if the node was programmatically expanded - this loads children
+        $scope.on_toggle(this, true);
+      } else {
+        // Reload the directory to reflect new contents
+        load_element_children(this);
+      }
+    };
+
+    let paths = generate_files_list(file,
+      '/originals/',
+      this.path
+    );
+
+    // TODO make sure `path` property is correctly specified
+    $scope.$apply(() => {
+      $scope.loading = true;
+
+      this.has_children = true;
+      this.children = [];
+      this.children_fetched = false;
+      SipArrange.copy_to_arrange(paths.source, paths.destination).then(on_copy);
+    });
+  };
+
+  var copy_backlog_to_arrange = function(file) {
+    var source_path;
+    if (file.type === 'file') {
+      source_path = file.relative_path;
+    } else {
+      source_path = file.relative_path + '/';
+    }
+
+    // Reload the directory to reflect new contents
+    var on_copy = () => {
+      load_element_children(this);
+    };
+
+    $scope.$apply(() => {
+      SipArrange.copy_to_arrange('/arrange/' + source_path, '/arrange/' + this.path).then(on_copy);
+    });
+  };
+
+  // Deletes an ArchivesSpace record or a SIP arrange file/directory.
+  $scope.remove = function(node) {
+    if ($scope.loading) {
+      return;
+    }
+
+    var on_delete = element => {
+      // `node.parent` is undefined if this is a root-level directory
+      var siblings = node.parent ? node.parent.children : $scope.data.children;
+      var idx = siblings.indexOf(node);
+      if (idx !== -1){
+        siblings.splice(idx, 1);
+      }
+      $scope.selected = undefined;
+    };
+
+    // TODO is this a reliable way to tell nodes apart?
+    if (node.id) { // ArchivesSpace node
+      ArchivesSpace.remove(node.id).then(on_delete);
+    } else {  // SipArrange node
+      SipArrange.remove(node.path).then(on_delete);
+    }
+  };
+
+  // Starts a SIP from an ArchivesSpace record.
+  // This uses the digital object components attached to the ArchivesSpace record,
+  // each of which will become a directory in the newly-created SIP.
+  $scope.finalize_arrangement = function(node) {
+    var on_success = () => {
+      node.request_pending = false;
+      Alert.alerts.push({
+        type: 'success',
+        message: `Successfully started SIP from record "${node.title}"`,
+      });
+
+      // Remove the digital object components so the user doesn't try to add new items
+      node.children = node.children.filter(element => element.type !== 'digital_object');
+    };
+    var on_failure = error => {
+      node.request_pending = false;
+      var message;
+      // error.message won't be defined if this returned an HTML 500
+      if (error.message && error.message.startsWith('No SIP Arrange mapping')) {
+        message = `Unable to start SIP; no files arranged into record "${node.title}".`;
+      } else {
+        message = 'Unable to start SIP; check dashboard logs.';
+      }
+      Alert.alerts.push({
+        type: 'danger',
+        message: message,
+      });
+    };
+
+    node.request_pending = true;
+    ArchivesSpace.start_sip(node).then(on_success, on_failure);
+  };
+}]).
 
 controller('ArchivesSpaceEditController', ['$uibModalInstance', 'levels', 'level', 'title', 'start_date', 'end_date', 'date_expression', 'note', function($uibModalInstance, levels, level, title, start_date, end_date, date_expression, note, accessrestrict_note) {
   var vm = this;

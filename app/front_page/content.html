@@ -63,7 +63,7 @@
                    selected-nodes="files.selected"
                    filter-expression="filter_expression"
                    filter-comparator="filter_comparator">
-        <span tree-draggable helper="helper" file-type="backlog" uuid="{{ node.id }}" ng-if="!node.not_draggable">
+        <span tree-draggable file-type="backlog" uuid="{{ node.id }}" ng-if="!node.not_draggable">
           {{ node.title }} <span class="tag" ng-repeat="tag in node.tags">{{ tag }}</span>
         </span>
         <span class="disabled" ng-if="node.not_draggable">

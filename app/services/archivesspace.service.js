@@ -90,9 +90,9 @@ factory('ArchivesSpace', ['Restangular', function(Restangular) {
       // The contents of the SIP will use all of the digital object components
       // associated with the specified record; each component will be created
       // as a directory within the new SIP.
-      start_sip: function(id) {
-        var url_fragment = id_to_urlsafe(id);
-        return ArchivesSpace.one(url_fragment).one('copy_from_arrange').post();
+      start_sip: function(node) {
+        var url_fragment = id_to_urlsafe(node.id);
+        return ArchivesSpace.one(url_fragment).one('copy_from_arrange').customPOST({ sip_name: node.title });
       },
     };
 }]);
