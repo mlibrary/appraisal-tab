@@ -88,7 +88,6 @@ describe('ArchivesSpace', function() {
     _$httpBackend_.when('POST', '/access/archivesspace/-repositories-2-archival_objects-7/digital_object_components').respond({
       'id': 2,
     });
-    _$httpBackend_.when('PUT', '/access/archivesspace/-repositories-2-archival_objects-7/digital_object_components').respond('');
     _$httpBackend_.when('GET', '/access/archivesspace/-repositories-2-archival_objects-7/digital_object_components/2/files').respond({
       'entries': [
         'VGVzdA==',
@@ -188,16 +187,6 @@ describe('ArchivesSpace', function() {
     ArchivesSpace.create_digital_object_component('/repositories/2/archival_objects/7').then(function(result) {
       expect(result.id).toEqual(2);
     });
-    _$httpBackend_.flush();
-  }));
-
-  it('should be able to edit an existing digital object component', inject(function(_$httpBackend_, ArchivesSpace) {
-    var updated_record = {
-      'id': 2,
-      'label': 'Updated label',
-      'title': 'Updated title',
-    };
-    ArchivesSpace.edit_digital_object_component('/repositories/2/archival_objects/7', updated_record);
     _$httpBackend_.flush();
   }));
 

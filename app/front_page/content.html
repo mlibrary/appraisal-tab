@@ -205,7 +205,7 @@
              id='add_child_record'
              ng-disabled="selected.type !== 'resource' &amp;&amp; selected.type !== 'resource_component'"
              ng-click="add_digital_object(selected)"
-             value='Add New Digital Object Component'>
+             value='Add New Digital Object'>
       <a class='btn btn-primary'
          href="{{ get_rights_url(selected) }}"
          ng-disabled="selected.type !== 'resource' &amp;&amp; selected.type !== 'resource_component'"
@@ -215,7 +215,7 @@
       <input type='button'
              class='btn btn-primary'
              id='edit_record'
-             ng-disabled="!selected || selected.request_pending"
+             ng-disabled="!selected || selected.request_pending || selected.type === 'digital_object'"
              ng-click="edit(selected)"
              value='Edit Metadata'>
       <input type='button'

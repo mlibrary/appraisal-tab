@@ -72,58 +72,13 @@ controller('ArchivesSpaceController', ['$scope', '$uibModal', 'Alert', 'Archives
   };
 
   var levels_of_description = ArchivesSpace.get_levels_of_description().$object;
-  $scope.edit = function(node) {
-    if (node.type === 'digital_object') {
-      return edit_component(node);
-    } else if (node.type === 'resource' || node.type === 'resource_component') {
-      return edit_record(node);
-    }
-  };
-
-  // Opens a modal to edit a digital object component.
-  var edit_component = node => {
-    var form = $uibModal.open({
-      templateUrl: 'archivesspace/digital_object_form.html',
-      controller: 'DigitalObjectEditController',
-      controllerAs: 'form',
-      resolve: {
-        title: () => {
-          return node.title;
-        },
-        label: () => {
-          return node.label;
-        },
-      },
-    });
-    form.result.then(result => {
-      var original_title = node.title;
-      var original_label = node.label;
-
-      var on_success = result => {
-        node.request_pending = false;
-      };
-
-      var on_failure = result => {
-        node.request_pending = false;
-        node.title = original_title;
-        node.label = original_label;
-
-        Alert.alerts.push({
-          type: 'danger',
-          message: `Unable to submit edits to record "${node.title}"; check dashboard logs.`,
-        });
-      };
-
-      node.request_pending = true;
-      node.title = result.title;
-      node.label = result.label;
-      result.component_id = node.id;
-      ArchivesSpace.edit_digital_object_component(node.resourceid, result).then(on_success, on_failure);
-    });
-  };
 
   // Opens a modal to edit an ArchivesSpace record.
-  var edit_record = node => {
+  $scope.edit = node => {
+    if (node.type !== 'resource' && node.type !== 'resource_component') {
+      return;
+    }
+
     var form = $uibModal.open({
       templateUrl: 'archivesspace/form.html',
       controller: 'ArchivesSpaceEditController',
@@ -270,39 +225,35 @@ controller('ArchivesSpaceController', ['$scope', '$uibModal', 'Alert', 'Archives
   };
 
   // Add a "digital object component" object, to which files can be dragged
-  $scope.add_digital_object = function(node) {
-    var form = $uibModal.open({
-      templateUrl: 'archivesspace/digital_object_form.html',
-      controller: 'DigitalObjectEditController',
-      controllerAs: 'form',
-      resolve: {
-        title: () => {
-          return '';
-        },
-        label: () => {
-          return '';
-        },
-      },
-    });
+  $scope.add_digital_object = node => {
+    var result = {
+      title: 'Digital Object',
+      resourceid: node.id,
+      type: 'digital_object'
+    };
 
-    form.result.then(result => {
-      var on_success = response => {
-        result.id = response.component_id;
-        result.path = response.component_path;
-        result.resourceid = node.id;
-        result.type = 'digital_object';
-        append_child(node, result);
-      };
+    var on_success = response => {
+      result.id = response.component_id;
+      result.path = response.component_path;
+      append_child(node, result);
+      if ($scope.expanded_nodes.indexOf(node) === -1) {
+        $scope.expanded_nodes.push(node);
+        // Expanded event will not fire if the node was programmatically expanded - this loads children
+        $scope.on_toggle(node, true);
+      } else {
+        // Reload the directory to reflect new contents
+        load_element_children(node);
+      }
+    };
 
-      var on_failure = result => {
-        Alert.alerts.push({
-          type: 'danger',
-          message: `Unable to add new digital object component to record ${node.id}`,
-        });
-      };
+    var on_failure = result => {
+      Alert.alerts.push({
+        type: 'danger',
+        message: `Unable to add new digital object component to record ${node.id}`,
+      });
+    };
 
-      ArchivesSpace.create_digital_object_component(node.id, result).then(on_success, on_failure);
-    });
+    ArchivesSpace.create_digital_object_component(node.id, result).then(on_success, on_failure);
   };
 
   // tree options used by angular-tree-view
@@ -638,19 +589,5 @@ controller('ArchivesSpaceEditController', ['$uibModalInstance', 'levels', 'level
   vm.status = {
     start_date_opened: false,
     end_date_opened: false,
-  };
-}]).
-
-controller('DigitalObjectEditController', ['$uibModalInstance', 'title', 'label', function($uibModalInstance, title, label) {
-  var vm = this;
-
-  vm.title = title;
-  vm.label = label;
-
-  vm.ok = () => {
-    $uibModalInstance.close(vm);
-  };
-  vm.cancel = () => {
-    $uibModalInstance.dismiss('cancel');
   };
 }]);

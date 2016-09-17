@@ -9,7 +9,6 @@ import 'angular';
 
 // partials
 import 'ng-cache?prefix=[dir]!./analysis/analysis.html';
-import 'ng-cache?prefix=[dir]!./archivesspace/digital_object_form.html';
 import 'ng-cache?prefix=[dir]!./archivesspace/form.html';
 import 'ng-cache?prefix=[dir]!./examine_contents/examine_contents.html';
 import 'ng-cache?prefix=[dir]!./examine_contents/file_info.html';

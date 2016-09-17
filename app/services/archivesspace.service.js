@@ -67,12 +67,6 @@ factory('ArchivesSpace', ['Restangular', function(Restangular) {
         var url_fragment = id_to_urlsafe(id);
         return ArchivesSpace.one(url_fragment).one('digital_object_components').customPOST(record);
       },
-      // Submits edits to a digital object component with the specified ID.
-      // `record` uses the same format returned by `digital_object_components`.
-      edit_digital_object_component: function(id, record) {
-        var url_fragment = id_to_urlsafe(id);
-        return ArchivesSpace.one(url_fragment).one('digital_object_components').customPUT(record);
-      },
       // Lists the files inside a digital object component, given the ID of both
       // the digital object component and its parent record.
       // The returned format is the same format used by the `SipArrange` service.
