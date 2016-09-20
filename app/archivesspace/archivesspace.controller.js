@@ -548,7 +548,7 @@ controller('ArchivesSpaceController', ['$scope', '$uibModal', 'Alert', 'Archives
       node.request_pending = false;
       var message;
       // error.message won't be defined if this returned an HTML 500
-      if (error.message && error.message.startsWith('No SIP Arrange mapping')) {
+      if (error.data.message && error.data.message.startsWith('No SIP Arrange')) {
         message = `Unable to start SIP; no files arranged into record "${node.title}".`;
       } else {
         message = 'Unable to start SIP; check dashboard logs.';
