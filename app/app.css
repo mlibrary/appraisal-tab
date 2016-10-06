@@ -103,6 +103,14 @@ fieldset {
 .aspace-panel form,
 .aspace-panel form input,
 .aspace-panel .aspace-actions,
-.aspace-panel .aspace-actions .btn {
+.aspace-panel .aspace-actions .btn,
+.transfer-panel form,
+.transfer-panel form input,
+.transfer-panel .transfer-actions,
+.transfer-panel .transfer-actions .btn {
   margin-top: 5px;
+}
+
+.transfer-panel .transfer-counts {
+  float: right;
 }

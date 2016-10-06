@@ -35,34 +35,34 @@
 
 <ui-minimize-bar>
 
-<ui-minimize-panel title='Backlog' open='true'>
-  <div class='panel panel-default'>
+<ui-minimize-panel title='Backlog' open='true' class="transfer-panel">
+  <div class='panel panel-default' ng-controller="TreeController">
     <div class='panel-heading'>
       Backlog
-    </div>
-    <div class="transfer-tree panel-body" ng-controller="TreeController">
-      <p><b><ng-pluralize count="(files.selected | filter:{'type': 'transfer'}).length" when="{'1': '1 transfer', 'other': '{} transfers'}"></ng-pluralize></b>, <ng-pluralize count="files.selected.length" when="{'1': '1 object', 'other': '{} objects'}"></ng-pluralize></b> selected</p>
 
-      <form ng-submit="submit()">
-        <input type="text"
-               ng-model="tag"
-               ng-disabled="files.selected.length < 1">
-        <input type="submit"
-               id="submit-tag"
-               value="Add tag to selected files"
-               ng-disabled="files.selected.length < 1"
-               class='btn btn-sm btn-default'>
+      <span class="transfer-counts"><b><ng-pluralize count="(files.selected | filter:{'type': 'transfer'}).length" when="{'1': '1 transfer', 'other': '{} transfers'}"></ng-pluralize></b>, <ng-pluralize count="files.selected.length" when="{'1': '1 object', 'other': '{} objects'}"></ng-pluralize></b> selected</span>
+
+      <form ng-submit="submit()" class="form-inline">
+        <input type="text" ng-model="tag" ng-disabled="files.selected.length < 1" class="form-control input-sm">
+        <input type="submit" id="submit-tag" value="Add tag to selected files" ng-disabled="files.selected.length < 1" class='btn btn-sm btn-default'>
       </form>
 
-      <input class='btn btn-sm btn-default' type="button" value="Deselect all" ng-click="deselect()">
+      <div class='transfer-actions'>
+        <input class='btn btn-sm btn-default' type="button" value="Deselect all" ng-click="deselect()" ng-disabled="files.selected.length < 1">
+        <input class='btn btn-sm btn-default' type="button" value="Collapse all" ng-click="transfers.collapse_all_nodes()">
+        <input class='btn btn-sm btn-default' type="button" value="Expand all" ng-click="transfers.expand_all_nodes()">
+      </div>
+    </div>
 
+    <div class="transfer-tree panel-body">
       <treecontrol class="tree-classic"
                    tree-model="transfers.data"
                    options="options"
                    on-selection="track_selected(node, selected)"
                    selected-nodes="files.selected"
                    filter-expression="filter_expression"
-                   filter-comparator="filter_comparator">
+                   filter-comparator="filter_comparator"
+                   expanded-nodes="transfers.expanded_nodes">
         <span tree-draggable file-type="backlog" uuid="{{ node.id }}" ng-if="!node.not_draggable">
           {{ node.title }} <span class="tag" ng-repeat="tag in node.tags">{{ tag }}</span>
         </span>

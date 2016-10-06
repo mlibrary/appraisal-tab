@@ -65,6 +65,17 @@ factory('Transfer', ['Facet', 'Tag', function(Facet, Tag) {
     }
   };
 
+  var expand_children = (self, nodes) => {
+    angular.forEach(nodes, node => {
+      if (node.type === 'transfer' || node.type === 'directory') {
+        self.expanded_nodes.push(node);
+        if (angular.isDefined(node.children) && node.children.length) {
+          expand_children(self, node.children);
+        }
+      }
+    });
+  };
+
   return {
     // A nested tree of transfer backlog data, populated using the format returned
     // by the Archivematica transfer backlog API.
@@ -81,6 +92,8 @@ factory('Transfer', ['Facet', 'Tag', function(Facet, Tag) {
     // This is initially populated by `resolve`, and is updated whenever tags are
     // added or removed using the methods on this service.
     tags: [],
+    // A list to keep track of the expanded nodes, used to expand/collapse nodes programmatically.
+    expanded_nodes: [],
     // Provided a set of data retrieved from the transfer backlog, performs the following:
     // * populates the `data`, `formats`, `id_map` and `tags` attributes.
     // * tracks a full list of all unique tags in the set of files.
@@ -188,5 +201,11 @@ factory('Transfer', ['Facet', 'Tag', function(Facet, Tag) {
     clear_tags: function() {
       this.tags = [];
     },
+    collapse_all_nodes: function() {
+      this.expanded_nodes = [];
+    },
+    expand_all_nodes: function() {
+      expand_children(this, this.data);
+    }
   };
 }]);
