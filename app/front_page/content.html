@@ -175,62 +175,58 @@
   </div>
 </ui-minimize-panel>
 
-<ui-minimize-panel title='ArchivesSpace'>
+<ui-minimize-panel title='ArchivesSpace' class="aspace-panel">
   <div class='panel panel-default' ng-controller="ArchivesSpaceController">
     <div class='panel-heading'>
       ArchivesSpace <span ng-if="loading"><i class="fa fa-spinner fa-spin"></i></span>
 
-      <form ng-submit="load_data({title: title_query, identifier: id_query})">
-        <input type="text"
-               ng-model="title_query"
-               placeholder="Title">
-        <input type="text"
-               ng-model="id_query"
-               placeholder="Identifier">
-        <input type="submit"
-               class='btn btn-sm btn-primary'
-               id="archivesspace_search"
-               value="Search ArchivesSpace">
-       </form>
+      <form ng-submit="load_data({title: title_query, identifier: id_query})" class="form-inline">
+        <input type="text" ng-model="title_query" placeholder="Title" class="form-control input-sm"/>
+        <input type="text" ng-model="id_query" placeholder="Identifier" class="form-control input-sm"/>
+        <input type="submit" class='btn btn-sm btn-primary' id="archivesspace_search" value="Search ArchivesSpace"/>
+      </form>
+
+      <div class="aspace-actions">
+        <input type='button'
+               class='btn btn-primary btn-sm'
+               id='add_child_record'
+               ng-disabled="!selected"
+               ng-click="add_child(selected)"
+               value='Add New Child Record'>
+        <input type='button'
+               class='btn btn-primary btn-sm'
+               id='add_child_record'
+               ng-disabled="selected.type !== 'resource' &amp;&amp; selected.type !== 'resource_component'"
+               ng-click="add_digital_object(selected)"
+               value='Add New Digital Object'>
+        <a class='btn btn-primary btn-sm'
+           href="{{ get_rights_url(selected) }}"
+           ng-disabled="selected.type !== 'resource' &amp;&amp; selected.type !== 'resource_component'"
+           target='_blank'>
+          Edit Rights Metadata
+        </a>
+        <input type='button'
+               class='btn btn-primary btn-sm'
+               id='edit_record'
+               ng-disabled="!selected || selected.request_pending || selected.type === 'digital_object'"
+               ng-click="edit(selected)"
+               value='Edit Metadata'>
+        <input type='button'
+               class='btn btn-primary btn-sm'
+               id='delete_record'
+               ng-disabled="!selected || selected.request_pending"
+               ng-confirm-click="Are you sure you want to delete this?"
+               ng-click="remove(selected)"
+               value='Delete selected'>
+        <input type='button'
+               class='btn btn-primary btn-sm'
+               id='finalize_arrange'
+               ng-disabled="selected.request_pending || (selected.type !== 'resource' &amp;&amp; selected.type !== 'resource_component')"
+               ng-click="finalize_arrangement(selected)"
+               value='Finalize Arrangement'>
+       </div>
     </div>
     <div class="transfer-tree panel-body">
-      <input type='button'
-             class='btn btn-primary'
-             id='add_child_record'
-             ng-disabled="!selected"
-             ng-click="add_child(selected)"
-             value='Add New Child Record'>
-      <input type='button'
-             class='btn btn-primary'
-             id='add_child_record'
-             ng-disabled="selected.type !== 'resource' &amp;&amp; selected.type !== 'resource_component'"
-             ng-click="add_digital_object(selected)"
-             value='Add New Digital Object'>
-      <a class='btn btn-primary'
-         href="{{ get_rights_url(selected) }}"
-         ng-disabled="selected.type !== 'resource' &amp;&amp; selected.type !== 'resource_component'"
-         target='_blank'>
-        Edit Rights Metadata
-      </a>
-      <input type='button'
-             class='btn btn-primary'
-             id='edit_record'
-             ng-disabled="!selected || selected.request_pending || selected.type === 'digital_object'"
-             ng-click="edit(selected)"
-             value='Edit Metadata'>
-      <input type='button'
-             class='btn btn-primary'
-             id='delete_record'
-             ng-disabled="!selected || selected.request_pending"
-             ng-confirm-click="Are you sure you want to delete this?"
-             ng-click="remove(selected)"
-             value='Delete selected'>
-      <input type='button'
-             class='btn btn-primary'
-             id='finalize_arrange'
-             ng-disabled="selected.request_pending || (selected.type !== 'resource' &amp;&amp; selected.type !== 'resource_component')"
-             ng-click="finalize_arrangement(selected)"
-             value='Finalize Arrangement'>
       <treecontrol id="archivesspace-tree"
              class="tree-light"
              tree-model="data"
@@ -242,7 +238,7 @@
         <span ng-if="node.type === 'resource'" file-type="record">
           <i ng-if="node.has_children" class="fa fa-folder-o"></i>
           <i ng-if="!node.has_children" class="fa fa-file-o"></i>
-          {{ node.title }} <div ng-if="node.identifier">({{ node.identifier }})</div>
+          {{ node.title }} <span ng-if="node.identifier">({{ node.identifier }})</span>
         </span>
         <span ng-if="node.type === 'resource_component'" file-type="record">
           <i ng-if="node.has_children" class="fa fa-folder-o"></i>

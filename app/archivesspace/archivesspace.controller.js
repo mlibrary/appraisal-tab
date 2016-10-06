@@ -1,4 +1,5 @@
 import angular from 'angular';
+import moment from 'moment';
 import '../vendor/angular-ui-bootstrap/ui-bootstrap-custom-tpls-0.14.3.min.js';
 
 angular.module('archivesSpaceController', ['alertService', 'sipArrangeService', 'transferService', 'ui.bootstrap']).
@@ -55,8 +56,13 @@ controller('ArchivesSpaceController', ['$scope', '$uibModal', 'Alert', 'Archives
     }
     delete copy.accessrestrict_note;
 
-    if (form.start_date) {
-      copy.dates = form.start_date.toISOString().slice(0, 10) + '-' + form.end_date.toISOString().slice(0, 10);
+    if (form.date_expression) {
+      copy.dates = form.date_expression;
+    } else if (form.start_date) {
+      copy.dates = copy.start_date;
+      if (form.end_date) {
+        copy.dates += ' - ' + copy.end_date;
+      }
     }
 
     return copy;
@@ -100,7 +106,7 @@ controller('ArchivesSpaceController', ['$scope', '$uibModal', 'Alert', 'Archives
           return false;
         },
         date_expression: () => {
-          return node.date_expression;
+          return false;
         },
         note: () => {
           if (node.notes) {
@@ -187,10 +193,10 @@ controller('ArchivesSpaceController', ['$scope', '$uibModal', 'Alert', 'Archives
           return '';
         },
         start_date: () => {
-          return new Date();
+          return '';
         },
         end_date: () => {
-          return new Date();
+          return '';
         },
         date_expression: () => {
           return '';
@@ -210,6 +216,13 @@ controller('ArchivesSpaceController', ['$scope', '$uibModal', 'Alert', 'Archives
         result.id = response.id;
         result.parent = node;
         result.type = 'resource_component';
+        result.display_title = result.title;
+        if (result.dates) {
+          if (result.title) {
+            result.display_title += ', '; 
+          }
+          result.display_title += result.dates; 
+        }
         append_child(node, result);
       };
 
@@ -582,12 +595,7 @@ controller('ArchivesSpaceEditController', ['$uibModalInstance', 'levels', 'level
   vm.cancel = function() {
     $uibModalInstance.dismiss('cancel');
   };
-  vm.open_datepicker = (picker, $event) => {
-    var prop = picker + '_date_opened';
-    this.status[prop] = true;
-  };
-  vm.status = {
-    start_date_opened: false,
-    end_date_opened: false,
+  vm.validateDate = function(value) {
+    return !value || (/^\d{4}(-\d{2}(-\d{2})?)?$/.test(value) && moment(value, 'YYYY-MM-DD').isValid());
   };
 }]);

@@ -57,7 +57,7 @@ treecontrol>ul>li {
   padding-left: 0px;
 }
 
-.form-control {
+.facet-box .form-control {
   width: auto;
   display: inline;
 }
@@ -98,4 +98,11 @@ fieldset {
   padding: 2px;
   border: 1px solid #f5f5f5;
   background-color: #fff;
+}
+
+.aspace-panel form,
+.aspace-panel form input,
+.aspace-panel .aspace-actions,
+.aspace-panel .aspace-actions .btn {
+  margin-top: 5px;
 }

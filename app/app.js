@@ -4,9 +4,11 @@ import './vendor/angular-charts/angular-charts.js';
 import 'angular-route';
 import 'angular-route-segment';
 import './vendor/angular-tree-control/angular-tree-control.js';
+import 'angular-ui-validate';
 import 'd3';
 import 'jquery';
 import 'jquery-ui';
+import 'moment';
 import 'restangular';
 
 // controllers
@@ -56,6 +58,7 @@ module.exports = angular.module('appraisalTab', [
   'restangular',
   'treeControl',
   'ui.bootstrap',
+  'ui.validate',
   'appraisalTab.version',
   'checklistDirective',
   'treeDirectives',
